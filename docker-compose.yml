@@ -1,0 +1,46 @@
+version: '3.1'
+services:
+  db:
+    image: mysql:5.7.21
+    container_name: atualsistemas-db
+    environment:
+      MYSQL_ROOT_PASSWORD: atualsistemas
+      MYSQL_DATABASE: atualsistemas
+      MYSQL_USER: atualsistemas
+      MYSQL_PASSWORD: atualsistemas
+    volumes:
+      - ./database:/var/lib/mysql
+    ports:
+      - 3310:3310
+    networks:
+      atualsistemas-net:
+        ipv4_address: 172.45.0.101
+  backend:
+    container_name: atualsistemas-backend
+    build:
+      context: .
+    environment:
+      LARAVEL_APP_ENV: local
+      LARAVEL_APP_DEBUG: "true"
+      LARAVEL_APP_URL: http://atualsistemas/public/
+      LARAVEL_DB_CONNECTION: atualsistemas-db
+      LARAVEL_DB_HOST: atualsistemas
+      LARAVEL_DB_PORT: 3306
+      LARAVEL_DB_DATABASE: atualsistemas
+      LARAVEL_DB_USERNAME: atualsistemas
+      LARAVEL_DB_PASSWORD: atualsistemas
+    ports:
+      - 86:86
+    volumes:
+      - ./backend/:/var/www/atualsistemas
+    networks:
+      atualsistemas-net:
+        ipv4_address: 172.45.0.102
+
+networks:
+  atualsistemas-net:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.45.0.0/24
