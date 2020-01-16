@@ -40,7 +40,6 @@ RUN composer install
 
 # Enable Apache Rewrite Module
 RUN a2enmod rewrite
-RUN a2enmod ssl
 RUN a2enmod headers
 
 EXPOSE 80

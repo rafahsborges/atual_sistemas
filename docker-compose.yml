@@ -22,17 +22,17 @@ services:
     environment:
       LARAVEL_APP_ENV: local
       LARAVEL_APP_DEBUG: "true"
-      LARAVEL_APP_URL: http://atualsistemas/public/
+      LARAVEL_APP_URL: http://atualsistemas.com/public/
       LARAVEL_DB_CONNECTION: atualsistemas-db
       LARAVEL_DB_HOST: atualsistemas
-      LARAVEL_DB_PORT: 3306
+      LARAVEL_DB_PORT: 3310
       LARAVEL_DB_DATABASE: atualsistemas
       LARAVEL_DB_USERNAME: atualsistemas
       LARAVEL_DB_PASSWORD: atualsistemas
     ports:
       - 86:86
     volumes:
-      - ./backend/:/var/www/atualsistemas
+      - ./:/var/www/atualsistemas
     networks:
       atualsistemas-net:
         ipv4_address: 172.45.0.102
