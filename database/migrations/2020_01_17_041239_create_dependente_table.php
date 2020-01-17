@@ -15,10 +15,10 @@ class CreateDependenteTable extends Migration
     {
         Schema::create('dependente', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('id_cliente')->index('fk_parentesco_cliente');
+            $table->unsignedBigInteger('id_cliente')->index('fk_dependente_cliente');
             $table->string('nome');
             $table->date('nascimento');
-            $table->decimal('id_parentesco', 2, 0);
+            $table->unsignedBigInteger('id_parentesco')->index('fk_dependente_parentesco');
             $table->timestamps();
             $table->softDeletes();
         });

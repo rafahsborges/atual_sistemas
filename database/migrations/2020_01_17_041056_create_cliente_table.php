@@ -15,6 +15,7 @@ class CreateClienteTable extends Migration
     {
         Schema::create('cliente', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->boolean('tipo');
             $table->string('nome');
             $table->date('nascimento')->nullable();
             $table->string('rg', 30)->nullable();
@@ -22,7 +23,7 @@ class CreateClienteTable extends Migration
             $table->string('insc_municipal', 30)->nullable();
             $table->string('cnpj', 18)->nullable();
             $table->string('sexo', 1)->nullable();
-            $table->decimal('id_estado_civil', 2, 0)->nullable();
+            $table->unsignedBigInteger('id_estado_civil')->index('fk_cliente_est_civil');
             $table->string('profissao')->nullable();
             $table->string('local_trabalho')->nullable();
             $table->string('telefone', 13)->nullable();
@@ -33,7 +34,6 @@ class CreateClienteTable extends Migration
             $table->string('bairro')->nullable();
             $table->string('cidade')->nullable();
             $table->string('uf', 2)->nullable();
-            $table->string('tipo', 1)->nullable();
             $table->string('email')->nullable();
             $table->string('observacao', 1000)->nullable();
             $table->string('cep', 9)->nullable();

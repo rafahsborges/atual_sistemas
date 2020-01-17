@@ -17,6 +17,8 @@ class CreateBoletoTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('id_contrato_parcela')->index('fk_boleto_contr_parcela');
             $table->boolean('status');
+            $table->timestamps();
+            $table->softDeletes();
         });
     }
 

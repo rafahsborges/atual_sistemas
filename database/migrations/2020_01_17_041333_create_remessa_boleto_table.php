@@ -17,6 +17,8 @@ class CreateRemessaBoletoTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('id_boleto')->index('fk_rem_bol_remessa');
             $table->unsignedBigInteger('id_remessa')->index('fk_rem_bol_boleto');
+            $table->timestamps();
+            $table->softDeletes();
         });
     }
 
