@@ -26,14 +26,4 @@ class HomeController extends Controller
     {
         return view('home');
     }
-
-    /**
-     * Show the application dashboard.
-     *
-     * @return Renderable
-     */
-    public function adminHome()
-    {
-        return view('adminHome');
-    }
 }
