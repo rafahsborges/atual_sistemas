@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\User;
+use App\Usuario;
 use App\Http\Requests\UsuarioRequest;
+use Exception;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\View\View;
@@ -80,6 +81,7 @@ class UsuarioController extends Controller
      *
      * @param Usuario $user
      * @return RedirectResponse
+     * @throws Exception
      */
     public function destroy(Usuario $user)
     {
