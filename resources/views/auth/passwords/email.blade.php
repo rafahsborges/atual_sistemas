@@ -1,5 +1,5 @@
 @extends('layouts.app', [
-    'namePage' => 'Reset Password',
+    'namePage' => 'Esqueci a Senha',
     'class' => 'login-page sidebar-mini ',
     'activePage' => '',
     'backgroundImage' => asset('assets') . "/img/bg14.jpg",
@@ -14,7 +14,7 @@
                     <div class="card card-login card-plain">
                         <div class="card-header ">
                             <div class="logo-container">
-                                <img src="{{ asset('assets/img/now-logo.png') }}" alt="">
+                                <img src="{{ asset('assets/img/logo.png') }}" alt="">
                             </div>
                         </div>
                         <div class="card-body ">
@@ -33,7 +33,7 @@
                                     </div>
                                 </span>
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
-                                       name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                       name="email" required autocomplete="email" autofocus>
                             </div>
                             @error('email')
                             <span style="display:block;" class="invalid-feedback" role="alert">
@@ -43,7 +43,7 @@
                         </div>
                         <div class="card-footer ">
                             <button type="submit"
-                                    class="btn btn-primary btn-round btn-lg btn-block mb-3">{{ __('Send Password Reset Link') }}</button>
+                                    class="btn btn-primary btn-round btn-lg btn-block mb-3">{{ __('Enviar Link Para Alterar Senha') }}</button>
                         </div>
                     </div>
                 </form>

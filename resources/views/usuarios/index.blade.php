@@ -6,7 +6,7 @@
 ])
 
 @section('content')
-    <div class="panel-header">
+    <div class="panel-header panel-header-sm">
     </div>
     <div class="content">
         <div class="row">
@@ -14,8 +14,8 @@
                 <div class="card">
                     <div class="card-header">
                         <a class="btn btn-primary btn-round text-white pull-right"
-                           href="{{ route('usuario.create') }}">{{ __('Add user') }}</a>
-                        <h4 class="card-title">{{ __('Users') }}</h4>
+                           href="{{ route('usuario.create') }}">{{ __('Adicionar Usuário') }}</a>
+                        <h4 class="card-title">{{ __('Usuários') }}</h4>
                         <div class="col-12 mt-2">
                             @include('alerts.success')
                             @include('alerts.errors')
@@ -28,34 +28,27 @@
                         <table id="datatable" class="table table-striped table-bordered" cellspacing="0" width="100%">
                             <thead>
                             <tr>
-                                <th>{{ __('Profile') }}</th>
-                                <th>{{ __('Name') }}</th>
-                                <th>{{ __('Email') }}</th>
-                                <th>{{ __('Creation date') }}</th>
-                                <th class="disabled-sorting text-right">{{ __('Actions') }}</th>
+                                <th>{{ __('Nome') }}</th>
+                                <th>{{ __('E-mail') }}</th>
+                                <th>{{ __('Status') }}</th>
+                                <th class="disabled-sorting text-right">{{ __('Ações') }}</th>
                             </tr>
                             </thead>
                             <tfoot>
                             <tr>
-                                <th>{{ __('Profile') }}</th>
-                                <th>{{ __('Name') }}</th>
-                                <th>{{ __('Email') }}</th>
-                                <th>{{ __('Creation date') }}</th>
-                                <th class="disabled-sorting text-right">{{ __('Actions') }}</th>
+                                <th>{{ __('Nome') }}</th>
+                                <th>{{ __('E-mail') }}</th>
+                                <th>{{ __('Status') }}</th>
+                                <th class="disabled-sorting text-right">{{ __('Ações') }}</th>
                             </tr>
                             </tfoot>
                             <tbody>
                             @foreach($users as $user)
                                 <tr>
-                                    <td>
-                      <span class="avatar avatar-sm rounded-circle">
-                        <img src="{{asset('assets')}}/img/default-avatar.png" alt=""
-                             style="max-width: 80px; border-radiu: 100px">
-                      </span>
-                                    </td>
-                                    <td>{{$user->name}}</td>
+                                    <td>{{$user->nome}}</td>
                                     <td>{{$user->email}}</td>
-                                    <td>{{ $user->created_at->format('d/m/Y H:i') }}</td>
+                                    <td>{{$user->deleted_at}}</td>
+                                    {{--<td>{{ $user->created_at->format('d/m/Y H:i') }}</td>--}}
                                     <td class="text-right">
                                         @if($user->id!=auth()->user()->id)
                                             <a type="button" href="{{route("usuario.edit",$user)}}" rel="tooltip"

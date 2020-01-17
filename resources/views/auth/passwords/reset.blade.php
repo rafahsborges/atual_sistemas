@@ -1,5 +1,5 @@
 @extends('layouts.app', [
-    'namePage' => 'Reset Password',
+    'namePage' => 'Alterar a Senha',
     'class' => 'login-page sidebar-mini ',
     'activePage' => '',
     'backgroundImage' => asset('assets') . "/img/bg14.jpg"
@@ -15,7 +15,7 @@
                     <div class="card card-login card-plain">
                         <div class="card-header ">
                             <div class="logo-container">
-                                <img src="{{ asset('assets/img/now-logo.png') }}" alt="">
+                                <img src="{{ asset('assets/img/logo.png') }}" alt="">
                             </div>
                         </div>
                         <div class="card-body ">
@@ -34,8 +34,8 @@
                   </div>
                 </span>
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
-                                       name="email" value="{{ old('email') }}" required autocomplete="email" autofocus
-                                       placeholder="{{ __('Email') }}">
+                                       name="email" required autocomplete="email" autofocus
+                                       placeholder="{{ __('E-mail') }}">
                             </div>
                             @error('email')
                             <span class="invalid-feedback" role="alert">
@@ -50,7 +50,7 @@
                                 </div>
                                 <input id="password" type="password"
                                        class="form-control @error('password') is-invalid @enderror" name="password"
-                                       required autocomplete="new-password" placeholder="{{ __('Password') }}" required>
+                                       required autocomplete="new-password" placeholder="{{ __('Senha') }}" required>
                             </div>
                             @if ($errors->has('password'))
                                 <span class="invalid-feedback" style="display: block;" role="alert">
@@ -66,7 +66,7 @@
                                 </div>
                                 <input id="password-confirm" type="password" class="form-control"
                                        name="password_confirmation" required autocomplete="new-password"
-                                       placeholder="{{ __('Confirm Password') }}">
+                                       placeholder="{{ __('Confirmar Senha') }}">
                             </div>
                             @if ($errors->has('password'))
                                 <span class="invalid-feedback" style="display: block;" role="alert">
@@ -76,7 +76,7 @@
                         </div>
                         <div class="card-footer ">
                             <button type="submit"
-                                    class="btn btn-primary btn-round btn-lg btn-block mb-3">{{ __('Reset Password') }}</button>
+                                    class="btn btn-primary btn-round btn-lg btn-block mb-3">{{ __('Alterar Senha') }}</button>
                         </div>
                     </div>
                 </form>

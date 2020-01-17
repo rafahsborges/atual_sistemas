@@ -1,5 +1,5 @@
 @extends('layouts.app', [
-    'namePage' => 'Login page',
+    'namePage' => 'Autenticação',
     'class' => 'login-page sidebar-mini ',
     'activePage' => 'login',
     'backgroundImage' => asset('assets') . "/img/bg14.jpg",
@@ -31,7 +31,7 @@
                     <div class="card card-login card-plain">
                         <div class="card-header ">
                             <div class="logo-container">
-                                <img src="{{ asset('assets/img/now-logo.png') }}" alt="">
+                                <img src="{{ asset('assets/img/logo.png') }}" alt="">
                             </div>
                         </div>
                         <div class="card-body ">
@@ -43,8 +43,7 @@
                     </div>
                     </span>
                                 <input class="form-control {{ $errors->has('email') ? ' is-invalid' : '' }}"
-                                       placeholder="{{ __('Email') }}" type="email" name="email"
-                                       value="{{ old('email', 'admin@nowui.com') }}" required autofocus>
+                                       placeholder="{{ __('E-mail') }}" type="email" name="email" required autofocus>
                             </div>
                             @if ($errors->has('email'))
                                 <span class="invalid-feedback" style="display: block;" role="alert">
@@ -58,9 +57,9 @@
                                         <i class="now-ui-icons objects_key-25"></i></i>
                                     </div>
                                 </div>
-                                <input placeholder="Password"
+                                <input placeholder="Senha"
                                        class="form-control {{ $errors->has('password') ? ' is-invalid' : '' }}"
-                                       name="password" placeholder="{{ __('Password') }}" type="password" value="secret"
+                                       name="password" placeholder="{{ __('Senha') }}" type="password"
                                        required>
                             </div>
                             @if ($errors->has('password'))
@@ -71,17 +70,17 @@
                         </div>
                         <div class="card-footer ">
                             <button type="submit"
-                                    class="btn btn-primary btn-round btn-lg btn-block mb-3">{{ __('Get Started') }}</button>
+                                    class="btn btn-primary btn-round btn-lg btn-block mb-3">{{ __('Acessar') }}</button>
                             <div class="pull-left">
                                 <h6>
                                     <a href="{{ route('register') }}"
-                                       class="link footer-link">{{ __('Create Account') }}</a>
+                                       class="link footer-link">{{ __('Criar Conta') }}</a>
                                 </h6>
                             </div>
                             <div class="pull-right">
                                 <h6>
                                     <a href="{{ route('password.request') }}"
-                                       class="link footer-link">{{ __('Forgot Password?') }}</a>
+                                       class="link footer-link">{{ __('Esqueceu sua senha?') }}</a>
                                 </h6>
                             </div>
                         </div>

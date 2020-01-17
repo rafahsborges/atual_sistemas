@@ -1,5 +1,5 @@
 @extends('layouts.app', [
-    'namePage' => 'Register page',
+    'namePage' => 'Cadastro de Usuário',
     'activePage' => 'register',
     'backgroundImage' => asset('assets') . "/img/bg16.jpg",
 ])
@@ -8,7 +8,7 @@
     <div class="content">
         <div class="container">
             <div class="row">
-                <div class="col-md-5 ml-auto">
+                {{--<div class="col-md-5 ml-auto">
                     <div class="info-area info-horizontal mt-5">
                         <div class="icon icon-primary">
                             <i class="now-ui-icons media-2_sound-wave"></i>
@@ -42,12 +42,12 @@
                             </p>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-4 mr-auto">
+                </div>--}}
+                <div class="col-md-4 ml-auto mr-auto">
                     <div class="card card-signup text-center">
                         <div class="card-header ">
-                            <h4 class="card-title">{{ __('Register') }}</h4>
-                            <div class="social">
+                            <h4 class="card-title">{{ __('Cadastro de Usuários') }}</h4>
+                            {{--<div class="social">
                                 <button class="btn btn-icon btn-round btn-twitter">
                                     <i class="fab fa-twitter"></i>
                                 </button>
@@ -58,24 +58,24 @@
                                     <i class="fab fa-facebook-f"></i>
                                 </button>
                                 <h5 class="card-description">  {{ __('or be classical') }}</h5>
-                            </div>
+                            </div>--}}
                         </div>
-                        <div class="card-body ">
+                        <div class="card-body">
                             <form method="POST" action="{{ route('register') }}">
                             @csrf
                             <!--Begin input name -->
-                                <div class="input-group {{ $errors->has('name') ? ' has-danger' : '' }}">
+                                <div class="input-group {{ $errors->has('nome') ? ' has-danger' : '' }}">
                                     <div class="input-group-prepend">
                                         <div class="input-group-text">
                                             <i class="now-ui-icons users_circle-08"></i>
                                         </div>
                                     </div>
-                                    <input class="form-control {{ $errors->has('name') ? ' is-invalid' : '' }}"
-                                           placeholder="{{ __('Name') }}" type="text" name="name"
-                                           value="{{ old('name') }}" required autofocus>
-                                    @if ($errors->has('name'))
+                                    <input class="form-control {{ $errors->has('nome') ? ' is-invalid' : '' }}"
+                                           placeholder="{{ __('Nome') }}" type="text" name="nome"
+                                           value="{{ old('nome') }}" required autofocus>
+                                    @if ($errors->has('nome'))
                                         <span class="invalid-feedback" style="display: block;" role="alert">
-                      <strong>{{ $errors->first('name') }}</strong>
+                      <strong>{{ $errors->first('nome') }}</strong>
                     </span>
                                     @endif
                                 </div>
@@ -87,7 +87,7 @@
                                         </div>
                                     </div>
                                     <input class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}"
-                                           placeholder="{{ __('Email') }}" type="email" name="email"
+                                           placeholder="{{ __('E-mail') }}" type="email" name="email"
                                            value="{{ old('email') }}" required>
                                 </div>
                                 @if ($errors->has('email'))
@@ -105,7 +105,7 @@
                                         </div>
                                     </div>
                                     <input class="form-control {{ $errors->has('password') ? ' is-invalid' : '' }}"
-                                           placeholder="{{ __('Password') }}" type="password" name="password" required>
+                                           placeholder="{{ __('Senha') }}" type="password" name="password" required>
                                     @if ($errors->has('password'))
                                         <span class="invalid-feedback" style="display: block;" role="alert">
                       <strong>{{ $errors->first('password') }}</strong>
@@ -119,20 +119,19 @@
                                             <i class="now-ui-icons objects_key-25"></i></i>
                                         </div>
                                     </div>
-                                    <input class="form-control" placeholder="{{ __('Confirm Password') }}"
+                                    <input class="form-control" placeholder="{{ __('Confirmar Senha') }}"
                                            type="password" name="password_confirmation" required>
                                 </div>
                                 <div class="form-check text-left">
                                     <label class="form-check-label">
                                         <input class="form-check-input" type="checkbox">
                                         <span class="form-check-sign"></span>
-                                        {{ __('I agree to the') }}
-                                        <a href="#something">{{ __('terms and conditions') }}</a>.
+                                        {{ __('Eu confirmo a veracidade das informações') }}.
                                     </label>
                                 </div>
                                 <div class="card-footer ">
                                     <button type="submit"
-                                            class="btn btn-primary btn-round btn-lg">{{__('Get Started')}}</button>
+                                            class="btn btn-primary btn-round btn-lg">{{__('Enviar')}}</button>
                                 </div>
                             </form>
                         </div>
