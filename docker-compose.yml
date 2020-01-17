@@ -9,7 +9,7 @@ services:
       MYSQL_USER: atualsistemas
       MYSQL_PASSWORD: atualsistemas
     volumes:
-      - ./database:/var/lib/mysql
+      - ./db:/var/lib/mysql
     ports:
       - 3310:3310
     networks:
