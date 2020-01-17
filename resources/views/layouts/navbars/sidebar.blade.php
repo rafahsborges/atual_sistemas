@@ -4,10 +4,10 @@
   -->
     <div class="logo">
         <a href="http://www.creative-tim.com" class="simple-text logo-mini">
-            {{ __('CT') }}
+            {{ __('FW') }}
         </a>
         <a href="http://www.creative-tim.com" class="simple-text logo-normal">
-            {{ __('Creative Tim') }}
+            {{ __('Financeiro Web') }}
         </a>
     </div>
     <div class="sidebar-wrapper" id="sidebar-wrapper">
@@ -18,6 +18,42 @@
                     <p>{{ __('Dashboard') }}</p>
                 </a>
             </li>
+            {{--<li class="@if ($activePage == 'planos') active @endif">
+                <a href="{{ route('planos') }}">
+                    <i class="now-ui-icons design_app"></i>
+                    <p>{{ __('Planos') }}</p>
+                </a>
+            </li>
+            <li class="@if ($activePage == 'clientes') active @endif">
+                <a href="{{ route('clientes') }}">
+                    <i class="now-ui-icons design_app"></i>
+                    <p>{{ __('Clientes') }}</p>
+                </a>
+            </li>
+            <li class="@if ($activePage == 'contratos') active @endif">
+                <a href="{{ route('contratos') }}">
+                    <i class="now-ui-icons design_app"></i>
+                    <p>{{ __('Contratos') }}</p>
+                </a>
+            </li>
+            <li class="@if ($activePage == 'baixas') active @endif">
+                <a href="{{ route('baixas') }}">
+                    <i class="now-ui-icons design_app"></i>
+                    <p>{{ __('Baixas') }}</p>
+                </a>
+            </li>
+            <li class="@if ($activePage == 'remessas') active @endif">
+                <a href="{{ route('remessas') }}">
+                    <i class="now-ui-icons design_app"></i>
+                    <p>{{ __('Remessas') }}</p>
+                </a>
+            </li>
+            <li class="@if ($activePage == 'contas-a-receber') active @endif">
+                <a href="{{ route('contas-a-receber') }}">
+                    <i class="now-ui-icons design_app"></i>
+                    <p>{{ __('Contas a Receber') }}</p>
+                </a>
+            </li>--}}
             <li>
                 <a data-toggle="collapse" href="#laravelExamples">
                     <i class="fab fa-laravel"></i>
@@ -34,8 +70,8 @@
                                 <p> {{ __("User Profile") }} </p>
                             </a>
                         </li>
-                        <li class="@if ($activePage == 'users') active @endif">
-                            <a href="{{ route('user.index') }}">
+                        <li class="@if ($activePage == 'usuarios') active @endif">
+                            <a href="{{ route('usuario.index') }}">
                                 <i class="now-ui-icons design_bullet-list-67"></i>
                                 <p> {{ __("User Management") }} </p>
                             </a>

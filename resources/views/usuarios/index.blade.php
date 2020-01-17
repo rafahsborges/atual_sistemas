@@ -1,7 +1,7 @@
 @extends('layouts.app', [
     'namePage' => 'Users',
     'class' => 'sidebar-mini',
-    'activePage' => 'users',
+    'activePage' => 'usuarios',
     'activeNav' => '',
 ])
 
@@ -14,7 +14,7 @@
                 <div class="card">
                     <div class="card-header">
                         <a class="btn btn-primary btn-round text-white pull-right"
-                           href="{{ route('user.create') }}">{{ __('Add user') }}</a>
+                           href="{{ route('usuario.create') }}">{{ __('Add user') }}</a>
                         <h4 class="card-title">{{ __('Users') }}</h4>
                         <div class="col-12 mt-2">
                             @include('alerts.success')
@@ -58,11 +58,11 @@
                                     <td>{{ $user->created_at->format('d/m/Y H:i') }}</td>
                                     <td class="text-right">
                                         @if($user->id!=auth()->user()->id)
-                                            <a type="button" href="{{route("user.edit",$user)}}" rel="tooltip"
+                                            <a type="button" href="{{route("usuario.edit",$user)}}" rel="tooltip"
                                                class="btn btn-success btn-icon btn-sm " data-original-title="" title="">
                                                 <i class="now-ui-icons ui-2_settings-90"></i>
                                             </a>
-                                            <form action="{{ route('user.destroy', $user) }}" method="post"
+                                            <form action="{{ route('usuario.destroy', $user) }}" method="post"
                                                   style="display:inline-block;" class="delete-form">
                                                 @csrf
                                                 @method('delete')

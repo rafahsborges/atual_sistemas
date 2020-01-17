@@ -2,13 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\View\View;
+
 class PageController extends Controller
 {
     /**
      * Display all the static pages when authenticated
      *
      * @param string $page
-     * @return \Illuminate\View\View
+     * @return View
      */
     public function index(string $page)
     {

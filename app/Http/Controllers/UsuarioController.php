@@ -19,7 +19,7 @@ class UsuarioController extends Controller
      */
     public function index(Usuario $model)
     {
-        return view('users.index', ['users' => $model->paginate(15)]);
+        return view('usuarios.index', ['users' => $model->paginate(15)]);
     }
 
     /**
@@ -29,7 +29,7 @@ class UsuarioController extends Controller
      */
     public function create()
     {
-        return view('users.create');
+        return view('usuarios.create');
     }
 
     /**
@@ -54,7 +54,7 @@ class UsuarioController extends Controller
      */
     public function edit(Usuario $user)
     {
-        return view('users.edit', compact('user'));
+        return view('usuarios.edit', compact('user'));
     }
 
     /**
