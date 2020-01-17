@@ -16,3 +16,7 @@ Route::get('/', function () {
 });
 
 Route::middleware('cors')->any('/login', 'GraficosController@quantidadeEmpresas');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
