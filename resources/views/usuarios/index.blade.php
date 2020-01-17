@@ -47,7 +47,7 @@
                                 <tr>
                                     <td>{{$user->nome}}</td>
                                     <td>{{$user->email}}</td>
-                                    <td>{{$user->deleted_at}}</td>
+                                    <td>{{$user->deleted_at == null ? 'Ativo' : 'Inativo'}}</td>
                                     {{--<td>{{ $user->created_at->format('d/m/Y H:i') }}</td>--}}
                                     <td class="text-right">
                                         @if($user->id!=auth()->user()->id)
@@ -55,7 +55,7 @@
                                                class="btn btn-success btn-icon btn-sm " data-original-title="" title="">
                                                 <i class="now-ui-icons ui-2_settings-90"></i>
                                             </a>
-                                            <form action="{{ route('usuario.destroy', $user) }}" method="post"
+                                            <form action="{{ route('usuario.delete', $user) }}" method="post"
                                                   style="display:inline-block;" class="delete-form">
                                                 @csrf
                                                 @method('delete')

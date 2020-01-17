@@ -14,12 +14,12 @@ class UsuarioController extends Controller
     /**
      * Display a listing of the users
      *
-     * @param Usuario $model
      * @return View
      */
-    public function index(Usuario $model)
+    public function index()
     {
-        return view('usuarios.index', ['users' => $model->paginate(15)]);
+        $usuarios = (new Usuario)->withTrashed()->paginate(15);
+        return view('usuarios.index', ['users' => $usuarios]);
     }
 
     /**
@@ -43,18 +43,19 @@ class UsuarioController extends Controller
     {
         $model->create($request->merge(['password' => Hash::make($request->get('password'))])->all());
 
-        return redirect()->route('user.index')->withStatus(__('Usuario successfully created.'));
+        return redirect()->route('usuario.index')->withStatus(__('Usuario successfully created.'));
     }
 
     /**
      * Show the form for editing the specified user
      *
-     * @param Usuario $user
+     * @param $id
      * @return View
      */
-    public function edit(Usuario $user)
+    public function edit($id)
     {
-        return view('usuarios.edit', compact('user'));
+        $usuario = (new Usuario)->find($id);
+        return view('usuarios.edit', ['user' => $usuario]);
     }
 
     /**
@@ -73,20 +74,21 @@ class UsuarioController extends Controller
             ])->except([$hasPassword ? '' : 'password'])
         );
 
-        return redirect()->route('user.index')->withStatus(__('Usuario successfully updated.'));
+        return redirect()->route('usuario.index')->withStatus(__('Usuario successfully updated.'));
     }
 
     /**
      * Remove the specified user from storage
      *
-     * @param Usuario $user
+     * @param $id
      * @return RedirectResponse
      * @throws Exception
      */
-    public function destroy(Usuario $user)
+    public function delete($id)
     {
-        $user->delete();
+        $usuario = (new Usuario())->findOrFail($id);
+        $usuario->delete();
 
-        return redirect()->route('user.index')->withStatus(__('Usuario successfully deleted.'));
+        return redirect()->route('usuario.index')->withStatus(__('Usuario successfully deleted.'));
     }
 }

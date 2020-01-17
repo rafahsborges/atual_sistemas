@@ -26,10 +26,10 @@
                             <div class="row">
                                 <div class="col-md-7 pr-1">
                                     <div class="form-group">
-                                        <label>{{__(" Name")}}</label>
+                                        <label>{{__(" Nome")}}</label>
                                         <input type="text" name="name" class="form-control"
-                                               value="{{ old('name', auth()->user()->name) }}">
-                                        @include('alerts.feedback', ['field' => 'name'])
+                                               value="{{ old('nome', auth()->user()->nome) }}">
+                                        @include('alerts.feedback', ['field' => 'nome'])
                                     </div>
                                 </div>
                             </div>

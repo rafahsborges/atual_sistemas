@@ -18,12 +18,14 @@
                     <p>{{ __('Painel') }}</p>
                 </a>
             </li>
+            @if(auth()->user()->is_admin == 1)
             <li class="@if ($activePage == 'usuarios') active @endif">
                 <a href="{{ route('usuario.index') }}">
                     <i class="now-ui-icons design_bullet-list-67"></i>
                     <p> {{ __("Usuários") }} </p>
                 </a>
             </li>
+            @endif
             {{--<li class="@if ($activePage == 'planos') active @endif">
                 <a href="{{ route('planos') }}">
                     <i class="now-ui-icons design_app"></i>

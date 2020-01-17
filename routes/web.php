@@ -17,12 +17,33 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-
 Route::group(['middleware' => 'auth'], function () {
-	Route::resource('usuario', 'UsuarioController', ['except' => ['show']]);
+
+    Route::get('/home', 'HomeController@index')->name('home');
+
+    Route::get('/usuario', [
+        'as' => 'usuario.index',
+        'uses' => 'UsuarioController@index'
+    ]);
+    Route::get('/usuario/create', [
+        'as' => 'usuario.create',
+        'uses' => 'UsuarioController@create'
+    ]);
+    Route::post('/usuario', 'UsuarioController@store');
+    Route::get('/usuario/{id}',  [
+        'as' => 'usuario.edit',
+        'uses' => 'UsuarioController@edit'
+    ]);
+    Route::put('/usuario/{id}', 'UsuarioController@update');
+    Route::delete('/usuario/{id}',  [
+        'as' => 'usuario.delete',
+        'uses' => 'UsuarioController@delete'
+    ]);
+
+
 	Route::get('profile', ['as' => 'profile.edit', 'uses' => 'ProfileController@edit']);
 	Route::put('profile', ['as' => 'profile.update', 'uses' => 'ProfileController@update']);
 	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'ProfileController@password']);
 	Route::get('{page}', ['as' => 'page.index', 'uses' => 'PageController@index']);
+
 });
