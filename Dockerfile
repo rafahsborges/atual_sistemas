@@ -1,17 +1,14 @@
 FROM php:7.2-apache
 RUN apt-get update
 
-# INSTALL POSTGRES EXTENSION
-# Instal teste para laravel. Dockerfile para testar laravel.
-RUN apt-get install -y libpq-dev \
- && docker-php-ext-configure pgsql -with-pgsql=/usr/local/pgsql \
- && docker-php-ext-install pdo pdo_pgsql pgsql
-
 RUN apt-get install -y --no-install-recommends \
+    libpq-dev \
     git \
     zlib1g-dev \
     libxml2-dev \
  && docker-php-ext-install \
+    mysqli \
+    pdo_mysql \
     zip \
     soap \
  && curl -sS https://getcomposer.org/installer \

@@ -11,13 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::middleware('cors')->any('/login', 'GraficosController@quantidadeEmpresas');
-
 Auth::routes();
 
+Route::get('/', 'HomeController@index')->name('home');
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('admin/home', 'HomeController@adminHome')->name('admin.home')->middleware('is_admin');

@@ -17,7 +17,7 @@ class CreateUsuarioTable extends Migration
             $table->bigIncrements('id');
             $table->string('nome');
             $table->string('email')->unique();
-            $table->string('senha');
+            $table->string('password');
             $table->boolean('is_admin')->nullable();
             $table->rememberToken();
             $table->timestamps();

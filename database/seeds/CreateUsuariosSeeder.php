@@ -17,13 +17,13 @@ class CreateUsuariosSeeder extends Seeder
                 'nome'=>'Admin',
                 'email'=>'rafaelsouzaborges@outlook.com',
                 'is_admin'=>'1',
-                'senha'=> bcrypt('123456'),
+                'password'=> bcrypt('123456'),
             ],
             [
                 'nome'=>'User',
                 'email'=>'rafahsborges@outlook.com',
                 'is_admin'=>'0',
-                'senha'=> bcrypt('123456'),
+                'password'=> bcrypt('123456'),
             ],
         ];
 

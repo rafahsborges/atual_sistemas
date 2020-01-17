@@ -2,21 +2,24 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
 
 /**
  * @property integer $id
  * @property string $nome
  * @property string $email
- * @property string $senha
+ * @property string $password
  * @property boolean $is_admin
  * @property string $remember_token
  * @property string $created_at
  * @property string $updated_at
  * @property string $deleted_at
  */
-class Usuario extends Model
+class Usuario extends Authenticatable
 {
+    use Notifiable;
     /**
      * The table associated with the model.
      *
@@ -34,6 +37,6 @@ class Usuario extends Model
     /**
      * @var array
      */
-    protected $fillable = ['nome', 'email', 'senha', 'is_admin', 'remember_token', 'created_at', 'updated_at', 'deleted_at'];
+    protected $fillable = ['nome', 'email', 'password', 'is_admin', 'remember_token', 'created_at', 'updated_at', 'deleted_at'];
 
 }
