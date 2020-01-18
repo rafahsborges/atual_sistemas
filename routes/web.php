@@ -40,3 +40,18 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
         Route::post('/password',                                    'ProfileController@updatePassword')->name('update-password');
     });
 });
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
+    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function() {
+        Route::prefix('planos')->name('planos/')->group(static function() {
+            Route::get('/',                                             'PlanoController@index')->name('index');
+            Route::get('/create',                                       'PlanoController@create')->name('create');
+            Route::post('/',                                            'PlanoController@store')->name('store');
+            Route::get('/{plano}/edit',                                 'PlanoController@edit')->name('edit');
+            Route::post('/bulk-destroy',                                'PlanoController@bulkDestroy')->name('bulk-destroy');
+            Route::post('/{plano}',                                     'PlanoController@update')->name('update');
+            Route::delete('/{plano}',                                   'PlanoController@destroy')->name('destroy');
+        });
+    });
+});

@@ -29,5 +29,21 @@ return [
         ],
     ],
 
+    'plano' => [
+        'title' => 'Plano',
+
+        'actions' => [
+            'index' => 'Plano',
+            'create' => 'New Plano',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'nome' => 'Nome',
+            
+        ],
+    ],
+
     // Do not delete me :) I'm used for auto-generation
 ];
