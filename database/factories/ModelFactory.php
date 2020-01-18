@@ -27,3 +27,10 @@ $factory->define(App\Models\Plano::class, static function (Faker\Generator $fake
         
     ];
 });
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\Plano::class, static function (Faker\Generator $faker) {
+    return [
+        
+        
+    ];
+});

@@ -55,3 +55,18 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
         });
     });
 });
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
+    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function() {
+        Route::prefix('planos')->name('planos/')->group(static function() {
+            Route::get('/',                                             'PlanosController@index')->name('index');
+            Route::get('/create',                                       'PlanosController@create')->name('create');
+            Route::post('/',                                            'PlanosController@store')->name('store');
+            Route::get('/{plano}/edit',                                 'PlanosController@edit')->name('edit');
+            Route::post('/bulk-destroy',                                'PlanosController@bulkDestroy')->name('bulk-destroy');
+            Route::post('/{plano}',                                     'PlanosController@update')->name('update');
+            Route::delete('/{plano}',                                   'PlanosController@destroy')->name('destroy');
+        });
+    });
+});
