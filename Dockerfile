@@ -11,6 +11,7 @@ RUN apt-get install -y --no-install-recommends \
     pdo_mysql \
     zip \
     soap \
+    exif \
  && curl -sS https://getcomposer.org/installer \
   | php -- --install-dir=/usr/local/bin --filename=composer
 
@@ -39,4 +40,5 @@ RUN composer install
 RUN a2enmod rewrite
 RUN a2enmod headers
 
+CMD php artisan serve --host=0.0.0.0 --port=80
 EXPOSE 80
