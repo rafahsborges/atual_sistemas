@@ -18,7 +18,7 @@
                                 <h3 class="mb-0">{{ __('Cadastro de Usuário') }}</h3>
                             </div>
                             <div class="col-4 text-right">
-                                <a href="{{ route('usuario') }}"
+                                <a href="{{ route('usuario.index') }}"
                                    class="btn btn-primary btn-round">{{ __('Voltar para Listagem') }}</a>
                             </div>
                         </div>
@@ -28,13 +28,13 @@
                               enctype="multipart/form-data">
                             @csrf
 
-                            <h6 class="heading-small text-muted mb-4">{{ __('User information') }}</h6>
+                            <h6 class="heading-small text-muted mb-4">{{ __('Informações do Usuário') }}</h6>
                             <div class="pl-lg-4">
                                 <div class="form-group{{ $errors->has('nome') ? ' has-danger' : '' }}">
                                     <label class="form-control-label" for="input-nome">{{ __('Nome') }}</label>
                                     <input type="text" name="nome" id="input-nome"
                                            class="form-control{{ $errors->has('nome') ? ' is-invalid' : '' }}"
-                                           placeholder="{{ __('Name') }}" value="{{ old('nome') }}" required autofocus>
+                                           placeholder="{{ __('Nome') }}" value="{{ old('nome') }}" required autofocus>
 
                                     @include('alerts.feedback', ['field' => 'nome'])
                                 </div>

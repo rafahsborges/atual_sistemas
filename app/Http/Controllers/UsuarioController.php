@@ -6,6 +6,8 @@ use App\Usuario;
 use App\Http\Requests\UsuarioRequest;
 use Exception;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\View\View;
 
@@ -19,7 +21,7 @@ class UsuarioController extends Controller
     public function index()
     {
         $usuarios = (new Usuario)->withTrashed()->paginate(15);
-        return view('usuarios.index', ['users' => $usuarios]);
+        return view('usuarios.index', ['usuarios' => $usuarios]);
     }
 
     /**
@@ -33,18 +35,32 @@ class UsuarioController extends Controller
     }
 
     /**
+     * Store a newly created resource in storage.
+     *
+     * @param Request $request
+     * @return Response
+     */
+    public function store(Request $request)
+    {
+        Usuario::create($request->all());
+
+        return redirect()->route('usuario.index')
+            ->with('success', 'Usuário created successfully.');
+    }
+
+    /**
      * Store a newly created user in storage
      *
      * @param UsuarioRequest $request
      * @param Usuario $model
      * @return RedirectResponse
      */
-    public function store(UsuarioRequest $request, Usuario $model)
+    /*public function store(UsuarioRequest $request, Usuario $model)
     {
         $model->create($request->merge(['password' => Hash::make($request->get('password'))])->all());
 
         return redirect()->route('usuario.index')->withStatus(__('Usuario successfully created.'));
-    }
+    }*/
 
     /**
      * Show the form for editing the specified user
@@ -54,8 +70,8 @@ class UsuarioController extends Controller
      */
     public function edit($id)
     {
-        $usuario = (new Usuario)->find($id);
-        return view('usuarios.edit', ['user' => $usuario]);
+        $usuario = (new Usuario)->withTrashed()->find($id);
+        return view('usuarios.edit', ['usuario' => $usuario]);
     }
 
     /**
@@ -84,7 +100,7 @@ class UsuarioController extends Controller
      * @return RedirectResponse
      * @throws Exception
      */
-    public function delete($id)
+    public function destroy($id)
     {
         $usuario = (new Usuario())->findOrFail($id);
         $usuario->delete();

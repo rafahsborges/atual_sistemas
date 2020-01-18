@@ -24,26 +24,26 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <form method="post" action="{{ route('usuario.update', $user) }}" autocomplete="off"
+                        <form method="post" action="{{ route('usuario.update', $usuario) }}" autocomplete="off"
                               enctype="multipart/form-data">
                             @csrf
                             @method('put')
-                            <h6 class="heading-small text-muted mb-4">{{ __('User information') }}</h6>
+                            <h6 class="heading-small text-muted mb-4">{{ __('Informações do Usuário') }}</h6>
                             <div class="pl-lg-4">
                                 <div class="form-group{{ $errors->has('nome') ? ' has-danger' : '' }}">
-                                    <label class="form-control-label" for="input-nome">{{ __('Name') }}</label>
+                                    <label class="form-control-label" for="input-nome">{{ __('Nome') }}</label>
                                     <input type="text" name="nome" id="input-nome"
                                            class="form-control{{ $errors->has('nome') ? ' is-invalid' : '' }}"
-                                           placeholder="{{ __('Name') }}" value="{{ old('nome', $user->nome) }}"
+                                           placeholder="{{ __('Nome') }}" value="{{ old('nome', $usuario->nome) }}"
                                            required autofocus>
 
                                     @include('alerts.feedback', ['field' => 'nome'])
                                 </div>
                                 <div class="form-group{{ $errors->has('email') ? ' has-danger' : '' }}">
-                                    <label class="form-control-label" for="input-email">{{ __('Email') }}</label>
+                                    <label class="form-control-label" for="input-email">{{ __('E-mail') }}</label>
                                     <input type="email" name="email" id="input-email"
                                            class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}"
-                                           placeholder="{{ __('Email') }}" value="{{ old('email', $user->email) }}"
+                                           placeholder="{{ __('E-mail') }}" value="{{ old('email', $usuario->email) }}"
                                            required>
                                     @include('alerts.feedback', ['field' => 'email'])
                                 </div>

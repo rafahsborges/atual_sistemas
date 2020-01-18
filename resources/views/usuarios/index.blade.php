@@ -1,5 +1,5 @@
 @extends('layouts.app', [
-    'namePage' => 'Users',
+    'namePage' => 'Usuários',
     'class' => 'sidebar-mini',
     'activePage' => 'usuarios',
     'activeNav' => '',
@@ -30,6 +30,7 @@
                             <tr>
                                 <th>{{ __('Nome') }}</th>
                                 <th>{{ __('E-mail') }}</th>
+                                <th>{{ __('Tipo') }}</th>
                                 <th>{{ __('Status') }}</th>
                                 <th class="disabled-sorting text-right">{{ __('Ações') }}</th>
                             </tr>
@@ -38,31 +39,33 @@
                             <tr>
                                 <th>{{ __('Nome') }}</th>
                                 <th>{{ __('E-mail') }}</th>
+                                <th>{{ __('Tipo') }}</th>
                                 <th>{{ __('Status') }}</th>
                                 <th class="disabled-sorting text-right">{{ __('Ações') }}</th>
                             </tr>
                             </tfoot>
                             <tbody>
-                            @foreach($users as $user)
+                            @foreach($usuarios as $usuario)
                                 <tr>
-                                    <td>{{$user->nome}}</td>
-                                    <td>{{$user->email}}</td>
-                                    <td>{{$user->deleted_at == null ? 'Ativo' : 'Inativo'}}</td>
-                                    {{--<td>{{ $user->created_at->format('d/m/Y H:i') }}</td>--}}
+                                    <td>{{$usuario->nome}}</td>
+                                    <td>{{$usuario->email}}</td>
+                                    <td>{{$usuario->is_admin == 1 ? 'Administrador' : 'Usuário'}}</td>
+                                    <td>{{$usuario->deleted_at == null ? 'Ativo' : 'Inativo'}}</td>
+                                    {{--<td>{{ $usuario->created_at->format('d/m/Y H:i') }}</td>--}}
                                     <td class="text-right">
-                                        @if($user->id!=auth()->user()->id)
-                                            <a type="button" href="{{route("usuario.edit",$user)}}" rel="tooltip"
+                                        @if($usuario->id!=auth()->user()->id)
+                                            <a type="button" href="{{ route("usuario.edit", $usuario) }}" rel="tooltip"
                                                class="btn btn-success btn-icon btn-sm " data-original-title="" title="">
                                                 <i class="now-ui-icons ui-2_settings-90"></i>
                                             </a>
-                                            <form action="{{ route('usuario.delete', $user) }}" method="post"
+                                            <form action="{{ route('usuario.destroy', $usuario) }}" method="post"
                                                   style="display:inline-block;" class="delete-form">
                                                 @csrf
                                                 @method('delete')
                                                 <button type="button" rel="tooltip"
                                                         class="btn btn-danger btn-icon btn-sm delete-button"
                                                         data-original-title="" title=""
-                                                        onclick="confirm('{{ __('Are you sure you want to delete this user?') }}') ? this.parentElement.submit() : ''">
+                                                        onclick="confirm('{{ __('Tem certeza que quer excluir esse usuário?') }}') ? this.parentElement.submit() : ''">
                                                     <i class="now-ui-icons ui-1_simple-remove"></i>
                                                 </button>
                                             </form>

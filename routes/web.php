@@ -21,25 +21,8 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/home', 'HomeController@index')->name('home');
 
-    Route::get('/usuario', [
-        'as' => 'usuario.index',
-        'uses' => 'UsuarioController@index'
-    ]);
-    Route::get('/usuario/create', [
-        'as' => 'usuario.create',
-        'uses' => 'UsuarioController@create'
-    ]);
-    Route::post('/usuario', 'UsuarioController@store');
-    Route::get('/usuario/{id}',  [
-        'as' => 'usuario.edit',
-        'uses' => 'UsuarioController@edit'
-    ]);
-    Route::put('/usuario/{id}', 'UsuarioController@update');
-    Route::delete('/usuario/{id}',  [
-        'as' => 'usuario.delete',
-        'uses' => 'UsuarioController@delete'
-    ]);
-
+    Route::resource('usuario','UsuarioController');
+    //Route::resource('usuario', 'UsuarioController', ['except' => ['show']]);
 
 	Route::get('profile', ['as' => 'profile.edit', 'uses' => 'ProfileController@edit']);
 	Route::put('profile', ['as' => 'profile.update', 'uses' => 'ProfileController@update']);
