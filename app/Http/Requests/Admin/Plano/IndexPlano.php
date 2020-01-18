@@ -14,7 +14,8 @@ class IndexPlano extends FormRequest
      */
     public function authorize(): bool
     {
-        return Gate::allows('admin.plano.index');
+        //return Gate::allows('admin.plano.index');
+        return auth()->check();
     }
 
     /**
