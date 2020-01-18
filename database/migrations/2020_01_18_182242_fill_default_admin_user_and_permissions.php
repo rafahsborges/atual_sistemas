@@ -41,7 +41,7 @@ class FillDefaultAdminUserAndPermissions extends Migration
     /**
      * @var string
      */
-    protected $password = 'NpKSh5Pin7';
+    protected $password = 'P2NaY0BcPg';
 
     /**
      * FillDefaultAdminUserAndPermissions constructor.
