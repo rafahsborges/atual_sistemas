@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateRemessaBoletoTable extends Migration
+class CreateRemessaBoletosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,7 +12,7 @@ class CreateRemessaBoletoTable extends Migration
      */
     public function up()
     {
-        Schema::create('remessa_boleto', function (Blueprint $table) {
+        Schema::create('remessa_boletos', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('id_boleto')->index('fk_rem_bol_remessa')->nullable();
             $table->unsignedBigInteger('id_remessa')->index('fk_rem_bol_boleto')->nullable();
@@ -20,7 +20,7 @@ class CreateRemessaBoletoTable extends Migration
             $table->timestamps();
             $table->softDeletes();
         });
-        Schema::table('remessa_boleto', function (Blueprint $table) {
+        Schema::table('remessa_boletos', function (Blueprint $table) {
             $table->foreign('id_boleto', 'fk_rem_bol_boleto')
                 ->references('id')->on('boleto')
                 ->onUpdate('restrict')
@@ -39,10 +39,10 @@ class CreateRemessaBoletoTable extends Migration
      */
     public function down()
     {
-        Schema::table('remessa_boleto', function (Blueprint $table) {
+        Schema::table('remessa_boletos', function (Blueprint $table) {
             $table->dropForeign('fk_rem_bol_boleto');
             $table->dropForeign('fk_rem_bol_remessa');
         });
-        Schema::drop('remessa_boleto');
+        Schema::drop('remessa_boletos');
     }
 }

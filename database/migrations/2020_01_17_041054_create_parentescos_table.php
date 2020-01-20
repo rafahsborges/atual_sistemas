@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateParentescoTable extends Migration
+class CreateParentescosTable extends Migration
 {
     /**
      * Run the migrations.

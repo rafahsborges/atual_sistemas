@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateRemessaTable extends Migration
+class CreateRemessasTable extends Migration
 {
     /**
      * Run the migrations.

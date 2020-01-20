@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreatePlanoTable extends Migration
+class CreatePlanosTable extends Migration
 {
     /**
      * Run the migrations.

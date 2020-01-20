@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateContratoTable extends Migration
+class CreateContratosTable extends Migration
 {
     /**
      * Run the migrations.

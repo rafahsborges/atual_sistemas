@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateEstadoCivilTable extends Migration
+class CreateEstadoCivilsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,7 +12,7 @@ class CreateEstadoCivilTable extends Migration
      */
     public function up()
     {
-        Schema::create('estado_civil', function (Blueprint $table) {
+        Schema::create('estado_civils', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('descricao');
             $table->timestamps();
@@ -27,6 +27,6 @@ class CreateEstadoCivilTable extends Migration
      */
     public function down()
     {
-        Schema::drop('estado_civil');
+        Schema::drop('estado_civils');
     }
 }

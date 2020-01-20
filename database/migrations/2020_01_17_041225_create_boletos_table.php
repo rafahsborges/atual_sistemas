@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateBoletoTable extends Migration
+class CreateBoletosTable extends Migration
 {
     /**
      * Run the migrations.
