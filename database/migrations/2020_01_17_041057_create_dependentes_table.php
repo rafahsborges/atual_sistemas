@@ -12,7 +12,7 @@ class CreateDependenteTable extends Migration
      */
     public function up()
     {
-        Schema::create('dependente', function (Blueprint $table) {
+        Schema::create('dependentes', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('nome');
             $table->date('nascimento');
@@ -39,10 +39,10 @@ class CreateDependenteTable extends Migration
      */
     public function down()
     {
-        Schema::table('dependente', function (Blueprint $table) {
+        Schema::table('dependentes', function (Blueprint $table) {
             $table->dropForeign('fk_dependente_cliente');
             $table->dropForeign('fk_dependente_parentesco');
         });
-        Schema::drop('dependente');
+        Schema::drop('dependentes');
     }
 }

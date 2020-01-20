@@ -1,9 +1,8 @@
 <?php
 
-/* @var $factory Factory */
+/* @var $factory \Illuminate\Database\Eloquent\Factory */
 
 use Faker\Generator as Faker;
-use Illuminate\Database\Eloquent\Factory;
 
 $factory->define(App\Plano::class, function (Faker $faker) {
     return [

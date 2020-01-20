@@ -1,13 +1,11 @@
 <?php
 
-/* @var $factory Factory */
+/* @var $factory \Illuminate\Database\Eloquent\Factory */
 
 use Faker\Generator as Faker;
-use Illuminate\Database\Eloquent\Factory;
 
 $factory->define(App\ContratoParcela::class, function (Faker $faker) {
     return [
-        'id_contrato' => factory(App\Contrato::class),
         'vencimento' => $faker->date(),
         'pagamento' => $faker->date(),
         'id_boleto' => $faker->randomFloat(),
@@ -15,6 +13,8 @@ $factory->define(App\ContratoParcela::class, function (Faker $faker) {
         'valor' => $faker->randomFloat(),
         'numero_parcela' => $faker->randomFloat(),
         'valor_pagamento' => $faker->randomFloat(),
+        'id_contrato' => factory(App\Contrato::class),
+        'enabled' => $faker->boolean,
         'deleted_at' => $faker->dateTime(),
     ];
 });

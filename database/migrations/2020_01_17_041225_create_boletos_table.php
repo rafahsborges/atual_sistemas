@@ -12,7 +12,7 @@ class CreateBoletoTable extends Migration
      */
     public function up()
     {
-        Schema::create('boleto', function (Blueprint $table) {
+        Schema::create('boletos', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->boolean('status');
             $table->unsignedBigInteger('id_contrato_parcela')->index('fk_boleto_contr_parcela')->nullable();
@@ -33,9 +33,9 @@ class CreateBoletoTable extends Migration
      */
     public function down()
     {
-        Schema::table('boleto', function (Blueprint $table) {
+        Schema::table('boletos', function (Blueprint $table) {
             $table->dropForeign('fk_boleto_contr_parcela');
         });
-        Schema::drop('boleto');
+        Schema::drop('boletos');
     }
 }

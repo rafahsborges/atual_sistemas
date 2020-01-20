@@ -12,7 +12,7 @@ class CreateParentescoTable extends Migration
      */
     public function up()
     {
-        Schema::create('parentesco', function (Blueprint $table) {
+        Schema::create('parentescos', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('descricao');
             $table->timestamps();
@@ -27,6 +27,6 @@ class CreateParentescoTable extends Migration
      */
     public function down()
     {
-        Schema::drop('parentesco');
+        Schema::drop('parentescos');
     }
 }

@@ -12,7 +12,7 @@ class CreateContaTable extends Migration
      */
     public function up()
     {
-        Schema::create('conta', function (Blueprint $table) {
+        Schema::create('contas', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('nome');
             $table->string('banco', 3);
@@ -39,6 +39,6 @@ class CreateContaTable extends Migration
      */
     public function down()
     {
-        Schema::drop('conta');
+        Schema::drop('contas');
     }
 }

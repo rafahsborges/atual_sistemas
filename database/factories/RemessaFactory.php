@@ -1,9 +1,8 @@
 <?php
 
-/* @var $factory Factory */
+/* @var $factory \Illuminate\Database\Eloquent\Factory */
 
 use Faker\Generator as Faker;
-use Illuminate\Database\Eloquent\Factory;
 
 $factory->define(App\Remessa::class, function (Faker $faker) {
     return [
@@ -12,6 +11,7 @@ $factory->define(App\Remessa::class, function (Faker $faker) {
         'nome' => $faker->word,
         'sequencia' => $faker->randomFloat(),
         'id_conta' => factory(App\Conta::class),
+        'enabled' => $faker->boolean,
         'deleted_at' => $faker->dateTime(),
     ];
 });

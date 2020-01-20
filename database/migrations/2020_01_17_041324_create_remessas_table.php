@@ -12,7 +12,7 @@ class CreateRemessaTable extends Migration
      */
     public function up()
     {
-        Schema::create('remessa', function (Blueprint $table) {
+        Schema::create('remessas', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->timestamp('data')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->decimal('id_usuario', 9, 0);
@@ -36,9 +36,9 @@ class CreateRemessaTable extends Migration
      */
     public function down()
     {
-        Schema::table('remessa', function (Blueprint $table) {
+        Schema::table('remessas', function (Blueprint $table) {
             $table->dropForeign('fk_conta_remessa');
         });
-        Schema::drop('remessa');
+        Schema::drop('remessas');
     }
 }

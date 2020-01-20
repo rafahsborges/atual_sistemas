@@ -12,7 +12,7 @@ class CreateContratoTable extends Migration
      */
     public function up()
     {
-        Schema::create('contrato', function (Blueprint $table) {
+        Schema::create('contratos', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->date('primeira_parcela');
             $table->date('ultima_parcela');
@@ -53,11 +53,11 @@ class CreateContratoTable extends Migration
      */
     public function down()
     {
-        Schema::table('contrato', function (Blueprint $table) {
+        Schema::table('contratos', function (Blueprint $table) {
             $table->dropForeign('fk_contrato_cliente');
             $table->dropForeign('fk_contrato_conta');
             $table->dropForeign('fk_contrato_plano');
         });
-        Schema::drop('contrato');
+        Schema::drop('contratos');
     }
 }

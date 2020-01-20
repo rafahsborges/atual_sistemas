@@ -12,7 +12,7 @@ class CreateClienteTable extends Migration
      */
     public function up()
     {
-        Schema::create('cliente', function (Blueprint $table) {
+        Schema::create('clientes', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->boolean('tipo');
             $table->string('nome');
@@ -56,9 +56,9 @@ class CreateClienteTable extends Migration
      */
     public function down()
     {
-        Schema::table('cliente', function (Blueprint $table) {
+        Schema::table('clientes', function (Blueprint $table) {
             $table->dropForeign('fk_cliente_est_civil');
         });
-        Schema::drop('cliente');
+        Schema::drop('clientes');
     }
 }

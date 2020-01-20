@@ -1,9 +1,8 @@
 <?php
 
-/* @var $factory Factory */
+/* @var $factory \Illuminate\Database\Eloquent\Factory */
 
 use Faker\Generator as Faker;
-use Illuminate\Database\Eloquent\Factory;
 
 $factory->define(App\Parentesco::class, function (Faker $faker) {
     return [

@@ -12,7 +12,7 @@ class CreatePlanoTable extends Migration
      */
     public function up()
     {
-        Schema::create('plano', function (Blueprint $table) {
+        Schema::create('planos', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('nome');
             $table->timestamps();
@@ -27,6 +27,6 @@ class CreatePlanoTable extends Migration
      */
     public function down()
     {
-        Schema::drop('plano');
+        Schema::drop('planos');
     }
 }

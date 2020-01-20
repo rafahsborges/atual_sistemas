@@ -1,9 +1,8 @@
 <?php
 
-/* @var $factory Factory */
+/* @var $factory \Illuminate\Database\Eloquent\Factory */
 
 use Faker\Generator as Faker;
-use Illuminate\Database\Eloquent\Factory;
 
 $factory->define(App\Conta::class, function (Faker $faker) {
     return [
@@ -19,6 +18,7 @@ $factory->define(App\Conta::class, function (Faker $faker) {
         'mensagem_1' => $faker->word,
         'mensagem_2' => $faker->word,
         'cpf_cnpj' => $faker->word,
+        'enabled' => $faker->boolean,
         'deleted_at' => $faker->dateTime(),
     ];
 });

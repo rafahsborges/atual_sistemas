@@ -12,7 +12,7 @@ class CreateContratoParcelaTable extends Migration
      */
     public function up()
     {
-        Schema::create('contrato_parcela', function (Blueprint $table) {
+        Schema::create('contrato_parcelas', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->date('vencimento');
             $table->date('pagamento')->nullable();
@@ -39,9 +39,9 @@ class CreateContratoParcelaTable extends Migration
      */
     public function down()
     {
-        Schema::table('contrato_parcela', function (Blueprint $table) {
+        Schema::table('contrato_parcelas', function (Blueprint $table) {
             $table->dropForeign('fk_contr_parcela_contrato');
         });
-        Schema::drop('contrato_parcela');
+        Schema::drop('contrato_parcelas');
     }
 }
