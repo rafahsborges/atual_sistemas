@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property string $nome
  * @property string $nascimento
  * @property integer $id_parentesco
+ * @property boolean $enabled
  * @property string $created_at
  * @property string $updated_at
  * @property string $deleted_at
@@ -19,13 +20,6 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  */
 class Dependente extends Model
 {
-    /**
-     * The table associated with the model.
-     *
-     * @var string
-     */
-    protected $table = 'dependente';
-
     /**
      * The "type" of the auto-incrementing ID.
      *
@@ -36,7 +30,7 @@ class Dependente extends Model
     /**
      * @var array
      */
-    protected $fillable = ['id_cliente', 'nome', 'nascimento', 'id_parentesco', 'created_at', 'updated_at', 'deleted_at'];
+    protected $fillable = ['id_cliente', 'nome', 'nascimento', 'id_parentesco', 'enabled', 'created_at', 'updated_at', 'deleted_at'];
 
     /**
      * @return BelongsTo

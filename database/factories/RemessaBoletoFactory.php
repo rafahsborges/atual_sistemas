@@ -9,5 +9,6 @@ $factory->define(App\RemessaBoleto::class, function (Faker $faker) {
         'id_boleto' => factory(App\Boleto::class),
         'id_remessa' => factory(App\Remessa::class),
         'enabled' => $faker->boolean,
+        'deleted_at' => $faker->dateTime(),
     ];
 });

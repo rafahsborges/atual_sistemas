@@ -13,6 +13,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property float $id_usuario
  * @property string $nome
  * @property float $sequencia
+ * @property boolean $enabled
  * @property string $created_at
  * @property string $updated_at
  * @property string $deleted_at
@@ -21,13 +22,6 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  */
 class Remessa extends Model
 {
-    /**
-     * The table associated with the model.
-     *
-     * @var string
-     */
-    protected $table = 'remessa';
-
     /**
      * The "type" of the auto-incrementing ID.
      *
@@ -38,7 +32,7 @@ class Remessa extends Model
     /**
      * @var array
      */
-    protected $fillable = ['id_conta', 'data', 'id_usuario', 'nome', 'sequencia', 'created_at', 'updated_at', 'deleted_at'];
+    protected $fillable = ['id_conta', 'data', 'id_usuario', 'nome', 'sequencia', 'enabled', 'created_at', 'updated_at', 'deleted_at'];
 
     /**
      * @return BelongsTo

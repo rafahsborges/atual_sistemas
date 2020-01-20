@@ -19,6 +19,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property string $mensagem_1
  * @property string $mensagem_2
  * @property string $cpf_cnpj
+ * @property boolean $enabled
  * @property string $created_at
  * @property string $updated_at
  * @property string $deleted_at
@@ -27,13 +28,6 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  */
 class Conta extends Model
 {
-    /**
-     * The table associated with the model.
-     *
-     * @var string
-     */
-    protected $table = 'conta';
-
     /**
      * The "type" of the auto-incrementing ID.
      *
@@ -44,7 +38,7 @@ class Conta extends Model
     /**
      * @var array
      */
-    protected $fillable = ['nome', 'banco', 'agencia', 'digito_agencia', 'conta', 'digito_conta', 'codigo_empresa', 'carteira', 'tipo', 'mensagem_1', 'mensagem_2', 'cpf_cnpj', 'created_at', 'updated_at', 'deleted_at'];
+    protected $fillable = ['nome', 'banco', 'agencia', 'digito_agencia', 'conta', 'digito_conta', 'codigo_empresa', 'carteira', 'tipo', 'mensagem_1', 'mensagem_2', 'cpf_cnpj', 'enabled', 'created_at', 'updated_at', 'deleted_at'];
 
     /**
      * @return HasMany

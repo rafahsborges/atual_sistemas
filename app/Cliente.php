@@ -32,7 +32,8 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property string $cep
  * @property string $celular2
  * @property string $celular3
- * @property float $id_cliente_responsavel
+ * @property int $id_cliente_responsavel
+ * @property boolean $enabled
  * @property string $created_at
  * @property string $updated_at
  * @property string $deleted_at
@@ -43,13 +44,6 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Cliente extends Model
 {
     /**
-     * The table associated with the model.
-     *
-     * @var string
-     */
-    protected $table = 'cliente';
-
-    /**
      * The "type" of the auto-incrementing ID.
      *
      * @var string
@@ -59,7 +53,7 @@ class Cliente extends Model
     /**
      * @var array
      */
-    protected $fillable = ['id_estado_civil', 'tipo', 'nome', 'nascimento', 'rg', 'cpf', 'insc_municipal', 'cnpj', 'sexo', 'profissao', 'local_trabalho', 'telefone', 'celular', 'logradouro', 'numero', 'complemento', 'bairro', 'cidade', 'uf', 'email', 'observacao', 'cep', 'celular2', 'celular3', 'id_cliente_responsavel', 'created_at', 'updated_at', 'deleted_at'];
+    protected $fillable = ['id_estado_civil', 'tipo', 'nome', 'nascimento', 'rg', 'cpf', 'insc_municipal', 'cnpj', 'sexo', 'profissao', 'local_trabalho', 'telefone', 'celular', 'logradouro', 'numero', 'complemento', 'bairro', 'cidade', 'uf', 'email', 'observacao', 'cep', 'celular2', 'celular3', 'id_cliente_responsavel', 'enabled', 'created_at', 'updated_at', 'deleted_at'];
 
     /**
      * @return BelongsTo

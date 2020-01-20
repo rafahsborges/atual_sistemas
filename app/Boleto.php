@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property integer $id
  * @property integer $id_contrato_parcela
  * @property boolean $status
+ * @property boolean $enabled
  * @property string $created_at
  * @property string $updated_at
  * @property string $deleted_at
@@ -18,13 +19,6 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  */
 class Boleto extends Model
 {
-    /**
-     * The table associated with the model.
-     *
-     * @var string
-     */
-    protected $table = 'boleto';
-
     /**
      * The "type" of the auto-incrementing ID.
      *
@@ -35,7 +29,7 @@ class Boleto extends Model
     /**
      * @var array
      */
-    protected $fillable = ['id_contrato_parcela', 'status', 'created_at', 'updated_at', 'deleted_at'];
+    protected $fillable = ['id_contrato_parcela', 'status', 'enabled', 'created_at', 'updated_at', 'deleted_at'];
 
     /**
      * @return BelongsTo

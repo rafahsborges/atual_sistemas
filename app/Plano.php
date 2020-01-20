@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 /**
  * @property integer $id
  * @property string $nome
+ * @property boolean $enabled
  * @property string $created_at
  * @property string $updated_at
  * @property string $deleted_at
@@ -15,13 +16,6 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  */
 class Plano extends Model
 {
-    /**
-     * The table associated with the model.
-     *
-     * @var string
-     */
-    protected $table = 'plano';
-
     /**
      * The "type" of the auto-incrementing ID.
      *
@@ -32,7 +26,7 @@ class Plano extends Model
     /**
      * @var array
      */
-    protected $fillable = ['nome', 'created_at', 'updated_at', 'deleted_at'];
+    protected $fillable = ['nome', 'enabled', 'created_at', 'updated_at', 'deleted_at'];
 
     /**
      * @return HasMany

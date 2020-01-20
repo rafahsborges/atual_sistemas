@@ -16,6 +16,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property float $valor
  * @property float $numero_parcela
  * @property float $valor_pagamento
+ * @property boolean $enabled
  * @property string $created_at
  * @property string $updated_at
  * @property string $deleted_at
@@ -24,13 +25,6 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  */
 class ContratoParcela extends Model
 {
-    /**
-     * The table associated with the model.
-     *
-     * @var string
-     */
-    protected $table = 'contrato_parcela';
-
     /**
      * The "type" of the auto-incrementing ID.
      *
@@ -41,7 +35,7 @@ class ContratoParcela extends Model
     /**
      * @var array
      */
-    protected $fillable = ['id_contrato', 'vencimento', 'pagamento', 'id_boleto', 'id_carne', 'valor', 'numero_parcela', 'valor_pagamento', 'created_at', 'updated_at', 'deleted_at'];
+    protected $fillable = ['id_contrato', 'vencimento', 'pagamento', 'id_boleto', 'id_carne', 'valor', 'numero_parcela', 'valor_pagamento', 'enabled', 'created_at', 'updated_at', 'deleted_at'];
 
     /**
      * @return BelongsTo

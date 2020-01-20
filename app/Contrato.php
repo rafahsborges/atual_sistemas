@@ -22,6 +22,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property float $juros
  * @property float $multa
  * @property string $validade_contrato
+ * @property boolean $enabled
  * @property string $created_at
  * @property string $updated_at
  * @property string $deleted_at
@@ -33,13 +34,6 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Contrato extends Model
 {
     /**
-     * The table associated with the model.
-     *
-     * @var string
-     */
-    protected $table = 'contrato';
-
-    /**
      * The "type" of the auto-incrementing ID.
      *
      * @var string
@@ -49,7 +43,7 @@ class Contrato extends Model
     /**
      * @var array
      */
-    protected $fillable = ['id_cliente', 'id_plano', 'id_conta', 'primeira_parcela', 'ultima_parcela', 'data_assinatura', 'qtd_parcelas', 'tipo_pagamento', 'valor', 'plano_funeral', 'desconto', 'juros', 'multa', 'validade_contrato', 'created_at', 'updated_at', 'deleted_at'];
+    protected $fillable = ['id_cliente', 'id_plano', 'id_conta', 'primeira_parcela', 'ultima_parcela', 'data_assinatura', 'qtd_parcelas', 'tipo_pagamento', 'valor', 'plano_funeral', 'desconto', 'juros', 'multa', 'validade_contrato', 'enabled', 'created_at', 'updated_at', 'deleted_at'];
 
     /**
      * @return BelongsTo

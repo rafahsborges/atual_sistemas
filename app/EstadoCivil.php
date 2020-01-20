@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 /**
  * @property integer $id
  * @property string $descricao
+ * @property boolean $enabled
  * @property string $created_at
  * @property string $updated_at
  * @property string $deleted_at
@@ -15,13 +16,6 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  */
 class EstadoCivil extends Model
 {
-    /**
-     * The table associated with the model.
-     *
-     * @var string
-     */
-    protected $table = 'estado_civil';
-
     /**
      * The "type" of the auto-incrementing ID.
      *
@@ -32,7 +26,7 @@ class EstadoCivil extends Model
     /**
      * @var array
      */
-    protected $fillable = ['descricao', 'created_at', 'updated_at', 'deleted_at'];
+    protected $fillable = ['descricao', 'enabled', 'created_at', 'updated_at', 'deleted_at'];
 
     /**
      * @return HasMany

@@ -4,11 +4,11 @@
 
 use Faker\Generator as Faker;
 
-$factory->define(App\Models\Cliente::class, function (Faker $faker) {
+$factory->define(App\Cliente::class, function (Faker $faker) {
     return [
         'tipo' => $faker->boolean,
         'nome' => $faker->word,
-        'nascimento' => $faker->dateTime(),
+        'nascimento' => $faker->date(),
         'rg' => $faker->word,
         'cpf' => $faker->word,
         'insc_municipal' => $faker->word,
@@ -30,7 +30,8 @@ $factory->define(App\Models\Cliente::class, function (Faker $faker) {
         'celular2' => $faker->word,
         'celular3' => $faker->word,
         'id_cliente_responsavel' => $faker->randomNumber(),
-        'id_estado_civil' => $faker->randomNumber(),
+        'id_estado_civil' => factory(App\EstadoCivil::class),
         'enabled' => $faker->boolean,
+        'deleted_at' => $faker->dateTime(),
     ];
 });
