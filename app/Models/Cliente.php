@@ -3,11 +3,14 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Cliente extends Model
 {
     use SoftDeletes;
+
     protected $fillable = [
         'tipo',
         'nome',
@@ -35,18 +38,16 @@ class Cliente extends Model
         'id_cliente_responsavel',
         'id_estado_civil',
         'enabled',
-    
     ];
-    
-    
+
+
     protected $dates = [
         'nascimento',
         'created_at',
         'updated_at',
         'deleted_at',
-    
     ];
-    
+
     protected $appends = ['resource_url'];
 
     /* ************************ ACCESSOR ************************* */
@@ -54,5 +55,29 @@ class Cliente extends Model
     public function getResourceUrlAttribute()
     {
         return url('/admin/clientes/'.$this->getKey());
+    }
+
+    /**
+     * @return BelongsTo
+     */
+    public function estadoCivil()
+    {
+        return $this->belongsTo('App\Models\EstadoCivil', 'id_estado_civil');
+    }
+
+    /**
+     * @return HasMany
+     */
+    public function contratos()
+    {
+        return $this->hasMany('App\Models\Contrato', 'id_cliente');
+    }
+
+    /**
+     * @return HasMany
+     */
+    public function dependentes()
+    {
+        return $this->hasMany('App\Models\Dependente', 'id_cliente');
     }
 }

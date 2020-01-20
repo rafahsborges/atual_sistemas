@@ -52,7 +52,7 @@ class UpdateCliente extends FormRequest
             'id_cliente_responsavel' => ['nullable', 'integer'],
             'id_estado_civil' => ['nullable', 'string'],
             'enabled' => ['sometimes', 'boolean'],
-            
+            'civil' => ['required'],
         ];
     }
 
@@ -69,5 +69,12 @@ class UpdateCliente extends FormRequest
         //Add your code for manipulation with request data here
 
         return $sanitized;
+    }
+
+    public function getEstadoCivilId(){
+        if ($this->has('civil')){
+            return $this->get('civil')['id'];
+        }
+        return null;
     }
 }

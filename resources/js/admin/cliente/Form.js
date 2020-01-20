@@ -31,7 +31,7 @@ Vue.component('cliente-form', {
                 id_cliente_responsavel:  '' ,
                 id_estado_civil:  '' ,
                 enabled:  false ,
-                
+                civil: '',
             }
         }
     }

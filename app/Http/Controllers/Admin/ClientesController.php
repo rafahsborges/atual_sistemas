@@ -9,6 +9,7 @@ use App\Http\Requests\Admin\Cliente\IndexCliente;
 use App\Http\Requests\Admin\Cliente\StoreCliente;
 use App\Http\Requests\Admin\Cliente\UpdateCliente;
 use App\Models\Cliente;
+use App\Models\EstadoCivil;
 use Brackets\AdminListing\Facades\AdminListing;
 use Carbon\Carbon;
 use Exception;
@@ -41,7 +42,14 @@ class ClientesController extends Controller
             ['id', 'tipo', 'nome', 'nascimento', 'rg', 'cpf', 'insc_municipal', 'cnpj', 'sexo', 'profissao', 'local_trabalho', 'telefone', 'celular', 'logradouro', 'numero', 'complemento', 'bairro', 'cidade', 'uf', 'email', 'observacao', 'cep', 'celular2', 'celular3', 'id_cliente_responsavel', 'id_estado_civil', 'enabled'],
 
             // set columns to searchIn
-            ['id', 'nome', 'rg', 'cpf', 'insc_municipal', 'cnpj', 'sexo', 'profissao', 'local_trabalho', 'telefone', 'celular', 'logradouro', 'numero', 'complemento', 'bairro', 'cidade', 'uf', 'email', 'observacao', 'cep', 'celular2', 'celular3']
+            ['id', 'nome', 'rg', 'cpf', 'insc_municipal', 'cnpj', 'sexo', 'profissao', 'local_trabalho', 'telefone', 'celular', 'logradouro', 'numero', 'complemento', 'bairro', 'cidade', 'uf', 'email', 'observacao', 'cep', 'celular2', 'celular3'],
+
+            function ($query) use ($request) {
+                $query->with(['estadoCivil']);
+                if($request->has('civils')){
+                    $query->whereIn('id_estado_civil', $request->get('civils'));
+                }
+            }
         );
 
         if ($request->ajax()) {
@@ -53,7 +61,10 @@ class ClientesController extends Controller
             return ['data' => $data];
         }
 
-        return view('admin.cliente.index', ['data' => $data]);
+        return view('admin.cliente.index', [
+            'data' => $data,
+            'civils' => EstadoCivil::all(),
+        ]);
     }
 
     /**
@@ -66,7 +77,9 @@ class ClientesController extends Controller
     {
         $this->authorize('admin.cliente.create');
 
-        return view('admin.cliente.create');
+        return view('admin.cliente.create', [
+            'civils' => EstadoCivil::all(),
+        ]);
     }
 
     /**
@@ -79,6 +92,7 @@ class ClientesController extends Controller
     {
         // Sanitize input
         $sanitized = $request->getSanitized();
+        $sanitized['id_estado_civil'] = $request->getEstadoCivilId();
 
         // Store the Cliente
         $cliente = Cliente::create($sanitized);
@@ -118,6 +132,7 @@ class ClientesController extends Controller
 
         return view('admin.cliente.edit', [
             'cliente' => $cliente,
+            'civils' => EstadoCivil::all(),
         ]);
     }
 
@@ -132,6 +147,7 @@ class ClientesController extends Controller
     {
         // Sanitize input
         $sanitized = $request->getSanitized();
+        $sanitized['id_estado_civil'] = $request->getEstadoCivilId();
 
         // Update changed values Cliente
         $cliente->update($sanitized);

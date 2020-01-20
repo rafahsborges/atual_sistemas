@@ -52,7 +52,7 @@ class StoreCliente extends FormRequest
             'id_cliente_responsavel' => ['nullable', 'integer'],
             'id_estado_civil' => ['nullable', 'string'],
             'enabled' => ['required', 'boolean'],
-            
+            'civil' => ['required'],
         ];
     }
 
@@ -68,5 +68,12 @@ class StoreCliente extends FormRequest
         //Add your code for manipulation with request data here
 
         return $sanitized;
+    }
+
+    public function getEstadoCivilId(){
+        if ($this->has('civil')){
+            return $this->get('civil')['id'];
+        }
+        return null;
     }
 }
