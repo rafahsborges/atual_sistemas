@@ -18,5 +18,8 @@
         "sass": "^1.15.2",
         "sass-loader": "^7.1.0",
         "craftable": "^2.1.3"
+    },
+    "dependencies": {
+        "vue-the-mask": "^0.11.1"
     }
 }

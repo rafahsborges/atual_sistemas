@@ -49,18 +49,17 @@ class StoreCliente extends FormRequest
             'cep' => ['nullable', 'string'],
             'celular2' => ['nullable', 'string'],
             'celular3' => ['nullable', 'string'],
-            'id_cliente_responsavel' => ['nullable', 'integer'],
-            'id_estado_civil' => ['nullable', 'string'],
+            'id_cliente_responsavel.id' => ['nullable', 'integer'],
+            'id_estado_civil.id' => ['nullable', 'integer'],
             'enabled' => ['required', 'boolean'],
-            'civil' => ['required'],
         ];
     }
 
     /**
-    * Modify input data
-    *
-    * @return array
-    */
+     * Modify input data
+     *
+     * @return array
+     */
     public function getSanitized(): array
     {
         $sanitized = $this->validated();
@@ -70,9 +69,18 @@ class StoreCliente extends FormRequest
         return $sanitized;
     }
 
-    public function getEstadoCivilId(){
-        if ($this->has('civil')){
-            return $this->get('civil')['id'];
+    public function getEstadoCivilId()
+    {
+        if ($this->has('id_estado_civil')) {
+            return $this->get('id_estado_civil')['id'];
+        }
+        return null;
+    }
+
+    public function getClienteResponsavelId()
+    {
+        if ($this->has('id_cliente_responsavel')) {
+            return $this->get('id_cliente_responsavel')['id'];
         }
         return null;
     }

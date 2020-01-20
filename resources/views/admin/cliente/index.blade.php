@@ -76,29 +76,6 @@
                                         <th is='sortable' :column="'id'">{{ trans('admin.cliente.columns.id') }}</th>
                                         <th is='sortable' :column="'tipo'">{{ trans('admin.cliente.columns.tipo') }}</th>
                                         <th is='sortable' :column="'nome'">{{ trans('admin.cliente.columns.nome') }}</th>
-                                        <th is='sortable' :column="'nascimento'">{{ trans('admin.cliente.columns.nascimento') }}</th>
-                                        <th is='sortable' :column="'rg'">{{ trans('admin.cliente.columns.rg') }}</th>
-                                        <th is='sortable' :column="'cpf'">{{ trans('admin.cliente.columns.cpf') }}</th>
-                                        <th is='sortable' :column="'insc_municipal'">{{ trans('admin.cliente.columns.insc_municipal') }}</th>
-                                        <th is='sortable' :column="'cnpj'">{{ trans('admin.cliente.columns.cnpj') }}</th>
-                                        <th is='sortable' :column="'sexo'">{{ trans('admin.cliente.columns.sexo') }}</th>
-                                        <th is='sortable' :column="'profissao'">{{ trans('admin.cliente.columns.profissao') }}</th>
-                                        <th is='sortable' :column="'local_trabalho'">{{ trans('admin.cliente.columns.local_trabalho') }}</th>
-                                        <th is='sortable' :column="'telefone'">{{ trans('admin.cliente.columns.telefone') }}</th>
-                                        <th is='sortable' :column="'celular'">{{ trans('admin.cliente.columns.celular') }}</th>
-                                        <th is='sortable' :column="'logradouro'">{{ trans('admin.cliente.columns.logradouro') }}</th>
-                                        <th is='sortable' :column="'numero'">{{ trans('admin.cliente.columns.numero') }}</th>
-                                        <th is='sortable' :column="'complemento'">{{ trans('admin.cliente.columns.complemento') }}</th>
-                                        <th is='sortable' :column="'bairro'">{{ trans('admin.cliente.columns.bairro') }}</th>
-                                        <th is='sortable' :column="'cidade'">{{ trans('admin.cliente.columns.cidade') }}</th>
-                                        <th is='sortable' :column="'uf'">{{ trans('admin.cliente.columns.uf') }}</th>
-                                        <th is='sortable' :column="'email'">{{ trans('admin.cliente.columns.email') }}</th>
-                                        <th is='sortable' :column="'observacao'">{{ trans('admin.cliente.columns.observacao') }}</th>
-                                        <th is='sortable' :column="'cep'">{{ trans('admin.cliente.columns.cep') }}</th>
-                                        <th is='sortable' :column="'celular2'">{{ trans('admin.cliente.columns.celular2') }}</th>
-                                        <th is='sortable' :column="'celular3'">{{ trans('admin.cliente.columns.celular3') }}</th>
-                                        <th is='sortable' :column="'id_cliente_responsavel'">{{ trans('admin.cliente.columns.id_cliente_responsavel') }}</th>
-                                        <th is='sortable' :column="'id_estado_civil'">{{ trans('admin.cliente.columns.id_estado_civil') }}</th>
                                         <th is='sortable' :column="'enabled'">{{ trans('admin.cliente.columns.enabled') }}</th>
 
                                         <th></th>
@@ -124,31 +101,8 @@
                                         </td>
 
                                     <td>@{{ item.id }}</td>
-                                        <td>@{{ item.tipo }}</td>
+                                        <td>@{{ item.tipo == 1 ? 'Pessoa Jurídica' : 'Pessoa Física' }}</td>
                                         <td>@{{ item.nome }}</td>
-                                        <td>@{{ item.nascimento | date }}</td>
-                                        <td>@{{ item.rg }}</td>
-                                        <td>@{{ item.cpf }}</td>
-                                        <td>@{{ item.insc_municipal }}</td>
-                                        <td>@{{ item.cnpj }}</td>
-                                        <td>@{{ item.sexo }}</td>
-                                        <td>@{{ item.profissao }}</td>
-                                        <td>@{{ item.local_trabalho }}</td>
-                                        <td>@{{ item.telefone }}</td>
-                                        <td>@{{ item.celular }}</td>
-                                        <td>@{{ item.logradouro }}</td>
-                                        <td>@{{ item.numero }}</td>
-                                        <td>@{{ item.complemento }}</td>
-                                        <td>@{{ item.bairro }}</td>
-                                        <td>@{{ item.cidade }}</td>
-                                        <td>@{{ item.uf }}</td>
-                                        <td>@{{ item.email }}</td>
-                                        <td>@{{ item.observacao }}</td>
-                                        <td>@{{ item.cep }}</td>
-                                        <td>@{{ item.celular2 }}</td>
-                                        <td>@{{ item.celular3 }}</td>
-                                        <td>@{{ item.id_cliente_responsavel }}</td>
-                                        <td>@{{ item.id_estado_civil }}</td>
                                         <td>
                                             <label class="switch switch-3d switch-success">
                                                 <input type="checkbox" class="switch-input" v-model="collection[index].enabled" @change="toggleSwitch(item.resource_url, 'enabled', collection[index])">

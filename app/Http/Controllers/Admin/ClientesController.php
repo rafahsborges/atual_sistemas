@@ -64,6 +64,7 @@ class ClientesController extends Controller
         return view('admin.cliente.index', [
             'data' => $data,
             'civils' => EstadoCivil::all(),
+            'empresas' => Cliente::where('tipo', 1)->get(),
         ]);
     }
 
@@ -79,6 +80,7 @@ class ClientesController extends Controller
 
         return view('admin.cliente.create', [
             'civils' => EstadoCivil::all(),
+            'empresas' => Cliente::where('tipo', 1)->get(),
         ]);
     }
 
@@ -93,6 +95,7 @@ class ClientesController extends Controller
         // Sanitize input
         $sanitized = $request->getSanitized();
         $sanitized['id_estado_civil'] = $request->getEstadoCivilId();
+        $sanitized['id_cliente_responsavel'] = $request->getClienteResponsavelId();
 
         // Store the Cliente
         $cliente = Cliente::create($sanitized);
@@ -129,10 +132,10 @@ class ClientesController extends Controller
     {
         $this->authorize('admin.cliente.edit', $cliente);
 
-
         return view('admin.cliente.edit', [
             'cliente' => $cliente,
             'civils' => EstadoCivil::all(),
+            'empresas' => Cliente::where('tipo', 1)->get(),
         ]);
     }
 
@@ -148,6 +151,7 @@ class ClientesController extends Controller
         // Sanitize input
         $sanitized = $request->getSanitized();
         $sanitized['id_estado_civil'] = $request->getEstadoCivilId();
+        $sanitized['id_cliente_responsavel'] = $request->getClienteResponsavelId();
 
         // Update changed values Cliente
         $cliente->update($sanitized);

@@ -49,10 +49,9 @@ class UpdateCliente extends FormRequest
             'cep' => ['nullable', 'string'],
             'celular2' => ['nullable', 'string'],
             'celular3' => ['nullable', 'string'],
-            'id_cliente_responsavel' => ['nullable', 'integer'],
-            'id_estado_civil' => ['nullable', 'string'],
+            'id_cliente_responsavel.id' => ['nullable', 'integer'],
+            'id_estado_civil' => ['nullable', 'integer'],
             'enabled' => ['sometimes', 'boolean'],
-            'civil' => ['required'],
         ];
     }
 
@@ -65,15 +64,23 @@ class UpdateCliente extends FormRequest
     {
         $sanitized = $this->validated();
 
-
         //Add your code for manipulation with request data here
 
         return $sanitized;
     }
 
-    public function getEstadoCivilId(){
-        if ($this->has('civil')){
-            return $this->get('civil')['id'];
+    public function getEstadoCivilId()
+    {
+        if ($this->has('id_estado_civil')) {
+            return $this->get('id_estado_civil')['id'];
+        }
+        return null;
+    }
+
+    public function getClienteResponsavelId()
+    {
+        if ($this->has('id_cliente_responsavel')) {
+            return $this->get('id_cliente_responsavel')['id'];
         }
         return null;
     }

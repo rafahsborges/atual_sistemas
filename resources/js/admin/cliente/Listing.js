@@ -4,6 +4,7 @@ Vue.component('cliente-listing', {
     mixins: [AppListing],
     data() {
         return {
+            showPJ: false,
             showCivilsFilter: false,
             civilsMultiselect: {},
 

@@ -9,8 +9,8 @@
 
             <cliente-form
                 :action="'{{ $cliente->resource_url }}'"
-                :data="'{{ $cliente->toJson() }}"
-                :civils="{{$civils->toJson()}}"
+                :data="{{ $cliente->toJson() }}"
+                :civils="{{ $civils->toJson() }}"
                 v-cloak
                 inline-template>
 
