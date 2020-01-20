@@ -3,12 +3,12 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\Plano\BulkDestroyPlano;
-use App\Http\Requests\Admin\Plano\DestroyPlano;
-use App\Http\Requests\Admin\Plano\IndexPlano;
-use App\Http\Requests\Admin\Plano\StorePlano;
-use App\Http\Requests\Admin\Plano\UpdatePlano;
-use App\Models\Plano;
+use App\Http\Requests\Admin\EstadoCivil\BulkDestroyEstadoCivil;
+use App\Http\Requests\Admin\EstadoCivil\DestroyEstadoCivil;
+use App\Http\Requests\Admin\EstadoCivil\IndexEstadoCivil;
+use App\Http\Requests\Admin\EstadoCivil\StoreEstadoCivil;
+use App\Http\Requests\Admin\EstadoCivil\UpdateEstadoCivil;
+use App\Models\EstadoCivil;
 use Brackets\AdminListing\Facades\AdminListing;
 use Carbon\Carbon;
 use Exception;
@@ -21,27 +21,27 @@ use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
 
-class PlanosController extends Controller
+class EstadoCivilController extends Controller
 {
 
     /**
      * Display a listing of the resource.
      *
-     * @param IndexPlano $request
+     * @param IndexEstadoCivil $request
      * @return array|Factory|View
      */
-    public function index(IndexPlano $request)
+    public function index(IndexEstadoCivil $request)
     {
         // create and AdminListing instance for a specific model and
-        $data = AdminListing::create(Plano::class)->processRequestAndGet(
-        // pass the request with params
+        $data = AdminListing::create(EstadoCivil::class)->processRequestAndGet(
+            // pass the request with params
             $request,
 
             // set columns to query
-            ['id', 'nome'],
+            ['id', 'descricao'],
 
             // set columns to searchIn
-            ['id', 'nome']
+            ['id', 'descricao']
         );
 
         if ($request->ajax()) {
@@ -53,53 +53,53 @@ class PlanosController extends Controller
             return ['data' => $data];
         }
 
-        return view('admin.plano.index', ['data' => $data]);
+        return view('admin.estado-civil.index', ['data' => $data]);
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @return Factory|View
      * @throws AuthorizationException
+     * @return Factory|View
      */
     public function create()
     {
-        $this->authorize('admin.plano.create');
+        $this->authorize('admin.estado-civil.create');
 
-        return view('admin.plano.create');
+        return view('admin.estado-civil.create');
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param StorePlano $request
+     * @param StoreEstadoCivil $request
      * @return array|RedirectResponse|Redirector
      */
-    public function store(StorePlano $request)
+    public function store(StoreEstadoCivil $request)
     {
         // Sanitize input
         $sanitized = $request->getSanitized();
 
-        // Store the Plano
-        $plano = Plano::create($sanitized);
+        // Store the EstadoCivil
+        $estadoCivil = EstadoCivil::create($sanitized);
 
         if ($request->ajax()) {
-            return ['redirect' => url('admin/planos'), 'message' => trans('brackets/admin-ui::admin.operation.succeeded')];
+            return ['redirect' => url('admin/estado-civils'), 'message' => trans('brackets/admin-ui::admin.operation.succeeded')];
         }
 
-        return redirect('admin/planos');
+        return redirect('admin/estado-civils');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param Plano $plano
-     * @return void
+     * @param EstadoCivil $estadoCivil
      * @throws AuthorizationException
+     * @return void
      */
-    public function show(Plano $plano)
+    public function show(EstadoCivil $estadoCivil)
     {
-        $this->authorize('admin.plano.show', $plano);
+        $this->authorize('admin.estado-civil.show', $estadoCivil);
 
         // TODO your code goes here
     }
@@ -107,56 +107,56 @@ class PlanosController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param Plano $plano
-     * @return Factory|View
+     * @param EstadoCivil $estadoCivil
      * @throws AuthorizationException
+     * @return Factory|View
      */
-    public function edit(Plano $plano)
+    public function edit(EstadoCivil $estadoCivil)
     {
-        $this->authorize('admin.plano.edit', $plano);
+        $this->authorize('admin.estado-civil.edit', $estadoCivil);
 
 
-        return view('admin.plano.edit', [
-            'plano' => $plano,
+        return view('admin.estado-civil.edit', [
+            'estadoCivil' => $estadoCivil,
         ]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param UpdatePlano $request
-     * @param Plano $plano
+     * @param UpdateEstadoCivil $request
+     * @param EstadoCivil $estadoCivil
      * @return array|RedirectResponse|Redirector
      */
-    public function update(UpdatePlano $request, Plano $plano)
+    public function update(UpdateEstadoCivil $request, EstadoCivil $estadoCivil)
     {
         // Sanitize input
         $sanitized = $request->getSanitized();
 
-        // Update changed values Plano
-        $plano->update($sanitized);
+        // Update changed values EstadoCivil
+        $estadoCivil->update($sanitized);
 
         if ($request->ajax()) {
             return [
-                'redirect' => url('admin/planos'),
+                'redirect' => url('admin/estado-civils'),
                 'message' => trans('brackets/admin-ui::admin.operation.succeeded'),
             ];
         }
 
-        return redirect('admin/planos');
+        return redirect('admin/estado-civils');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param DestroyPlano $request
-     * @param Plano $plano
-     * @return ResponseFactory|RedirectResponse|Response
+     * @param DestroyEstadoCivil $request
+     * @param EstadoCivil $estadoCivil
      * @throws Exception
+     * @return ResponseFactory|RedirectResponse|Response
      */
-    public function destroy(DestroyPlano $request, Plano $plano)
+    public function destroy(DestroyEstadoCivil $request, EstadoCivil $estadoCivil)
     {
-        $plano->delete();
+        $estadoCivil->delete();
 
         if ($request->ajax()) {
             return response(['message' => trans('brackets/admin-ui::admin.operation.succeeded')]);
@@ -168,20 +168,20 @@ class PlanosController extends Controller
     /**
      * Remove the specified resources from storage.
      *
-     * @param BulkDestroyPlano $request
-     * @return Response|bool
+     * @param BulkDestroyEstadoCivil $request
      * @throws Exception
+     * @return Response|bool
      */
-    public function bulkDestroy(BulkDestroyPlano $request): Response
+    public function bulkDestroy(BulkDestroyEstadoCivil $request) : Response
     {
         DB::transaction(static function () use ($request) {
             collect($request->data['ids'])
                 ->chunk(1000)
                 ->each(static function ($bulkChunk) {
-                    DB::table('plano')->whereIn('id', $bulkChunk)
+                    DB::table('estadoCivils')->whereIn('id', $bulkChunk)
                         ->update([
                             'deleted_at' => Carbon::now()->format('Y-m-d H:i:s')
-                        ]);
+                    ]);
 
                     // TODO your code goes here
                 });

@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Plano extends Model
+class EstadoCivil extends Model
 {
     use SoftDeletes;
 
@@ -14,7 +14,7 @@ class Plano extends Model
      *
      * @var string
      */
-    protected $table = 'plano';
+    protected $table = 'estado_civil';
 
     /**
      * The "type" of the auto-incrementing ID.
@@ -24,7 +24,7 @@ class Plano extends Model
     protected $keyType = 'integer';
 
     protected $fillable = [
-        'nome',
+        'descricao',
     ];
 
     protected $dates = [
@@ -39,6 +39,6 @@ class Plano extends Model
 
     public function getResourceUrlAttribute()
     {
-        return url('/admin/planos/' . $this->getKey());
+        return url('/admin/estado-civils/'.$this->getKey());
     }
 }

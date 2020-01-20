@@ -43,5 +43,36 @@ return [
         ],
     ],
 
+    'parentesco' => [
+        'title' => 'Parentescos',
+
+        'actions' => [
+            'index' => 'Parentescos',
+            'create' => 'New Parentesco',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'descricao' => 'Descricao',
+        ],
+    ],
+
+    'estado-civil' => [
+        'title' => 'Estados Civis',
+
+        'actions' => [
+            'index' => 'Estados Civis',
+            'create' => 'New Estado Civil',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'descricao' => 'Descricao',
+
+        ],
+    ],
+
     // Do not delete me :) I'm used for auto-generation
 ];
