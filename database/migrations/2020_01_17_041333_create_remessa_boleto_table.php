@@ -16,6 +16,11 @@ class CreateRemessaBoletoTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('id_boleto')->index('fk_rem_bol_remessa')->nullable();
             $table->unsignedBigInteger('id_remessa')->index('fk_rem_bol_boleto')->nullable();
+            $table->boolean('enabled')->default(false);
+            $table->timestamps();
+            $table->softDeletes();
+        });
+        Schema::table('remessa_boleto', function (Blueprint $table) {
             $table->foreign('id_boleto', 'fk_rem_bol_boleto')
                 ->references('id')->on('boleto')
                 ->onUpdate('restrict')
@@ -24,9 +29,6 @@ class CreateRemessaBoletoTable extends Migration
                 ->references('id')->on('remessa')
                 ->onUpdate('restrict')
                 ->onDelete('restrict');
-            $table->boolean('enabled')->default(false);
-            $table->timestamps();
-            $table->softDeletes();
         });
     }
 
