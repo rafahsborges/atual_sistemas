@@ -18,7 +18,12 @@ class CreateRemessaTable extends Migration
             $table->decimal('id_usuario', 9, 0);
             $table->string('nome', 30);
             $table->decimal('sequencia', 9, 0)->nullable();
-            $table->unsignedBigInteger('id_conta')->default(2)->index('fk_conta_remessa');
+            $table->unsignedBigInteger('id_conta')->index('fk_conta_remessa')->nullable();
+            $table->foreign('id_conta', 'fk_conta_remessa')
+                ->references('id')->on('conta')
+                ->onUpdate('restrict')
+                ->onDelete('restrict');
+            $table->boolean('enabled')->default(false);
             $table->timestamps();
             $table->softDeletes();
         });
@@ -31,6 +36,9 @@ class CreateRemessaTable extends Migration
      */
     public function down()
     {
+        Schema::table('remessa', function (Blueprint $table) {
+            $table->dropForeign('fk_conta_remessa');
+        });
         Schema::drop('remessa');
     }
 }

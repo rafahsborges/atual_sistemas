@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class AddForeignKeysToDependenteTable extends Migration
+class CreateDependenteTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,7 +12,12 @@ class AddForeignKeysToDependenteTable extends Migration
      */
     public function up()
     {
-        Schema::table('dependente', function (Blueprint $table) {
+        Schema::create('dependente', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('nome');
+            $table->date('nascimento');
+            $table->unsignedBigInteger('id_cliente')->index('fk_dependente_cliente')->nullable();
+            $table->unsignedBigInteger('id_parentesco')->index('fk_dependente_parentesco')->nullable();
             $table->foreign('id_cliente', 'fk_dependente_cliente')
                 ->references('id')->on('cliente')
                 ->onUpdate('restrict')
@@ -21,6 +26,9 @@ class AddForeignKeysToDependenteTable extends Migration
                 ->references('id')->on('parentesco')
                 ->onUpdate('restrict')
                 ->onDelete('restrict');
+            $table->boolean('enabled')->default(false);
+            $table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -35,5 +43,6 @@ class AddForeignKeysToDependenteTable extends Migration
             $table->dropForeign('fk_dependente_cliente');
             $table->dropForeign('fk_dependente_parentesco');
         });
+        Schema::drop('dependente');
     }
 }

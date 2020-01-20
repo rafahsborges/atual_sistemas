@@ -22,7 +22,6 @@ class CreateClienteTable extends Migration
             $table->string('insc_municipal', 30)->nullable();
             $table->string('cnpj', 18)->nullable();
             $table->string('sexo', 1)->nullable();
-            $table->unsignedBigInteger('id_estado_civil')->index('fk_cliente_est_civil');
             $table->string('profissao')->nullable();
             $table->string('local_trabalho')->nullable();
             $table->string('telefone', 13)->nullable();
@@ -38,7 +37,13 @@ class CreateClienteTable extends Migration
             $table->string('cep', 9)->nullable();
             $table->string('celular2', 14)->nullable();
             $table->string('celular3', 14)->nullable();
-            $table->decimal('id_cliente_responsavel', 9, 0)->nullable();
+            $table->integer('id_cliente_responsavel')->nullable();
+            $table->unsignedBigInteger('id_estado_civil')->index('fk_cliente_est_civil')->nullable();
+            $table->foreign('id_estado_civil', 'fk_cliente_est_civil')
+                ->references('id')->on('estado_civil')
+                ->onUpdate('restrict')
+                ->onDelete('restrict');
+            $table->boolean('enabled')->default(false);
             $table->timestamps();
             $table->softDeletes();
         });
@@ -51,6 +56,9 @@ class CreateClienteTable extends Migration
      */
     public function down()
     {
+        Schema::table('cliente', function (Blueprint $table) {
+            $table->dropForeign('fk_cliente_est_civil');
+        });
         Schema::drop('cliente');
     }
 }

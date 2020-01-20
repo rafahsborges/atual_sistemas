@@ -14,7 +14,6 @@ class CreateContratoParcelaTable extends Migration
     {
         Schema::create('contrato_parcela', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('id_contrato')->index('fk_contr_parcela_contrato');
             $table->date('vencimento');
             $table->date('pagamento')->nullable();
             $table->decimal('id_boleto', 9, 0)->nullable();
@@ -22,6 +21,12 @@ class CreateContratoParcelaTable extends Migration
             $table->decimal('valor', 9);
             $table->decimal('numero_parcela', 2, 0)->nullable();
             $table->decimal('valor_pagamento', 9)->nullable();
+            $table->unsignedBigInteger('id_contrato')->index('fk_contr_parcela_contrato')->nullable();
+            $table->foreign('id_contrato', 'fk_contr_parcela_contrato')
+                ->references('id')->on('contrato')
+                ->onUpdate('restrict')
+                ->onDelete('restrict');
+            $table->boolean('enabled')->default(false);
             $table->timestamps();
             $table->softDeletes();
         });
@@ -34,6 +39,9 @@ class CreateContratoParcelaTable extends Migration
      */
     public function down()
     {
+        Schema::table('contrato_parcela', function (Blueprint $table) {
+            $table->dropForeign('fk_contr_parcela_contrato');
+        });
         Schema::drop('contrato_parcela');
     }
 }

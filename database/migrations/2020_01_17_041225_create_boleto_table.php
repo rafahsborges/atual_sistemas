@@ -14,8 +14,13 @@ class CreateBoletoTable extends Migration
     {
         Schema::create('boleto', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('id_contrato_parcela')->index('fk_boleto_contr_parcela');
             $table->boolean('status');
+            $table->unsignedBigInteger('id_contrato_parcela')->index('fk_boleto_contr_parcela')->nullable();
+            $table->foreign('id_contrato_parcela', 'fk_boleto_contr_parcela')
+                ->references('id')->on('contrato_parcela')
+                ->onUpdate('restrict')
+                ->onDelete('restrict');
+            $table->boolean('enabled')->default(false);
             $table->timestamps();
             $table->softDeletes();
         });
@@ -28,6 +33,9 @@ class CreateBoletoTable extends Migration
      */
     public function down()
     {
+        Schema::table('boleto', function (Blueprint $table) {
+            $table->dropForeign('fk_boleto_contr_parcela');
+        });
         Schema::drop('boleto');
     }
 }
