@@ -74,5 +74,44 @@ return [
         ],
     ],
 
+    'cliente' => [
+        'title' => 'Clientes',
+
+        'actions' => [
+            'index' => 'Clientes',
+            'create' => 'New Cliente',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'tipo' => 'Tipo',
+            'nome' => 'Nome',
+            'nascimento' => 'Nascimento',
+            'rg' => 'Rg',
+            'cpf' => 'Cpf',
+            'insc_municipal' => 'Insc municipal',
+            'cnpj' => 'Cnpj',
+            'sexo' => 'Sexo',
+            'id_estado_civil' => 'Id estado civil',
+            'profissao' => 'Profissao',
+            'local_trabalho' => 'Local trabalho',
+            'telefone' => 'Telefone',
+            'celular' => 'Celular',
+            'logradouro' => 'Logradouro',
+            'numero' => 'Numero',
+            'complemento' => 'Complemento',
+            'bairro' => 'Bairro',
+            'cidade' => 'Cidade',
+            'uf' => 'Uf',
+            'email' => 'Email',
+            'observacao' => 'Observacao',
+            'cep' => 'Cep',
+            'celular2' => 'Celular2',
+            'celular3' => 'Celular3',
+            'id_cliente_responsavel' => 'Id cliente responsavel',
+        ],
+    ],
+
     // Do not delete me :) I'm used for auto-generation
 ];
