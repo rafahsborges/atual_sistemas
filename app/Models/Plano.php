@@ -32,7 +32,6 @@ class Plano extends Model
         'created_at',
         'updated_at',
         'deleted_at',
-
     ];
 
     protected $appends = ['resource_url'];
@@ -41,6 +40,6 @@ class Plano extends Model
 
     public function getResourceUrlAttribute()
     {
-        return url('/admin/planos/'.$this->getKey());
+        return url('/admin/planos/' . $this->getKey());
     }
 }

@@ -5,7 +5,6 @@ use Illuminate\Database\Schema\Blueprint;
 
 class AddForeignKeysToRemessaTable extends Migration
 {
-
     /**
      * Run the migrations.
      *
@@ -21,7 +20,6 @@ class AddForeignKeysToRemessaTable extends Migration
         });
     }
 
-
     /**
      * Reverse the migrations.
      *
@@ -33,5 +31,4 @@ class AddForeignKeysToRemessaTable extends Migration
             $table->dropForeign('fk_conta_remessa');
         });
     }
-
 }

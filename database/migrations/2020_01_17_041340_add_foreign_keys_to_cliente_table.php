@@ -5,7 +5,6 @@ use Illuminate\Database\Schema\Blueprint;
 
 class AddForeignKeysToClienteTable extends Migration
 {
-
     /**
      * Run the migrations.
      *
@@ -21,7 +20,6 @@ class AddForeignKeysToClienteTable extends Migration
         });
     }
 
-
     /**
      * Reverse the migrations.
      *
@@ -33,5 +31,4 @@ class AddForeignKeysToClienteTable extends Migration
             $table->dropForeign('fk_cliente_est_civil');
         });
     }
-
 }

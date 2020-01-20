@@ -5,7 +5,6 @@ use Illuminate\Database\Schema\Blueprint;
 
 class CreateDependenteTable extends Migration
 {
-
     /**
      * Run the migrations.
      *
@@ -24,7 +23,6 @@ class CreateDependenteTable extends Migration
         });
     }
 
-
     /**
      * Reverse the migrations.
      *
@@ -34,5 +32,4 @@ class CreateDependenteTable extends Migration
     {
         Schema::drop('dependente');
     }
-
 }

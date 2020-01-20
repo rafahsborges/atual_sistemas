@@ -5,7 +5,6 @@ use Illuminate\Database\Schema\Blueprint;
 
 class AddForeignKeysToBoletoTable extends Migration
 {
-
     /**
      * Run the migrations.
      *
@@ -21,7 +20,6 @@ class AddForeignKeysToBoletoTable extends Migration
         });
     }
 
-
     /**
      * Reverse the migrations.
      *
@@ -33,5 +31,4 @@ class AddForeignKeysToBoletoTable extends Migration
             $table->dropForeign('fk_boleto_contr_parcela');
         });
     }
-
 }

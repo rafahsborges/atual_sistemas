@@ -5,7 +5,6 @@ use Illuminate\Database\Schema\Blueprint;
 
 class CreateContaTable extends Migration
 {
-
     /**
      * Run the migrations.
      *
@@ -32,7 +31,6 @@ class CreateContaTable extends Migration
         });
     }
 
-
     /**
      * Reverse the migrations.
      *
@@ -42,5 +40,4 @@ class CreateContaTable extends Migration
     {
         Schema::drop('conta');
     }
-
 }

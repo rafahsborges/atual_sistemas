@@ -5,7 +5,6 @@ use Illuminate\Database\Schema\Blueprint;
 
 class AddForeignKeysToDependenteTable extends Migration
 {
-
     /**
      * Run the migrations.
      *
@@ -25,7 +24,6 @@ class AddForeignKeysToDependenteTable extends Migration
         });
     }
 
-
     /**
      * Reverse the migrations.
      *
@@ -38,5 +36,4 @@ class AddForeignKeysToDependenteTable extends Migration
             $table->dropForeign('fk_dependente_parentesco');
         });
     }
-
 }

@@ -10,6 +10,7 @@ use App\Http\Requests\Admin\Plano\StorePlano;
 use App\Http\Requests\Admin\Plano\UpdatePlano;
 use App\Models\Plano;
 use Brackets\AdminListing\Facades\AdminListing;
+use Carbon\Carbon;
 use Exception;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Contracts\Routing\ResponseFactory;
@@ -33,14 +34,14 @@ class PlanosController extends Controller
     {
         // create and AdminListing instance for a specific model and
         $data = AdminListing::create(Plano::class)->processRequestAndGet(
-            // pass the request with params
+        // pass the request with params
             $request,
 
             // set columns to query
-            [''],
+            ['id', 'nome'],
 
             // set columns to searchIn
-            ['']
+            ['id', 'nome']
         );
 
         if ($request->ajax()) {
@@ -58,8 +59,8 @@ class PlanosController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @throws AuthorizationException
      * @return Factory|View
+     * @throws AuthorizationException
      */
     public function create()
     {
@@ -93,8 +94,8 @@ class PlanosController extends Controller
      * Display the specified resource.
      *
      * @param Plano $plano
-     * @throws AuthorizationException
      * @return void
+     * @throws AuthorizationException
      */
     public function show(Plano $plano)
     {
@@ -107,8 +108,8 @@ class PlanosController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param Plano $plano
-     * @throws AuthorizationException
      * @return Factory|View
+     * @throws AuthorizationException
      */
     public function edit(Plano $plano)
     {
@@ -150,8 +151,8 @@ class PlanosController extends Controller
      *
      * @param DestroyPlano $request
      * @param Plano $plano
-     * @throws Exception
      * @return ResponseFactory|RedirectResponse|Response
+     * @throws Exception
      */
     public function destroy(DestroyPlano $request, Plano $plano)
     {
@@ -168,16 +169,19 @@ class PlanosController extends Controller
      * Remove the specified resources from storage.
      *
      * @param BulkDestroyPlano $request
-     * @throws Exception
      * @return Response|bool
+     * @throws Exception
      */
-    public function bulkDestroy(BulkDestroyPlano $request) : Response
+    public function bulkDestroy(BulkDestroyPlano $request): Response
     {
         DB::transaction(static function () use ($request) {
             collect($request->data['ids'])
                 ->chunk(1000)
                 ->each(static function ($bulkChunk) {
-                    Plano::whereIn('id', $bulkChunk)->delete();
+                    DB::table('plano')->whereIn('id', $bulkChunk)
+                        ->update([
+                            'deleted_at' => Carbon::now()->format('Y-m-d H:i:s')
+                        ]);
 
                     // TODO your code goes here
                 });

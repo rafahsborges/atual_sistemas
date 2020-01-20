@@ -5,7 +5,6 @@ use Illuminate\Database\Schema\Blueprint;
 
 class AddForeignKeysToRemessaBoletoTable extends Migration
 {
-
     /**
      * Run the migrations.
      *
@@ -25,7 +24,6 @@ class AddForeignKeysToRemessaBoletoTable extends Migration
         });
     }
 
-
     /**
      * Reverse the migrations.
      *
@@ -38,5 +36,4 @@ class AddForeignKeysToRemessaBoletoTable extends Migration
             $table->dropForeign('fk_rem_bol_remessa');
         });
     }
-
 }

@@ -5,7 +5,6 @@ use Illuminate\Database\Schema\Blueprint;
 
 class AddForeignKeysToContratoTable extends Migration
 {
-
     /**
      * Run the migrations.
      *
@@ -29,7 +28,6 @@ class AddForeignKeysToContratoTable extends Migration
         });
     }
 
-
     /**
      * Reverse the migrations.
      *
@@ -43,5 +41,4 @@ class AddForeignKeysToContratoTable extends Migration
             $table->dropForeign('fk_contrato_plano');
         });
     }
-
 }

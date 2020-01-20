@@ -5,7 +5,6 @@ use Illuminate\Database\Schema\Blueprint;
 
 class CreateClienteTable extends Migration
 {
-
     /**
      * Run the migrations.
      *
@@ -45,7 +44,6 @@ class CreateClienteTable extends Migration
         });
     }
 
-
     /**
      * Reverse the migrations.
      *
@@ -55,5 +53,4 @@ class CreateClienteTable extends Migration
     {
         Schema::drop('cliente');
     }
-
 }

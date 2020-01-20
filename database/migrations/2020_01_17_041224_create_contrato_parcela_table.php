@@ -5,7 +5,6 @@ use Illuminate\Database\Schema\Blueprint;
 
 class CreateContratoParcelaTable extends Migration
 {
-
     /**
      * Run the migrations.
      *
@@ -28,7 +27,6 @@ class CreateContratoParcelaTable extends Migration
         });
     }
 
-
     /**
      * Reverse the migrations.
      *
@@ -38,5 +36,4 @@ class CreateContratoParcelaTable extends Migration
     {
         Schema::drop('contrato_parcela');
     }
-
 }

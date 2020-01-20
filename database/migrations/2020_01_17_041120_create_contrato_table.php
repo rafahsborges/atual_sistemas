@@ -5,7 +5,6 @@ use Illuminate\Database\Schema\Blueprint;
 
 class CreateContratoTable extends Migration
 {
-
     /**
      * Run the migrations.
      *
@@ -34,7 +33,6 @@ class CreateContratoTable extends Migration
         });
     }
 
-
     /**
      * Reverse the migrations.
      *
@@ -44,5 +42,4 @@ class CreateContratoTable extends Migration
     {
         Schema::drop('contrato');
     }
-
 }
