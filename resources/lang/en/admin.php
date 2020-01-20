@@ -116,5 +116,25 @@ return [
         ],
     ],
 
+    'dependente' => [
+        'title' => 'Dependentes',
+
+        'actions' => [
+            'index' => 'Dependentes',
+            'create' => 'New Dependente',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'nome' => 'Nome',
+            'nascimento' => 'Nascimento',
+            'id_cliente' => 'Id cliente',
+            'id_parentesco' => 'Id parentesco',
+            'enabled' => 'Enabled',
+            
+        ],
+    ],
+
     // Do not delete me :) I'm used for auto-generation
 ];

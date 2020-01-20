@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Requests\Admin\Cliente;
+namespace App\Http\Requests\Admin\Dependente;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Gate;
 
-class IndexCliente extends FormRequest
+class IndexDependente extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -14,8 +14,7 @@ class IndexCliente extends FormRequest
      */
     public function authorize(): bool
     {
-        //return Gate::allows('admin.cliente.index');
-        return auth()->check();
+        return Gate::allows('admin.dependente.index');
     }
 
     /**
@@ -26,7 +25,7 @@ class IndexCliente extends FormRequest
     public function rules(): array
     {
         return [
-            'orderBy' => 'in:id,tipo,nome,nascimento,rg,cpf,insc_municipal,cnpj,sexo,profissao,local_trabalho,telefone,celular,logradouro,numero,complemento,bairro,cidade,uf,email,observacao,cep,celular2,celular3,id_cliente_responsavel,id_estado_civil,enabled|nullable',
+            'orderBy' => 'in:id,nome,nascimento,id_cliente,id_parentesco,enabled|nullable',
             'orderDirection' => 'in:asc,desc|nullable',
             'search' => 'string|nullable',
             'page' => 'integer|nullable',

@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Requests\Admin\Parentesco;
+namespace App\Http\Requests\Admin\Dependente;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Gate;
 
-class IndexParentesco extends FormRequest
+class BulkDestroyDependente extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -14,8 +14,7 @@ class IndexParentesco extends FormRequest
      */
     public function authorize(): bool
     {
-        //return Gate::allows('admin.parentesco.index');
-        return auth()->check();
+        return Gate::allows('admin.dependente.bulk-delete');
     }
 
     /**
@@ -26,12 +25,7 @@ class IndexParentesco extends FormRequest
     public function rules(): array
     {
         return [
-            'orderBy' => 'in:id,descricao,enabled|nullable',
-            'orderDirection' => 'in:asc,desc|nullable',
-            'search' => 'string|nullable',
-            'page' => 'integer|nullable',
-            'per_page' => 'integer|nullable',
-
+            'ids.*' => 'integer'
         ];
     }
 }

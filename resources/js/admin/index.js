@@ -5,3 +5,4 @@ import './plano';
 import './parentesco';
 import './estado-civil';
 import './cliente';
+import './dependente';

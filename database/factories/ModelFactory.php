@@ -87,3 +87,18 @@ $factory->define(App\Models\Cliente::class, static function (Faker\Generator $fa
         'deleted_at' => null,
     ];
 });
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\Dependente::class, static function (Faker\Generator $faker) {
+    return [
+        'nome' => $faker->sentence,
+        'nascimento' => $faker->date(),
+        'id_cliente' => $faker->sentence,
+        'id_parentesco' => $faker->sentence,
+        'enabled' => $faker->boolean(),
+        'created_at' => $faker->dateTime,
+        'updated_at' => $faker->dateTime,
+        'deleted_at' => null,
+        
+        
+    ];
+});

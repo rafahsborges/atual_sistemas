@@ -14,7 +14,8 @@ class IndexEstadoCivil extends FormRequest
      */
     public function authorize(): bool
     {
-        return Gate::allows('admin.estado-civil.index');
+        //return Gate::allows('admin.estado-civil.index');
+        return auth()->check();
     }
 
     /**
