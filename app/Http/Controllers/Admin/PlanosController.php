@@ -21,7 +21,7 @@ use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
 
-class PlanoController extends Controller
+class PlanosController extends Controller
 {
 
     /**
@@ -34,11 +34,11 @@ class PlanoController extends Controller
     {
         // create and AdminListing instance for a specific model and
         $data = AdminListing::create(Plano::class)->processRequestAndGet(
-        // pass the request with params
+            // pass the request with params
             $request,
 
             // set columns to query
-            ['id', 'nome'],
+            ['id', 'nome', 'enabled'],
 
             // set columns to searchIn
             ['id', 'nome']
@@ -59,8 +59,8 @@ class PlanoController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return Factory|View
      * @throws AuthorizationException
+     * @return Factory|View
      */
     public function create()
     {
@@ -94,8 +94,8 @@ class PlanoController extends Controller
      * Display the specified resource.
      *
      * @param Plano $plano
-     * @return void
      * @throws AuthorizationException
+     * @return void
      */
     public function show(Plano $plano)
     {
@@ -108,8 +108,8 @@ class PlanoController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param Plano $plano
-     * @return Factory|View
      * @throws AuthorizationException
+     * @return Factory|View
      */
     public function edit(Plano $plano)
     {
@@ -151,8 +151,8 @@ class PlanoController extends Controller
      *
      * @param DestroyPlano $request
      * @param Plano $plano
-     * @return ResponseFactory|RedirectResponse|Response
      * @throws Exception
+     * @return ResponseFactory|RedirectResponse|Response
      */
     public function destroy(DestroyPlano $request, Plano $plano)
     {
@@ -169,19 +169,19 @@ class PlanoController extends Controller
      * Remove the specified resources from storage.
      *
      * @param BulkDestroyPlano $request
-     * @return Response|bool
      * @throws Exception
+     * @return Response|bool
      */
-    public function bulkDestroy(BulkDestroyPlano $request): Response
+    public function bulkDestroy(BulkDestroyPlano $request) : Response
     {
         DB::transaction(static function () use ($request) {
             collect($request->data['ids'])
                 ->chunk(1000)
                 ->each(static function ($bulkChunk) {
-                    DB::table('plano')->whereIn('id', $bulkChunk)
+                    DB::table('planos')->whereIn('id', $bulkChunk)
                         ->update([
                             'deleted_at' => Carbon::now()->format('Y-m-d H:i:s')
-                        ]);
+                    ]);
 
                     // TODO your code goes here
                 });

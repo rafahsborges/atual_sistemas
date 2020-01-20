@@ -3,12 +3,12 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\EstadoCivil\BulkDestroyEstadoCivil;
-use App\Http\Requests\Admin\EstadoCivil\DestroyEstadoCivil;
-use App\Http\Requests\Admin\EstadoCivil\IndexEstadoCivil;
-use App\Http\Requests\Admin\EstadoCivil\StoreEstadoCivil;
-use App\Http\Requests\Admin\EstadoCivil\UpdateEstadoCivil;
-use App\Models\EstadoCivil;
+use App\Http\Requests\Admin\Cliente\BulkDestroyCliente;
+use App\Http\Requests\Admin\Cliente\DestroyCliente;
+use App\Http\Requests\Admin\Cliente\IndexCliente;
+use App\Http\Requests\Admin\Cliente\StoreCliente;
+use App\Http\Requests\Admin\Cliente\UpdateCliente;
+use App\Models\Cliente;
 use Brackets\AdminListing\Facades\AdminListing;
 use Carbon\Carbon;
 use Exception;
@@ -21,27 +21,27 @@ use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
 
-class EstadoCivilController extends Controller
+class ClientesController extends Controller
 {
 
     /**
      * Display a listing of the resource.
      *
-     * @param IndexEstadoCivil $request
+     * @param IndexCliente $request
      * @return array|Factory|View
      */
-    public function index(IndexEstadoCivil $request)
+    public function index(IndexCliente $request)
     {
         // create and AdminListing instance for a specific model and
-        $data = AdminListing::create(EstadoCivil::class)->processRequestAndGet(
+        $data = AdminListing::create(Cliente::class)->processRequestAndGet(
             // pass the request with params
             $request,
 
             // set columns to query
-            ['id', 'descricao'],
+            ['id', 'tipo', 'nome', 'nascimento', 'rg', 'cpf', 'insc_municipal', 'cnpj', 'sexo', 'profissao', 'local_trabalho', 'telefone', 'celular', 'logradouro', 'numero', 'complemento', 'bairro', 'cidade', 'uf', 'email', 'observacao', 'cep', 'celular2', 'celular3', 'id_cliente_responsavel', 'id_estado_civil', 'enabled'],
 
             // set columns to searchIn
-            ['id', 'descricao']
+            ['id', 'nome', 'rg', 'cpf', 'insc_municipal', 'cnpj', 'sexo', 'profissao', 'local_trabalho', 'telefone', 'celular', 'logradouro', 'numero', 'complemento', 'bairro', 'cidade', 'uf', 'email', 'observacao', 'cep', 'celular2', 'celular3']
         );
 
         if ($request->ajax()) {
@@ -53,7 +53,7 @@ class EstadoCivilController extends Controller
             return ['data' => $data];
         }
 
-        return view('admin.estado-civil.index', ['data' => $data]);
+        return view('admin.cliente.index', ['data' => $data]);
     }
 
     /**
@@ -64,42 +64,42 @@ class EstadoCivilController extends Controller
      */
     public function create()
     {
-        $this->authorize('admin.estado-civil.create');
+        $this->authorize('admin.cliente.create');
 
-        return view('admin.estado-civil.create');
+        return view('admin.cliente.create');
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param StoreEstadoCivil $request
+     * @param StoreCliente $request
      * @return array|RedirectResponse|Redirector
      */
-    public function store(StoreEstadoCivil $request)
+    public function store(StoreCliente $request)
     {
         // Sanitize input
         $sanitized = $request->getSanitized();
 
-        // Store the EstadoCivil
-        $estadoCivil = EstadoCivil::create($sanitized);
+        // Store the Cliente
+        $cliente = Cliente::create($sanitized);
 
         if ($request->ajax()) {
-            return ['redirect' => url('admin/estado-civils'), 'message' => trans('brackets/admin-ui::admin.operation.succeeded')];
+            return ['redirect' => url('admin/clientes'), 'message' => trans('brackets/admin-ui::admin.operation.succeeded')];
         }
 
-        return redirect('admin/estado-civils');
+        return redirect('admin/clientes');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param EstadoCivil $estadoCivil
+     * @param Cliente $cliente
      * @throws AuthorizationException
      * @return void
      */
-    public function show(EstadoCivil $estadoCivil)
+    public function show(Cliente $cliente)
     {
-        $this->authorize('admin.estado-civil.show', $estadoCivil);
+        $this->authorize('admin.cliente.show', $cliente);
 
         // TODO your code goes here
     }
@@ -107,56 +107,56 @@ class EstadoCivilController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param EstadoCivil $estadoCivil
+     * @param Cliente $cliente
      * @throws AuthorizationException
      * @return Factory|View
      */
-    public function edit(EstadoCivil $estadoCivil)
+    public function edit(Cliente $cliente)
     {
-        $this->authorize('admin.estado-civil.edit', $estadoCivil);
+        $this->authorize('admin.cliente.edit', $cliente);
 
 
-        return view('admin.estado-civil.edit', [
-            'estadoCivil' => $estadoCivil,
+        return view('admin.cliente.edit', [
+            'cliente' => $cliente,
         ]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param UpdateEstadoCivil $request
-     * @param EstadoCivil $estadoCivil
+     * @param UpdateCliente $request
+     * @param Cliente $cliente
      * @return array|RedirectResponse|Redirector
      */
-    public function update(UpdateEstadoCivil $request, EstadoCivil $estadoCivil)
+    public function update(UpdateCliente $request, Cliente $cliente)
     {
         // Sanitize input
         $sanitized = $request->getSanitized();
 
-        // Update changed values EstadoCivil
-        $estadoCivil->update($sanitized);
+        // Update changed values Cliente
+        $cliente->update($sanitized);
 
         if ($request->ajax()) {
             return [
-                'redirect' => url('admin/estado-civils'),
+                'redirect' => url('admin/clientes'),
                 'message' => trans('brackets/admin-ui::admin.operation.succeeded'),
             ];
         }
 
-        return redirect('admin/estado-civils');
+        return redirect('admin/clientes');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param DestroyEstadoCivil $request
-     * @param EstadoCivil $estadoCivil
+     * @param DestroyCliente $request
+     * @param Cliente $cliente
      * @throws Exception
      * @return ResponseFactory|RedirectResponse|Response
      */
-    public function destroy(DestroyEstadoCivil $request, EstadoCivil $estadoCivil)
+    public function destroy(DestroyCliente $request, Cliente $cliente)
     {
-        $estadoCivil->delete();
+        $cliente->delete();
 
         if ($request->ajax()) {
             return response(['message' => trans('brackets/admin-ui::admin.operation.succeeded')]);
@@ -168,17 +168,17 @@ class EstadoCivilController extends Controller
     /**
      * Remove the specified resources from storage.
      *
-     * @param BulkDestroyEstadoCivil $request
+     * @param BulkDestroyCliente $request
      * @throws Exception
      * @return Response|bool
      */
-    public function bulkDestroy(BulkDestroyEstadoCivil $request) : Response
+    public function bulkDestroy(BulkDestroyCliente $request) : Response
     {
         DB::transaction(static function () use ($request) {
             collect($request->data['ids'])
                 ->chunk(1000)
                 ->each(static function ($bulkChunk) {
-                    DB::table('estadoCivils')->whereIn('id', $bulkChunk)
+                    DB::table('clientes')->whereIn('id', $bulkChunk)
                         ->update([
                             'deleted_at' => Carbon::now()->format('Y-m-d H:i:s')
                     ]);

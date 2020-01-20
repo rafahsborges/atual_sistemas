@@ -14,8 +14,7 @@ class IndexPlano extends FormRequest
      */
     public function authorize(): bool
     {
-        //return Gate::allows('admin.plano.index');
-        return auth()->check();
+        return Gate::allows('admin.plano.index');
     }
 
     /**
@@ -26,7 +25,7 @@ class IndexPlano extends FormRequest
     public function rules(): array
     {
         return [
-            'orderBy' => 'in:id,nome|nullable',
+            'orderBy' => 'in:id,nome,enabled|nullable',
             'orderDirection' => 'in:asc,desc|nullable',
             'search' => 'string|nullable',
             'page' => 'integer|nullable',

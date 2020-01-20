@@ -27,6 +27,7 @@ class StoreParentesco extends FormRequest
     {
         return [
             'descricao' => ['required', 'string'],
+            'enabled' => ['required', 'boolean'],
             
         ];
     }

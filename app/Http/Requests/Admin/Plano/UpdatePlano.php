@@ -27,6 +27,7 @@ class UpdatePlano extends FormRequest
     {
         return [
             'nome' => ['sometimes', 'string'],
+            'enabled' => ['sometimes', 'boolean'],
             
         ];
     }

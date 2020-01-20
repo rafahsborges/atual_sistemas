@@ -6,6 +6,7 @@ Vue.component('estado-civil-form', {
         return {
             form: {
                 descricao:  '' ,
+                enabled:  false ,
                 
             }
         }

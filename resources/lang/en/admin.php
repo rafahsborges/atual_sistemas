@@ -40,6 +40,7 @@ return [
         'columns' => [
             'id' => 'ID',
             'nome' => 'Nome',
+            'enabled' => 'Enabled',
         ],
     ],
 
@@ -55,14 +56,15 @@ return [
         'columns' => [
             'id' => 'ID',
             'descricao' => 'Descricao',
+            'enabled' => 'Enabled',
         ],
     ],
 
     'estado-civil' => [
-        'title' => 'Estados Civis',
+        'title' => 'Estado Civils',
 
         'actions' => [
-            'index' => 'Estados Civis',
+            'index' => 'Estado Civils',
             'create' => 'New Estado Civil',
             'edit' => 'Edit :name',
         ],
@@ -70,7 +72,7 @@ return [
         'columns' => [
             'id' => 'ID',
             'descricao' => 'Descricao',
-
+            'enabled' => 'Enabled',
         ],
     ],
 
@@ -93,7 +95,6 @@ return [
             'insc_municipal' => 'Insc municipal',
             'cnpj' => 'Cnpj',
             'sexo' => 'Sexo',
-            'id_estado_civil' => 'Id estado civil',
             'profissao' => 'Profissao',
             'local_trabalho' => 'Local trabalho',
             'telefone' => 'Telefone',
@@ -110,6 +111,8 @@ return [
             'celular2' => 'Celular2',
             'celular3' => 'Celular3',
             'id_cliente_responsavel' => 'Id cliente responsavel',
+            'id_estado_civil' => 'Id estado civil',
+            'enabled' => 'Enabled',
         ],
     ],
 

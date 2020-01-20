@@ -34,7 +34,6 @@ class StoreCliente extends FormRequest
             'insc_municipal' => ['nullable', 'string'],
             'cnpj' => ['nullable', 'string'],
             'sexo' => ['nullable', 'string'],
-            'id_estado_civil' => ['required', 'string'],
             'profissao' => ['nullable', 'string'],
             'local_trabalho' => ['nullable', 'string'],
             'telefone' => ['nullable', 'string'],
@@ -50,7 +49,9 @@ class StoreCliente extends FormRequest
             'cep' => ['nullable', 'string'],
             'celular2' => ['nullable', 'string'],
             'celular3' => ['nullable', 'string'],
-            'id_cliente_responsavel' => ['nullable', 'numeric'],
+            'id_cliente_responsavel' => ['nullable', 'integer'],
+            'id_estado_civil' => ['nullable', 'string'],
+            'enabled' => ['required', 'boolean'],
             
         ];
     }

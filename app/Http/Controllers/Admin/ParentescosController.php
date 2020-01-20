@@ -3,12 +3,12 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\Cliente\BulkDestroyCliente;
-use App\Http\Requests\Admin\Cliente\DestroyCliente;
-use App\Http\Requests\Admin\Cliente\IndexCliente;
-use App\Http\Requests\Admin\Cliente\StoreCliente;
-use App\Http\Requests\Admin\Cliente\UpdateCliente;
-use App\Models\Cliente;
+use App\Http\Requests\Admin\Parentesco\BulkDestroyParentesco;
+use App\Http\Requests\Admin\Parentesco\DestroyParentesco;
+use App\Http\Requests\Admin\Parentesco\IndexParentesco;
+use App\Http\Requests\Admin\Parentesco\StoreParentesco;
+use App\Http\Requests\Admin\Parentesco\UpdateParentesco;
+use App\Models\Parentesco;
 use Brackets\AdminListing\Facades\AdminListing;
 use Carbon\Carbon;
 use Exception;
@@ -21,27 +21,27 @@ use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
 
-class ClienteController extends Controller
+class ParentescosController extends Controller
 {
 
     /**
      * Display a listing of the resource.
      *
-     * @param IndexCliente $request
+     * @param IndexParentesco $request
      * @return array|Factory|View
      */
-    public function index(IndexCliente $request)
+    public function index(IndexParentesco $request)
     {
         // create and AdminListing instance for a specific model and
-        $data = AdminListing::create(Cliente::class)->processRequestAndGet(
+        $data = AdminListing::create(Parentesco::class)->processRequestAndGet(
             // pass the request with params
             $request,
 
             // set columns to query
-            ['id', 'tipo', 'nome', 'nascimento', 'rg', 'cpf', 'insc_municipal', 'cnpj', 'sexo', 'id_estado_civil', 'profissao', 'local_trabalho', 'telefone', 'celular', 'logradouro', 'numero', 'complemento', 'bairro', 'cidade', 'uf', 'email', 'observacao', 'cep', 'celular2', 'celular3', 'id_cliente_responsavel'],
+            ['id', 'descricao', 'enabled'],
 
             // set columns to searchIn
-            ['id', 'nome', 'rg', 'cpf', 'insc_municipal', 'cnpj', 'sexo', 'profissao', 'local_trabalho', 'telefone', 'celular', 'logradouro', 'numero', 'complemento', 'bairro', 'cidade', 'uf', 'email', 'observacao', 'cep', 'celular2', 'celular3']
+            ['id', 'descricao']
         );
 
         if ($request->ajax()) {
@@ -53,7 +53,7 @@ class ClienteController extends Controller
             return ['data' => $data];
         }
 
-        return view('admin.cliente.index', ['data' => $data]);
+        return view('admin.parentesco.index', ['data' => $data]);
     }
 
     /**
@@ -64,42 +64,42 @@ class ClienteController extends Controller
      */
     public function create()
     {
-        $this->authorize('admin.cliente.create');
+        $this->authorize('admin.parentesco.create');
 
-        return view('admin.cliente.create');
+        return view('admin.parentesco.create');
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param StoreCliente $request
+     * @param StoreParentesco $request
      * @return array|RedirectResponse|Redirector
      */
-    public function store(StoreCliente $request)
+    public function store(StoreParentesco $request)
     {
         // Sanitize input
         $sanitized = $request->getSanitized();
 
-        // Store the Cliente
-        $cliente = Cliente::create($sanitized);
+        // Store the Parentesco
+        $parentesco = Parentesco::create($sanitized);
 
         if ($request->ajax()) {
-            return ['redirect' => url('admin/clientes'), 'message' => trans('brackets/admin-ui::admin.operation.succeeded')];
+            return ['redirect' => url('admin/parentescos'), 'message' => trans('brackets/admin-ui::admin.operation.succeeded')];
         }
 
-        return redirect('admin/clientes');
+        return redirect('admin/parentescos');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param Cliente $cliente
+     * @param Parentesco $parentesco
      * @throws AuthorizationException
      * @return void
      */
-    public function show(Cliente $cliente)
+    public function show(Parentesco $parentesco)
     {
-        $this->authorize('admin.cliente.show', $cliente);
+        $this->authorize('admin.parentesco.show', $parentesco);
 
         // TODO your code goes here
     }
@@ -107,56 +107,56 @@ class ClienteController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param Cliente $cliente
+     * @param Parentesco $parentesco
      * @throws AuthorizationException
      * @return Factory|View
      */
-    public function edit(Cliente $cliente)
+    public function edit(Parentesco $parentesco)
     {
-        $this->authorize('admin.cliente.edit', $cliente);
+        $this->authorize('admin.parentesco.edit', $parentesco);
 
 
-        return view('admin.cliente.edit', [
-            'cliente' => $cliente,
+        return view('admin.parentesco.edit', [
+            'parentesco' => $parentesco,
         ]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param UpdateCliente $request
-     * @param Cliente $cliente
+     * @param UpdateParentesco $request
+     * @param Parentesco $parentesco
      * @return array|RedirectResponse|Redirector
      */
-    public function update(UpdateCliente $request, Cliente $cliente)
+    public function update(UpdateParentesco $request, Parentesco $parentesco)
     {
         // Sanitize input
         $sanitized = $request->getSanitized();
 
-        // Update changed values Cliente
-        $cliente->update($sanitized);
+        // Update changed values Parentesco
+        $parentesco->update($sanitized);
 
         if ($request->ajax()) {
             return [
-                'redirect' => url('admin/clientes'),
+                'redirect' => url('admin/parentescos'),
                 'message' => trans('brackets/admin-ui::admin.operation.succeeded'),
             ];
         }
 
-        return redirect('admin/clientes');
+        return redirect('admin/parentescos');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param DestroyCliente $request
-     * @param Cliente $cliente
+     * @param DestroyParentesco $request
+     * @param Parentesco $parentesco
      * @throws Exception
      * @return ResponseFactory|RedirectResponse|Response
      */
-    public function destroy(DestroyCliente $request, Cliente $cliente)
+    public function destroy(DestroyParentesco $request, Parentesco $parentesco)
     {
-        $cliente->delete();
+        $parentesco->delete();
 
         if ($request->ajax()) {
             return response(['message' => trans('brackets/admin-ui::admin.operation.succeeded')]);
@@ -168,17 +168,17 @@ class ClienteController extends Controller
     /**
      * Remove the specified resources from storage.
      *
-     * @param BulkDestroyCliente $request
+     * @param BulkDestroyParentesco $request
      * @throws Exception
      * @return Response|bool
      */
-    public function bulkDestroy(BulkDestroyCliente $request) : Response
+    public function bulkDestroy(BulkDestroyParentesco $request) : Response
     {
         DB::transaction(static function () use ($request) {
             collect($request->data['ids'])
                 ->chunk(1000)
                 ->each(static function ($bulkChunk) {
-                    DB::table('clientes')->whereIn('id', $bulkChunk)
+                    DB::table('parentescos')->whereIn('id', $bulkChunk)
                         ->update([
                             'deleted_at' => Carbon::now()->format('Y-m-d H:i:s')
                     ]);

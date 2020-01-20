@@ -27,6 +27,7 @@ class StorePlano extends FormRequest
     {
         return [
             'nome' => ['required', 'string'],
+            'enabled' => ['required', 'boolean'],
             
         ];
     }

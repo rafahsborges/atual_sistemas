@@ -14,8 +14,7 @@ class IndexEstadoCivil extends FormRequest
      */
     public function authorize(): bool
     {
-        //return Gate::allows('admin.estado-civil.index');
-        return auth()->check();
+        return Gate::allows('admin.estado-civil.index');
     }
 
     /**
@@ -26,7 +25,7 @@ class IndexEstadoCivil extends FormRequest
     public function rules(): array
     {
         return [
-            'orderBy' => 'in:id,descricao|nullable',
+            'orderBy' => 'in:id,descricao,enabled|nullable',
             'orderDirection' => 'in:asc,desc|nullable',
             'search' => 'string|nullable',
             'page' => 'integer|nullable',

@@ -58,7 +58,6 @@
                                         <th is='sortable' :column="'insc_municipal'">{{ trans('admin.cliente.columns.insc_municipal') }}</th>
                                         <th is='sortable' :column="'cnpj'">{{ trans('admin.cliente.columns.cnpj') }}</th>
                                         <th is='sortable' :column="'sexo'">{{ trans('admin.cliente.columns.sexo') }}</th>
-                                        <th is='sortable' :column="'id_estado_civil'">{{ trans('admin.cliente.columns.id_estado_civil') }}</th>
                                         <th is='sortable' :column="'profissao'">{{ trans('admin.cliente.columns.profissao') }}</th>
                                         <th is='sortable' :column="'local_trabalho'">{{ trans('admin.cliente.columns.local_trabalho') }}</th>
                                         <th is='sortable' :column="'telefone'">{{ trans('admin.cliente.columns.telefone') }}</th>
@@ -75,11 +74,13 @@
                                         <th is='sortable' :column="'celular2'">{{ trans('admin.cliente.columns.celular2') }}</th>
                                         <th is='sortable' :column="'celular3'">{{ trans('admin.cliente.columns.celular3') }}</th>
                                         <th is='sortable' :column="'id_cliente_responsavel'">{{ trans('admin.cliente.columns.id_cliente_responsavel') }}</th>
+                                        <th is='sortable' :column="'id_estado_civil'">{{ trans('admin.cliente.columns.id_estado_civil') }}</th>
+                                        <th is='sortable' :column="'enabled'">{{ trans('admin.cliente.columns.enabled') }}</th>
 
                                         <th></th>
                                     </tr>
                                     <tr v-show="(clickedBulkItemsCount > 0) || isClickedAll">
-                                        <td class="bg-bulk-info d-table-cell text-center" colspan="28">
+                                        <td class="bg-bulk-info d-table-cell text-center" colspan="29">
                                             <span class="align-middle font-weight-light text-dark">{{ trans('brackets/admin-ui::admin.listing.selected_items') }} @{{ clickedBulkItemsCount }}.  <a href="#" class="text-primary" @click="onBulkItemsClickedAll('/admin/clientes')" v-if="(clickedBulkItemsCount < pagination.state.total)"> <i class="fa" :class="bulkCheckingAllLoader ? 'fa-spinner' : ''"></i> {{ trans('brackets/admin-ui::admin.listing.check_all_items') }} @{{ pagination.state.total }}</a> <span class="text-primary">|</span> <a
                                                         href="#" class="text-primary" @click="onBulkItemsClickedAllUncheck()">{{ trans('brackets/admin-ui::admin.listing.uncheck_all_items') }}</a>  </span>
 
@@ -107,7 +108,6 @@
                                         <td>@{{ item.insc_municipal }}</td>
                                         <td>@{{ item.cnpj }}</td>
                                         <td>@{{ item.sexo }}</td>
-                                        <td>@{{ item.id_estado_civil }}</td>
                                         <td>@{{ item.profissao }}</td>
                                         <td>@{{ item.local_trabalho }}</td>
                                         <td>@{{ item.telefone }}</td>
@@ -124,6 +124,14 @@
                                         <td>@{{ item.celular2 }}</td>
                                         <td>@{{ item.celular3 }}</td>
                                         <td>@{{ item.id_cliente_responsavel }}</td>
+                                        <td>@{{ item.id_estado_civil }}</td>
+                                        <td>
+                                            <label class="switch switch-3d switch-success">
+                                                <input type="checkbox" class="switch-input" v-model="collection[index].enabled" @change="toggleSwitch(item.resource_url, 'enabled', collection[index])">
+                                                <span class="switch-slider"></span>
+                                            </label>
+                                        </td>
+
                                         
                                         <td>
                                             <div class="row no-gutters">

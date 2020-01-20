@@ -6,6 +6,7 @@ Vue.component('parentesco-form', {
         return {
             form: {
                 descricao:  '' ,
+                enabled:  false ,
                 
             }
         }

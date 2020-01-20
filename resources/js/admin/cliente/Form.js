@@ -13,7 +13,6 @@ Vue.component('cliente-form', {
                 insc_municipal:  '' ,
                 cnpj:  '' ,
                 sexo:  '' ,
-                id_estado_civil:  '' ,
                 profissao:  '' ,
                 local_trabalho:  '' ,
                 telefone:  '' ,
@@ -30,6 +29,8 @@ Vue.component('cliente-form', {
                 celular2:  '' ,
                 celular3:  '' ,
                 id_cliente_responsavel:  '' ,
+                id_estado_civil:  '' ,
+                enabled:  false ,
                 
             }
         }

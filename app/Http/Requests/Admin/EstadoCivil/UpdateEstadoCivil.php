@@ -27,6 +27,7 @@ class UpdateEstadoCivil extends FormRequest
     {
         return [
             'descricao' => ['sometimes', 'string'],
+            'enabled' => ['sometimes', 'boolean'],
             
         ];
     }

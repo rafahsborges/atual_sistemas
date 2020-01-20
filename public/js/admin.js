@@ -111697,7 +111697,6 @@ Vue.component('cliente-form', {
         insc_municipal: '',
         cnpj: '',
         sexo: '',
-        id_estado_civil: '',
         profissao: '',
         local_trabalho: '',
         telefone: '',
@@ -111713,7 +111712,9 @@ Vue.component('cliente-form', {
         cep: '',
         celular2: '',
         celular3: '',
-        id_cliente_responsavel: ''
+        id_cliente_responsavel: '',
+        id_estado_civil: '',
+        enabled: false
       }
     };
   }
@@ -111770,7 +111771,8 @@ Vue.component('estado-civil-form', {
   data: function data() {
     return {
       form: {
-        descricao: ''
+        descricao: '',
+        enabled: false
       }
     };
   }
@@ -111853,7 +111855,8 @@ Vue.component('parentesco-form', {
   data: function data() {
     return {
       form: {
-        descricao: ''
+        descricao: '',
+        enabled: false
       }
     };
   }
@@ -111910,7 +111913,8 @@ Vue.component('plano-form', {
   data: function data() {
     return {
       form: {
-        nome: ''
+        nome: '',
+        enabled: false
       }
     };
   }

@@ -51,11 +51,12 @@
 
                                         <th is='sortable' :column="'id'">{{ trans('admin.plano.columns.id') }}</th>
                                         <th is='sortable' :column="'nome'">{{ trans('admin.plano.columns.nome') }}</th>
+                                        <th is='sortable' :column="'enabled'">{{ trans('admin.plano.columns.enabled') }}</th>
 
                                         <th></th>
                                     </tr>
                                     <tr v-show="(clickedBulkItemsCount > 0) || isClickedAll">
-                                        <td class="bg-bulk-info d-table-cell text-center" colspan="4">
+                                        <td class="bg-bulk-info d-table-cell text-center" colspan="5">
                                             <span class="align-middle font-weight-light text-dark">{{ trans('brackets/admin-ui::admin.listing.selected_items') }} @{{ clickedBulkItemsCount }}.  <a href="#" class="text-primary" @click="onBulkItemsClickedAll('/admin/planos')" v-if="(clickedBulkItemsCount < pagination.state.total)"> <i class="fa" :class="bulkCheckingAllLoader ? 'fa-spinner' : ''"></i> {{ trans('brackets/admin-ui::admin.listing.check_all_items') }} @{{ pagination.state.total }}</a> <span class="text-primary">|</span> <a
                                                         href="#" class="text-primary" @click="onBulkItemsClickedAllUncheck()">{{ trans('brackets/admin-ui::admin.listing.uncheck_all_items') }}</a>  </span>
 
@@ -76,6 +77,13 @@
 
                                     <td>@{{ item.id }}</td>
                                         <td>@{{ item.nome }}</td>
+                                        <td>
+                                            <label class="switch switch-3d switch-success">
+                                                <input type="checkbox" class="switch-input" v-model="collection[index].enabled" @change="toggleSwitch(item.resource_url, 'enabled', collection[index])">
+                                                <span class="switch-slider"></span>
+                                            </label>
+                                        </td>
+
                                         
                                         <td>
                                             <div class="row no-gutters">

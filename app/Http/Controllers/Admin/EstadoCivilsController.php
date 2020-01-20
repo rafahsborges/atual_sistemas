@@ -3,12 +3,12 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\Parentesco\BulkDestroyParentesco;
-use App\Http\Requests\Admin\Parentesco\DestroyParentesco;
-use App\Http\Requests\Admin\Parentesco\IndexParentesco;
-use App\Http\Requests\Admin\Parentesco\StoreParentesco;
-use App\Http\Requests\Admin\Parentesco\UpdateParentesco;
-use App\Models\Parentesco;
+use App\Http\Requests\Admin\EstadoCivil\BulkDestroyEstadoCivil;
+use App\Http\Requests\Admin\EstadoCivil\DestroyEstadoCivil;
+use App\Http\Requests\Admin\EstadoCivil\IndexEstadoCivil;
+use App\Http\Requests\Admin\EstadoCivil\StoreEstadoCivil;
+use App\Http\Requests\Admin\EstadoCivil\UpdateEstadoCivil;
+use App\Models\EstadoCivil;
 use Brackets\AdminListing\Facades\AdminListing;
 use Carbon\Carbon;
 use Exception;
@@ -21,24 +21,24 @@ use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
 
-class ParentescoController extends Controller
+class EstadoCivilsController extends Controller
 {
 
     /**
      * Display a listing of the resource.
      *
-     * @param IndexParentesco $request
+     * @param IndexEstadoCivil $request
      * @return array|Factory|View
      */
-    public function index(IndexParentesco $request)
+    public function index(IndexEstadoCivil $request)
     {
         // create and AdminListing instance for a specific model and
-        $data = AdminListing::create(Parentesco::class)->processRequestAndGet(
+        $data = AdminListing::create(EstadoCivil::class)->processRequestAndGet(
             // pass the request with params
             $request,
 
             // set columns to query
-            ['id', 'descricao'],
+            ['id', 'descricao', 'enabled'],
 
             // set columns to searchIn
             ['id', 'descricao']
@@ -53,7 +53,7 @@ class ParentescoController extends Controller
             return ['data' => $data];
         }
 
-        return view('admin.parentesco.index', ['data' => $data]);
+        return view('admin.estado-civil.index', ['data' => $data]);
     }
 
     /**
@@ -64,42 +64,42 @@ class ParentescoController extends Controller
      */
     public function create()
     {
-        $this->authorize('admin.parentesco.create');
+        $this->authorize('admin.estado-civil.create');
 
-        return view('admin.parentesco.create');
+        return view('admin.estado-civil.create');
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param StoreParentesco $request
+     * @param StoreEstadoCivil $request
      * @return array|RedirectResponse|Redirector
      */
-    public function store(StoreParentesco $request)
+    public function store(StoreEstadoCivil $request)
     {
         // Sanitize input
         $sanitized = $request->getSanitized();
 
-        // Store the Parentesco
-        $parentesco = Parentesco::create($sanitized);
+        // Store the EstadoCivil
+        $estadoCivil = EstadoCivil::create($sanitized);
 
         if ($request->ajax()) {
-            return ['redirect' => url('admin/parentescos'), 'message' => trans('brackets/admin-ui::admin.operation.succeeded')];
+            return ['redirect' => url('admin/estado-civils'), 'message' => trans('brackets/admin-ui::admin.operation.succeeded')];
         }
 
-        return redirect('admin/parentescos');
+        return redirect('admin/estado-civils');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param Parentesco $parentesco
+     * @param EstadoCivil $estadoCivil
      * @throws AuthorizationException
      * @return void
      */
-    public function show(Parentesco $parentesco)
+    public function show(EstadoCivil $estadoCivil)
     {
-        $this->authorize('admin.parentesco.show', $parentesco);
+        $this->authorize('admin.estado-civil.show', $estadoCivil);
 
         // TODO your code goes here
     }
@@ -107,56 +107,56 @@ class ParentescoController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param Parentesco $parentesco
+     * @param EstadoCivil $estadoCivil
      * @throws AuthorizationException
      * @return Factory|View
      */
-    public function edit(Parentesco $parentesco)
+    public function edit(EstadoCivil $estadoCivil)
     {
-        $this->authorize('admin.parentesco.edit', $parentesco);
+        $this->authorize('admin.estado-civil.edit', $estadoCivil);
 
 
-        return view('admin.parentesco.edit', [
-            'parentesco' => $parentesco,
+        return view('admin.estado-civil.edit', [
+            'estadoCivil' => $estadoCivil,
         ]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param UpdateParentesco $request
-     * @param Parentesco $parentesco
+     * @param UpdateEstadoCivil $request
+     * @param EstadoCivil $estadoCivil
      * @return array|RedirectResponse|Redirector
      */
-    public function update(UpdateParentesco $request, Parentesco $parentesco)
+    public function update(UpdateEstadoCivil $request, EstadoCivil $estadoCivil)
     {
         // Sanitize input
         $sanitized = $request->getSanitized();
 
-        // Update changed values Parentesco
-        $parentesco->update($sanitized);
+        // Update changed values EstadoCivil
+        $estadoCivil->update($sanitized);
 
         if ($request->ajax()) {
             return [
-                'redirect' => url('admin/parentescos'),
+                'redirect' => url('admin/estado-civils'),
                 'message' => trans('brackets/admin-ui::admin.operation.succeeded'),
             ];
         }
 
-        return redirect('admin/parentescos');
+        return redirect('admin/estado-civils');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param DestroyParentesco $request
-     * @param Parentesco $parentesco
+     * @param DestroyEstadoCivil $request
+     * @param EstadoCivil $estadoCivil
      * @throws Exception
      * @return ResponseFactory|RedirectResponse|Response
      */
-    public function destroy(DestroyParentesco $request, Parentesco $parentesco)
+    public function destroy(DestroyEstadoCivil $request, EstadoCivil $estadoCivil)
     {
-        $parentesco->delete();
+        $estadoCivil->delete();
 
         if ($request->ajax()) {
             return response(['message' => trans('brackets/admin-ui::admin.operation.succeeded')]);
@@ -168,17 +168,17 @@ class ParentescoController extends Controller
     /**
      * Remove the specified resources from storage.
      *
-     * @param BulkDestroyParentesco $request
+     * @param BulkDestroyEstadoCivil $request
      * @throws Exception
      * @return Response|bool
      */
-    public function bulkDestroy(BulkDestroyParentesco $request) : Response
+    public function bulkDestroy(BulkDestroyEstadoCivil $request) : Response
     {
         DB::transaction(static function () use ($request) {
             collect($request->data['ids'])
                 ->chunk(1000)
                 ->each(static function ($bulkChunk) {
-                    DB::table('parentescos')->whereIn('id', $bulkChunk)
+                    DB::table('estadoCivils')->whereIn('id', $bulkChunk)
                         ->update([
                             'deleted_at' => Carbon::now()->format('Y-m-d H:i:s')
                     ]);

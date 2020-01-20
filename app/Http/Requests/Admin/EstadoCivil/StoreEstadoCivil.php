@@ -27,6 +27,7 @@ class StoreEstadoCivil extends FormRequest
     {
         return [
             'descricao' => ['required', 'string'],
+            'enabled' => ['required', 'boolean'],
             
         ];
     }

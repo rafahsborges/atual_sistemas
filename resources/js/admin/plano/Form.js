@@ -6,6 +6,7 @@ Vue.component('plano-form', {
         return {
             form: {
                 nome:  '' ,
+                enabled:  false ,
                 
             }
         }

@@ -24,6 +24,7 @@ $factory->define(Brackets\AdminAuth\Models\AdminUser::class, function (Faker\Gen
 $factory->define(App\Models\Plano::class, static function (Faker\Generator $faker) {
     return [
         'nome' => $faker->sentence,
+        'enabled' => $faker->boolean(),
         'created_at' => $faker->dateTime,
         'updated_at' => $faker->dateTime,
         'deleted_at' => null,
@@ -34,6 +35,7 @@ $factory->define(App\Models\Plano::class, static function (Faker\Generator $fake
 $factory->define(App\Models\Parentesco::class, static function (Faker\Generator $faker) {
     return [
         'descricao' => $faker->sentence,
+        'enabled' => $faker->boolean(),
         'created_at' => $faker->dateTime,
         'updated_at' => $faker->dateTime,
         'deleted_at' => null,
@@ -44,6 +46,7 @@ $factory->define(App\Models\Parentesco::class, static function (Faker\Generator 
 $factory->define(App\Models\EstadoCivil::class, static function (Faker\Generator $faker) {
     return [
         'descricao' => $faker->sentence,
+        'enabled' => $faker->boolean(),
         'created_at' => $faker->dateTime,
         'updated_at' => $faker->dateTime,
         'deleted_at' => null,
@@ -61,7 +64,6 @@ $factory->define(App\Models\Cliente::class, static function (Faker\Generator $fa
         'insc_municipal' => $faker->sentence,
         'cnpj' => $faker->sentence,
         'sexo' => $faker->sentence,
-        'id_estado_civil' => $faker->sentence,
         'profissao' => $faker->sentence,
         'local_trabalho' => $faker->sentence,
         'telefone' => $faker->sentence,
@@ -78,6 +80,8 @@ $factory->define(App\Models\Cliente::class, static function (Faker\Generator $fa
         'celular2' => $faker->sentence,
         'celular3' => $faker->sentence,
         'id_cliente_responsavel' => $faker->randomNumber(5),
+        'id_estado_civil' => $faker->sentence,
+        'enabled' => $faker->boolean(),
         'created_at' => $faker->dateTime,
         'updated_at' => $faker->dateTime,
         'deleted_at' => null,
