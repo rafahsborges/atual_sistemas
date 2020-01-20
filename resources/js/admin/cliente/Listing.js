@@ -2,9 +2,8 @@ import AppListing from '../app-components/Listing/AppListing';
 
 Vue.component('cliente-listing', {
     mixins: [AppListing],
-    data() {
+    data: function() {
         return {
-            showPJ: false,
             showCivilsFilter: false,
             civilsMultiselect: {},
 
@@ -21,6 +20,6 @@ Vue.component('cliente-listing', {
         civilsMultiselect: function(newVal, oldVal) {
             this.filters.civils = newVal.map(function(object) { return object['key']; });
             this.filter('civils', this.filters.civils);
-        }
+        },
     }
 });

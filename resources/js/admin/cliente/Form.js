@@ -32,7 +32,8 @@ Vue.component('cliente-form', {
                 id_estado_civil:  '' ,
                 enabled:  false ,
                 civil: '',
-            }
+            },
+            showPJ: false,
         }
     }
 

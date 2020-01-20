@@ -111727,7 +111727,8 @@ Vue.component('cliente-form', {
         id_estado_civil: '',
         enabled: false,
         civil: ''
-      }
+      },
+      showPJ: false
     };
   }
 });
@@ -111749,7 +111750,6 @@ Vue.component('cliente-listing', {
   mixins: [_app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__["default"]],
   data: function data() {
     return {
-      showPJ: false,
       showCivilsFilter: false,
       civilsMultiselect: {},
       filters: {

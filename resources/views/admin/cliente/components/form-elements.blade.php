@@ -1,6 +1,6 @@
 <div class="form-group row align-items-center"
-     :class="{'has-danger': errors.has('nome'), 'has-success': fields.nome && fields.nome.valid }">
-    <label for="nome" class="col-form-label text-md-right"
+     :class="{'has-danger': errors.has('tipo'), 'has-success': fields.tipo && fields.tipo.valid }">
+    <label for="tipo" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.cliente.columns.tipo') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
         <input class="form-check-input" id="tipo" type="checkbox" v-model="form.tipo" v-validate="''" v-on:click="showPJ = !showPJ"
