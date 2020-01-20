@@ -3,7 +3,7 @@
     <label for="tipo" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.cliente.columns.tipo') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input class="form-check-input" id="tipo" type="checkbox" v-model="form.tipo" v-validate="''" v-on:click="showPJ = !showPJ"
+        <input class="form-check-input" id="tipo" type="checkbox" v-model="form.tipo" v-validate="''"
                data-vv-name="tipo" name="tipo_fake_element">
         <label class="form-check-label" for="tipo">
             {{ __('Pessoa Jurídica?') }}
@@ -18,7 +18,7 @@
     <label for="nome" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.cliente.columns.nome') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.nome" v-validate="'required'" @input="validate($event)"
+        <input type="text" v-model="form.nome" v-validate="'required'" @input="validate($event)" v-on:change="console.log('mudei');"
                class="form-control"
                :class="{'form-control-danger': errors.has('nome'), 'form-control-success': fields.nome && fields.nome.valid}"
                id="nome" name="nome" placeholder="{{ trans('admin.cliente.columns.nome') }}">
@@ -27,7 +27,7 @@
     </div>
 </div>
 
-<div v-if="showPJ">
+<div v-if="form.tipo === true || form.tipo === 1">
     <div class="form-group row align-items-center"
          :class="{'has-danger': errors.has('cnpj'), 'has-success': fields.cnpj && fields.cnpj.valid }">
         <label for="cnpj" class="col-form-label text-md-right"
