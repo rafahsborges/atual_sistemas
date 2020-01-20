@@ -16,14 +16,14 @@ class CreateDependentesTable extends Migration
             $table->bigIncrements('id');
             $table->string('nome');
             $table->date('nascimento');
-            $table->unsignedBigInteger('id_cliente')->index('fk_dependente_cliente')->nullable();
-            $table->unsignedBigInteger('id_parentesco')->index('fk_dependente_parentesco')->nullable();
-            $table->foreign('id_cliente', 'fk_dependente_cliente')
-                ->references('id')->on('cliente')
+            $table->unsignedBigInteger('id_cliente')->index('fk_dependente_clientes')->nullable();
+            $table->unsignedBigInteger('id_parentesco')->index('fk_dependente_parentescos')->nullable();
+            $table->foreign('id_cliente', 'fk_dependente_clientes')
+                ->references('id')->on('clientes')
                 ->onUpdate('restrict')
                 ->onDelete('restrict');
-            $table->foreign('id_cliente', 'fk_dependente_parentesco')
-                ->references('id')->on('parentesco')
+            $table->foreign('id_cliente', 'fk_dependente_parentescos')
+                ->references('id')->on('parentescos')
                 ->onUpdate('restrict')
                 ->onDelete('restrict');
             $table->boolean('enabled')->default(false);
@@ -40,8 +40,8 @@ class CreateDependentesTable extends Migration
     public function down()
     {
         Schema::table('dependentes', function (Blueprint $table) {
-            $table->dropForeign('fk_dependente_cliente');
-            $table->dropForeign('fk_dependente_parentesco');
+            $table->dropForeign('fk_dependente_clientes');
+            $table->dropForeign('fk_dependente_parentescos');
         });
         Schema::drop('dependentes');
     }

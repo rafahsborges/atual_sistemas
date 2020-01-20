@@ -25,19 +25,19 @@ class CreateContratosTable extends Migration
             $table->decimal('juros', 5)->nullable();
             $table->decimal('multa', 5)->nullable();
             $table->date('validade_contrato')->nullable();
-            $table->unsignedBigInteger('id_cliente')->index('fk_contrato_cliente')->nullable();
-            $table->unsignedBigInteger('id_plano')->index('fk_contrato_plano')->nullable();
-            $table->unsignedBigInteger('id_conta')->index('fk_contrato_conta')->nullable();
-            $table->foreign('id_cliente', 'fk_contrato_cliente')
-                ->references('id')->on('cliente')
+            $table->unsignedBigInteger('id_cliente')->index('fk_contrato_clientes')->nullable();
+            $table->unsignedBigInteger('id_plano')->index('fk_contrato_planos')->nullable();
+            $table->unsignedBigInteger('id_conta')->index('fk_contrato_contas')->nullable();
+            $table->foreign('id_cliente', 'fk_contrato_clientes')
+                ->references('id')->on('clientes')
                 ->onUpdate('restrict')
                 ->onDelete('restrict');
-            $table->foreign('id_conta', 'fk_contrato_conta')
-                ->references('id')->on('conta')
+            $table->foreign('id_conta', 'fk_contrato_contas')
+                ->references('id')->on('contas')
                 ->onUpdate('restrict')
                 ->onDelete('restrict');
-            $table->foreign('id_plano', 'fk_contrato_plano')
-                ->references('id')->on('plano')
+            $table->foreign('id_plano', 'fk_contrato_planos')
+                ->references('id')->on('planos')
                 ->onUpdate('restrict')
                 ->onDelete('restrict');
             $table->boolean('enabled')->default(false);
@@ -54,9 +54,9 @@ class CreateContratosTable extends Migration
     public function down()
     {
         Schema::table('contratos', function (Blueprint $table) {
-            $table->dropForeign('fk_contrato_cliente');
-            $table->dropForeign('fk_contrato_conta');
-            $table->dropForeign('fk_contrato_plano');
+            $table->dropForeign('fk_contrato_clientes');
+            $table->dropForeign('fk_contrato_contas');
+            $table->dropForeign('fk_contrato_planos');
         });
         Schema::drop('contratos');
     }

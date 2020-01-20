@@ -38,9 +38,9 @@ class CreateClientesTable extends Migration
             $table->string('celular2', 14)->nullable();
             $table->string('celular3', 14)->nullable();
             $table->integer('id_cliente_responsavel')->nullable();
-            $table->unsignedBigInteger('id_estado_civil')->index('fk_cliente_est_civil')->nullable();
-            $table->foreign('id_estado_civil', 'fk_cliente_est_civil')
-                ->references('id')->on('estado_civil')
+            $table->unsignedBigInteger('id_estado_civil')->index('fk_cliente_est_civils')->nullable();
+            $table->foreign('id_estado_civil', 'fk_cliente_est_civils')
+                ->references('id')->on('estado_civils')
                 ->onUpdate('restrict')
                 ->onDelete('restrict');
             $table->boolean('enabled')->default(false);
@@ -57,7 +57,7 @@ class CreateClientesTable extends Migration
     public function down()
     {
         Schema::table('clientes', function (Blueprint $table) {
-            $table->dropForeign('fk_cliente_est_civil');
+            $table->dropForeign('fk_cliente_est_civils');
         });
         Schema::drop('clientes');
     }
