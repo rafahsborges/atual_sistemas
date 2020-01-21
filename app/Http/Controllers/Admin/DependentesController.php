@@ -100,7 +100,7 @@ class DependentesController extends Controller
         // Sanitize input
         $sanitized = $request->getSanitized();
         $sanitized['id_cliente'] = $request->getClienteId();
-        $sanitized['id_parentensco'] = $request->getParentescoId();
+        $sanitized['id_parentesco'] = $request->getParentescoId();
 
         // Store the Dependente
         $dependente = Dependente::create($sanitized);
@@ -157,7 +157,7 @@ class DependentesController extends Controller
         // Sanitize input
         $sanitized = $request->getSanitized();
         $sanitized['id_cliente'] = $request->getClienteId();
-        $sanitized['id_parentensco'] = $request->getParentescoId();
+        $sanitized['id_parentesco'] = $request->getParentescoId();
 
         // Update changed values Dependente
         $dependente->update($sanitized);

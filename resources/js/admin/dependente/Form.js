@@ -7,8 +7,8 @@ Vue.component('dependente-form', {
             form: {
                 nome:  '' ,
                 nascimento:  '' ,
-                //id_cliente:  '' ,
-                //id_parentesco:  '' ,
+                id_cliente:  '' ,
+                id_parentesco:  '' ,
                 enabled:  false ,
                 cliente:  '' ,
                 parentesco:  '' ,
