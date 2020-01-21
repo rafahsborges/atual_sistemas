@@ -20,7 +20,7 @@ class User extends Model
 {
     /**
      * The "type" of the auto-incrementing ID.
-     * 
+     *
      * @var string
      */
     protected $keyType = 'integer';
@@ -28,6 +28,6 @@ class User extends Model
     /**
      * @var array
      */
-    protected $fillable = ['name', 'email', 'email_verified_at', 'password', 'remember_token', 'enabled', 'created_at', 'updated_at', 'deleted_at'];
+    protected $fillable = ['name', 'email', 'email_verified_at', 'password', 'remember_token', 'enabled', 'is_admin', 'created_at', 'updated_at', 'deleted_at'];
 
 }
