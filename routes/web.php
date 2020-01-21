@@ -100,18 +100,18 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
     });
 });
 
-
 /* Auto-generated admin routes */
 Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
-    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function() {
-        Route::prefix('dependentes')->name('dependentes/')->group(static function() {
-            Route::get('/',                                             'DependentesController@index')->name('index');
-            Route::get('/create',                                       'DependentesController@create')->name('create');
-            Route::post('/',                                            'DependentesController@store')->name('store');
-            Route::get('/{dependente}/edit',                            'DependentesController@edit')->name('edit');
-            Route::post('/bulk-destroy',                                'DependentesController@bulkDestroy')->name('bulk-destroy');
-            Route::post('/{dependente}',                                'DependentesController@update')->name('update');
-            Route::delete('/{dependente}',                              'DependentesController@destroy')->name('destroy');
+    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function () {
+        Route::prefix('dependentes')->name('dependentes/')->group(static function () {
+            Route::get('/', 'DependentesController@index')->name('index');
+            Route::get('/create', 'DependentesController@create')->name('create');
+            Route::post('/', 'DependentesController@store')->name('store');
+            Route::get('/{dependente}/edit', 'DependentesController@edit')->name('edit');
+            Route::post('/bulk-destroy', 'DependentesController@bulkDestroy')->name('bulk-destroy');
+            Route::post('/{dependente}', 'DependentesController@update')->name('update');
+            Route::delete('/{dependente}', 'DependentesController@destroy')->name('destroy');
         });
     });
 });
+

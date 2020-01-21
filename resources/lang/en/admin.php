@@ -19,6 +19,7 @@ return [
             'email' => 'Email',
             'password' => 'Password',
             'password_repeat' => 'Password Confirmation',
+            'is_admin' => 'Is admin',
             'activated' => 'Activated',
             'forbidden' => 'Forbidden',
             'language' => 'Language',
@@ -132,7 +133,6 @@ return [
             'id_cliente' => 'Id cliente',
             'id_parentesco' => 'Id parentesco',
             'enabled' => 'Enabled',
-            
         ],
     ],
 

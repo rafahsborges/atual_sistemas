@@ -4,6 +4,7 @@
 
 use Illuminate\Database\Eloquent\Factory;
 
+/** @var  Factory $factory */
 $factory->define(Brackets\AdminAuth\Models\AdminUser::class, function (Faker\Generator $faker) {
     return [
         'first_name' => $faker->firstName,
@@ -11,6 +12,7 @@ $factory->define(Brackets\AdminAuth\Models\AdminUser::class, function (Faker\Gen
         'email' => $faker->email,
         'password' => bcrypt($faker->password),
         'remember_token' => null,
+        'is_admin' => $faker->boolean(),
         'activated' => true,
         'forbidden' => $faker->boolean(),
         'language' => 'en',
@@ -87,7 +89,8 @@ $factory->define(App\Models\Cliente::class, static function (Faker\Generator $fa
         'deleted_at' => null,
     ];
 });
-/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+
+/** @var  Factory $factory */
 $factory->define(App\Models\Dependente::class, static function (Faker\Generator $faker) {
     return [
         'nome' => $faker->sentence,
@@ -98,7 +101,5 @@ $factory->define(App\Models\Dependente::class, static function (Faker\Generator 
         'created_at' => $faker->dateTime,
         'updated_at' => $faker->dateTime,
         'deleted_at' => null,
-        
-        
     ];
 });
