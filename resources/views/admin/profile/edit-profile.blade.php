@@ -56,6 +56,17 @@
                                     </div>
                                 </div>
                                 
+                                <div class="form-group row" :class="{'has-danger': errors.has('is_admin'), 'has-success': fields.is_admin && fields.is_admin.valid }">
+                                    <div class="ml-md-auto" :class="isFormLocalized ? 'col-md-8' : 'col-md-9'">
+                                        <input class="form-check-input" id="is_admin" type="checkbox" v-model="form.is_admin" v-validate="''" data-vv-name="is_admin"  name="is_admin_fake_element">
+                                        <label class="form-check-label" for="is_admin">
+                                            {{ trans('admin.admin-user.columns.is_admin') }}
+                                        </label>
+                                        <input type="hidden" name="is_admin" :value="form.is_admin">
+                                        <div v-if="errors.has('is_admin')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('is_admin') }}</div>
+                                    </div>
+                                </div>
+                                
                                 <div class="form-group row align-items-center" :class="{'has-danger': errors.has('language'), 'has-success': fields.language && fields.language.valid }">
                                     <label for="language" class="col-form-label text-md-right" :class="isFormLocalized ? 'col-md-4' : 'col-md-3'">{{ trans('admin.admin-user.columns.language') }}</label>
                                     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-7'">

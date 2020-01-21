@@ -106,6 +106,7 @@ class FillDefaultAdminUserAndPermissions extends Migration
                 'remember_token' => null,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
+                'is_admin' => true,
                 'activated' => true,
                 'roles' => [
                     [

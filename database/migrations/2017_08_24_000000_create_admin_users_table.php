@@ -22,7 +22,7 @@ class CreateAdminUsersTable extends Migration
                 $table->string('email');
                 $table->string('password');
                 $table->rememberToken();
-                $table->boolean('is_admin')->nullable();
+                $table->boolean('is_admin')->default(false);
                 $table->boolean('activated')->default(false);
                 $table->boolean('forbidden')->default(false);
                 $table->string('language', 2)->default('en');

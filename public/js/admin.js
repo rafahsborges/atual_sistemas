@@ -112125,6 +112125,7 @@ Vue.component('profile-edit-profile-form', {
         last_name: '',
         email: '',
         password: '',
+        is_admin: false,
         activated: false,
         forbidden: false,
         language: ''
