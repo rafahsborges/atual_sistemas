@@ -44,4 +44,46 @@
     </div>
 </div>
 
+<div class="form-group row align-items-center"
+     :class="{'has-danger': errors.has('id_cliente'), 'has-success': this.fields.id_cliente && this.fields.id_cliente.valid }">
+    <label for="id_cliente"
+           class="col-form-label text-center col-md-4 col-lg-3">{{ trans('admin.post.columns.id_cliente') }}</label>
+    <div class="col-md-8 col-lg-9">
 
+        <multiselect
+            v-model="form.cliente"
+            :options="{{ $clientes->toJson() }}"
+            :multiple="false"
+            track-by="id"
+            label="nome"
+            tag-placeholder="{{ __('Select Author') }}"
+            placeholder="{{ __('Author') }}">
+        </multiselect>
+
+        <div v-if="errors.has('id_cliente')" class="form-control-feedback form-text" v-cloak>@{{
+            errors.first('id_cliente') }}
+        </div>
+    </div>
+</div>
+
+<div class="form-group row align-items-center"
+     :class="{'has-danger': errors.has('id_parentesco'), 'has-success': this.fields.id_parentesco && this.fields.id_parentesco.valid }">
+    <label for="id_parentesco"
+           class="col-form-label text-center col-md-4 col-lg-3">{{ trans('admin.post.columns.id_parentesco') }}</label>
+    <div class="col-md-8 col-lg-9">
+
+        <multiselect
+            v-model="form.parentesco"
+            :options="{{ $parentescos->toJson() }}"
+            :multiple="false"
+            track-by="id"
+            label="descricao"
+            tag-placeholder="{{ __('Select Author') }}"
+            placeholder="{{ __('Author') }}">
+        </multiselect>
+
+        <div v-if="errors.has('id_parentesco')" class="form-control-feedback form-text" v-cloak>@{{
+            errors.first('id_parentesco') }}
+        </div>
+    </div>
+</div>

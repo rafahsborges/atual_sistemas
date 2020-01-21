@@ -8,7 +8,9 @@ use App\Http\Requests\Admin\Dependente\DestroyDependente;
 use App\Http\Requests\Admin\Dependente\IndexDependente;
 use App\Http\Requests\Admin\Dependente\StoreDependente;
 use App\Http\Requests\Admin\Dependente\UpdateDependente;
+use App\Models\Cliente;
 use App\Models\Dependente;
+use App\Models\Parentesco;
 use Brackets\AdminListing\Facades\AdminListing;
 use Carbon\Carbon;
 use Exception;
@@ -41,7 +43,18 @@ class DependentesController extends Controller
             ['id', 'nome', 'nascimento', 'id_cliente', 'id_parentesco', 'enabled'],
 
             // set columns to searchIn
-            ['id', 'nome']
+            ['id', 'nome'],
+
+            function ($query) use ($request) {
+                $query->with(['cliente']);
+                if($request->has('clientes')){
+                    $query->whereIn('id_cliente', $request->get('clientes'));
+                }
+                $query->with(['parentesco']);
+                if($request->has('parentescos')){
+                    $query->whereIn('id_parentesco', $request->get('parentescos'));
+                }
+            }
         );
 
         if ($request->ajax()) {
@@ -53,7 +66,11 @@ class DependentesController extends Controller
             return ['data' => $data];
         }
 
-        return view('admin.dependente.index', ['data' => $data]);
+        return view('admin.dependente.index', [
+            'data' => $data,
+            'clientes' => Cliente::all(),
+            'parentescos' => Parentesco::all(),
+            ]);
     }
 
     /**
@@ -66,7 +83,10 @@ class DependentesController extends Controller
     {
         $this->authorize('admin.dependente.create');
 
-        return view('admin.dependente.create');
+        return view('admin.dependente.create', [
+                'clientes' => Cliente::all(),
+                'parentescos' => Parentesco::all(),
+            ]);
     }
 
     /**
@@ -79,6 +99,8 @@ class DependentesController extends Controller
     {
         // Sanitize input
         $sanitized = $request->getSanitized();
+        $sanitized['id_cliente'] = $request->getClienteId();
+        $sanitized['id_parentensco'] = $request->getParentescoId();
 
         // Store the Dependente
         $dependente = Dependente::create($sanitized);
@@ -118,6 +140,8 @@ class DependentesController extends Controller
 
         return view('admin.dependente.edit', [
             'dependente' => $dependente,
+            'clientes' => Cliente::all(),
+            'parentescos' => Parentesco::all(),
         ]);
     }
 
@@ -132,6 +156,8 @@ class DependentesController extends Controller
     {
         // Sanitize input
         $sanitized = $request->getSanitized();
+        $sanitized['id_cliente'] = $request->getClienteId();
+        $sanitized['id_parentensco'] = $request->getParentescoId();
 
         // Update changed values Dependente
         $dependente->update($sanitized);

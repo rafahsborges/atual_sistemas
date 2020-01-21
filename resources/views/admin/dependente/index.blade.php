@@ -28,13 +28,61 @@
                                             </span>
                                         </div>
                                     </div>
+                                    <div class="col form-group deadline-checkbox-col">
+                                        <div class="switch-filter-wrap">
+                                            <label class="switch switch-3d switch-primary">
+                                                <input type="checkbox" class="switch-input" v-model="showClientesFilter" >
+                                                <span class="switch-slider"></span>
+                                            </label>
+                                            <span class="authors-filter">&nbsp;{{ __('Clientes') }}</span>
+                                        </div>
+                                    </div>
+                                    <div class="col form-group deadline-checkbox-col">
+                                        <div class="switch-filter-wrap">
+                                            <label class="switch switch-3d switch-primary">
+                                                <input type="checkbox" class="switch-input" v-model="showParentescosFilter" >
+                                                <span class="switch-slider"></span>
+                                            </label>
+                                            <span class="authors-filter">&nbsp;{{ __('Parentescos') }}</span>
+                                        </div>
+                                    </div>
                                     <div class="col-sm-auto form-group ">
                                         <select class="form-control" v-model="pagination.state.per_page">
-                                            
+
                                             <option value="10">10</option>
                                             <option value="25">25</option>
                                             <option value="100">100</option>
                                         </select>
+                                    </div>
+                                </div>
+                                <div class="row" v-if="showClientesFilter">
+                                    <div class="col-sm-auto form-group">
+                                        <p>{{ __('Selecione o Cliente/s') }}</p>
+                                    </div>
+                                    <div class="col col-lg-12 col-xl-12 form-group">
+                                        <multiselect v-model="clientesMultiselect"
+                                                     :options="{{ $clientes->map(function($cliente) { return ['key' => $cliente->id, 'label' =>  $cliente->title]; })->toJson() }}"
+                                                     label="label"
+                                                     track-by="key"
+                                                     placeholder="{{ __('Digite para procurar por cliente/s') }}"
+                                                     :limit="2"
+                                                     :multiple="true">
+                                        </multiselect>
+                                    </div>
+                                </div>
+                                <div class="row" v-if="showParentescosFilter">
+                                    <div class="col-sm-auto form-group">
+                                        <p>{{ __('Selecione o Parentesco/s') }}</p>
+                                    </div>
+                                    <div class="col col-lg-12 col-xl-12 form-group">
+                                        <multiselect v-model="parentescosMultiselect"
+                                                     :options="{{ $parentescos->map(function($parentesco) { return ['key' => $parentesco->id, 'label' =>  $parentesco->title]; })->toJson() }}"
+                                                     label="label"
+                                                     track-by="key"
+                                                     placeholder="{{ __('Digite para procurar por parentesco/s') }}"
+                                                     :limit="2"
+                                                     :multiple="true">
+                                        </multiselect>
                                     </div>
                                 </div>
                             </form>
@@ -90,7 +138,7 @@
                                             </label>
                                         </td>
 
-                                        
+
                                         <td>
                                             <div class="row no-gutters">
                                                 <div class="col-auto">

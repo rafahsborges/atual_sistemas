@@ -28,10 +28,11 @@ class StoreDependente extends FormRequest
         return [
             'nome' => ['required', 'string'],
             'nascimento' => ['required', 'date'],
-            'id_cliente' => ['nullable', 'string'],
-            'id_parentesco' => ['nullable', 'string'],
+            //'id_cliente' => ['nullable', 'string'],
+            //'id_parentesco' => ['nullable', 'string'],
             'enabled' => ['required', 'boolean'],
-            
+            'cliente' => ['required'],
+            'parentesco' => ['required'],
         ];
     }
 
@@ -47,5 +48,21 @@ class StoreDependente extends FormRequest
         //Add your code for manipulation with request data here
 
         return $sanitized;
+    }
+
+    public function getClienteId()
+    {
+        if ($this->has('cliente')) {
+            return $this->get('cliente')['id'];
+        }
+        return null;
+    }
+
+    public function getParentescoId()
+    {
+        if ($this->has('parentesco')) {
+            return $this->get('parentesco')['id'];
+        }
+        return null;
     }
 }

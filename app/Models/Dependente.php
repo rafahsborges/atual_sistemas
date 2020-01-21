@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Dependente extends Model
@@ -32,5 +33,21 @@ class Dependente extends Model
     public function getResourceUrlAttribute()
     {
         return url('/admin/dependentes/'.$this->getKey());
+    }
+
+    /**
+     * @return BelongsTo
+     */
+    public function cliente()
+    {
+        return $this->belongsTo('App\Cliente', 'id_cliente');
+    }
+
+    /**
+     * @return BelongsTo
+     */
+    public function parentesco()
+    {
+        return $this->belongsTo('App\Parentesco', 'id_parentesco');
     }
 }

@@ -28,10 +28,11 @@ class UpdateDependente extends FormRequest
         return [
             'nome' => ['sometimes', 'string'],
             'nascimento' => ['sometimes', 'date'],
-            'id_cliente' => ['nullable', 'string'],
-            'id_parentesco' => ['nullable', 'string'],
+            //'id_cliente' => ['nullable', 'string'],
+            //'id_parentesco' => ['nullable', 'string'],
             'enabled' => ['sometimes', 'boolean'],
-            
+            'cliente' => ['required'],
+            'parentesco' => ['required'],
         ];
     }
 
@@ -48,5 +49,21 @@ class UpdateDependente extends FormRequest
         //Add your code for manipulation with request data here
 
         return $sanitized;
+    }
+
+    public function getClienteId()
+    {
+        if ($this->has('cliente')) {
+            return $this->get('cliente')['id'];
+        }
+        return null;
+    }
+
+    public function getParentescoId()
+    {
+        if ($this->has('parentesco')) {
+            return $this->get('parentesco')['id'];
+        }
+        return null;
     }
 }

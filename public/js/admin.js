@@ -111816,9 +111816,11 @@ Vue.component('dependente-form', {
       form: {
         nome: '',
         nascimento: '',
-        id_cliente: '',
-        id_parentesco: '',
-        enabled: false
+        //id_cliente:  '' ,
+        //id_parentesco:  '' ,
+        enabled: false,
+        cliente: '',
+        parentesco: ''
       }
     };
   }
@@ -111838,7 +111840,39 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../app-components/Listing/AppListing */ "./resources/js/admin/app-components/Listing/AppListing.js");
 
 Vue.component('dependente-listing', {
-  mixins: [_app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__["default"]]
+  mixins: [_app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__["default"]],
+  data: function data() {
+    return {
+      showClientesFilter: false,
+      showParentescosFilter: false,
+      clientesMultiselect: {},
+      parentescoMultiselect: {},
+      filters: {
+        clientes: [],
+        parentescos: []
+      }
+    };
+  },
+  watch: {
+    showClientesFilter: function showClientesFilter(newVal, oldVal) {
+      this.clientesMultiselect = [];
+    },
+    showParentescosFilter: function showParentescosFilter(newVal, oldVal) {
+      this.parentescosMultiselect = [];
+    },
+    clientesMultiselect: function clientesMultiselect(newVal, oldVal) {
+      this.filters.clientes = newVal.map(function (object) {
+        return object['key'];
+      });
+      this.filter('clientes', this.filters.clientes);
+    },
+    parentescosMultiselect: function parentescosMultiselect(newVal, oldVal) {
+      this.filters.parentescos = newVal.map(function (object) {
+        return object['key'];
+      });
+      this.filter('parentescos', this.filters.parentescos);
+    }
+  }
 });
 
 /***/ }),
