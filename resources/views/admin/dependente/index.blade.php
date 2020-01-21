@@ -61,7 +61,7 @@
                                     </div>
                                     <div class="col col-lg-12 col-xl-12 form-group">
                                         <multiselect v-model="clientesMultiselect"
-                                                     :options="{{ $clientes->map(function($cliente) { return ['key' => $cliente->id, 'label' =>  $cliente->title]; })->toJson() }}"
+                                                     :options="{{ $clientes->map(function($cliente) { return ['key' => $cliente->id, 'label' =>  $cliente->nome]; })->toJson() }}"
                                                      label="label"
                                                      track-by="key"
                                                      placeholder="{{ __('Digite para procurar por cliente/s') }}"
@@ -76,7 +76,7 @@
                                     </div>
                                     <div class="col col-lg-12 col-xl-12 form-group">
                                         <multiselect v-model="parentescosMultiselect"
-                                                     :options="{{ $parentescos->map(function($parentesco) { return ['key' => $parentesco->id, 'label' =>  $parentesco->title]; })->toJson() }}"
+                                                     :options="{{ $parentescos->map(function($parentesco) { return ['key' => $parentesco->id, 'label' =>  $parentesco->nome]; })->toJson() }}"
                                                      label="label"
                                                      track-by="key"
                                                      placeholder="{{ __('Digite para procurar por parentesco/s') }}"

@@ -26,7 +26,7 @@ class StoreParentesco extends FormRequest
     public function rules(): array
     {
         return [
-            'descricao' => ['required', 'string'],
+            'nome' => ['required', 'string'],
             'enabled' => ['required', 'boolean'],
             
         ];

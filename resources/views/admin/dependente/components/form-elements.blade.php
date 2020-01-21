@@ -77,7 +77,7 @@
             :options="{{ $parentescos->toJson() }}"
             :multiple="false"
             track-by="id"
-            label="descricao"
+            label="nome"
             tag-placeholder="{{ __('Select Author') }}"
             placeholder="{{ __('Author') }}">
         </multiselect>

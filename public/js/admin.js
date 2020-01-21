@@ -111995,7 +111995,7 @@ Vue.component('parentesco-form', {
   data: function data() {
     return {
       form: {
-        descricao: '',
+        nome: '',
         enabled: false
       }
     };

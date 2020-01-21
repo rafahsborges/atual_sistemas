@@ -40,7 +40,7 @@ class Dependente extends Model
      */
     public function cliente()
     {
-        return $this->belongsTo('App\Cliente', 'id_cliente');
+        return $this->belongsTo('App\Models\Cliente', 'id_cliente');
     }
 
     /**
@@ -48,6 +48,6 @@ class Dependente extends Model
      */
     public function parentesco()
     {
-        return $this->belongsTo('App\Parentesco', 'id_parentesco');
+        return $this->belongsTo('App\Models\Parentesco', 'id_parentesco');
     }
 }

@@ -38,10 +38,10 @@ class ParentescosController extends Controller
             $request,
 
             // set columns to query
-            ['id', 'descricao', 'enabled'],
+            ['id', 'nome', 'enabled'],
 
             // set columns to searchIn
-            ['id', 'descricao']
+            ['id', 'nome']
         );
 
         if ($request->ajax()) {

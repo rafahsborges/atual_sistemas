@@ -3,13 +3,14 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Parentesco extends Model
 {
     use SoftDeletes;
     protected $fillable = [
-        'descricao',
+        'nome',
         'enabled',
     ];
 
@@ -27,5 +28,13 @@ class Parentesco extends Model
     public function getResourceUrlAttribute()
     {
         return url('/admin/parentescos/'.$this->getKey());
+    }
+
+    /**
+     * @return HasMany
+     */
+    public function dependentes()
+    {
+        return $this->hasMany('App\Models\Dependente', 'id_parentesco');
     }
 }
