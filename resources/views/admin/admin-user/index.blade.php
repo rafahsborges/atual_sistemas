@@ -47,6 +47,7 @@
                                     <th is='sortable' :column="'first_name'">{{ trans('admin.admin-user.columns.first_name') }}</th>
                                     <th is='sortable' :column="'last_name'">{{ trans('admin.admin-user.columns.last_name') }}</th>
                                     <th is='sortable' :column="'email'">{{ trans('admin.admin-user.columns.email') }}</th>
+                                    <th is='sortable' :column="'is_admin'">{{ trans('admin.admin-user.columns.is_admin') }}</th>
                                     <th is='sortable' :column="'activated'" v-if="activation">{{ trans('admin.admin-user.columns.activated') }}</th>
                                     <th is='sortable' :column="'forbidden'">{{ trans('admin.admin-user.columns.forbidden') }}</th>
                                     <th is='sortable' :column="'language'">{{ trans('admin.admin-user.columns.language') }}</th>
@@ -60,6 +61,7 @@
                                     <td >@{{ item.first_name }}</td>
                                     <td >@{{ item.last_name }}</td>
                                     <td >@{{ item.email }}</td>
+                                    <td >@{{ item.is_admin }}</td>
                                     <td v-if="activation">
                                         <label class="switch switch-3d switch-success">
                                             <input type="checkbox" class="switch-input" v-model="collection[index].activated" @change="toggleSwitch(item.resource_url, 'activated', collection[index])">

@@ -57,7 +57,7 @@ class AdminUsersController extends Controller
             $request,
 
             // set columns to query
-            ['id', 'first_name', 'last_name', 'email', 'activated', 'forbidden', 'language'],
+            ['id', 'first_name', 'last_name', 'email', 'is_admin', 'activated', 'forbidden', 'language'],
 
             // set columns to searchIn
             ['id', 'first_name', 'last_name', 'email', 'language']

@@ -9,6 +9,7 @@ Vue.component('admin-user-form', {
                 last_name:  '' ,
                 email:  '' ,
                 password:  '' ,
+                is_admin:  false ,
                 activated:  false ,
                 forbidden:  false ,
                 language:  '' ,
