@@ -123,15 +123,10 @@
         <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
             <multiselect
                 v-model="form.civil"
-                v-validate="''"
-                @input="validate($event)"
-                :options="{{ $civils->toJson() }}"
+                :options="civils"
                 :multiple="false"
                 track-by="id"
-                label="descricao"
-                {{--class="form-control"--}}
-                :class="{'form-control-danger': errors.has('id_estado_civil'), 'form-control-success': fields.id_estado_civil && fields.id_estado_civil.valid}"
-                id="id_estado_civil" name="id_estado_civil"
+                label="nome"
                 tag-placeholder="{{ __('Select um Estado Civil') }}"
                 placeholder="{{ trans('admin.cliente.columns.id_estado_civil') }}">
             </multiselect>
@@ -177,16 +172,11 @@
                :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.cliente.columns.id_cliente_responsavel') }}</label>
         <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
             <multiselect
-                v-model="form.id_cliente_responsavel"
-                v-validate="''"
-                @input="validate($event)"
-                :options="{{ $empresas->toJson() }}"
+                v-model="form.empresa"
+                :options="empresas"
                 :multiple="false"
                 track-by="id"
                 label="nome"
-                {{--class="form-control"--}}
-                :class="{'form-control-danger': errors.has('id_cliente_responsavel'), 'form-control-success': fields.id_cliente_responsavel && fields.id_cliente_responsavel.valid}"
-                id="id_cliente_responsavel" name="id_cliente_responsavel"
                 tag-placeholder="{{ __('Select um Estado Civil') }}"
                 placeholder="{{ trans('admin.cliente.columns.id_cliente_responsavel') }}">
             </multiselect>

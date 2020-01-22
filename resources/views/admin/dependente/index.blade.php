@@ -128,9 +128,9 @@
 
                                     <td>@{{ item.id }}</td>
                                         <td>@{{ item.nome }}</td>
-                                        <td>@{{ item.nascimento | date }}</td>
-                                        <td>@{{ item.id_cliente }}</td>
-                                        <td>@{{ item.id_parentesco }}</td>
+                                        <td>@{{ item.nascimento | date('DD/MM/YYYY') }}</td>
+                                        <td>@{{ item.cliente.nome }}</td>
+                                        <td>@{{ item.parentesco.nome }}</td>
                                         <td>
                                             <label class="switch switch-3d switch-success">
                                                 <input type="checkbox" class="switch-input" v-model="collection[index].enabled" @change="toggleSwitch(item.resource_url, 'enabled', collection[index])">

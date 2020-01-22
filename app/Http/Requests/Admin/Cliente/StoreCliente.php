@@ -49,8 +49,8 @@ class StoreCliente extends FormRequest
             'cep' => ['nullable', 'string'],
             'celular2' => ['nullable', 'string'],
             'celular3' => ['nullable', 'string'],
-            'id_cliente_responsavel.id' => ['nullable', 'integer'],
-            'id_estado_civil.id' => ['nullable', 'integer'],
+            'civil' => ['nullable'],
+            'empresa' => ['nullable'],
             'enabled' => ['required', 'boolean'],
         ];
     }
@@ -71,16 +71,16 @@ class StoreCliente extends FormRequest
 
     public function getEstadoCivilId()
     {
-        if ($this->has('id_estado_civil')) {
-            return $this->get('id_estado_civil')['id'];
+        if ($this->has('civil')) {
+            return $this->get('civil')['id'];
         }
         return null;
     }
 
     public function getClienteResponsavelId()
     {
-        if ($this->has('id_cliente_responsavel')) {
-            return $this->get('id_cliente_responsavel')['id'];
+        if ($this->has('empresa')) {
+            return $this->get('empresa')['id'];
         }
         return null;
     }

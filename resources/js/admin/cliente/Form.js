@@ -2,6 +2,10 @@ import AppForm from '../app-components/Form/AppForm';
 
 Vue.component('cliente-form', {
     mixins: [AppForm],
+    props: [
+        'civils',
+        'empresas',
+    ],
     data: function() {
         return {
             form: {
@@ -28,10 +32,9 @@ Vue.component('cliente-form', {
                 cep:  '' ,
                 celular2:  '' ,
                 celular3:  '' ,
-                id_cliente_responsavel:  '' ,
-                id_estado_civil:  '' ,
-                enabled:  false ,
                 civil: '',
+                empresa:  '' ,
+                enabled:  false ,
             },
             showPJ: false,
         }

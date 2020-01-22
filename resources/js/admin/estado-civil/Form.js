@@ -5,7 +5,7 @@ Vue.component('estado-civil-form', {
     data: function() {
         return {
             form: {
-                descricao:  '' ,
+                nome:  '' ,
                 enabled:  false ,
                 
             }

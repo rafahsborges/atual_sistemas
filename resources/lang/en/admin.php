@@ -72,7 +72,7 @@ return [
 
         'columns' => [
             'id' => 'ID',
-            'descricao' => 'Descricao',
+            'nome' => 'Nome',
             'enabled' => 'Enabled',
         ],
     ],

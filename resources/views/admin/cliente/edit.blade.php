@@ -11,6 +11,7 @@
                 :action="'{{ $cliente->resource_url }}'"
                 :data="{{ $cliente->toJson() }}"
                 :civils="{{ $civils->toJson() }}"
+                :empresas="{{$empresas->toJson()}}"
                 v-cloak
                 inline-template>
 

@@ -47,7 +47,7 @@ $factory->define(App\Models\Parentesco::class, static function (Faker\Generator 
 /** @var  Factory $factory */
 $factory->define(App\Models\EstadoCivil::class, static function (Faker\Generator $faker) {
     return [
-        'descricao' => $faker->sentence,
+        'nome' => $faker->sentence,
         'enabled' => $faker->boolean(),
         'created_at' => $faker->dateTime,
         'updated_at' => $faker->dateTime,

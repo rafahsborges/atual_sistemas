@@ -26,7 +26,7 @@ class UpdateEstadoCivil extends FormRequest
     public function rules(): array
     {
         return [
-            'descricao' => ['sometimes', 'string'],
+            'nome' => ['sometimes', 'string'],
             'enabled' => ['sometimes', 'boolean'],
             
         ];

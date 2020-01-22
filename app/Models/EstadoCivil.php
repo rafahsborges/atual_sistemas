@@ -11,7 +11,7 @@ class EstadoCivil extends Model
     use SoftDeletes;
 
     protected $fillable = [
-        'descricao',
+        'nome',
         'enabled',
     ];
 
@@ -28,7 +28,7 @@ class EstadoCivil extends Model
 
     public function getResourceUrlAttribute()
     {
-        return url('/admin/estado-civils/'.$this->getKey());
+        return url('/admin/estado-civils/' . $this->getKey());
     }
 
     /**

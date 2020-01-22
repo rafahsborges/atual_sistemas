@@ -111698,6 +111698,7 @@ __webpack_require__.r(__webpack_exports__);
 
 Vue.component('cliente-form', {
   mixins: [_app_components_Form_AppForm__WEBPACK_IMPORTED_MODULE_0__["default"]],
+  props: ['civils', 'empresas'],
   data: function data() {
     return {
       form: {
@@ -111724,10 +111725,9 @@ Vue.component('cliente-form', {
         cep: '',
         celular2: '',
         celular3: '',
-        id_cliente_responsavel: '',
-        id_estado_civil: '',
-        enabled: false,
-        civil: ''
+        civil: '',
+        empresa: '',
+        enabled: false
       },
       showPJ: false
     };
@@ -111811,6 +111811,7 @@ __webpack_require__.r(__webpack_exports__);
 
 Vue.component('dependente-form', {
   mixins: [_app_components_Form_AppForm__WEBPACK_IMPORTED_MODULE_0__["default"]],
+  props: ['clientes', 'parentescos'],
   data: function data() {
     return {
       form: {
@@ -111907,7 +111908,7 @@ Vue.component('estado-civil-form', {
   data: function data() {
     return {
       form: {
-        descricao: '',
+        nome: '',
         enabled: false
       }
     };
