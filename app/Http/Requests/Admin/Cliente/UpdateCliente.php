@@ -33,7 +33,7 @@ class UpdateCliente extends FormRequest
             'cpf' => ['nullable', 'string'],
             'insc_municipal' => ['nullable', 'string'],
             'cnpj' => ['nullable', 'string'],
-            'sexo' => ['nullable', 'string'],
+            'sexo' => ['nullable'],
             'profissao' => ['nullable', 'string'],
             'local_trabalho' => ['nullable', 'string'],
             'telefone' => ['nullable', 'string'],
@@ -43,7 +43,7 @@ class UpdateCliente extends FormRequest
             'complemento' => ['nullable', 'string'],
             'bairro' => ['nullable', 'string'],
             'cidade' => ['nullable', 'string'],
-            'uf' => ['nullable', 'string'],
+            'uf' => ['nullable'],
             'email' => ['nullable', 'email', 'string'],
             'observacao' => ['nullable', 'string'],
             'cep' => ['nullable', 'string'],
@@ -81,6 +81,22 @@ class UpdateCliente extends FormRequest
     {
         if ($this->has('empresa')) {
             return $this->get('empresa')['id'];
+        }
+        return null;
+    }
+
+    public function getUfId()
+    {
+        if ($this->has('uf')) {
+            return $this->get('uf')['id'];
+        }
+        return null;
+    }
+
+    public function getSexoId()
+    {
+        if ($this->has('sexo')) {
+            return $this->get('sexo')['id'];
         }
         return null;
     }

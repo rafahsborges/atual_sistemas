@@ -1,3 +1,11 @@
+<div class="form-group row align-items-center" :class="{'has-danger': errors.has('cpf_cnpj'), 'has-success': fields.cpf_cnpj && fields.cpf_cnpj.valid }">
+    <label for="cpf_cnpj" class="col-form-label text-md-right" :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.conta.columns.cpf_cnpj') }}</label>
+    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+        <input type="text" v-mask="['###.###.###-##', '##.###.###/####-##']" v-model="form.cpf_cnpj" v-validate="''" @input="validate($event)" class="form-control" :class="{'form-control-danger': errors.has('cpf_cnpj'), 'form-control-success': fields.cpf_cnpj && fields.cpf_cnpj.valid}" id="cpf_cnpj" name="cpf_cnpj" placeholder="{{ trans('admin.conta.columns.cpf_cnpj') }}">
+        <div v-if="errors.has('cpf_cnpj')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('cpf_cnpj') }}</div>
+    </div>
+</div>
+
 <div class="form-group row align-items-center" :class="{'has-danger': errors.has('nome'), 'has-success': fields.nome && fields.nome.valid }">
     <label for="nome" class="col-form-label text-md-right" :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.conta.columns.nome') }}</label>
         <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
@@ -83,14 +91,6 @@
         <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
         <input type="text" v-model="form.mensagem_2" v-validate="''" @input="validate($event)" class="form-control" :class="{'form-control-danger': errors.has('mensagem_2'), 'form-control-success': fields.mensagem_2 && fields.mensagem_2.valid}" id="mensagem_2" name="mensagem_2" placeholder="{{ trans('admin.conta.columns.mensagem_2') }}">
         <div v-if="errors.has('mensagem_2')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('mensagem_2') }}</div>
-    </div>
-</div>
-
-<div class="form-group row align-items-center" :class="{'has-danger': errors.has('cpf_cnpj'), 'has-success': fields.cpf_cnpj && fields.cpf_cnpj.valid }">
-    <label for="cpf_cnpj" class="col-form-label text-md-right" :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.conta.columns.cpf_cnpj') }}</label>
-        <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.cpf_cnpj" v-validate="''" @input="validate($event)" class="form-control" :class="{'form-control-danger': errors.has('cpf_cnpj'), 'form-control-success': fields.cpf_cnpj && fields.cpf_cnpj.valid}" id="cpf_cnpj" name="cpf_cnpj" placeholder="{{ trans('admin.conta.columns.cpf_cnpj') }}">
-        <div v-if="errors.has('cpf_cnpj')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('cpf_cnpj') }}</div>
     </div>
 </div>
 

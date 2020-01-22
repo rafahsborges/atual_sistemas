@@ -8,7 +8,10 @@ use App\Http\Requests\Admin\Contrato\DestroyContrato;
 use App\Http\Requests\Admin\Contrato\IndexContrato;
 use App\Http\Requests\Admin\Contrato\StoreContrato;
 use App\Http\Requests\Admin\Contrato\UpdateContrato;
+use App\Models\Cliente;
+use App\Models\Conta;
 use App\Models\Contrato;
+use App\Models\Plano;
 use Brackets\AdminListing\Facades\AdminListing;
 use Carbon\Carbon;
 use Exception;
@@ -34,7 +37,7 @@ class ContratosController extends Controller
     {
         // create and AdminListing instance for a specific model and
         $data = AdminListing::create(Contrato::class)->processRequestAndGet(
-            // pass the request with params
+        // pass the request with params
             $request,
 
             // set columns to query
@@ -53,20 +56,29 @@ class ContratosController extends Controller
             return ['data' => $data];
         }
 
-        return view('admin.contrato.index', ['data' => $data]);
+        return view('admin.contrato.index', [
+            'data' => $data,
+            'clientes' => Cliente::all(),
+            'contas' => Conta::all(),
+            'planos' => Plano::all(),
+        ]);
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @throws AuthorizationException
      * @return Factory|View
+     * @throws AuthorizationException
      */
     public function create()
     {
         $this->authorize('admin.contrato.create');
 
-        return view('admin.contrato.create');
+        return view('admin.contrato.create', [
+            'clientes' => Cliente::all(),
+            'contas' => Conta::all(),
+            'planos' => Plano::all(),
+        ]);
     }
 
     /**
@@ -79,6 +91,14 @@ class ContratosController extends Controller
     {
         // Sanitize input
         $sanitized = $request->getSanitized();
+        $sanitized['id_cliente'] = $request->getClienteId();
+        $sanitized['id_conta'] = $request->getContaId();
+        $sanitized['id_plano'] = $request->getPlanoId();
+        $sanitized['tipo_pagamento'] = $request->getTipoPagamentoId();
+        $sanitized['valor'] = $request->keepOnlyDigits($sanitized['valor']);
+        $sanitized['juros'] = $request->keepOnlyDigits($sanitized['juros']);
+        $sanitized['multa'] = $request->keepOnlyDigits($sanitized['multa']);
+        $sanitized['desconto'] = $request->keepOnlyDigits($sanitized['desconto']);
 
         // Store the Contrato
         $contrato = Contrato::create($sanitized);
@@ -94,8 +114,8 @@ class ContratosController extends Controller
      * Display the specified resource.
      *
      * @param Contrato $contrato
-     * @throws AuthorizationException
      * @return void
+     * @throws AuthorizationException
      */
     public function show(Contrato $contrato)
     {
@@ -108,8 +128,8 @@ class ContratosController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param Contrato $contrato
-     * @throws AuthorizationException
      * @return Factory|View
+     * @throws AuthorizationException
      */
     public function edit(Contrato $contrato)
     {
@@ -118,6 +138,9 @@ class ContratosController extends Controller
 
         return view('admin.contrato.edit', [
             'contrato' => $contrato,
+            'clientes' => Cliente::all(),
+            'contas' => Conta::all(),
+            'planos' => Plano::all(),
         ]);
     }
 
@@ -132,6 +155,14 @@ class ContratosController extends Controller
     {
         // Sanitize input
         $sanitized = $request->getSanitized();
+        $sanitized['id_cliente'] = $request->getClienteId();
+        $sanitized['id_conta'] = $request->getContaId();
+        $sanitized['id_plano'] = $request->getPlanoId();
+        $sanitized['tipo_pagamento'] = $request->getTipoPagamentoId();
+        $sanitized['valor'] = $request->keepOnlyDigits($sanitized['valor']);
+        $sanitized['juros'] = $request->keepOnlyDigits($sanitized['juros']);
+        $sanitized['multa'] = $request->keepOnlyDigits($sanitized['multa']);
+        $sanitized['desconto'] = $request->keepOnlyDigits($sanitized['desconto']);
 
         // Update changed values Contrato
         $contrato->update($sanitized);
@@ -151,8 +182,8 @@ class ContratosController extends Controller
      *
      * @param DestroyContrato $request
      * @param Contrato $contrato
-     * @throws Exception
      * @return ResponseFactory|RedirectResponse|Response
+     * @throws Exception
      */
     public function destroy(DestroyContrato $request, Contrato $contrato)
     {
@@ -169,10 +200,10 @@ class ContratosController extends Controller
      * Remove the specified resources from storage.
      *
      * @param BulkDestroyContrato $request
-     * @throws Exception
      * @return Response|bool
+     * @throws Exception
      */
-    public function bulkDestroy(BulkDestroyContrato $request) : Response
+    public function bulkDestroy(BulkDestroyContrato $request): Response
     {
         DB::transaction(static function () use ($request) {
             collect($request->data['ids'])
@@ -181,7 +212,7 @@ class ContratosController extends Controller
                     DB::table('contratos')->whereIn('id', $bulkChunk)
                         ->update([
                             'deleted_at' => Carbon::now()->format('Y-m-d H:i:s')
-                    ]);
+                        ]);
 
                     // TODO your code goes here
                 });

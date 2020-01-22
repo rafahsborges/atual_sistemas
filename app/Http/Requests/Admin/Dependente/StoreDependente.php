@@ -28,8 +28,6 @@ class StoreDependente extends FormRequest
         return [
             'nome' => ['required', 'string'],
             'nascimento' => ['required', 'date'],
-            //'id_cliente' => ['nullable', 'string'],
-            //'id_parentesco' => ['nullable', 'string'],
             'enabled' => ['required', 'boolean'],
             'cliente' => ['required'],
             'parentesco' => ['required'],

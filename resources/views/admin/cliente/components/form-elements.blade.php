@@ -108,9 +108,15 @@
         <label for="sexo" class="col-form-label text-md-right"
                :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.cliente.columns.sexo') }}</label>
         <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-            <input type="text" v-model="form.sexo" v-validate="''" @input="validate($event)" class="form-control"
-                   :class="{'form-control-danger': errors.has('sexo'), 'form-control-success': fields.sexo && fields.sexo.valid}"
-                   id="sexo" name="sexo" placeholder="{{ trans('admin.cliente.columns.sexo') }}">
+            <multiselect
+                v-model="form.sexo"
+                :options="sexList"
+                :multiple="false"
+                track-by="id"
+                label="nome"
+                tag-placeholder="{{ trans('admin.cliente.columns.sexo') }}"
+                placeholder="{{ trans('admin.cliente.columns.sexo') }}">
+            </multiselect>
             <div v-if="errors.has('sexo')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('sexo') }}
             </div>
         </div>
@@ -328,9 +334,15 @@
     <label for="uf" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.cliente.columns.uf') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.uf" v-validate="''" @input="validate($event)" class="form-control"
-               :class="{'form-control-danger': errors.has('uf'), 'form-control-success': fields.uf && fields.uf.valid}"
-               id="uf" name="uf" placeholder="{{ trans('admin.cliente.columns.uf') }}">
+        <multiselect
+            v-model="form.uf"
+            :options="ufList"
+            :multiple="false"
+            track-by="id"
+            label="nome"
+            tag-placeholder="{{ trans('admin.cliente.columns.uf') }}"
+            placeholder="{{ trans('admin.cliente.columns.uf') }}">
+        </multiselect>
         <div v-if="errors.has('uf')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('uf') }}</div>
     </div>
 </div>

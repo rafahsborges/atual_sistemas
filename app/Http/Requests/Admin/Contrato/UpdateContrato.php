@@ -26,22 +26,21 @@ class UpdateContrato extends FormRequest
     public function rules(): array
     {
         return [
-            'primeira_parcela' => ['sometimes', 'date'],
-            'ultima_parcela' => ['sometimes', 'date'],
-            'data_assinatura' => ['sometimes', 'date'],
+            'primeira_parcela' => ['required', 'date'],
+            'ultima_parcela' => ['required', 'date'],
+            'data_assinatura' => ['required', 'date'],
             'qtd_parcelas' => ['nullable', 'numeric'],
-            'tipo_pagamento' => ['sometimes', 'numeric'],
-            'valor' => ['sometimes', 'numeric'],
+            'tipo_pagamento' => ['required'],
+            'valor' => ['required'],
             'plano_funeral' => ['nullable', 'boolean'],
-            'desconto' => ['nullable', 'numeric'],
-            'juros' => ['nullable', 'numeric'],
-            'multa' => ['nullable', 'numeric'],
+            'desconto' => ['nullable'],
+            'juros' => ['nullable'],
+            'multa' => ['nullable'],
             'validade_contrato' => ['nullable', 'date'],
-            'id_cliente' => ['nullable', 'string'],
-            'id_plano' => ['nullable', 'string'],
-            'id_conta' => ['nullable', 'string'],
-            'enabled' => ['sometimes', 'boolean'],
-            
+            'enabled' => ['required', 'boolean'],
+            'cliente' => ['nullable'],
+            'conta' => ['nullable'],
+            'plano' => ['nullable'],
         ];
     }
 
@@ -58,5 +57,42 @@ class UpdateContrato extends FormRequest
         //Add your code for manipulation with request data here
 
         return $sanitized;
+    }
+
+    public function getClienteId()
+    {
+        if ($this->has('cliente')) {
+            return $this->get('cliente')['id'];
+        }
+        return null;
+    }
+
+    public function getContaId()
+    {
+        if ($this->has('conta')) {
+            return $this->get('conta')['id'];
+        }
+        return null;
+    }
+
+    public function getPlanoId()
+    {
+        if ($this->has('plano')) {
+            return $this->get('plano')['id'];
+        }
+        return null;
+    }
+
+    public function getTipoPagamentoId()
+    {
+        if ($this->has('tipo_pagamento')) {
+            return $this->get('tipo_pagamento')['id'];
+        }
+        return null;
+    }
+
+    public function keepOnlyDigits($string)
+    {
+        return preg_replace('/\D/', '', $string);
     }
 }

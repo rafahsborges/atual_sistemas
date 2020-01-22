@@ -96,6 +96,8 @@ class ClientesController extends Controller
         $sanitized = $request->getSanitized();
         $sanitized['id_estado_civil'] = $request->getEstadoCivilId();
         $sanitized['id_cliente_responsavel'] = $request->getClienteResponsavelId();
+        $sanitized['uf'] = $request->getUfId();
+        $sanitized['sexo'] = $request->getSexoId();
 
         // Store the Cliente
         $cliente = Cliente::create($sanitized);
@@ -152,6 +154,8 @@ class ClientesController extends Controller
         $sanitized = $request->getSanitized();
         $sanitized['id_estado_civil'] = $request->getEstadoCivilId();
         $sanitized['id_cliente_responsavel'] = $request->getClienteResponsavelId();
+        $sanitized['uf'] = $request->getUfId();
+        $sanitized['sexo'] = $request->getSexoId();
 
         // Update changed values Cliente
         $cliente->update($sanitized);

@@ -28,8 +28,6 @@ class UpdateDependente extends FormRequest
         return [
             'nome' => ['sometimes', 'string'],
             'nascimento' => ['sometimes', 'date'],
-            //'id_cliente' => ['nullable', 'string'],
-            //'id_parentesco' => ['nullable', 'string'],
             'enabled' => ['sometimes', 'boolean'],
             'cliente' => ['required'],
             'parentesco' => ['required'],

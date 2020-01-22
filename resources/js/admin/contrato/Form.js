@@ -1,7 +1,13 @@
 import AppForm from '../app-components/Form/AppForm';
+import {VMoney} from 'v-money';
 
 Vue.component('contrato-form', {
     mixins: [AppForm],
+    props: [
+        'clientes',
+        'contas',
+        'planos'
+    ],
     data: function() {
         return {
             form: {
@@ -16,13 +22,40 @@ Vue.component('contrato-form', {
                 juros:  '' ,
                 multa:  '' ,
                 validade_contrato:  '' ,
-                id_cliente:  '' ,
-                id_plano:  '' ,
-                id_conta:  '' ,
                 enabled:  false ,
-                
-            }
+                cliente:  '' ,
+                conta:  '' ,
+                plano:  '' ,
+
+            },
+            price: 123.45,
+            money: {
+                decimal: ',',
+                thousands: '.',
+                prefix: 'R$ ',
+                suffix: '',
+                precision: 2,
+                masked: false /* doesn't work with directive */
+            },
+            percent: {
+                decimal: ',',
+                thousands: '.',
+                prefix: '',
+                suffix: ' %',
+                precision: 2,
+                masked: false /* doesn't work with directive */
+            },
+            pgList: [
+                { nome: 'Boleto', id: 1 },
+                { nome: 'Carnê', id: 2 },
+            ]
         }
+    },
+
+    directives: {
+        money: VMoney,
+        percent: VMoney,
     }
 
 });
+
