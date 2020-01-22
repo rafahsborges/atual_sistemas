@@ -111748,27 +111748,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../app-components/Listing/AppListing */ "./resources/js/admin/app-components/Listing/AppListing.js");
 
 Vue.component('cliente-listing', {
-  mixins: [_app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__["default"]],
-  data: function data() {
-    return {
-      showCivilsFilter: false,
-      civilsMultiselect: {},
-      filters: {
-        civils: []
-      }
-    };
-  },
-  watch: {
-    showCivilsFilter: function showCivilsFilter(newVal, oldVal) {
-      this.civilsMultiselect = [];
-    },
-    civilsMultiselect: function civilsMultiselect(newVal, oldVal) {
-      this.filters.civils = newVal.map(function (object) {
-        return object['key'];
-      });
-      this.filter('civils', this.filters.civils);
-    }
-  }
+  mixins: [_app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__["default"]]
 });
 
 /***/ }),
