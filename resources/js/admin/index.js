@@ -6,3 +6,5 @@ import './parentesco';
 import './estado-civil';
 import './cliente';
 import './dependente';
+import './conta';
+import './contrato';

@@ -103,3 +103,49 @@ $factory->define(App\Models\Dependente::class, static function (Faker\Generator 
         'deleted_at' => null,
     ];
 });
+
+/** @var  Factory $factory */
+$factory->define(App\Models\Conta::class, static function (Faker\Generator $faker) {
+    return [
+        'nome' => $faker->sentence,
+        'banco' => $faker->sentence,
+        'agencia' => $faker->randomNumber(5),
+        'digito_agencia' => $faker->sentence,
+        'conta' => $faker->randomNumber(5),
+        'digito_conta' => $faker->sentence,
+        'codigo_empresa' => $faker->sentence,
+        'carteira' => $faker->randomNumber(5),
+        'tipo' => $faker->randomNumber(5),
+        'mensagem_1' => $faker->sentence,
+        'mensagem_2' => $faker->sentence,
+        'cpf_cnpj' => $faker->sentence,
+        'enabled' => $faker->boolean(),
+        'created_at' => $faker->dateTime,
+        'updated_at' => $faker->dateTime,
+        'deleted_at' => null,
+    ];
+});
+
+/** @var  Factory $factory */
+$factory->define(App\Models\Contrato::class, static function (Faker\Generator $faker) {
+    return [
+        'primeira_parcela' => $faker->date(),
+        'ultima_parcela' => $faker->date(),
+        'data_assinatura' => $faker->date(),
+        'qtd_parcelas' => $faker->randomNumber(5),
+        'tipo_pagamento' => $faker->randomNumber(5),
+        'valor' => $faker->randomNumber(5),
+        'plano_funeral' => $faker->boolean(),
+        'desconto' => $faker->randomNumber(5),
+        'juros' => $faker->randomNumber(5),
+        'multa' => $faker->randomNumber(5),
+        'validade_contrato' => $faker->date(),
+        'id_cliente' => $faker->sentence,
+        'id_plano' => $faker->sentence,
+        'id_conta' => $faker->sentence,
+        'enabled' => $faker->boolean(),
+        'created_at' => $faker->dateTime,
+        'updated_at' => $faker->dateTime,
+        'deleted_at' => null,
+    ];
+});

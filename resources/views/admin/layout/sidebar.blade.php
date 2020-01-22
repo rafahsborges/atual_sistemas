@@ -8,7 +8,9 @@
                         class="nav-icon icon-plane"></i> {{ trans('admin.cliente.title') }}</a></li>
             <li class="nav-item"><a class="nav-link" href="{{ url('admin/dependentes') }}"><i
                         class="nav-icon icon-drop"></i> {{ trans('admin.dependente.title') }}</a></li>
-            {{-- Do not delete me :) I'm used for auto-generation menu items --}}
+            <li class="nav-item"><a class="nav-link" href="{{ url('admin/contas') }}"><i class="nav-icon icon-book-open"></i> {{ trans('admin.conta.title') }}</a></li>
+           <li class="nav-item"><a class="nav-link" href="{{ url('admin/contratos') }}"><i class="nav-icon icon-puzzle"></i> {{ trans('admin.contrato.title') }}</a></li>
+           {{-- Do not delete me :) I'm used for auto-generation menu items --}}
             @if(auth()->user()->is_admin == 1)
                 <li class="nav-title">{{ trans('brackets/admin-ui::admin.sidebar.settings') }}</li>
                 <li class="nav-item"><a class="nav-link" href="{{ url('admin/admin-users') }}"><i

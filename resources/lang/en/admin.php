@@ -136,5 +136,63 @@ return [
         ],
     ],
 
+    'conta' => [
+        'title' => 'Contas',
+
+        'actions' => [
+            'index' => 'Contas',
+            'create' => 'New Conta',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'nome' => 'Nome',
+            'banco' => 'Banco',
+            'agencia' => 'Agencia',
+            'digito_agencia' => 'Digito agencia',
+            'conta' => 'Conta',
+            'digito_conta' => 'Digito conta',
+            'codigo_empresa' => 'Codigo empresa',
+            'carteira' => 'Carteira',
+            'tipo' => 'Tipo',
+            'mensagem_1' => 'Mensagem 1',
+            'mensagem_2' => 'Mensagem 2',
+            'cpf_cnpj' => 'Cpf cnpj',
+            'enabled' => 'Enabled',
+            
+        ],
+    ],
+
+    'contrato' => [
+        'title' => 'Contratos',
+
+        'actions' => [
+            'index' => 'Contratos',
+            'create' => 'New Contrato',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'primeira_parcela' => 'Primeira parcela',
+            'ultima_parcela' => 'Ultima parcela',
+            'data_assinatura' => 'Data assinatura',
+            'qtd_parcelas' => 'Qtd parcelas',
+            'tipo_pagamento' => 'Tipo pagamento',
+            'valor' => 'Valor',
+            'plano_funeral' => 'Plano funeral',
+            'desconto' => 'Desconto',
+            'juros' => 'Juros',
+            'multa' => 'Multa',
+            'validade_contrato' => 'Validade contrato',
+            'id_cliente' => 'Id cliente',
+            'id_plano' => 'Id plano',
+            'id_conta' => 'Id conta',
+            'enabled' => 'Enabled',
+            
+        ],
+    ],
+
     // Do not delete me :) I'm used for auto-generation
 ];
