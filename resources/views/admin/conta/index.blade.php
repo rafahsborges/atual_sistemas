@@ -30,7 +30,7 @@
                                     </div>
                                     <div class="col-sm-auto form-group ">
                                         <select class="form-control" v-model="pagination.state.per_page">
-                                            
+
                                             <option value="10">10</option>
                                             <option value="25">25</option>
                                             <option value="100">100</option>
@@ -52,15 +52,6 @@
                                         <th is='sortable' :column="'id'">{{ trans('admin.conta.columns.id') }}</th>
                                         <th is='sortable' :column="'nome'">{{ trans('admin.conta.columns.nome') }}</th>
                                         <th is='sortable' :column="'banco'">{{ trans('admin.conta.columns.banco') }}</th>
-                                        <th is='sortable' :column="'agencia'">{{ trans('admin.conta.columns.agencia') }}</th>
-                                        <th is='sortable' :column="'digito_agencia'">{{ trans('admin.conta.columns.digito_agencia') }}</th>
-                                        <th is='sortable' :column="'conta'">{{ trans('admin.conta.columns.conta') }}</th>
-                                        <th is='sortable' :column="'digito_conta'">{{ trans('admin.conta.columns.digito_conta') }}</th>
-                                        <th is='sortable' :column="'codigo_empresa'">{{ trans('admin.conta.columns.codigo_empresa') }}</th>
-                                        <th is='sortable' :column="'carteira'">{{ trans('admin.conta.columns.carteira') }}</th>
-                                        <th is='sortable' :column="'tipo'">{{ trans('admin.conta.columns.tipo') }}</th>
-                                        <th is='sortable' :column="'mensagem_1'">{{ trans('admin.conta.columns.mensagem_1') }}</th>
-                                        <th is='sortable' :column="'mensagem_2'">{{ trans('admin.conta.columns.mensagem_2') }}</th>
                                         <th is='sortable' :column="'cpf_cnpj'">{{ trans('admin.conta.columns.cpf_cnpj') }}</th>
                                         <th is='sortable' :column="'enabled'">{{ trans('admin.conta.columns.enabled') }}</th>
 
@@ -89,15 +80,6 @@
                                     <td>@{{ item.id }}</td>
                                         <td>@{{ item.nome }}</td>
                                         <td>@{{ item.banco }}</td>
-                                        <td>@{{ item.agencia }}</td>
-                                        <td>@{{ item.digito_agencia }}</td>
-                                        <td>@{{ item.conta }}</td>
-                                        <td>@{{ item.digito_conta }}</td>
-                                        <td>@{{ item.codigo_empresa }}</td>
-                                        <td>@{{ item.carteira }}</td>
-                                        <td>@{{ item.tipo }}</td>
-                                        <td>@{{ item.mensagem_1 }}</td>
-                                        <td>@{{ item.mensagem_2 }}</td>
                                         <td>@{{ item.cpf_cnpj }}</td>
                                         <td>
                                             <label class="switch switch-3d switch-success">
@@ -106,7 +88,7 @@
                                             </label>
                                         </td>
 
-                                        
+
                                         <td>
                                             <div class="row no-gutters">
                                                 <div class="col-auto">
