@@ -107,6 +107,7 @@ class FillDefaultAdminUserAndPermissions extends Migration
                 'updated_at' => Carbon::now(),
                 'is_admin' => true,
                 'activated' => true,
+                'language' => 'pt',
                 'roles' => [
                     [
                         'name' => 'Administrator',
@@ -126,6 +127,7 @@ class FillDefaultAdminUserAndPermissions extends Migration
                 'updated_at' => Carbon::now(),
                 'is_admin' => true,
                 'activated' => true,
+                'language' => 'pt',
                 'roles' => [
                     [
                         'name' => 'Administrator',
@@ -145,6 +147,7 @@ class FillDefaultAdminUserAndPermissions extends Migration
                 'updated_at' => Carbon::now(),
                 'is_admin' => true,
                 'activated' => true,
+                'language' => 'pt',
                 'roles' => [
                     [
                         'name' => 'Administrator',
@@ -164,6 +167,7 @@ class FillDefaultAdminUserAndPermissions extends Migration
                 'updated_at' => Carbon::now(),
                 'is_admin' => false,
                 'activated' => true,
+                'language' => 'pt',
                 'roles' => [
                     [
                         'name' => 'Administrator',
@@ -183,6 +187,7 @@ class FillDefaultAdminUserAndPermissions extends Migration
                 'updated_at' => Carbon::now(),
                 'is_admin' => false,
                 'activated' => true,
+                'language' => 'pt',
                 'roles' => [
                     [
                         'name' => 'Administrator',
@@ -202,6 +207,7 @@ class FillDefaultAdminUserAndPermissions extends Migration
                 'updated_at' => Carbon::now(),
                 'is_admin' => true,
                 'activated' => true,
+                'language' => 'pt',
                 'roles' => [
                     [
                         'name' => 'Administrator',
@@ -221,6 +227,7 @@ class FillDefaultAdminUserAndPermissions extends Migration
                 'updated_at' => Carbon::now(),
                 'is_admin' => true,
                 'activated' => true,
+                'language' => 'pt',
                 'roles' => [
                     [
                         'name' => 'Administrator',
