@@ -99,9 +99,122 @@ class FillDefaultAdminUserAndPermissions extends Migration
         //Add new users
         $this->users = [
             [
-                'first_name' => 'Administrator',
-                'last_name' => 'Administrator',
-                'email' => 'administrator@brackets.sk',
+                'name' => 'Rafael Souza Borges',
+                'email' => 'rafaelsouzaborges@outlook.com',
+                'password' => Hash::make($this->password),
+                'remember_token' => null,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+                'is_admin' => true,
+                'activated' => true,
+                'roles' => [
+                    [
+                        'name' => 'Administrator',
+                        'guard_name' => $this->guardName,
+                    ],
+                ],
+                'permissions' => [
+                    //
+                ],
+            ],
+            [
+                'name' => 'Tiago Kihara',
+                'email' => 'tiagokihara@gmail.com',
+                'password' => Hash::make($this->password),
+                'remember_token' => null,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+                'is_admin' => true,
+                'activated' => true,
+                'roles' => [
+                    [
+                        'name' => 'Administrator',
+                        'guard_name' => $this->guardName,
+                    ],
+                ],
+                'permissions' => [
+                    //
+                ],
+            ],
+            [
+                'name' => 'Daniela da Silveira Mazzi Dias',
+                'email' => 'danymazzi@hotmail.com',
+                'password' => Hash::make($this->password),
+                'remember_token' => null,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+                'is_admin' => true,
+                'activated' => true,
+                'roles' => [
+                    [
+                        'name' => 'Administrator',
+                        'guard_name' => $this->guardName,
+                    ],
+                ],
+                'permissions' => [
+                    //
+                ],
+            ],
+            [
+                'name' => 'Ivanilde Teixeira Thomaz',
+                'email' => 'planoessencialvida@hotmail.com',
+                'password' => Hash::make($this->password),
+                'remember_token' => null,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+                'is_admin' => false,
+                'activated' => true,
+                'roles' => [
+                    [
+                        'name' => 'Administrator',
+                        'guard_name' => $this->guardName,
+                    ],
+                ],
+                'permissions' => [
+                    //
+                ],
+            ],
+            [
+                'name' => 'Inez Cleide Maria Rondine',
+                'email' => 'essencialvida1@gmail.com',
+                'password' => Hash::make($this->password),
+                'remember_token' => null,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+                'is_admin' => false,
+                'activated' => true,
+                'roles' => [
+                    [
+                        'name' => 'Administrator',
+                        'guard_name' => $this->guardName,
+                    ],
+                ],
+                'permissions' => [
+                    //
+                ],
+            ],
+            [
+                'name' => 'Rogério Alves',
+                'email' => 'rogerioalvez@gmail.com',
+                'password' => Hash::make($this->password),
+                'remember_token' => null,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+                'is_admin' => true,
+                'activated' => true,
+                'roles' => [
+                    [
+                        'name' => 'Administrator',
+                        'guard_name' => $this->guardName,
+                    ],
+                ],
+                'permissions' => [
+                    //
+                ],
+            ],
+            [
+                'name' => 'Atual Sistemas',
+                'email' => 'atualsistemas02@hotmail.com',
                 'password' => Hash::make($this->password),
                 'remember_token' => null,
                 'created_at' => Carbon::now(),
@@ -124,8 +237,8 @@ class FillDefaultAdminUserAndPermissions extends Migration
     /**
      * Run the migrations.
      *
-     * @throws Exception
      * @return void
+     * @throws Exception
      */
     public function up(): void
     {
@@ -233,8 +346,8 @@ class FillDefaultAdminUserAndPermissions extends Migration
     /**
      * Reverse the migrations.
      *
-     * @throws Exception
      * @return void
+     * @throws Exception
      */
     public function down(): void
     {

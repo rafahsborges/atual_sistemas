@@ -17,8 +17,7 @@ class CreateAdminUsersTable extends Migration
         DB::transaction(static function () {
             Schema::create('admin_users', static function (Blueprint $table) {
                 $table->increments('id');
-                $table->string('first_name')->nullable();
-                $table->string('last_name')->nullable();
+                $table->string('name')->nullable();
                 $table->string('email');
                 $table->string('password');
                 $table->rememberToken();
@@ -27,8 +26,8 @@ class CreateAdminUsersTable extends Migration
                 $table->boolean('forbidden')->default(false);
                 $table->string('language', 2)->default('en');
 
-                $table->softDeletes();
                 $table->timestamps();
+                $table->softDeletes();
 
                 $table->unique(['email', 'deleted_at']);
             });
