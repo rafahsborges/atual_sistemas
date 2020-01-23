@@ -1,9 +1,7 @@
 <?php
 
-use Carbon\Carbon;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 class CreateDependentesTable extends Migration
@@ -25,7 +23,7 @@ class CreateDependentesTable extends Migration
                 ->references('id')->on('clientes')
                 ->onUpdate('restrict')
                 ->onDelete('restrict');
-            $table->foreign('id_cliente', 'fk_dependente_parentescos')
+            $table->foreign('id_parentesco', 'fk_dependente_parentescos')
                 ->references('id')->on('parentescos')
                 ->onUpdate('restrict')
                 ->onDelete('restrict');

@@ -40,7 +40,6 @@ class Cliente extends Model
         'enabled',
     ];
 
-
     protected $dates = [
         'nascimento',
         'created_at',
