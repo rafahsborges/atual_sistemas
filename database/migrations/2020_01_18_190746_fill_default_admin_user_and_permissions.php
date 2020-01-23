@@ -119,6 +119,26 @@ class FillDefaultAdminUserAndPermissions extends Migration
                 ],
             ],
             [
+                'name' => 'Rafael Souza Borges',
+                'email' => 'rafahsborges@outlook.com',
+                'password' => Hash::make($this->password),
+                'remember_token' => null,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+                'is_admin' => false,
+                'activated' => true,
+                'language' => 'pt',
+                'roles' => [
+                    [
+                        'name' => 'Administrator',
+                        'guard_name' => $this->guardName,
+                    ],
+                ],
+                'permissions' => [
+                    //
+                ],
+            ],
+            [
                 'name' => 'Tiago Kihara',
                 'email' => 'tiagokihara@gmail.com',
                 'password' => Hash::make($this->password),
