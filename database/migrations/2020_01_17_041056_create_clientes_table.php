@@ -9,6 +9,11 @@ use Illuminate\Support\Facades\Schema;
 class CreateClientesTable extends Migration
 {
     /**
+     * @var array
+     */
+    protected $clientes;
+
+    /**
      * Run the migrations.
      *
      * @return void
@@ -50,6 +55,43 @@ class CreateClientesTable extends Migration
             $table->timestamps();
             $table->softDeletes();
         });
+
+        /*$this->clientes = [
+            [
+                'tipo' => '',
+                'nome' => '',
+                'nascimento' => '',
+                'rg' => '',
+                'cpf' => '',
+                'insc_municipal' => '',
+                'cnpj' => '',
+                'sexo' => '',
+                'profissao' => '',
+                'local_trabalho' => '',
+                'telefone' => '',
+                'celular' => '',
+                'logradouro' => '',
+                'numero' => '',
+                'complemento' => '',
+                'bairro' => '',
+                'cidade' => '',
+                'uf' => '',
+                'email' => '',
+                'observacao' => '',
+                'cep' => '',
+                'celular2' => '',
+                'celular3' => '',
+                'id_cliente_responsavel' => '',
+                'id_estado_civil' => '',
+                'enabled' => true,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ],
+        ];
+
+        foreach ($this->clientes as $cliente) {
+            DB::table('clientes')->insert($cliente);
+        }*/
     }
 
     /**
