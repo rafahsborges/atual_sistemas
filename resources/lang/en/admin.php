@@ -14,8 +14,7 @@ return [
 
         'columns' => [
             'id' => 'ID',
-            'first_name' => 'First name',
-            'last_name' => 'Last name',
+            'name' => 'Name',
             'email' => 'Email',
             'password' => 'Password',
             'password_repeat' => 'Password Confirmation',
@@ -160,7 +159,7 @@ return [
             'mensagem_2' => 'Mensagem 2',
             'cpf_cnpj' => 'Cpf cnpj',
             'enabled' => 'Enabled',
-            
+
         ],
     ],
 
@@ -190,7 +189,7 @@ return [
             'id_plano' => 'Id plano',
             'id_conta' => 'Id conta',
             'enabled' => 'Enabled',
-            
+
         ],
     ],
 
@@ -214,7 +213,7 @@ return [
             'valor_pagamento' => 'Valor pagamento',
             'id_contrato' => 'Id contrato',
             'enabled' => 'Enabled',
-            
+
         ],
     ],
 

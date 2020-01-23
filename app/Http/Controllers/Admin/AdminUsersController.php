@@ -57,10 +57,10 @@ class AdminUsersController extends Controller
             $request,
 
             // set columns to query
-            ['id', 'first_name', 'last_name', 'email', 'is_admin', 'activated', 'forbidden', 'language'],
+            ['id', 'name', 'email', 'is_admin', 'activated', 'forbidden', 'language'],
 
             // set columns to searchIn
-            ['id', 'first_name', 'last_name', 'email', 'language']
+            ['id', 'name', 'email', 'language']
         );
 
         if ($request->ajax()) {

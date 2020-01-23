@@ -7,8 +7,7 @@ use Illuminate\Database\Eloquent\Factory;
 /** @var  Factory $factory */
 $factory->define(Brackets\AdminAuth\Models\AdminUser::class, function (Faker\Generator $faker) {
     return [
-        'first_name' => $faker->firstName,
-        'last_name' => $faker->lastName,
+        'name' => $faker->firstName,
         'email' => $faker->email,
         'password' => bcrypt($faker->password),
         'remember_token' => null,

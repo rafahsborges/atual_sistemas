@@ -130,7 +130,7 @@ class CreateParentescosTable extends Migration
         ];
 
         foreach ($this->parentescos as $parentesco) {
-            DB::table('parentesco')->insert($parentesco);
+            DB::table('parentescos')->insert($parentesco);
         }
 
     }
