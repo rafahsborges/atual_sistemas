@@ -9,6 +9,11 @@ use Illuminate\Support\Facades\Schema;
 class CreateContasTable extends Migration
 {
     /**
+     * @var array
+     */
+    protected $contas;
+
+    /**
      * Run the migrations.
      *
      * @return void
@@ -33,6 +38,48 @@ class CreateContasTable extends Migration
             $table->timestamps();
             $table->softDeletes();
         });
+
+        // Add new Contas
+        $this->contas = [
+            [
+                'nome' => 'PJDJ ESSENCIAL VIDA',
+                'banco' => '237',
+                'agencia' => '526',
+                'digito_agencia' => '6',
+                'conta' => '591934',
+                'digito_conta' => '7',
+                'codigo_empresa' => '4855309',
+                'carteira' => '9',
+                'tipo' => '1',
+                'mensagem_1' => 'NÃO RECEBER COM 60 DIAS DE VENCIDO',
+                'mensagem_2' => 'PROTESTAR EM 5 DIAS UTEIS',
+                'cpf_cnpj' => '064.443.918-14',
+                'enabled' => true,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ],
+            [
+                'nome' => 'ESSENCIAL VIDA COBRANCA, CA',
+                'banco' => '237',
+                'agencia' => '526',
+                'digito_agencia' => '6',
+                'conta' => '39001',
+                'digito_conta' => '1',
+                'codigo_empresa' => '4852925',
+                'carteira' => '9',
+                'tipo' => '2',
+                'mensagem_1' => 'NÃO RECEBER COM 60 DIAS DE VENCIDO',
+                'mensagem_2' => 'PROTESTAR EM 5 DIAS UTEIS',
+                'cpf_cnpj' => '17.604.556/0001-90',
+                'enabled' => true,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ],
+        ];
+
+        foreach ($this->contas as $conta) {
+            DB::table('contas')->insert($conta);
+        }
     }
 
     /**
