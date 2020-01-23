@@ -72,8 +72,7 @@ class ProfileController extends Controller
 
         // Validate the request
         $this->validate($request, [
-            'first_name' => ['nullable', 'string'],
-            'last_name' => ['nullable', 'string'],
+            'name' => ['nullable', 'string'],
             'email' => ['sometimes', 'email', Rule::unique('admin_users', 'email')->ignore($this->adminUser->getKey(), $this->adminUser->getKeyName()), 'string'],
             'is_admin' => ['sometimes', 'boolean'],
             'language' => ['sometimes', 'string'],
@@ -82,8 +81,7 @@ class ProfileController extends Controller
 
         // Sanitize input
         $sanitized = $request->only([
-            'first_name',
-            'last_name',
+            'name',
             'email',
             'is_admin',
             'language',
