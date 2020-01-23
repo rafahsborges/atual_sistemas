@@ -3,6 +3,8 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Contrato extends Model
@@ -52,7 +54,7 @@ class Contrato extends Model
      */
     public function cliente()
     {
-        return $this->belongsTo('App\Cliente', 'id_cliente');
+        return $this->belongsTo('App\Models\Cliente', 'id_cliente');
     }
 
     /**
@@ -60,7 +62,7 @@ class Contrato extends Model
      */
     public function conta()
     {
-        return $this->belongsTo('App\Conta', 'id_conta');
+        return $this->belongsTo('App\Models\Conta', 'id_conta');
     }
 
     /**
@@ -68,7 +70,7 @@ class Contrato extends Model
      */
     public function plano()
     {
-        return $this->belongsTo('App\Plano', 'id_plano');
+        return $this->belongsTo('App\Models\Plano', 'id_plano');
     }
 
     /**
@@ -76,6 +78,6 @@ class Contrato extends Model
      */
     public function contratoParcelas()
     {
-        return $this->hasMany('App\ContratoParcela', 'id_contrato');
+        return $this->hasMany('App\Models\ContratoParcela', 'id_contrato');
     }
 }

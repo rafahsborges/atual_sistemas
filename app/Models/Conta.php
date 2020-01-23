@@ -46,7 +46,7 @@ class Conta extends Model
      */
     public function contratos()
     {
-        return $this->hasMany('App\Contrato', 'id_conta');
+        return $this->hasMany('App\Models\Contrato', 'id_conta');
     }
 
     /**
@@ -54,6 +54,6 @@ class Conta extends Model
      */
     public function remessas()
     {
-        return $this->hasMany('App\Remessa', 'id_conta');
+        return $this->hasMany('App\Models\Remessa', 'id_conta');
     }
 }

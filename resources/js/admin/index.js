@@ -8,3 +8,4 @@ import './cliente';
 import './dependente';
 import './conta';
 import './contrato';
+import './contrato-parcela';

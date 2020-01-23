@@ -194,5 +194,29 @@ return [
         ],
     ],
 
+    'contrato-parcela' => [
+        'title' => 'Contrato Parcelas',
+
+        'actions' => [
+            'index' => 'Contrato Parcelas',
+            'create' => 'New Contrato Parcela',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'vencimento' => 'Vencimento',
+            'pagamento' => 'Pagamento',
+            'id_boleto' => 'Id boleto',
+            'id_carne' => 'Id carne',
+            'valor' => 'Valor',
+            'numero_parcela' => 'Numero parcela',
+            'valor_pagamento' => 'Valor pagamento',
+            'id_contrato' => 'Id contrato',
+            'enabled' => 'Enabled',
+            
+        ],
+    ],
+
     // Do not delete me :) I'm used for auto-generation
 ];

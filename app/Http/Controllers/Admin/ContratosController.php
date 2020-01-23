@@ -44,7 +44,22 @@ class ContratosController extends Controller
             ['id', 'primeira_parcela', 'ultima_parcela', 'data_assinatura', 'qtd_parcelas', 'tipo_pagamento', 'valor', 'plano_funeral', 'desconto', 'juros', 'multa', 'validade_contrato', 'id_cliente', 'id_plano', 'id_conta', 'enabled'],
 
             // set columns to searchIn
-            ['id']
+            ['id'],
+
+            function ($query) use ($request) {
+                $query->with(['cliente']);
+                if($request->has('clientes')){
+                    $query->whereIn('id_cliente', $request->get('clientes'));
+                }
+                $query->with(['conta']);
+                if($request->has('contas')){
+                    $query->whereIn('id_conta', $request->get('contas'));
+                }
+                $query->with(['plano']);
+                if($request->has('planos')){
+                    $query->whereIn('id_plano', $request->get('planos'));
+                }
+            }
         );
 
         if ($request->ajax()) {

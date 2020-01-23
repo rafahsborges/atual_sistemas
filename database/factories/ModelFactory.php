@@ -149,3 +149,21 @@ $factory->define(App\Models\Contrato::class, static function (Faker\Generator $f
         'deleted_at' => null,
     ];
 });
+
+/** @var  Factory $factory */
+$factory->define(App\Models\ContratoParcela::class, static function (Faker\Generator $faker) {
+    return [
+        'vencimento' => $faker->date(),
+        'pagamento' => $faker->date(),
+        'id_boleto' => $faker->randomNumber(5),
+        'id_carne' => $faker->randomNumber(5),
+        'valor' => $faker->randomNumber(5),
+        'numero_parcela' => $faker->randomNumber(5),
+        'valor_pagamento' => $faker->randomNumber(5),
+        'id_contrato' => $faker->sentence,
+        'enabled' => $faker->boolean(),
+        'created_at' => $faker->dateTime,
+        'updated_at' => $faker->dateTime,
+        'deleted_at' => null,
+    ];
+});

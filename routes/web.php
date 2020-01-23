@@ -144,3 +144,18 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
         });
     });
 });
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
+    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function () {
+        Route::prefix('contrato-parcelas')->name('contrato-parcelas/')->group(static function () {
+            Route::get('/', 'ContratoParcelasController@index')->name('index');
+            Route::get('/create', 'ContratoParcelasController@create')->name('create');
+            Route::post('/', 'ContratoParcelasController@store')->name('store');
+            Route::get('/{contratoParcela}/edit', 'ContratoParcelasController@edit')->name('edit');
+            Route::post('/bulk-destroy', 'ContratoParcelasController@bulkDestroy')->name('bulk-destroy');
+            Route::post('/{contratoParcela}', 'ContratoParcelasController@update')->name('update');
+            Route::delete('/{contratoParcela}', 'ContratoParcelasController@destroy')->name('destroy');
+        });
+    });
+});
