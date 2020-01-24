@@ -34,6 +34,16 @@
                                             </span>
                                         </div>
                                     </div>
+                                    <div class="col form-group deadline-checkbox-col">
+                                        <div class="switch-filter-wrap">
+                                            <label class="switch switch-3d switch-primary">
+                                                <input type="checkbox" class="switch-input"
+                                                       v-model="showStatusFilter">
+                                                <span class="switch-slider"></span>
+                                            </label>
+                                            <span class="status-filter">&nbsp;{{ __('Status') }}</span>
+                                        </div>
+                                    </div>
                                     <div class="col-sm-auto form-group ">
                                         <select class="form-control" v-model="pagination.state.per_page">
 
@@ -41,6 +51,18 @@
                                             <option value="25">25</option>
                                             <option value="100">100</option>
                                         </select>
+                                    </div>
+                                </div>
+                                <div class="row" v-if="showStatusFilter">
+                                    <div class="col col-lg-12 col-xl-12 form-group">
+                                        <multiselect v-model="statusMultiselect"
+                                                     :options="statusList"
+                                                     label="nome"
+                                                     track-by="id"
+                                                     placeholder="{{ __('Digite para procurar por status') }}"
+                                                     :limit="2"
+                                                     :multiple="true">
+                                        </multiselect>
                                     </div>
                                 </div>
                             </form>

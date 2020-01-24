@@ -7,7 +7,7 @@ Vue.component('dependente-listing', {
             showClientesFilter: false,
             showParentescosFilter: false,
             clientesMultiselect: {},
-            parentescoMultiselect: {},
+            parentescosMultiselect: {},
 
             filters: {
                 clientes: [],

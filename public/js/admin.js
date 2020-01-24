@@ -111424,8 +111424,7 @@ Vue.component('admin-user-form', {
   data: function data() {
     return {
       form: {
-        first_name: '',
-        last_name: '',
+        name: '',
         email: '',
         password: '',
         is_admin: false,
@@ -112175,7 +112174,7 @@ Vue.component('dependente-listing', {
       showClientesFilter: false,
       showParentescosFilter: false,
       clientesMultiselect: {},
-      parentescoMultiselect: {},
+      parentescosMultiselect: {},
       filters: {
         clientes: [],
         parentescos: []
@@ -112490,8 +112489,7 @@ Vue.component('profile-edit-profile-form', {
   data: function data() {
     return {
       form: {
-        first_name: '',
-        last_name: '',
+        name: '',
         email: '',
         password: '',
         is_admin: false,
