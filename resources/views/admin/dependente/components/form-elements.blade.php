@@ -35,10 +35,8 @@
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.dependente.columns.id_cliente') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
         <multiselect
-            v-model="form.cliente" v-validate="''" @input="validate($event)"
-            :class="{'form-control-danger': errors.has('id_cliente'), 'form-control-success': fields.id_cliente && fields.id_cliente.valid}"
-            id="id_cliente" name="id_cliente"
-            :options="{{ $clientes->toJson() }}"
+            v-model="form.cliente"
+            :options="clientes"
             :multiple="false"
             track-by="id"
             label="nome"
@@ -57,10 +55,8 @@
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.dependente.columns.id_parentesco') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
         <multiselect
-            v-model="form.parentesco" v-validate="''" @input="validate($event)"
-            :class="{'form-control-danger': errors.has('id_parentesco'), 'form-control-success': fields.id_parentesco && fields.id_parentesco.valid}"
-            id="id_parentesco" name="id_parentesco"
-            :options="{{ $parentescos->toJson() }}"
+            v-model="form.parentesco"
+            :options="parentescos"
             :multiple="false"
             track-by="id"
             label="nome"

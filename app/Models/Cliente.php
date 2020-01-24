@@ -2,14 +2,14 @@
 
 namespace App\Models;
 
+use App\Models\Traits\SoftDeletesWithDeleted;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Cliente extends Model
 {
-    use SoftDeletes;
+    use SoftDeletesWithDeleted;
 
     protected $fillable = [
         'tipo',
@@ -39,7 +39,6 @@ class Cliente extends Model
         'id_estado_civil',
         'enabled',
     ];
-
 
     protected $dates = [
         'nascimento',

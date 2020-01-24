@@ -14,8 +14,7 @@ return [
 
         'columns' => [
             'id' => 'ID',
-            'first_name' => 'First name',
-            'last_name' => 'Last name',
+            'name' => 'Name',
             'email' => 'Email',
             'password' => 'Password',
             'password_repeat' => 'Password Confirmation',
@@ -72,7 +71,7 @@ return [
 
         'columns' => [
             'id' => 'ID',
-            'descricao' => 'Descricao',
+            'nome' => 'Nome',
             'enabled' => 'Enabled',
         ],
     ],
@@ -133,6 +132,88 @@ return [
             'id_cliente' => 'Id cliente',
             'id_parentesco' => 'Id parentesco',
             'enabled' => 'Enabled',
+        ],
+    ],
+
+    'conta' => [
+        'title' => 'Contas',
+
+        'actions' => [
+            'index' => 'Contas',
+            'create' => 'New Conta',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'nome' => 'Nome',
+            'banco' => 'Banco',
+            'agencia' => 'Agencia',
+            'digito_agencia' => 'Digito agencia',
+            'conta' => 'Conta',
+            'digito_conta' => 'Digito conta',
+            'codigo_empresa' => 'Codigo empresa',
+            'carteira' => 'Carteira',
+            'tipo' => 'Tipo',
+            'mensagem_1' => 'Mensagem 1',
+            'mensagem_2' => 'Mensagem 2',
+            'cpf_cnpj' => 'Cpf cnpj',
+            'enabled' => 'Enabled',
+
+        ],
+    ],
+
+    'contrato' => [
+        'title' => 'Contratos',
+
+        'actions' => [
+            'index' => 'Contratos',
+            'create' => 'New Contrato',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'primeira_parcela' => 'Primeira parcela',
+            'ultima_parcela' => 'Ultima parcela',
+            'data_assinatura' => 'Data assinatura',
+            'qtd_parcelas' => 'Qtd parcelas',
+            'tipo_pagamento' => 'Tipo pagamento',
+            'valor' => 'Valor',
+            'plano_funeral' => 'Plano funeral',
+            'desconto' => 'Desconto',
+            'juros' => 'Juros',
+            'multa' => 'Multa',
+            'validade_contrato' => 'Validade contrato',
+            'id_cliente' => 'Id cliente',
+            'id_plano' => 'Id plano',
+            'id_conta' => 'Id conta',
+            'enabled' => 'Enabled',
+
+        ],
+    ],
+
+    'contrato-parcela' => [
+        'title' => 'Contrato Parcelas',
+
+        'actions' => [
+            'index' => 'Contrato Parcelas',
+            'create' => 'New Contrato Parcela',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'vencimento' => 'Vencimento',
+            'pagamento' => 'Pagamento',
+            'id_boleto' => 'Id boleto',
+            'id_carne' => 'Id carne',
+            'valor' => 'Valor',
+            'numero_parcela' => 'Numero parcela',
+            'valor_pagamento' => 'Valor pagamento',
+            'id_contrato' => 'Id contrato',
+            'enabled' => 'Enabled',
+
         ],
     ],
 

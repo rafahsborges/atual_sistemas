@@ -11,6 +11,7 @@
         <cliente-form
             :action="'{{ url('admin/clientes') }}'"
             :civils="{{$civils->toJson()}}"
+            :empresas="{{$empresas->toJson()}}"
             v-cloak
             inline-template>
 

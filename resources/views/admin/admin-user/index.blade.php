@@ -44,8 +44,7 @@
                             <thead>
                                 <tr>
                                     <th is='sortable' :column="'id'">{{ trans('admin.admin-user.columns.id') }}</th>
-                                    <th is='sortable' :column="'first_name'">{{ trans('admin.admin-user.columns.first_name') }}</th>
-                                    <th is='sortable' :column="'last_name'">{{ trans('admin.admin-user.columns.last_name') }}</th>
+                                    <th is='sortable' :column="'name'">{{ trans('admin.admin-user.columns.name') }}</th>
                                     <th is='sortable' :column="'email'">{{ trans('admin.admin-user.columns.email') }}</th>
                                     <th is='sortable' :column="'is_admin'">{{ trans('admin.admin-user.columns.is_admin') }}</th>
                                     <th is='sortable' :column="'activated'" v-if="activation">{{ trans('admin.admin-user.columns.activated') }}</th>
@@ -58,8 +57,7 @@
                             <tbody>
                                 <tr v-for="(item, index) in collection">
                                     <td >@{{ item.id }}</td>
-                                    <td >@{{ item.first_name }}</td>
-                                    <td >@{{ item.last_name }}</td>
+                                    <td >@{{ item.name }}</td>
                                     <td >@{{ item.email }}</td>
                                     <td >@{{ item.is_admin }}</td>
                                     <td v-if="activation">

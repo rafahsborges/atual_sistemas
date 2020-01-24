@@ -26,7 +26,7 @@ class IndexEstadoCivil extends FormRequest
     public function rules(): array
     {
         return [
-            'orderBy' => 'in:id,descricao,enabled|nullable',
+            'orderBy' => 'in:id,nome,enabled|nullable',
             'orderDirection' => 'in:asc,desc|nullable',
             'search' => 'string|nullable',
             'page' => 'integer|nullable',

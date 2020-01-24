@@ -33,7 +33,7 @@ class UpdateCliente extends FormRequest
             'cpf' => ['nullable', 'string'],
             'insc_municipal' => ['nullable', 'string'],
             'cnpj' => ['nullable', 'string'],
-            'sexo' => ['nullable', 'string'],
+            'sexo' => ['nullable'],
             'profissao' => ['nullable', 'string'],
             'local_trabalho' => ['nullable', 'string'],
             'telefone' => ['nullable', 'string'],
@@ -43,14 +43,14 @@ class UpdateCliente extends FormRequest
             'complemento' => ['nullable', 'string'],
             'bairro' => ['nullable', 'string'],
             'cidade' => ['nullable', 'string'],
-            'uf' => ['nullable', 'string'],
+            'uf' => ['nullable'],
             'email' => ['nullable', 'email', 'string'],
             'observacao' => ['nullable', 'string'],
             'cep' => ['nullable', 'string'],
             'celular2' => ['nullable', 'string'],
             'celular3' => ['nullable', 'string'],
-            'id_cliente_responsavel.id' => ['nullable', 'integer'],
-            'id_estado_civil' => ['nullable', 'integer'],
+            'civil' => ['nullable'],
+            'empresa' => ['nullable'],
             'enabled' => ['sometimes', 'boolean'],
         ];
     }
@@ -71,16 +71,32 @@ class UpdateCliente extends FormRequest
 
     public function getEstadoCivilId()
     {
-        if ($this->has('id_estado_civil')) {
-            return $this->get('id_estado_civil')['id'];
+        if ($this->has('civil')) {
+            return $this->get('civil')['id'];
         }
         return null;
     }
 
     public function getClienteResponsavelId()
     {
-        if ($this->has('id_cliente_responsavel')) {
-            return $this->get('id_cliente_responsavel')['id'];
+        if ($this->has('empresa')) {
+            return $this->get('empresa')['id'];
+        }
+        return null;
+    }
+
+    public function getUfId()
+    {
+        if ($this->has('uf')) {
+            return $this->get('uf')['id'];
+        }
+        return null;
+    }
+
+    public function getSexoId()
+    {
+        if ($this->has('sexo')) {
+            return $this->get('sexo')['id'];
         }
         return null;
     }

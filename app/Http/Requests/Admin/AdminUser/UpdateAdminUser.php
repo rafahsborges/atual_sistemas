@@ -28,8 +28,7 @@ class UpdateAdminUser extends FormRequest
     public function rules(): array
     {
         $rules = [
-            'first_name' => ['nullable', 'string'],
-            'last_name' => ['nullable', 'string'],
+            'name' => ['nullable', 'string'],
             'email' => ['sometimes', 'email', Rule::unique('admin_users', 'email')->ignore($this->adminUser->getKey(), $this->adminUser->getKeyName()), 'string'],
             'password' => ['sometimes', 'confirmed', 'min:7', 'regex:/^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9]).*$/', 'string'],
             'is_admin' => ['sometimes', 'boolean'],

@@ -35,7 +35,7 @@ class ClientesController extends Controller
     {
         // create and AdminListing instance for a specific model and
         $data = AdminListing::create(Cliente::class)->processRequestAndGet(
-            // pass the request with params
+        // pass the request with params
             $request,
 
             // set columns to query
@@ -46,7 +46,7 @@ class ClientesController extends Controller
 
             function ($query) use ($request) {
                 $query->with(['estadoCivil']);
-                if($request->has('civils')){
+                if ($request->has('civils')) {
                     $query->whereIn('id_estado_civil', $request->get('civils'));
                 }
             }
@@ -71,8 +71,8 @@ class ClientesController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @throws AuthorizationException
      * @return Factory|View
+     * @throws AuthorizationException
      */
     public function create()
     {
@@ -96,6 +96,8 @@ class ClientesController extends Controller
         $sanitized = $request->getSanitized();
         $sanitized['id_estado_civil'] = $request->getEstadoCivilId();
         $sanitized['id_cliente_responsavel'] = $request->getClienteResponsavelId();
+        $sanitized['uf'] = $request->getUfId();
+        $sanitized['sexo'] = $request->getSexoId();
 
         // Store the Cliente
         $cliente = Cliente::create($sanitized);
@@ -111,8 +113,8 @@ class ClientesController extends Controller
      * Display the specified resource.
      *
      * @param Cliente $cliente
-     * @throws AuthorizationException
      * @return void
+     * @throws AuthorizationException
      */
     public function show(Cliente $cliente)
     {
@@ -125,8 +127,8 @@ class ClientesController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param Cliente $cliente
-     * @throws AuthorizationException
      * @return Factory|View
+     * @throws AuthorizationException
      */
     public function edit(Cliente $cliente)
     {
@@ -152,6 +154,8 @@ class ClientesController extends Controller
         $sanitized = $request->getSanitized();
         $sanitized['id_estado_civil'] = $request->getEstadoCivilId();
         $sanitized['id_cliente_responsavel'] = $request->getClienteResponsavelId();
+        $sanitized['uf'] = $request->getUfId();
+        $sanitized['sexo'] = $request->getSexoId();
 
         // Update changed values Cliente
         $cliente->update($sanitized);
@@ -171,8 +175,8 @@ class ClientesController extends Controller
      *
      * @param DestroyCliente $request
      * @param Cliente $cliente
-     * @throws Exception
      * @return ResponseFactory|RedirectResponse|Response
+     * @throws Exception
      */
     public function destroy(DestroyCliente $request, Cliente $cliente)
     {
@@ -189,10 +193,10 @@ class ClientesController extends Controller
      * Remove the specified resources from storage.
      *
      * @param BulkDestroyCliente $request
-     * @throws Exception
      * @return Response|bool
+     * @throws Exception
      */
-    public function bulkDestroy(BulkDestroyCliente $request) : Response
+    public function bulkDestroy(BulkDestroyCliente $request): Response
     {
         DB::transaction(static function () use ($request) {
             collect($request->data['ids'])
@@ -201,7 +205,7 @@ class ClientesController extends Controller
                     DB::table('clientes')->whereIn('id', $bulkChunk)
                         ->update([
                             'deleted_at' => Carbon::now()->format('Y-m-d H:i:s')
-                    ]);
+                        ]);
 
                     // TODO your code goes here
                 });

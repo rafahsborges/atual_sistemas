@@ -8,6 +8,10 @@
                         class="nav-icon icon-plane"></i> {{ trans('admin.cliente.title') }}</a></li>
             <li class="nav-item"><a class="nav-link" href="{{ url('admin/dependentes') }}"><i
                         class="nav-icon icon-drop"></i> {{ trans('admin.dependente.title') }}</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ url('admin/contratos') }}"><i
+                        class="nav-icon icon-puzzle"></i> {{ trans('admin.contrato.title') }}</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ url('admin/contrato-parcelas') }}"><i
+                        class="nav-icon icon-energy"></i> {{ trans('admin.contrato-parcela.title') }}</a></li>
             {{-- Do not delete me :) I'm used for auto-generation menu items --}}
             @if(auth()->user()->is_admin == 1)
                 <li class="nav-title">{{ trans('brackets/admin-ui::admin.sidebar.settings') }}</li>
@@ -17,6 +21,8 @@
                             class="nav-icon icon-energy"></i> {{ trans('admin.parentesco.title') }}</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ url('admin/estado-civils') }}"><i
                             class="nav-icon icon-compass"></i> {{ trans('admin.estado-civil.title') }}</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ url('admin/contas') }}"><i
+                            class="nav-icon icon-book-open"></i> {{ trans('admin.conta.title') }}</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ url('admin/translations') }}"><i
                             class="nav-icon icon-location-pin"></i> {{ __('Translations') }}</a></li>
             @endif

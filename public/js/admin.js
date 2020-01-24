@@ -81978,6 +81978,17 @@ if(false) {}
 
 /***/ }),
 
+/***/ "./node_modules/v-money/dist/v-money.js":
+/*!**********************************************!*\
+  !*** ./node_modules/v-money/dist/v-money.js ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+(function(e,t){ true?module.exports=t():undefined})(this,function(){return function(e){function t(r){if(n[r])return n[r].exports;var i=n[r]={i:r,l:!1,exports:{}};return e[r].call(i.exports,i,i.exports,t),i.l=!0,i.exports}var n={};return t.m=e,t.c=n,t.i=function(e){return e},t.d=function(e,n,r){t.o(e,n)||Object.defineProperty(e,n,{configurable:!1,enumerable:!0,get:r})},t.n=function(e){var n=e&&e.__esModule?function(){return e.default}:function(){return e};return t.d(n,"a",n),n},t.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},t.p=".",t(t.s=9)}([function(e,t,n){"use strict";t.a={prefix:"",suffix:"",thousands:",",decimal:".",precision:2}},function(e,t,n){"use strict";var r=n(2),i=n(5),u=n(0);t.a=function(e,t){if(t.value){var o=n.i(i.a)(u.a,t.value);if("INPUT"!==e.tagName.toLocaleUpperCase()){var a=e.getElementsByTagName("input");1!==a.length||(e=a[0])}e.oninput=function(){var t=e.value.length-e.selectionEnd;e.value=n.i(r.a)(e.value,o),t=Math.max(t,o.suffix.length),t=e.value.length-t,t=Math.max(t,o.prefix.length+1),n.i(r.b)(e,t),e.dispatchEvent(n.i(r.c)("change"))},e.onfocus=function(){n.i(r.b)(e,e.value.length-o.suffix.length)},e.oninput(),e.dispatchEvent(n.i(r.c)("input"))}}},function(e,t,n){"use strict";function r(e){var t=arguments.length>1&&void 0!==arguments[1]?arguments[1]:m.a;"number"==typeof e&&(e=e.toFixed(o(t.precision)));var n=e.indexOf("-")>=0?"-":"",r=u(e),i=c(r,t.precision),a=d(i).split("."),p=a[0],l=a[1];return p=f(p,t.thousands),t.prefix+n+s(p,l,t.decimal)+t.suffix}function i(e,t){var n=e.indexOf("-")>=0?-1:1,r=u(e),i=c(r,t);return parseFloat(i)*n}function u(e){return d(e).replace(/\D+/g,"")||"0"}function o(e){return a(0,e,20)}function a(e,t,n){return Math.max(e,Math.min(t,n))}function c(e,t){var n=Math.pow(10,t);return(parseFloat(e)/n).toFixed(o(t))}function f(e,t){return e.replace(/(\d)(?=(?:\d{3})+\b)/gm,"$1"+t)}function s(e,t,n){return t?e+n+t:e}function d(e){return e?e.toString():""}function p(e,t){var n=function(){e.setSelectionRange(t,t)};e===document.activeElement&&(n(),setTimeout(n,1))}function l(e){var t=document.createEvent("Event");return t.initEvent(e,!0,!0),t}var m=n(0);n.d(t,"a",function(){return r}),n.d(t,"d",function(){return i}),n.d(t,"b",function(){return p}),n.d(t,"c",function(){return l})},function(e,t,n){"use strict";function r(e,t){t&&Object.keys(t).map(function(e){a.a[e]=t[e]}),e.directive("money",o.a),e.component("money",u.a)}Object.defineProperty(t,"__esModule",{value:!0});var i=n(6),u=n.n(i),o=n(1),a=n(0);n.d(t,"Money",function(){return u.a}),n.d(t,"VMoney",function(){return o.a}),n.d(t,"options",function(){return a.a}),n.d(t,"VERSION",function(){return c});var c="0.8.1";t.default=r,"undefined"!=typeof window&&window.Vue&&window.Vue.use(r)},function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var r=n(1),i=n(0),u=n(2);t.default={name:"Money",props:{value:{required:!0,type:[Number,String],default:0},masked:{type:Boolean,default:!1},precision:{type:Number,default:function(){return i.a.precision}},decimal:{type:String,default:function(){return i.a.decimal}},thousands:{type:String,default:function(){return i.a.thousands}},prefix:{type:String,default:function(){return i.a.prefix}},suffix:{type:String,default:function(){return i.a.suffix}}},directives:{money:r.a},data:function(){return{formattedValue:""}},watch:{value:{immediate:!0,handler:function(e,t){var r=n.i(u.a)(e,this.$props);r!==this.formattedValue&&(this.formattedValue=r)}}},methods:{change:function(e){this.$emit("input",this.masked?e.target.value:n.i(u.d)(e.target.value,this.precision))}}}},function(e,t,n){"use strict";t.a=function(e,t){return e=e||{},t=t||{},Object.keys(e).concat(Object.keys(t)).reduce(function(n,r){return n[r]=void 0===t[r]?e[r]:t[r],n},{})}},function(e,t,n){var r=n(7)(n(4),n(8),null,null);e.exports=r.exports},function(e,t){e.exports=function(e,t,n,r){var i,u=e=e||{},o=typeof e.default;"object"!==o&&"function"!==o||(i=e,u=e.default);var a="function"==typeof u?u.options:u;if(t&&(a.render=t.render,a.staticRenderFns=t.staticRenderFns),n&&(a._scopeId=n),r){var c=a.computed||(a.computed={});Object.keys(r).forEach(function(e){var t=r[e];c[e]=function(){return t}})}return{esModule:i,exports:u,options:a}}},function(e,t){e.exports={render:function(){var e=this,t=e.$createElement;return(e._self._c||t)("input",{directives:[{name:"money",rawName:"v-money",value:{precision:e.precision,decimal:e.decimal,thousands:e.thousands,prefix:e.prefix,suffix:e.suffix},expression:"{precision, decimal, thousands, prefix, suffix}"}],staticClass:"v-money",attrs:{type:"tel"},domProps:{value:e.formattedValue},on:{change:e.change}})},staticRenderFns:[]}},function(e,t,n){e.exports=n(3)}])});
+
+/***/ }),
+
 /***/ "./node_modules/v-tooltip/dist/v-tooltip.esm.js":
 /*!******************************************************!*\
   !*** ./node_modules/v-tooltip/dist/v-tooltip.esm.js ***!
@@ -111698,6 +111709,7 @@ __webpack_require__.r(__webpack_exports__);
 
 Vue.component('cliente-form', {
   mixins: [_app_components_Form_AppForm__WEBPACK_IMPORTED_MODULE_0__["default"]],
+  props: ['civils', 'empresas'],
   data: function data() {
     return {
       form: {
@@ -111724,12 +111736,100 @@ Vue.component('cliente-form', {
         cep: '',
         celular2: '',
         celular3: '',
-        id_cliente_responsavel: '',
-        id_estado_civil: '',
-        enabled: false,
-        civil: ''
+        civil: '',
+        empresa: '',
+        enabled: false
       },
-      showPJ: false
+      showPJ: false,
+      sexList: [{
+        nome: 'Masculino',
+        id: 'M'
+      }, {
+        nome: 'Feminino',
+        id: 'F'
+      }],
+      ufList: [{
+        nome: 'Acre',
+        id: 'AC'
+      }, {
+        nome: 'Alagoas',
+        id: 'AL'
+      }, {
+        nome: 'Amapá',
+        id: 'AP'
+      }, {
+        nome: 'Amazonas',
+        id: 'AM'
+      }, {
+        nome: 'Bahia',
+        id: 'BA'
+      }, {
+        nome: 'Ceará',
+        id: 'CE'
+      }, {
+        nome: 'Distrito Federal',
+        id: 'DF'
+      }, {
+        nome: 'Espírito Santo',
+        id: 'ES'
+      }, {
+        nome: 'Goiás',
+        id: 'GO'
+      }, {
+        nome: 'Maranhão',
+        id: 'MA'
+      }, {
+        nome: 'Mato Grosso',
+        id: 'MT'
+      }, {
+        nome: 'Mato Grosso do Sul',
+        id: 'MS'
+      }, {
+        nome: 'Minas Gerais',
+        id: 'MG'
+      }, {
+        nome: 'Pará',
+        id: 'PA'
+      }, {
+        nome: 'Paraíba',
+        id: 'PB'
+      }, {
+        nome: 'Paraná',
+        id: 'PR'
+      }, {
+        nome: 'Pernambuco',
+        id: 'PE'
+      }, {
+        nome: 'Piauí',
+        id: 'PI'
+      }, {
+        nome: 'Rio de Janeiro',
+        id: 'RJ'
+      }, {
+        nome: 'Rio Grande do Norte',
+        id: 'RN'
+      }, {
+        nome: 'Rio Grande do Sul',
+        id: 'RS'
+      }, {
+        nome: 'Rondônia',
+        id: 'RO'
+      }, {
+        nome: 'Roraima',
+        id: 'RR'
+      }, {
+        nome: 'Santa Catarina',
+        id: 'SC'
+      }, {
+        nome: 'São Paulo',
+        id: 'SP'
+      }, {
+        nome: 'Sergipe',
+        id: 'SE'
+      }, {
+        nome: 'Tocantins',
+        id: 'TO'
+      }]
     };
   }
 });
@@ -111748,27 +111848,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../app-components/Listing/AppListing */ "./resources/js/admin/app-components/Listing/AppListing.js");
 
 Vue.component('cliente-listing', {
-  mixins: [_app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__["default"]],
-  data: function data() {
-    return {
-      showCivilsFilter: false,
-      civilsMultiselect: {},
-      filters: {
-        civils: []
-      }
-    };
-  },
-  watch: {
-    showCivilsFilter: function showCivilsFilter(newVal, oldVal) {
-      this.civilsMultiselect = [];
-    },
-    civilsMultiselect: function civilsMultiselect(newVal, oldVal) {
-      this.filters.civils = newVal.map(function (object) {
-        return object['key'];
-      });
-      this.filter('civils', this.filters.civils);
-    }
-  }
+  mixins: [_app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__["default"]]
 });
 
 /***/ }),
@@ -111798,6 +111878,256 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/admin/conta/Form.js":
+/*!******************************************!*\
+  !*** ./resources/js/admin/conta/Form.js ***!
+  \******************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _app_components_Form_AppForm__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../app-components/Form/AppForm */ "./resources/js/admin/app-components/Form/AppForm.js");
+
+Vue.component('conta-form', {
+  mixins: [_app_components_Form_AppForm__WEBPACK_IMPORTED_MODULE_0__["default"]],
+  data: function data() {
+    return {
+      form: {
+        nome: '',
+        banco: '',
+        agencia: '',
+        digito_agencia: '',
+        conta: '',
+        digito_conta: '',
+        codigo_empresa: '',
+        carteira: '',
+        tipo: '',
+        mensagem_1: '',
+        mensagem_2: '',
+        cpf_cnpj: '',
+        enabled: false
+      }
+    };
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/admin/conta/Listing.js":
+/*!*********************************************!*\
+  !*** ./resources/js/admin/conta/Listing.js ***!
+  \*********************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../app-components/Listing/AppListing */ "./resources/js/admin/app-components/Listing/AppListing.js");
+
+Vue.component('conta-listing', {
+  mixins: [_app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__["default"]]
+});
+
+/***/ }),
+
+/***/ "./resources/js/admin/conta/index.js":
+/*!*******************************************!*\
+  !*** ./resources/js/admin/conta/index.js ***!
+  \*******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Listing__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Listing */ "./resources/js/admin/conta/Listing.js");
+/* harmony import */ var _Form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Form */ "./resources/js/admin/conta/Form.js");
+/* harmony import */ var vue_the_mask__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue-the-mask */ "./node_modules/vue-the-mask/dist/vue-the-mask.js");
+/* harmony import */ var vue_the_mask__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(vue_the_mask__WEBPACK_IMPORTED_MODULE_2__);
+
+ // Local Directive
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  directives: {
+    mask: vue_the_mask__WEBPACK_IMPORTED_MODULE_2__["mask"]
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/admin/contrato-parcela/Form.js":
+/*!*****************************************************!*\
+  !*** ./resources/js/admin/contrato-parcela/Form.js ***!
+  \*****************************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _app_components_Form_AppForm__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../app-components/Form/AppForm */ "./resources/js/admin/app-components/Form/AppForm.js");
+
+Vue.component('contrato-parcela-form', {
+  mixins: [_app_components_Form_AppForm__WEBPACK_IMPORTED_MODULE_0__["default"]],
+  data: function data() {
+    return {
+      form: {
+        vencimento: '',
+        pagamento: '',
+        id_boleto: '',
+        id_carne: '',
+        valor: '',
+        numero_parcela: '',
+        valor_pagamento: '',
+        id_contrato: '',
+        enabled: false
+      }
+    };
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/admin/contrato-parcela/Listing.js":
+/*!********************************************************!*\
+  !*** ./resources/js/admin/contrato-parcela/Listing.js ***!
+  \********************************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../app-components/Listing/AppListing */ "./resources/js/admin/app-components/Listing/AppListing.js");
+
+Vue.component('contrato-parcela-listing', {
+  mixins: [_app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__["default"]]
+});
+
+/***/ }),
+
+/***/ "./resources/js/admin/contrato-parcela/index.js":
+/*!******************************************************!*\
+  !*** ./resources/js/admin/contrato-parcela/index.js ***!
+  \******************************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Listing__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Listing */ "./resources/js/admin/contrato-parcela/Listing.js");
+/* harmony import */ var _Form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Form */ "./resources/js/admin/contrato-parcela/Form.js");
+
+
+
+/***/ }),
+
+/***/ "./resources/js/admin/contrato/Form.js":
+/*!*********************************************!*\
+  !*** ./resources/js/admin/contrato/Form.js ***!
+  \*********************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _app_components_Form_AppForm__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../app-components/Form/AppForm */ "./resources/js/admin/app-components/Form/AppForm.js");
+/* harmony import */ var v_money__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! v-money */ "./node_modules/v-money/dist/v-money.js");
+/* harmony import */ var v_money__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(v_money__WEBPACK_IMPORTED_MODULE_1__);
+
+
+Vue.component('contrato-form', {
+  mixins: [_app_components_Form_AppForm__WEBPACK_IMPORTED_MODULE_0__["default"]],
+  props: ['clientes', 'contas', 'planos'],
+  data: function data() {
+    return {
+      form: {
+        primeira_parcela: '',
+        ultima_parcela: '',
+        data_assinatura: '',
+        qtd_parcelas: '',
+        tipo_pagamento: '',
+        valor: '',
+        plano_funeral: false,
+        desconto: '',
+        juros: '',
+        multa: '',
+        validade_contrato: '',
+        enabled: false,
+        cliente: '',
+        conta: '',
+        plano: ''
+      },
+      price: 123.45,
+      money: {
+        decimal: ',',
+        thousands: '.',
+        prefix: 'R$ ',
+        suffix: '',
+        precision: 2,
+        masked: false
+        /* doesn't work with directive */
+
+      },
+      percent: {
+        decimal: ',',
+        thousands: '.',
+        prefix: '',
+        suffix: ' %',
+        precision: 2,
+        masked: false
+        /* doesn't work with directive */
+
+      },
+      pgList: [{
+        nome: 'Boleto',
+        id: 1
+      }, {
+        nome: 'Carnê',
+        id: 2
+      }]
+    };
+  },
+  directives: {
+    money: v_money__WEBPACK_IMPORTED_MODULE_1__["VMoney"],
+    percent: v_money__WEBPACK_IMPORTED_MODULE_1__["VMoney"]
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/admin/contrato/Listing.js":
+/*!************************************************!*\
+  !*** ./resources/js/admin/contrato/Listing.js ***!
+  \************************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../app-components/Listing/AppListing */ "./resources/js/admin/app-components/Listing/AppListing.js");
+
+Vue.component('contrato-listing', {
+  mixins: [_app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__["default"]]
+});
+
+/***/ }),
+
+/***/ "./resources/js/admin/contrato/index.js":
+/*!**********************************************!*\
+  !*** ./resources/js/admin/contrato/index.js ***!
+  \**********************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Listing__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Listing */ "./resources/js/admin/contrato/Listing.js");
+/* harmony import */ var _Form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Form */ "./resources/js/admin/contrato/Form.js");
+
+
+
+/***/ }),
+
 /***/ "./resources/js/admin/dependente/Form.js":
 /*!***********************************************!*\
   !*** ./resources/js/admin/dependente/Form.js ***!
@@ -111811,6 +112141,7 @@ __webpack_require__.r(__webpack_exports__);
 
 Vue.component('dependente-form', {
   mixins: [_app_components_Form_AppForm__WEBPACK_IMPORTED_MODULE_0__["default"]],
+  props: ['clientes', 'parentescos'],
   data: function data() {
     return {
       form: {
@@ -111907,7 +112238,7 @@ Vue.component('estado-civil-form', {
   data: function data() {
     return {
       form: {
-        descricao: '',
+        nome: '',
         enabled: false
       }
     };
@@ -111966,6 +112297,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _estado_civil__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./estado-civil */ "./resources/js/admin/estado-civil/index.js");
 /* harmony import */ var _cliente__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./cliente */ "./resources/js/admin/cliente/index.js");
 /* harmony import */ var _dependente__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./dependente */ "./resources/js/admin/dependente/index.js");
+/* harmony import */ var _conta__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./conta */ "./resources/js/admin/conta/index.js");
+/* harmony import */ var _contrato__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./contrato */ "./resources/js/admin/contrato/index.js");
+/* harmony import */ var _contrato_parcela__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./contrato-parcela */ "./resources/js/admin/contrato-parcela/index.js");
+
+
+
 
 
 
