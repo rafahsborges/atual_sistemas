@@ -150,6 +150,9 @@ class ContratosController extends Controller
     {
         $this->authorize('admin.contrato.edit', $contrato);
 
+        $contrato->plano = $contrato->id_plano;
+        $contrato->cliente = $contrato->id_cliente;
+        $contrato->conta = $contrato->id_conta;
 
         return view('admin.contrato.edit', [
             'contrato' => $contrato,

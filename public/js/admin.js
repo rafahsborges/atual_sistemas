@@ -111847,7 +111847,68 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../app-components/Listing/AppListing */ "./resources/js/admin/app-components/Listing/AppListing.js");
 
 Vue.component('cliente-listing', {
-  mixins: [_app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__["default"]]
+  mixins: [_app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__["default"]],
+  data: function data() {
+    return {
+      showAdvancedFilter: false,
+      tiposMultiselect: {},
+      statusMultiselect: {},
+      cpfsMultiselect: {},
+      cnpjsMultiselect: {},
+      filters: {
+        tipos: [],
+        status: [],
+        cpfs: [],
+        cnpjs: []
+      },
+      tiposList: [{
+        nome: 'Pessoa Física',
+        id: '0'
+      }, {
+        nome: 'Pessoa Jurídica',
+        id: '1'
+      }],
+      statusList: [{
+        nome: 'Ativo',
+        id: '1'
+      }, {
+        nome: 'Inativo',
+        id: '0'
+      }]
+    };
+  },
+  watch: {
+    showAdvancedFilter: function showAdvancedFilter(newVal, oldVal) {
+      this.tiposMultiselect = [];
+      this.statusMultiselect = [];
+      this.cpfsMultiselect = [];
+      this.cnpjsMultiselect = [];
+    },
+    tiposMultiselect: function tiposMultiselect(newVal, oldVal) {
+      this.filters.tipos = newVal.map(function (object) {
+        return object['id'];
+      });
+      this.filter('tipos', this.filters.tipos);
+    },
+    statusMultiselect: function statusMultiselect(newVal, oldVal) {
+      this.filters.status = newVal.map(function (object) {
+        return object['id'];
+      });
+      this.filter('status', this.filters.status);
+    },
+    cpfsMultiselect: function cpfsMultiselect(newVal, oldVal) {
+      this.filters.cpfs = newVal.map(function (object) {
+        return object['key'];
+      });
+      this.filter('cpfs', this.filters.cpfs);
+    },
+    cnpjsMultiselect: function cnpjsMultiselect(newVal, oldVal) {
+      this.filters.cnpjs = newVal.map(function (object) {
+        return object['key'];
+      });
+      this.filter('cnpjs', this.filters.cnpjs);
+    }
+  }
 });
 
 /***/ }),
@@ -112106,7 +112167,36 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../app-components/Listing/AppListing */ "./resources/js/admin/app-components/Listing/AppListing.js");
 
 Vue.component('contrato-listing', {
-  mixins: [_app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__["default"]]
+  mixins: [_app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__["default"]],
+  data: function data() {
+    return {
+      showAdvancedFilter: false,
+      clientesMultiselect: {},
+      planosMultiselect: {},
+      filters: {
+        clientes: [],
+        planos: []
+      }
+    };
+  },
+  watch: {
+    showAdvancedFilter: function showAdvancedFilter(newVal, oldVal) {
+      this.clientesMultiselect = [];
+      this.planosMultiselect = [];
+    },
+    clientesMultiselect: function clientesMultiselect(newVal, oldVal) {
+      this.filters.clientes = newVal.map(function (object) {
+        return object['key'];
+      });
+      this.filter('clientes', this.filters.clientes);
+    },
+    planosMultiselect: function planosMultiselect(newVal, oldVal) {
+      this.filters.planos = newVal.map(function (object) {
+        return object['key'];
+      });
+      this.filter('planos', this.filters.planos);
+    }
+  }
 });
 
 /***/ }),
@@ -112171,8 +112261,7 @@ Vue.component('dependente-listing', {
   mixins: [_app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__["default"]],
   data: function data() {
     return {
-      showClientesFilter: false,
-      showParentescosFilter: false,
+      showAdvancedFilter: false,
       clientesMultiselect: {},
       parentescosMultiselect: {},
       filters: {
@@ -112182,10 +112271,8 @@ Vue.component('dependente-listing', {
     };
   },
   watch: {
-    showClientesFilter: function showClientesFilter(newVal, oldVal) {
+    showAdvancedFilter: function showAdvancedFilter(newVal, oldVal) {
       this.clientesMultiselect = [];
-    },
-    showParentescosFilter: function showParentescosFilter(newVal, oldVal) {
       this.parentescosMultiselect = [];
     },
     clientesMultiselect: function clientesMultiselect(newVal, oldVal) {

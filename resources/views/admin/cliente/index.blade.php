@@ -38,10 +38,10 @@
                                         <div class="switch-filter-wrap">
                                             <label class="switch switch-3d switch-primary">
                                                 <input type="checkbox" class="switch-input"
-                                                       v-model="showStatusFilter">
+                                                       v-model="showAdvancedFilter">
                                                 <span class="switch-slider"></span>
                                             </label>
-                                            <span class="status-filter">&nbsp;{{ __('Status') }}</span>
+                                            <span class="authors-filter">&nbsp;{{ __('Filtros Avançados') }}</span>
                                         </div>
                                     </div>
                                     <div class="col-sm-auto form-group ">
@@ -53,13 +53,43 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="row" v-if="showStatusFilter">
-                                    <div class="col col-lg-12 col-xl-12 form-group">
+                                <div class="row" v-if="showAdvancedFilter">
+                                    <div class="col col-lg-6 col-xl-6 form-group">
+                                        <multiselect v-model="tiposMultiselect"
+                                                     :options="tiposList"
+                                                     label="nome"
+                                                     track-by="id"
+                                                     placeholder="{{ __('Digite para procurar por tipos') }}"
+                                                     :limit="2"
+                                                     :multiple="true">
+                                        </multiselect>
+                                    </div>
+                                    <div class="col col-lg-6 col-xl-6 form-group">
                                         <multiselect v-model="statusMultiselect"
                                                      :options="statusList"
                                                      label="nome"
                                                      track-by="id"
                                                      placeholder="{{ __('Digite para procurar por status') }}"
+                                                     :limit="2"
+                                                     :multiple="true">
+                                        </multiselect>
+                                    </div>
+                                    <div class="col col-lg-6 col-xl-6 form-group">
+                                        <multiselect v-model="cpfsMultiselect"
+                                                     :options="{{ $cpfs->map(function($cpf) { return ['key' => $cpf->cpf, 'label' =>  $cpf->cpf]; })->toJson() }}"
+                                                     label="label"
+                                                     track-by="key"
+                                                     placeholder="{{ __('Digite para procurar por cpf/s') }}"
+                                                     :limit="2"
+                                                     :multiple="true">
+                                        </multiselect>
+                                    </div>
+                                    <div class="col col-lg-6 col-xl-6 form-group">
+                                        <multiselect v-model="cnpjsMultiselect"
+                                                     :options="{{ $cnpjs->map(function($cnpj) { return ['key' => $cnpj->cnpj, 'label' =>  $cnpj->cnpj]; })->toJson() }}"
+                                                     label="label"
+                                                     track-by="key"
+                                                     placeholder="{{ __('Digite para procurar por cnpj/s') }}"
                                                      :limit="2"
                                                      :multiple="true">
                                         </multiselect>

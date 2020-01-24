@@ -34,6 +34,16 @@
                                             </span>
                                         </div>
                                     </div>
+                                    <div class="col form-group deadline-checkbox-col">
+                                        <div class="switch-filter-wrap">
+                                            <label class="switch switch-3d switch-primary">
+                                                <input type="checkbox" class="switch-input"
+                                                       v-model="showAdvancedFilter">
+                                                <span class="switch-slider"></span>
+                                            </label>
+                                            <span class="authors-filter">&nbsp;{{ __('Filtros Avançados') }}</span>
+                                        </div>
+                                    </div>
                                     <div class="col-sm-auto form-group ">
                                         <select class="form-control" v-model="pagination.state.per_page">
 
@@ -41,6 +51,28 @@
                                             <option value="25">25</option>
                                             <option value="100">100</option>
                                         </select>
+                                    </div>
+                                </div>
+                                <div class="row" v-if="showAdvancedFilter">
+                                    <div class="col col-lg-6 col-xl-6 form-group">
+                                        <multiselect v-model="clientesMultiselect"
+                                                     :options="{{ $clientes->map(function($cliente) { return ['key' => $cliente->id, 'label' =>  $cliente->nome]; })->toJson() }}"
+                                                     label="label"
+                                                     track-by="key"
+                                                     placeholder="{{ __('Digite para procurar por cliente/s') }}"
+                                                     :limit="2"
+                                                     :multiple="true">
+                                        </multiselect>
+                                    </div>
+                                    <div class="col col-lg-6 col-xl-6 form-group">
+                                        <multiselect v-model="planosMultiselect"
+                                                     :options="{{ $planos->map(function($plano) { return ['key' => $plano->id, 'label' =>  $plano->nome]; })->toJson() }}"
+                                                     label="label"
+                                                     track-by="key"
+                                                     placeholder="{{ __('Digite para procurar por plano/s') }}"
+                                                     :limit="2"
+                                                     :multiple="true">
+                                        </multiselect>
                                     </div>
                                 </div>
                             </form>

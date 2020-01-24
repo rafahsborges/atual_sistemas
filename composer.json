@@ -14,6 +14,7 @@
         "laravel/framework": "^6.2",
         "laravel/tinker": "^2.0",
         "lucascudo/laravel-pt-br-localization": "^1.0",
+        "orangehill/iseed": "^2.6",
         "oscarafdev/migrations-generator": "2.0.13"
     },
     "require-dev": {

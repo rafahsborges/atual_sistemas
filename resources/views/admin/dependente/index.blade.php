@@ -38,20 +38,10 @@
                                         <div class="switch-filter-wrap">
                                             <label class="switch switch-3d switch-primary">
                                                 <input type="checkbox" class="switch-input"
-                                                       v-model="showClientesFilter">
+                                                       v-model="showAdvancedFilter">
                                                 <span class="switch-slider"></span>
                                             </label>
-                                            <span class="authors-filter">&nbsp;{{ __('Clientes') }}</span>
-                                        </div>
-                                    </div>
-                                    <div class="col form-group deadline-checkbox-col">
-                                        <div class="switch-filter-wrap">
-                                            <label class="switch switch-3d switch-primary">
-                                                <input type="checkbox" class="switch-input"
-                                                       v-model="showParentescosFilter">
-                                                <span class="switch-slider"></span>
-                                            </label>
-                                            <span class="authors-filter">&nbsp;{{ __('Parentescos') }}</span>
+                                            <span class="authors-filter">&nbsp;{{ __('Filtros Avançados') }}</span>
                                         </div>
                                     </div>
                                     <div class="col-sm-auto form-group ">
@@ -63,8 +53,8 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="row" v-if="showClientesFilter">
-                                    <div class="col col-lg-12 col-xl-12 form-group">
+                                <div class="row" v-if="showAdvancedFilter">
+                                    <div class="col col-lg-6 col-xl-6 form-group">
                                         <multiselect v-model="clientesMultiselect"
                                                      :options="{{ $clientes->map(function($cliente) { return ['key' => $cliente->id, 'label' =>  $cliente->nome]; })->toJson() }}"
                                                      label="label"
@@ -74,9 +64,7 @@
                                                      :multiple="true">
                                         </multiselect>
                                     </div>
-                                </div>
-                                <div class="row" v-if="showParentescosFilter">
-                                    <div class="col col-lg-12 col-xl-12 form-group">
+                                    <div class="col col-lg-6 col-xl-6 form-group">
                                         <multiselect v-model="parentescosMultiselect"
                                                      :options="{{ $parentescos->map(function($parentesco) { return ['key' => $parentesco->id, 'label' =>  $parentesco->nome]; })->toJson() }}"
                                                      label="label"

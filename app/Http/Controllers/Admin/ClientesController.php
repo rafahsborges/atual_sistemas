@@ -46,8 +46,17 @@ class ClientesController extends Controller
 
             function ($query) use ($request) {
                 $query->with(['estadoCivil']);
-                if ($request->has('civils')) {
-                    $query->whereIn('id_estado_civil', $request->get('civils'));
+                if ($request->has('tipos')) {
+                    $query->whereIn('tipo', $request->get('tipos'));
+                }
+                if ($request->has('status')) {
+                    $query->whereIn('enabled', $request->get('status'));
+                }
+                if ($request->has('cpfs')) {
+                    $query->whereIn('cpf', $request->get('cpfs'));
+                }
+                if ($request->has('cnpjs')) {
+                    $query->whereIn('cnpj', $request->get('cnpjs'));
                 }
             }
         );
@@ -65,6 +74,8 @@ class ClientesController extends Controller
             'data' => $data,
             'civils' => EstadoCivil::all(),
             'empresas' => Cliente::where('tipo', 1)->get(),
+            'cpfs' => Cliente::select('cpf')->whereNotNull('cpf')->get(),
+            'cnpjs' => Cliente::select('cnpj')->whereNotNull('cnpj')->get(),
         ]);
     }
 

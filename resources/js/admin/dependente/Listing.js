@@ -4,8 +4,7 @@ Vue.component('dependente-listing', {
     mixins: [AppListing],
     data() {
         return {
-            showClientesFilter: false,
-            showParentescosFilter: false,
+            showAdvancedFilter: false,
             clientesMultiselect: {},
             parentescosMultiselect: {},
 
@@ -17,10 +16,8 @@ Vue.component('dependente-listing', {
     },
 
     watch: {
-        showClientesFilter: function (newVal, oldVal) {
+        showAdvancedFilter: function (newVal, oldVal) {
             this.clientesMultiselect = [];
-        },
-        showParentescosFilter: function (newVal, oldVal) {
             this.parentescosMultiselect = [];
         },
         clientesMultiselect: function(newVal, oldVal) {
