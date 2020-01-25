@@ -21,9 +21,6 @@ class CreateBoletosTable extends Migration
                 ->references('id')->on('contrato_parcelas')
                 ->onUpdate('restrict')
                 ->onDelete('restrict');
-            $table->boolean('enabled')->default(false);
-            $table->timestamps();
-            $table->softDeletes();
         });
     }
 

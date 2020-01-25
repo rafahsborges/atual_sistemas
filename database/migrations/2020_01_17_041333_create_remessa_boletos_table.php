@@ -17,9 +17,6 @@ class CreateRemessaBoletosTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('id_boleto')->index('fk_rem_bol_remessas')->nullable();
             $table->unsignedBigInteger('id_remessa')->index('fk_rem_bol_boletos')->nullable();
-            $table->boolean('enabled')->default(false);
-            $table->timestamps();
-            $table->softDeletes();
         });
         Schema::table('remessa_boletos', function (Blueprint $table) {
             $table->foreign('id_boleto', 'fk_rem_bol_boletos')

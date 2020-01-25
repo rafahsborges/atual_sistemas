@@ -25,9 +25,6 @@ class CreateRemessasTable extends Migration
                 ->references('id')->on('contas')
                 ->onUpdate('restrict')
                 ->onDelete('restrict');
-            $table->boolean('enabled')->default(false);
-            $table->timestamps();
-            $table->softDeletes();
         });
     }
 
