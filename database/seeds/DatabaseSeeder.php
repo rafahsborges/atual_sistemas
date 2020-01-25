@@ -18,5 +18,6 @@ class DatabaseSeeder extends Seeder
         $this->call(PlanosTableSeeder::class);
         $this->call(ContasTableSeeder::class);
         $this->call(ContratosTableSeeder::class);
+        $this->call(ContratoParcelasTableSeeder::class);
     }
 }
