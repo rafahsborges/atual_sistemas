@@ -16,7 +16,7 @@
                 v-cloak
                 inline-template>
 
-                <form class="form-horizontal form-create" method="post" @submit.prevent="onSubmit" :action="action"
+                <form class="form-horizontal form-create" method="post" @submit.prevent="onSubmit" :action="action" @change="changed"
                       novalidate>
 
                     <div class="card-header">

@@ -112152,6 +112152,36 @@ Vue.component('contrato-form', {
   directives: {
     money: v_money__WEBPACK_IMPORTED_MODULE_1__["VMoney"],
     percent: v_money__WEBPACK_IMPORTED_MODULE_1__["VMoney"]
+  },
+  methods: {
+    changed: function changed(e) {
+      var valor = '0,00';
+      var data_assinatura;
+      var qtd_meses = 0;
+      var qtd_parcelas = 0;
+      var valor_parcela = '0,00';
+      var validade_contrato = '0,00';
+
+      if (e.target.id === 'valor' && e.target.value !== '0,00') {
+        valor = e.target.value.replace(/[^\d,]+/g, '').replace(',', '.');
+      }
+
+      if (e.target.id === 'data_assinatura') {
+        console.log(e.target.value);
+      }
+
+      if (e.target.id === 'qtd_meses' && e.target.value !== 0) {
+        qtd_meses = e.target.value;
+      }
+
+      if (e.target.id === 'qtd_parcelas' && e.target.value !== 0) {
+        qtd_parcelas = e.target.value;
+      }
+
+      if (valor !== '0,00' && qtd_parcelas !== 0 || qtd_parcelas !== '0') {
+        $('#valor_parcela').val(parseInt(valor) / parseInt(qtd_parcelas));
+      }
+    }
   }
 });
 

@@ -59,5 +59,30 @@ Vue.component('contrato-form', {
         percent: VMoney,
     },
 
-});
+    methods: {
+        changed(e) {
+            let valor = '0,00';
+            let data_assinatura;
+            let qtd_meses = 0;
+            let qtd_parcelas = 0;
+            let valor_parcela = '0,00';
+            let validade_contrato = '0,00';
+            if (e.target.id === 'valor' && e.target.value !== '0,00') {
+                valor = e.target.value.replace(/[^\d,]+/g, '').replace(',', '.');
+            }
+            if (e.target.id === 'data_assinatura') {
+                console.log(e.target.value);
+            }
+            if (e.target.id === 'qtd_meses' && e.target.value !== 0) {
+                qtd_meses = e.target.value;
+            }
+            if (e.target.id === 'qtd_parcelas' && e.target.value !== 0) {
+                qtd_parcelas = e.target.value;
+            }
+            if (valor !== '0,00' && qtd_parcelas !== 0 || qtd_parcelas !== '0') {
+                $('#valor_parcela').val(parseInt(valor) / parseInt(qtd_parcelas));
+            }
+        }
+    },
 
+});
