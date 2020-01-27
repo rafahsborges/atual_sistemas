@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Traits\SoftDeletesWithDeleted;
 use Brackets\AdminAuth\Activation\Contracts\CanActivate as CanActivateContract;
 use Brackets\AdminAuth\Activation\Traits\CanActivate;
 use Brackets\AdminAuth\Notifications\ResetPassword;
@@ -25,7 +26,7 @@ class AdminUser extends Authenticatable implements CanActivateContract, HasMedia
 {
     use Notifiable;
     use CanActivate;
-    use SoftDeletes;
+    use SoftDeletesWithDeleted;
     use HasRoles;
     use AutoProcessMediaTrait;
     use HasMediaCollectionsTrait;
