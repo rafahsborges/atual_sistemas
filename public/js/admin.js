@@ -111737,7 +111737,7 @@ Vue.component('cliente-form', {
         celular3: '',
         civil: '',
         empresa: '',
-        enabled: false
+        enabled: true
       },
       showPJ: false,
       sexList: [{
@@ -112113,7 +112113,7 @@ Vue.component('contrato-form', {
         juros: '',
         multa: '',
         validade_contrato: '',
-        enabled: false,
+        enabled: true,
         cliente: '',
         conta: '',
         plano: '',
