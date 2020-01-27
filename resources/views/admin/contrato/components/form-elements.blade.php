@@ -171,6 +171,21 @@
 </div>
 
 <div class="form-group row align-items-center"
+     :class="{'has-danger': errors.has('qtd_meses'), 'has-success': fields.qtd_meses && fields.qtd_meses.valid }">
+    <label for="qtd_meses" class="col-form-label text-md-right"
+           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.contrato.columns.qtd_meses') }}</label>
+    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+        <input type="text" v-model="form.qtd_meses" v-validate="'decimal'" @input="validate($event)"
+               class="form-control"
+               :class="{'form-control-danger': errors.has('qtd_meses'), 'form-control-success': fields.qtd_meses && fields.qtd_meses.valid}"
+               id="qtd_meses" name="qtd_meses" placeholder="{{ trans('admin.contrato.columns.qtd_meses') }}">
+        <div v-if="errors.has('qtd_meses')" class="form-control-feedback form-text" v-cloak>@{{
+            errors.first('qtd_meses') }}
+        </div>
+    </div>
+</div>
+
+<div class="form-group row align-items-center"
      :class="{'has-danger': errors.has('primeira_parcela'), 'has-success': fields.primeira_parcela && fields.primeira_parcela.valid }">
     <label for="primeira_parcela" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.contrato.columns.primeira_parcela') }}</label>
@@ -238,6 +253,20 @@
         </div>
         <div v-if="errors.has('ultima_parcela')" class="form-control-feedback form-text" v-cloak>@{{
             errors.first('ultima_parcela') }}
+        </div>
+    </div>
+</div>
+
+<div class="form-group row align-items-center"
+     :class="{'has-danger': errors.has('valor_parcela'), 'has-success': fields.valor_parcela && fields.valor_parcela.valid }">
+    <label for="valor_parcela" class="col-form-label text-md-right"
+           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.contrato.columns.valor_parcela') }}</label>
+    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+        <input type="text" v-money="money" :maxlength="17" v-model="form.valor_parcela" v-validate="'required'"
+               @input="validate($event)" class="form-control"
+               :class="{'form-control-danger': errors.has('valor_parcela'), 'form-control-success': fields.valor_parcela && fields.valor_parcela.valid}"
+               id="valor_parcela" name="valor_parcela" placeholder="{{ trans('admin.contrato.columns.valor_parcela') }}">
+        <div v-if="errors.has('valor_parcela')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('valor_parcela') }}
         </div>
     </div>
 </div>
