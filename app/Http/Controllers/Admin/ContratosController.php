@@ -110,10 +110,10 @@ class ContratosController extends Controller
         $sanitized['id_conta'] = $request->getContaId();
         $sanitized['id_plano'] = $request->getPlanoId();
         $sanitized['tipo_pagamento'] = $request->getTipoPagamentoId();
-        $sanitized['valor'] = $request->keepOnlyDigits($sanitized['valor']);
-        $sanitized['juros'] = $request->keepOnlyDigits($sanitized['juros']);
-        $sanitized['multa'] = $request->keepOnlyDigits($sanitized['multa']);
-        $sanitized['desconto'] = $request->keepOnlyDigits($sanitized['desconto']);
+        $sanitized['valor'] = $request->prepareCurrencies($sanitized['valor']);
+        $sanitized['juros'] = $request->prepareCurrencies($sanitized['juros']);
+        $sanitized['multa'] = $request->prepareCurrencies($sanitized['multa']);
+        $sanitized['desconto'] = $request->prepareCurrencies($sanitized['desconto']);
 
         // Store the Contrato
         $contrato = Contrato::create($sanitized);
@@ -177,10 +177,10 @@ class ContratosController extends Controller
         $sanitized['id_conta'] = $request->getContaId();
         $sanitized['id_plano'] = $request->getPlanoId();
         $sanitized['tipo_pagamento'] = $request->getTipoPagamentoId();
-        $sanitized['valor'] = $request->keepOnlyDigits($sanitized['valor']);
-        $sanitized['juros'] = $request->keepOnlyDigits($sanitized['juros']);
-        $sanitized['multa'] = $request->keepOnlyDigits($sanitized['multa']);
-        $sanitized['desconto'] = $request->keepOnlyDigits($sanitized['desconto']);
+        $sanitized['valor'] = $request->prepareCurrencies($sanitized['valor']);
+        $sanitized['juros'] = $request->prepareCurrencies($sanitized['juros']);
+        $sanitized['multa'] = $request->prepareCurrencies($sanitized['multa']);
+        $sanitized['desconto'] = $request->prepareCurrencies($sanitized['desconto']);
 
         // Update changed values Contrato
         $contrato->update($sanitized);

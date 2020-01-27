@@ -95,4 +95,9 @@ class UpdateContrato extends FormRequest
     {
         return preg_replace('/\D/', '', $string);
     }
+
+    public function prepareCurrencies($string)
+    {
+        return str_replace(',', '.', str_replace('.', '', $string));
+    }
 }

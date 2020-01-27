@@ -112134,7 +112134,7 @@ Vue.component('contrato-form', {
         decimal: ',',
         thousands: '.',
         prefix: '',
-        suffix: ' %',
+        suffix: '',
         precision: 2,
         masked: false
         /* doesn't work with directive */
@@ -112179,7 +112179,7 @@ Vue.component('contrato-form', {
       }
 
       if (valor !== '0,00' && qtd_parcelas !== 0 || qtd_parcelas !== '0') {
-        $('#valor_parcela').val(parseInt(valor) / parseInt(qtd_parcelas));
+        console.log(parseInt(valor) / parseInt(qtd_parcelas)); //$('#valor_parcela').val(parseInt(valor) / parseInt(qtd_parcelas));
       }
     }
   }
