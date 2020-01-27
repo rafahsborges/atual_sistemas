@@ -34,7 +34,7 @@ Vue.component('contrato-form', {
             money: {
                 decimal: ',',
                 thousands: '.',
-                prefix: 'R$ ',
+                prefix: '',
                 suffix: '',
                 precision: 2,
                 masked: false /* doesn't work with directive */
@@ -57,33 +57,6 @@ Vue.component('contrato-form', {
     directives: {
         money: VMoney,
         percent: VMoney,
-    },
-
-    methods: {
-        changed(e) {
-            let valor;
-            let data_assinatura;
-            let qtd_meses;
-            let qtd_parcelas;
-            let valor_parcela;
-            let validade_contrato;
-            if (e.target.id === 'valor' && e.target.value !== 'R$ 0,00') {
-                valor = e.target.value.replace(/[^\d,]+/g, '').replace(',', '.');
-                valor = e.target.value.replace(/[^\d,]+/g, '').replace(',', '.');
-            }
-            if (e.target.id === 'data_assinatura') {
-                console.log(e.target.value);
-            }
-            if (e.target.id === 'qtd_meses' && e.target.value !== '0') {
-                qtd_meses = e.target.value;
-            }
-            if (e.target.id === 'qtd_parcelas' && e.target.value !== '0') {
-                qtd_parcelas = e.target.value;
-            }
-            if (valor !== 'R$ 0,00' && qtd_parcelas !== 0) {
-                $('#valor_parcela').val(valor / qtd_parcelas);
-            }
-        }
     },
 
 });
