@@ -112155,29 +112155,32 @@ Vue.component('contrato-form', {
   },
   methods: {
     changed: function changed(e) {
-      var valor = 0;
+      var valor;
       var data_assinatura;
-      var qtd_meses = 0;
-      var qtd_parcelas = 0;
-      var valor_parcela = 0;
-      var validade_contrato; //console.log(e.target.id);
+      var qtd_meses;
+      var qtd_parcelas;
+      var valor_parcela;
+      var validade_contrato;
 
       if (e.target.id === 'valor' && e.target.value !== 'R$ 0,00') {
-        valor = e.target.value.replace(/[^\d,]+/g, '');
-        console.log(valor);
-        $('#valor_parcela').val(parseFloat(valor));
+        valor = e.target.value.replace(/[^\d,]+/g, '').replace(',', '.');
+        valor = e.target.value.replace(/[^\d,]+/g, '').replace(',', '.');
       }
 
       if (e.target.id === 'data_assinatura') {
         console.log(e.target.value);
       }
 
-      if (e.target.id === 'qtd_meses') {
-        console.log(e.target.value);
+      if (e.target.id === 'qtd_meses' && e.target.value !== '0') {
+        qtd_meses = e.target.value;
       }
 
-      if (e.target.id === 'qtd_parcelas') {
-        console.log(e.target.value);
+      if (e.target.id === 'qtd_parcelas' && e.target.value !== '0') {
+        qtd_parcelas = e.target.value;
+      }
+
+      if (valor !== 'R$ 0,00' && qtd_parcelas !== 0) {
+        $('#valor_parcela').val(valor / qtd_parcelas);
       }
     }
   }

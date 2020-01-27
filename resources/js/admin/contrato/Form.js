@@ -61,26 +61,27 @@ Vue.component('contrato-form', {
 
     methods: {
         changed(e) {
-            let valor = 0;
+            let valor;
             let data_assinatura;
-            let qtd_meses = 0;
-            let qtd_parcelas = 0;
-            let valor_parcela = 0;
+            let qtd_meses;
+            let qtd_parcelas;
+            let valor_parcela;
             let validade_contrato;
-            //console.log(e.target.id);
             if (e.target.id === 'valor' && e.target.value !== 'R$ 0,00') {
-                valor = e.target.value.replace(/[^\d,]+/g, '');
-                console.log(valor);
-                $('#valor_parcela').val(parseFloat(valor));
+                valor = e.target.value.replace(/[^\d,]+/g, '').replace(',', '.');
+                valor = e.target.value.replace(/[^\d,]+/g, '').replace(',', '.');
             }
             if (e.target.id === 'data_assinatura') {
                 console.log(e.target.value);
             }
-            if (e.target.id === 'qtd_meses') {
-                console.log(e.target.value);
+            if (e.target.id === 'qtd_meses' && e.target.value !== '0') {
+                qtd_meses = e.target.value;
             }
-            if (e.target.id === 'qtd_parcelas') {
-                console.log(e.target.value);
+            if (e.target.id === 'qtd_parcelas' && e.target.value !== '0') {
+                qtd_parcelas = e.target.value;
+            }
+            if (valor !== 'R$ 0,00' && qtd_parcelas !== 0) {
+                $('#valor_parcela').val(valor / qtd_parcelas);
             }
         }
     },
