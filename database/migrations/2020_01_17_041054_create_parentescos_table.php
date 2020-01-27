@@ -16,7 +16,7 @@ class CreateParentescosTable extends Migration
         Schema::create('parentescos', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('nome');
-            $table->boolean('enabled')->default(false);
+            $table->boolean('enabled')->default(true);
             $table->timestamps();
             $table->softDeletes();
         });

@@ -27,7 +27,7 @@ class CreateDependentesTable extends Migration
                 ->references('id')->on('parentescos')
                 ->onUpdate('restrict')
                 ->onDelete('restrict');
-            $table->boolean('enabled')->default(false);
+            $table->boolean('enabled')->default(true);
             $table->timestamps();
             $table->softDeletes();
         });

@@ -27,7 +27,7 @@ class CreateContasTable extends Migration
             $table->string('mensagem_1', 60)->nullable();
             $table->string('mensagem_2', 60)->nullable();
             $table->string('cpf_cnpj', 18)->nullable();
-            $table->boolean('enabled')->default(false);
+            $table->boolean('enabled')->default(true);
             $table->timestamps();
             $table->softDeletes();
         });

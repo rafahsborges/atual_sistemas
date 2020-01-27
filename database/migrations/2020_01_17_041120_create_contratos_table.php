@@ -41,7 +41,7 @@ class CreateContratosTable extends Migration
                 ->references('id')->on('planos')
                 ->onUpdate('restrict')
                 ->onDelete('restrict');
-            $table->boolean('enabled')->default(false);
+            $table->boolean('enabled')->default(true);
             $table->timestamps();
             $table->softDeletes();
         });

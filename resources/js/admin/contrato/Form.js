@@ -23,7 +23,7 @@ Vue.component('contrato-form', {
                 juros: '',
                 multa: '',
                 validade_contrato: '',
-                enabled: false,
+                enabled: true,
                 cliente: '',
                 conta: '',
                 plano: '',

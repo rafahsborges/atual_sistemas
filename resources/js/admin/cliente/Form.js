@@ -34,7 +34,7 @@ Vue.component('cliente-form', {
                 celular3: '',
                 civil: '',
                 empresa: '',
-                enabled: false,
+                enabled: true,
             },
             showPJ: false,
             sexList: [

@@ -44,7 +44,7 @@ class CreateClientesTable extends Migration
                 ->references('id')->on('estado_civils')
                 ->onUpdate('restrict')
                 ->onDelete('restrict');
-            $table->boolean('enabled')->default(false);
+            $table->boolean('enabled')->default(true);
             $table->timestamps();
             $table->softDeletes();
         });
