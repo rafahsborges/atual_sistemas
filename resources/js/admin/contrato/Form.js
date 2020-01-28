@@ -49,7 +49,7 @@ Vue.component('contrato-form', {
             pgList: [
                 {nome: 'Boleto', id: 1},
                 {nome: 'Carnê', id: 2},
-            ]
+            ],
         }
     },
 
@@ -64,27 +64,9 @@ Vue.component('contrato-form', {
         newQtdMeses: 0,
         newDtAssinatura: 0,
         changed(e) {
-            let valor = '0,00';
-            let data_assinatura;
-            let qtd_meses = 0;
-            let qtd_parcelas = 0;
-            let valor_parcela = '0,00';
-            let validade_contrato = '0,00';
-            if (e.target.id === 'valor' && e.target.value !== '0,00') {
-                valor = e.target.value.replace(/[^\d,]+/g, '').replace(',', '.');
-            }
-            if (e.target.id === 'data_assinatura') {
-                //console.log(e.target.value);
-            }
-            if (e.target.id === 'qtd_meses' && e.target.value !== 0) {
-                qtd_meses = e.target.value;
-            }
-            if (e.target.id === 'qtd_parcelas' && e.target.value !== 0) {
-                qtd_parcelas = e.target.value;
-            }
-            if (valor !== '0,00' && qtd_parcelas !== 0 || qtd_parcelas !== '0') {
-                //console.log(parseInt(valor) / parseInt(qtd_parcelas));
-                //$('#valor_parcela').val(parseInt(valor) / parseInt(qtd_parcelas));
+            if (e.target.id === 'data_assinatura' && Object.prototype.toString.call(new Date(e.target.value)) === '[object Date]') {
+                this.newDtAssinatura = new Date(e.target.value);
+                this.setValidadeContrato();
             }
         },
         setValor(e) {
@@ -95,7 +77,8 @@ Vue.component('contrato-form', {
         },
         setQtdMeses(e) {
             if (e.target.value !== 'undefined' && e.target.value !== 0) {
-                console.log(e.target.value);
+                this.newQtdMeses = parseInt(e.target.value);
+                this.setValidadeContrato();
             }
         },
         setQtdParcelas(e) {
@@ -112,6 +95,16 @@ Vue.component('contrato-form', {
                     .replace('.', ',');
             }
         },
+        setValidadeContrato() {
+            if (Object.prototype.toString.call(this.newDtAssinatura) === '[object Date]' && this.newQtdMeses !== 0) {
+                console.log(this.newDtAssinatura);
+                console.log(this.newQtdMeses);
+                //let validadeContrato = new Date(this.newDtAssinatura.setMonth(this.newQtdMeses));
+                //console.log(validadeContrato);
+                //console.log(validadeContrato.getDate() + '/' + (validadeContrato.getMonth() + 1) + '/' + validadeContrato.getFullYear());
+                //this.form.validade_contrato = new Date(this.newDtAssinatura.setMonth(this.newQtdMeses));
+            }
+        }
     },
 
 });

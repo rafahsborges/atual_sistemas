@@ -112158,30 +112158,9 @@ Vue.component('contrato-form', {
     newQtdMeses: 0,
     newDtAssinatura: 0,
     changed: function changed(e) {
-      var valor = '0,00';
-      var data_assinatura;
-      var qtd_meses = 0;
-      var qtd_parcelas = 0;
-      var valor_parcela = '0,00';
-      var validade_contrato = '0,00';
-
-      if (e.target.id === 'valor' && e.target.value !== '0,00') {
-        valor = e.target.value.replace(/[^\d,]+/g, '').replace(',', '.');
-      }
-
-      if (e.target.id === 'data_assinatura') {//console.log(e.target.value);
-      }
-
-      if (e.target.id === 'qtd_meses' && e.target.value !== 0) {
-        qtd_meses = e.target.value;
-      }
-
-      if (e.target.id === 'qtd_parcelas' && e.target.value !== 0) {
-        qtd_parcelas = e.target.value;
-      }
-
-      if (valor !== '0,00' && qtd_parcelas !== 0 || qtd_parcelas !== '0') {//console.log(parseInt(valor) / parseInt(qtd_parcelas));
-        //$('#valor_parcela').val(parseInt(valor) / parseInt(qtd_parcelas));
+      if (e.target.id === 'data_assinatura' && Object.prototype.toString.call(new Date(e.target.value)) === '[object Date]') {
+        this.newDtAssinatura = new Date(e.target.value);
+        this.setValidadeContrato();
       }
     },
     setValor: function setValor(e) {
@@ -112192,7 +112171,8 @@ Vue.component('contrato-form', {
     },
     setQtdMeses: function setQtdMeses(e) {
       if (e.target.value !== 'undefined' && e.target.value !== 0) {
-        console.log(e.target.value);
+        this.newQtdMeses = parseInt(e.target.value);
+        this.setValidadeContrato();
       }
     },
     setQtdParcelas: function setQtdParcelas(e) {
@@ -112204,6 +112184,15 @@ Vue.component('contrato-form', {
     setValorParcela: function setValorParcela() {
       if (this.newValor !== 0.00 && this.newQtdParcelas !== 0) {
         this.form.valor_parcela = (this.newValor / this.newQtdParcelas).toFixed(2).toString().replace('.', ',');
+      }
+    },
+    setValidadeContrato: function setValidadeContrato() {
+      if (Object.prototype.toString.call(this.newDtAssinatura) === '[object Date]' && this.newQtdMeses !== 0) {
+        console.log(this.newDtAssinatura);
+        console.log(this.newQtdMeses); //let validadeContrato = new Date(this.newDtAssinatura.setMonth(this.newQtdMeses));
+        //console.log(validadeContrato);
+        //console.log(validadeContrato.getDate() + '/' + (validadeContrato.getMonth() + 1) + '/' + validadeContrato.getFullYear());
+        //this.form.validade_contrato = new Date(this.newDtAssinatura.setMonth(this.newQtdMeses));
       }
     }
   }

@@ -229,7 +229,7 @@
             <datetime v-model="form.validade_contrato" :config="datePickerConfig"
                       v-validate="'date_format:yyyy-MM-dd HH:mm:ss'" class="flatpickr"
                       :class="{'form-control-danger': errors.has('validade_contrato'), 'form-control-success': fields.validade_contrato && fields.validade_contrato.valid}"
-                      id="validade_contrato" name="validade_contrato" disabled="disabled"
+                      id="validade_contrato" name="validade_contrato" :disabled="true"
                       placeholder="{{ trans('brackets/admin-ui::admin.forms.select_a_date') }}"></datetime>
         </div>
         <div v-if="errors.has('validade_contrato')" class="form-control-feedback form-text" v-cloak>@{{
@@ -248,7 +248,7 @@
             <datetime v-model="form.ultima_parcela" :config="datePickerConfig"
                       v-validate="'required|date_format:yyyy-MM-dd HH:mm:ss'" class="flatpickr"
                       :class="{'form-control-danger': errors.has('ultima_parcela'), 'form-control-success': fields.ultima_parcela && fields.ultima_parcela.valid}"
-                      id="ultima_parcela" name="ultima_parcela" disabled="disabled"
+                      id="ultima_parcela" name="ultima_parcela" :disabled="true"
                       placeholder="{{ trans('brackets/admin-ui::admin.forms.select_a_date') }}"></datetime>
         </div>
         <div v-if="errors.has('ultima_parcela')" class="form-control-feedback form-text" v-cloak>@{{
