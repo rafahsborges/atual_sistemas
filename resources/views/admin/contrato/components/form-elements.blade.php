@@ -44,7 +44,7 @@
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.contrato.columns.valor') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
         <input type="text" v-money="money" :maxlength="17" v-model="form.valor" v-validate="'required'"
-               @input="validate($event)" class="form-control"
+               @input="validate($event)" class="form-control" @blur="setValor"
                :class="{'form-control-danger': errors.has('valor'), 'form-control-success': fields.valor && fields.valor.valid}"
                id="valor" name="valor" placeholder="{{ trans('admin.contrato.columns.valor') }}">
         <div v-if="errors.has('valor')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('valor') }}
@@ -176,7 +176,7 @@
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.contrato.columns.qtd_meses') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
         <input type="text" v-model="form.qtd_meses" v-validate="'decimal'" @input="validate($event)"
-               class="form-control"
+               class="form-control" @blur="setQtdMeses"
                :class="{'form-control-danger': errors.has('qtd_meses'), 'form-control-success': fields.qtd_meses && fields.qtd_meses.valid}"
                id="qtd_meses" name="qtd_meses" placeholder="{{ trans('admin.contrato.columns.qtd_meses') }}">
         <div v-if="errors.has('qtd_meses')" class="form-control-feedback form-text" v-cloak>@{{
@@ -210,7 +210,7 @@
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.contrato.columns.qtd_parcelas') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
         <input type="text" v-model="form.qtd_parcelas" v-validate="'decimal'" @input="validate($event)"
-               class="form-control"
+               class="form-control" @blur="setQtdParcelas"
                :class="{'form-control-danger': errors.has('qtd_parcelas'), 'form-control-success': fields.qtd_parcelas && fields.qtd_parcelas.valid}"
                id="qtd_parcelas" name="qtd_parcelas" placeholder="{{ trans('admin.contrato.columns.qtd_parcelas') }}">
         <div v-if="errors.has('qtd_parcelas')" class="form-control-feedback form-text" v-cloak>@{{
@@ -229,7 +229,7 @@
             <datetime v-model="form.validade_contrato" :config="datePickerConfig"
                       v-validate="'date_format:yyyy-MM-dd HH:mm:ss'" class="flatpickr"
                       :class="{'form-control-danger': errors.has('validade_contrato'), 'form-control-success': fields.validade_contrato && fields.validade_contrato.valid}"
-                      id="validade_contrato" name="validade_contrato"
+                      id="validade_contrato" name="validade_contrato" disabled="disabled"
                       placeholder="{{ trans('brackets/admin-ui::admin.forms.select_a_date') }}"></datetime>
         </div>
         <div v-if="errors.has('validade_contrato')" class="form-control-feedback form-text" v-cloak>@{{
@@ -248,7 +248,7 @@
             <datetime v-model="form.ultima_parcela" :config="datePickerConfig"
                       v-validate="'required|date_format:yyyy-MM-dd HH:mm:ss'" class="flatpickr"
                       :class="{'form-control-danger': errors.has('ultima_parcela'), 'form-control-success': fields.ultima_parcela && fields.ultima_parcela.valid}"
-                      id="ultima_parcela" name="ultima_parcela"
+                      id="ultima_parcela" name="ultima_parcela" disabled="disabled"
                       placeholder="{{ trans('brackets/admin-ui::admin.forms.select_a_date') }}"></datetime>
         </div>
         <div v-if="errors.has('ultima_parcela')" class="form-control-feedback form-text" v-cloak>@{{
@@ -263,7 +263,7 @@
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.contrato.columns.valor_parcela') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
         <input type="text" v-money="money" :maxlength="17" v-model="form.valor_parcela" v-validate="'required'"
-               @input="validate($event)" class="form-control"
+               @input="validate($event)" class="form-control" disabled="disabled"
                :class="{'form-control-danger': errors.has('valor_parcela'), 'form-control-success': fields.valor_parcela && fields.valor_parcela.valid}"
                id="valor_parcela" name="valor_parcela" placeholder="{{ trans('admin.contrato.columns.valor_parcela') }}">
         <div v-if="errors.has('valor_parcela')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('valor_parcela') }}

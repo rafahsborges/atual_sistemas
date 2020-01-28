@@ -30,7 +30,6 @@ Vue.component('contrato-form', {
                 valor_parcela: '',
 
             },
-            price: 123.45,
             money: {
                 decimal: ',',
                 thousands: '.',
@@ -60,6 +59,10 @@ Vue.component('contrato-form', {
     },
 
     methods: {
+        newValor: 0.00,
+        newQtdParcelas: 0,
+        newQtdMeses: 0,
+        newDtAssinatura: 0,
         changed(e) {
             let valor = '0,00';
             let data_assinatura;
@@ -71,7 +74,7 @@ Vue.component('contrato-form', {
                 valor = e.target.value.replace(/[^\d,]+/g, '').replace(',', '.');
             }
             if (e.target.id === 'data_assinatura') {
-                console.log(e.target.value);
+                //console.log(e.target.value);
             }
             if (e.target.id === 'qtd_meses' && e.target.value !== 0) {
                 qtd_meses = e.target.value;
@@ -80,10 +83,35 @@ Vue.component('contrato-form', {
                 qtd_parcelas = e.target.value;
             }
             if (valor !== '0,00' && qtd_parcelas !== 0 || qtd_parcelas !== '0') {
-                console.log(parseInt(valor) / parseInt(qtd_parcelas));
+                //console.log(parseInt(valor) / parseInt(qtd_parcelas));
                 //$('#valor_parcela').val(parseInt(valor) / parseInt(qtd_parcelas));
             }
-        }
+        },
+        setValor(e) {
+            if (e.target.value !== 'undefined' && e.target.value !== '0,00') {
+                this.newValor = parseFloat(e.target.value.replace(/[^\d,]+/g, '').replace(',', '.'));
+                this.setValorParcela();
+            }
+        },
+        setQtdMeses(e) {
+            if (e.target.value !== 'undefined' && e.target.value !== 0) {
+                console.log(e.target.value);
+            }
+        },
+        setQtdParcelas(e) {
+            if (e.target.value !== 'undefined' && e.target.value !== 0) {
+                this.newQtdParcelas = parseInt(e.target.value);
+                this.setValorParcela();
+            }
+        },
+        setValorParcela() {
+            if (this.newValor !== 0.00 && this.newQtdParcelas !== 0) {
+                this.form.valor_parcela = (this.newValor / this.newQtdParcelas)
+                    .toFixed(2)
+                    .toString()
+                    .replace('.', ',');
+            }
+        },
     },
 
 });
