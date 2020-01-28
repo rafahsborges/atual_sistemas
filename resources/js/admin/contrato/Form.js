@@ -76,13 +76,13 @@ Vue.component('contrato-form', {
             }
         },
         setQtdMeses(e) {
-            if (e.target.value !== 'undefined' && e.target.value !== 0) {
+            if (e.target.value !== 'undefined' && e.target.value > 0) {
                 this.newQtdMeses = parseInt(e.target.value);
                 this.setValidadeContrato();
             }
         },
         setQtdParcelas(e) {
-            if (e.target.value !== 'undefined' && e.target.value !== 0) {
+            if (e.target.value !== 'undefined' && e.target.value > 0) {
                 this.newQtdParcelas = parseInt(e.target.value);
                 this.setValorParcela();
             }
@@ -96,13 +96,9 @@ Vue.component('contrato-form', {
             }
         },
         setValidadeContrato() {
-            if (Object.prototype.toString.call(this.newDtAssinatura) === '[object Date]' && this.newQtdMeses !== 0) {
-                console.log(this.newDtAssinatura);
-                console.log(this.newQtdMeses);
-                //let validadeContrato = new Date(this.newDtAssinatura.setMonth(this.newQtdMeses));
-                //console.log(validadeContrato);
-                //console.log(validadeContrato.getDate() + '/' + (validadeContrato.getMonth() + 1) + '/' + validadeContrato.getFullYear());
-                //this.form.validade_contrato = new Date(this.newDtAssinatura.setMonth(this.newQtdMeses));
+            if (Object.prototype.toString.call(this.newDtAssinatura) === '[object Date]' && this.newQtdMeses > 0) {
+                let validadeContrato = new Date(this.newDtAssinatura.setMonth(this.newQtdMeses));
+                this.form.validade_contrato = moment(validadeContrato).format("YYYY-MM-DD HH:mm:ss");
             }
         }
     },

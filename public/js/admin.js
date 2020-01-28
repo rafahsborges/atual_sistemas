@@ -111537,6 +111537,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _index__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./index */ "./resources/js/admin/index.js");
 /* harmony import */ var craftable_dist_ui__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! craftable/dist/ui */ "./node_modules/craftable/dist/ui/index.js");
 /* harmony import */ var craftable_dist_ui__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(craftable_dist_ui__WEBPACK_IMPORTED_MODULE_14__);
+/* harmony import */ var vue_the_mask__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! vue-the-mask */ "./node_modules/vue-the-mask/dist/vue-the-mask.js");
+/* harmony import */ var vue_the_mask__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(vue_the_mask__WEBPACK_IMPORTED_MODULE_15__);
+/* harmony import */ var v_money__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! v-money */ "./node_modules/v-money/dist/v-money.js");
+/* harmony import */ var v_money__WEBPACK_IMPORTED_MODULE_16___default = /*#__PURE__*/__webpack_require__.n(v_money__WEBPACK_IMPORTED_MODULE_16__);
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_17___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_17__);
 
 
 
@@ -111548,6 +111554,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+
+ // Global
 
 
 
@@ -111563,8 +111573,13 @@ vue__WEBPACK_IMPORTED_MODULE_11___default.a.use(vue_js_modal__WEBPACK_IMPORTED_M
   injectModalsContainer: true
 });
 vue__WEBPACK_IMPORTED_MODULE_11___default.a.use(vue_quill_editor__WEBPACK_IMPORTED_MODULE_3___default.a);
+vue__WEBPACK_IMPORTED_MODULE_11___default.a.use(vue_quill_editor__WEBPACK_IMPORTED_MODULE_3___default.a);
 vue__WEBPACK_IMPORTED_MODULE_11___default.a.use(vue_notification__WEBPACK_IMPORTED_MODULE_4___default.a);
 vue__WEBPACK_IMPORTED_MODULE_11___default.a.use(vue_cookie__WEBPACK_IMPORTED_MODULE_8___default.a);
+vue__WEBPACK_IMPORTED_MODULE_11___default.a.use(vue_the_mask__WEBPACK_IMPORTED_MODULE_15___default.a);
+vue__WEBPACK_IMPORTED_MODULE_11___default.a.use(v_money__WEBPACK_IMPORTED_MODULE_16___default.a, {
+  precision: 4
+});
 new vue__WEBPACK_IMPORTED_MODULE_11___default.a({
   mixins: [craftable__WEBPACK_IMPORTED_MODULE_9__["Admin"]]
 });
@@ -112170,13 +112185,13 @@ Vue.component('contrato-form', {
       }
     },
     setQtdMeses: function setQtdMeses(e) {
-      if (e.target.value !== 'undefined' && e.target.value !== 0) {
+      if (e.target.value !== 'undefined' && e.target.value > 0) {
         this.newQtdMeses = parseInt(e.target.value);
         this.setValidadeContrato();
       }
     },
     setQtdParcelas: function setQtdParcelas(e) {
-      if (e.target.value !== 'undefined' && e.target.value !== 0) {
+      if (e.target.value !== 'undefined' && e.target.value > 0) {
         this.newQtdParcelas = parseInt(e.target.value);
         this.setValorParcela();
       }
@@ -112187,12 +112202,9 @@ Vue.component('contrato-form', {
       }
     },
     setValidadeContrato: function setValidadeContrato() {
-      if (Object.prototype.toString.call(this.newDtAssinatura) === '[object Date]' && this.newQtdMeses !== 0) {
-        console.log(this.newDtAssinatura);
-        console.log(this.newQtdMeses); //let validadeContrato = new Date(this.newDtAssinatura.setMonth(this.newQtdMeses));
-        //console.log(validadeContrato);
-        //console.log(validadeContrato.getDate() + '/' + (validadeContrato.getMonth() + 1) + '/' + validadeContrato.getFullYear());
-        //this.form.validade_contrato = new Date(this.newDtAssinatura.setMonth(this.newQtdMeses));
+      if (Object.prototype.toString.call(this.newDtAssinatura) === '[object Date]' && this.newQtdMeses > 0) {
+        var validadeContrato = new Date(this.newDtAssinatura.setMonth(this.newQtdMeses));
+        this.form.validade_contrato = moment(validadeContrato).format("YYYY-MM-DD HH:mm:ss");
       }
     }
   }

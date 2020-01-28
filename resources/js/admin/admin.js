@@ -17,13 +17,22 @@ import './index';
 
 import 'craftable/dist/ui';
 
+// Global
+import VueTheMask from 'vue-the-mask';
+import money from 'v-money';
+
+import * as moment from 'moment';
+
 Vue.component('multiselect', Multiselect);
 Vue.use(VeeValidate, {strict: true});
 Vue.component('datetime', flatPickr);
 Vue.use(VModal, { dialog: true, dynamic: true, injectModalsContainer: true });
 Vue.use(VueQuillEditor);
+Vue.use(VueQuillEditor);
 Vue.use(Notifications);
 Vue.use(VueCookie);
+Vue.use(VueTheMask);
+Vue.use(money, {precision: 4});
 
 new Vue({
     mixins: [Admin],
