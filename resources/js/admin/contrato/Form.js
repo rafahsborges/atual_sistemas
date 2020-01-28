@@ -63,10 +63,15 @@ Vue.component('contrato-form', {
         newQtdParcelas: 0,
         newQtdMeses: 0,
         newDtAssinatura: 0,
+        newPrimeiraParcela: 0,
         changed(e) {
             if (e.target.id === 'data_assinatura' && Object.prototype.toString.call(new Date(e.target.value)) === '[object Date]') {
                 this.newDtAssinatura = new Date(e.target.value);
                 this.setValidadeContrato();
+            }
+            if (e.target.id === 'primeira_parcela' && Object.prototype.toString.call(new Date(e.target.value)) === '[object Date]') {
+                this.newPrimeiraParcela = new Date(e.target.value);
+                this.setUltimaParcela();
             }
         },
         setValor(e) {
@@ -99,6 +104,12 @@ Vue.component('contrato-form', {
             if (Object.prototype.toString.call(this.newDtAssinatura) === '[object Date]' && this.newQtdMeses > 0) {
                 let validadeContrato = new Date(this.newDtAssinatura.setMonth(this.newQtdMeses));
                 this.form.validade_contrato = moment(validadeContrato).format("YYYY-MM-DD HH:mm:ss");
+            }
+        },
+        setUltimaParcela() {
+            if (Object.prototype.toString.call(this.newPrimeiraParcela) === '[object Date]' && this.newQtdParcelas > 0) {
+                let ultimaParcela = new Date(this.newPrimeiraParcela.setMonth(this.newQtdParcelas));
+                this.form.ultima_parcela = moment(ultimaParcela).format("YYYY-MM-DD HH:mm:ss");
             }
         }
     },
