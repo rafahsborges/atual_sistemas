@@ -159,3 +159,49 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
         });
     });
 });
+
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
+    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function () {
+        Route::prefix('boletos')->name('boletos/')->group(static function () {
+            Route::get('/', 'BoletosController@index')->name('index');
+            Route::get('/create', 'BoletosController@create')->name('create');
+            Route::post('/', 'BoletosController@store')->name('store');
+            Route::get('/{boleto}/edit', 'BoletosController@edit')->name('edit');
+            Route::post('/bulk-destroy', 'BoletosController@bulkDestroy')->name('bulk-destroy');
+            Route::post('/{boleto}', 'BoletosController@update')->name('update');
+            Route::delete('/{boleto}', 'BoletosController@destroy')->name('destroy');
+        });
+    });
+});
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
+    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function () {
+        Route::prefix('remessas')->name('remessas/')->group(static function () {
+            Route::get('/', 'RemessasController@index')->name('index');
+            Route::get('/create', 'RemessasController@create')->name('create');
+            Route::post('/', 'RemessasController@store')->name('store');
+            Route::get('/{remessa}/edit', 'RemessasController@edit')->name('edit');
+            Route::post('/bulk-destroy', 'RemessasController@bulkDestroy')->name('bulk-destroy');
+            Route::post('/{remessa}', 'RemessasController@update')->name('update');
+            Route::delete('/{remessa}', 'RemessasController@destroy')->name('destroy');
+        });
+    });
+});
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
+    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function () {
+        Route::prefix('remessa-boletos')->name('remessa-boletos/')->group(static function () {
+            Route::get('/', 'RemessaBoletosController@index')->name('index');
+            Route::get('/create', 'RemessaBoletosController@create')->name('create');
+            Route::post('/', 'RemessaBoletosController@store')->name('store');
+            Route::get('/{remessaBoleto}/edit', 'RemessaBoletosController@edit')->name('edit');
+            Route::post('/bulk-destroy', 'RemessaBoletosController@bulkDestroy')->name('bulk-destroy');
+            Route::post('/{remessaBoleto}', 'RemessaBoletosController@update')->name('update');
+            Route::delete('/{remessaBoleto}', 'RemessaBoletosController@destroy')->name('destroy');
+        });
+    });
+});

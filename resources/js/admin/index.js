@@ -9,3 +9,6 @@ import './dependente';
 import './conta';
 import './contrato';
 import './contrato-parcela';
+import './boleto';
+import './remessa';
+import './remessa-boleto';

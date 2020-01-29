@@ -159,7 +159,6 @@ return [
             'mensagem_2' => 'Mensagem 2',
             'cpf_cnpj' => 'Cpf cnpj',
             'enabled' => 'Enabled',
-
         ],
     ],
 
@@ -189,7 +188,6 @@ return [
             'id_plano' => 'Id plano',
             'id_conta' => 'Id conta',
             'enabled' => 'Enabled',
-
         ],
     ],
 
@@ -213,7 +211,57 @@ return [
             'valor_pagamento' => 'Valor pagamento',
             'id_contrato' => 'Id contrato',
             'enabled' => 'Enabled',
+        ],
+    ],
 
+    'boleto' => [
+        'title' => 'Boletos',
+
+        'actions' => [
+            'index' => 'Boletos',
+            'create' => 'New Boleto',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'status' => 'Status',
+            'id_contrato_parcela' => 'Id contrato parcela',
+        ],
+    ],
+
+    'remessa' => [
+        'title' => 'Remessas',
+
+        'actions' => [
+            'index' => 'Remessas',
+            'create' => 'New Remessa',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'data' => 'Data',
+            'id_usuario' => 'Id usuario',
+            'nome' => 'Nome',
+            'sequencia' => 'Sequencia',
+            'id_conta' => 'Id conta',
+        ],
+    ],
+
+    'remessa-boleto' => [
+        'title' => 'Remessa Boletos',
+
+        'actions' => [
+            'index' => 'Remessa Boletos',
+            'create' => 'New Remessa Boleto',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'id_boleto' => 'Id boleto',
+            'id_remessa' => 'Id remessa',
         ],
     ],
 

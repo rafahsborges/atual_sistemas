@@ -166,3 +166,30 @@ $factory->define(App\Models\ContratoParcela::class, static function (Faker\Gener
         'deleted_at' => null,
     ];
 });
+
+/** @var  Factory $factory */
+$factory->define(App\Models\Boleto::class, static function (Faker\Generator $faker) {
+    return [
+        'status' => $faker->boolean(),
+        'id_contrato_parcela' => $faker->sentence,
+    ];
+});
+
+/** @var  Factory $factory */
+$factory->define(App\Models\Remessa::class, static function (Faker\Generator $faker) {
+    return [
+        'data' => $faker->dateTime,
+        'id_usuario' => $faker->randomNumber(5),
+        'nome' => $faker->sentence,
+        'sequencia' => $faker->randomNumber(5),
+        'id_conta' => $faker->sentence,
+    ];
+});
+
+/** @var  Factory $factory */
+$factory->define(App\Models\RemessaBoleto::class, static function (Faker\Generator $faker) {
+    return [
+        'id_boleto' => $faker->sentence,
+        'id_remessa' => $faker->sentence,
+    ];
+});
