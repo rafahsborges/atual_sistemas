@@ -11,6 +11,7 @@ use App\Http\Requests\Admin\Contrato\UpdateContrato;
 use App\Models\Cliente;
 use App\Models\Conta;
 use App\Models\Contrato;
+use App\Models\ContratoParcela;
 use App\Models\Plano;
 use Brackets\AdminListing\Facades\AdminListing;
 use Carbon\Carbon;
@@ -48,15 +49,15 @@ class ContratosController extends Controller
 
             function ($query) use ($request) {
                 $query->with(['cliente']);
-                if($request->has('clientes')){
+                if ($request->has('clientes')) {
                     $query->whereIn('id_cliente', $request->get('clientes'));
                 }
                 $query->with(['conta']);
-                if($request->has('contas')){
+                if ($request->has('contas')) {
                     $query->whereIn('id_conta', $request->get('contas'));
                 }
                 $query->with(['plano']);
-                if($request->has('planos')){
+                if ($request->has('planos')) {
                     $query->whereIn('id_plano', $request->get('planos'));
                 }
             }
@@ -115,8 +116,37 @@ class ContratosController extends Controller
         $sanitized['multa'] = $request->prepareCurrencies($sanitized['multa']);
         $sanitized['desconto'] = $request->prepareCurrencies($sanitized['desconto']);
 
+        $to = Carbon::createFromFormat('Y-m-d H:s:i', $sanitized['data_assinatura']);
+        $from = Carbon::createFromFormat('Y-m-d H:s:i', $sanitized['validade_contrato']);
+        $diff_in_months = $to->diffInMonths($from);
+        $valor_parcela = round($sanitized['valor'] / $sanitized['qtd_parcelas'], 2);
+
+        $primeira_parcela = Carbon::createFromFormat('Y-m-d H:s:i', $sanitized['primeira_parcela']);
+
         // Store the Contrato
         $contrato = Contrato::create($sanitized);
+
+        $contrato_parcelas = [];
+
+        if ($contrato->id) {
+            for ($i = 0; $i < $diff_in_months; $i++) {
+                $vencimento_parcela = new Carbon($primeira_parcela);
+                $contrato_parcelas[] = array(
+                    'vencimento' => $vencimento_parcela->addMonths($i)->toDateString(),
+                    'valor' => $valor_parcela,
+                    'numero_parcela' => $i + 1,
+                    'id_contrato' => $contrato->id,
+                    'enabled' => true,
+                    'created_at' => Carbon::now(),
+                    'updated_at' => Carbon::now(),
+                );
+            }
+        }
+
+        foreach ($contrato_parcelas as $contrato_parcela) {
+            // Store the ContratoParcela
+            $contratoParcela = ContratoParcela::create($contrato_parcela);
+        }
 
         if ($request->ajax()) {
             return ['redirect' => url('admin/contratos'), 'message' => trans('brackets/admin-ui::admin.operation.succeeded')];

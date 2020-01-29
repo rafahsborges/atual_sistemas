@@ -90,6 +90,7 @@ Vue.component('contrato-form', {
             if (e.target.value !== 'undefined' && e.target.value > 0) {
                 this.newQtdParcelas = parseInt(e.target.value);
                 this.setValorParcela();
+                this.setUltimaParcela();
             }
         },
         setValorParcela() {
