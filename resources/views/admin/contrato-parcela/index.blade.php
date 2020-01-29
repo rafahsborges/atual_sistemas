@@ -34,6 +34,16 @@
                                             </span>
                                         </div>
                                     </div>
+                                    <div class="col form-group deadline-checkbox-col">
+                                        <div class="switch-filter-wrap">
+                                            <label class="switch switch-3d switch-primary">
+                                                <input type="checkbox" class="switch-input"
+                                                       v-model="showAdvancedFilter">
+                                                <span class="switch-slider"></span>
+                                            </label>
+                                            <span class="authors-filter">&nbsp;{{ __('Filtros Avançados') }}</span>
+                                        </div>
+                                    </div>
                                     <div class="col-sm-auto form-group ">
                                         <select class="form-control" v-model="pagination.state.per_page">
 
@@ -41,6 +51,18 @@
                                             <option value="25">25</option>
                                             <option value="100">100</option>
                                         </select>
+                                    </div>
+                                </div>
+                                <div class="row" v-if="showAdvancedFilter">
+                                    <div class="col col-lg-6 col-xl-6 form-group">
+                                        <multiselect v-model="contratosMultiselect"
+                                                     :options="{{ $contratos->map(function($contrato) { return ['key' => $contrato->id, 'label' =>  $contrato->cliente->nome]; })->toJson() }}"
+                                                     label="label"
+                                                     track-by="key"
+                                                     placeholder="{{ __('Digite para procurar por contrato/s') }}"
+                                                     :limit="2"
+                                                     :multiple="true">
+                                        </multiselect>
                                     </div>
                                 </div>
                             </form>
@@ -111,7 +133,7 @@
                                     </td>
 
                                     <td>@{{ item.id }}</td>
-                                    <td>@{{ item.id_contrato }}</td>
+                                    <td>@{{ item.contrato.cliente.nome }}</td>
                                     <td>@{{ item.numero_parcela }}</td>
                                     <td>R$ @{{ item.valor }}</td>
                                     <td>@{{ item.vencimento | date('DD/MM/YYYY') }}</td>

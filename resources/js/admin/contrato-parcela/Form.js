@@ -2,6 +2,9 @@ import AppForm from '../app-components/Form/AppForm';
 
 Vue.component('contrato-parcela-form', {
     mixins: [AppForm],
+    props: [
+        'contratos',
+    ],
     data: function() {
         return {
             form: {
@@ -14,7 +17,7 @@ Vue.component('contrato-parcela-form', {
                 valor_pagamento:  '' ,
                 id_contrato:  '' ,
                 enabled:  false ,
-                
+                contrato: '',
             }
         }
     }

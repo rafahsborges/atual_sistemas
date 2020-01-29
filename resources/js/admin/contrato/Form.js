@@ -28,7 +28,6 @@ Vue.component('contrato-form', {
                 conta: '',
                 plano: '',
                 valor_parcela: '',
-
             },
             money: {
                 decimal: ',',

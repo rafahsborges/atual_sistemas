@@ -35,7 +35,7 @@ class UpdateContratoParcela extends FormRequest
             'valor_pagamento' => ['nullable', 'numeric'],
             'id_contrato' => ['nullable', 'string'],
             'enabled' => ['sometimes', 'boolean'],
-            
+            'contrato' => ['nullable'],
         ];
     }
 
@@ -52,5 +52,12 @@ class UpdateContratoParcela extends FormRequest
         //Add your code for manipulation with request data here
 
         return $sanitized;
+    }
+
+    public function getContratoId(){
+        if ($this->has('contrato')){
+            return $this->get('contrato')['id'];
+        }
+        return null;
     }
 }

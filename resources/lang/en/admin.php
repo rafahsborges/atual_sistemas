@@ -194,11 +194,11 @@ return [
     ],
 
     'contrato-parcela' => [
-        'title' => 'Contrato Parcelas',
+        'title' => 'Parcelas',
 
         'actions' => [
-            'index' => 'Contrato Parcelas',
-            'create' => 'New Contrato Parcela',
+            'index' => 'Parcelas',
+            'create' => 'New Parcela',
             'edit' => 'Edit :name',
         ],
 

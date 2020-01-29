@@ -112044,6 +112044,7 @@ __webpack_require__.r(__webpack_exports__);
 
 Vue.component('contrato-parcela-form', {
   mixins: [_app_components_Form_AppForm__WEBPACK_IMPORTED_MODULE_0__["default"]],
+  props: ['contratos'],
   data: function data() {
     return {
       form: {
@@ -112055,7 +112056,8 @@ Vue.component('contrato-parcela-form', {
         numero_parcela: '',
         valor_pagamento: '',
         id_contrato: '',
-        enabled: false
+        enabled: false,
+        contrato: ''
       }
     };
   }
@@ -112075,7 +112077,27 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../app-components/Listing/AppListing */ "./resources/js/admin/app-components/Listing/AppListing.js");
 
 Vue.component('contrato-parcela-listing', {
-  mixins: [_app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__["default"]]
+  mixins: [_app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__["default"]],
+  data: function data() {
+    return {
+      showAdvancedFilter: false,
+      contratosMultiselect: {},
+      filters: {
+        contratos: []
+      }
+    };
+  },
+  watch: {
+    showAdvancedFilter: function showAdvancedFilter(newVal, oldVal) {
+      this.contratosMultiselect = [];
+    },
+    contratosMultiselect: function contratosMultiselect(newVal, oldVal) {
+      this.filters.contratos = newVal.map(function (object) {
+        return object['key'];
+      });
+      this.filter('contratos', this.filters.contratos);
+    }
+  }
 });
 
 /***/ }),

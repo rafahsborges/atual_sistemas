@@ -35,7 +35,7 @@ class StoreContratoParcela extends FormRequest
             'valor_pagamento' => ['nullable', 'numeric'],
             'id_contrato' => ['nullable', 'string'],
             'enabled' => ['required', 'boolean'],
-            
+            'contrato' => ['nullable'],
         ];
     }
 
@@ -51,5 +51,12 @@ class StoreContratoParcela extends FormRequest
         //Add your code for manipulation with request data here
 
         return $sanitized;
+    }
+
+    public function getContratoId(){
+        if ($this->has('contrato')){
+            return $this->get('contrato')['id'];
+        }
+        return null;
     }
 }

@@ -8,6 +8,7 @@ use App\Http\Requests\Admin\ContratoParcela\DestroyContratoParcela;
 use App\Http\Requests\Admin\ContratoParcela\IndexContratoParcela;
 use App\Http\Requests\Admin\ContratoParcela\StoreContratoParcela;
 use App\Http\Requests\Admin\ContratoParcela\UpdateContratoParcela;
+use App\Models\Contrato;
 use App\Models\ContratoParcela;
 use Brackets\AdminListing\Facades\AdminListing;
 use Carbon\Carbon;
@@ -34,14 +35,22 @@ class ContratoParcelasController extends Controller
     {
         // create and AdminListing instance for a specific model and
         $data = AdminListing::create(ContratoParcela::class)->processRequestAndGet(
-            // pass the request with params
+        // pass the request with params
             $request,
 
             // set columns to query
             ['id', 'vencimento', 'pagamento', 'id_boleto', 'id_carne', 'valor', 'numero_parcela', 'valor_pagamento', 'id_contrato', 'enabled'],
 
             // set columns to searchIn
-            ['id']
+            ['id'],
+
+            function ($query) use ($request) {
+                $query->with(['contrato']);
+                $query->with(['contrato.cliente']);
+                if ($request->has('contratos')) {
+                    $query->whereIn('id_contrato', $request->get('contratos'));
+                }
+            }
         );
 
         if ($request->ajax()) {
@@ -53,20 +62,25 @@ class ContratoParcelasController extends Controller
             return ['data' => $data];
         }
 
-        return view('admin.contrato-parcela.index', ['data' => $data]);
+        return view('admin.contrato-parcela.index', [
+            'data' => $data,
+            'contratos' => Contrato::with('cliente')->get(),
+        ]);
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @throws AuthorizationException
      * @return Factory|View
+     * @throws AuthorizationException
      */
     public function create()
     {
         $this->authorize('admin.contrato-parcela.create');
 
-        return view('admin.contrato-parcela.create');
+        return view('admin.contrato-parcela.create', [
+            'contratos' => Contrato::all(),
+        ]);
     }
 
     /**
@@ -79,6 +93,7 @@ class ContratoParcelasController extends Controller
     {
         // Sanitize input
         $sanitized = $request->getSanitized();
+        $sanitized['id_contrato'] = $request->getContratoId();
 
         // Store the ContratoParcela
         $contratoParcela = ContratoParcela::create($sanitized);
@@ -94,8 +109,8 @@ class ContratoParcelasController extends Controller
      * Display the specified resource.
      *
      * @param ContratoParcela $contratoParcela
-     * @throws AuthorizationException
      * @return void
+     * @throws AuthorizationException
      */
     public function show(ContratoParcela $contratoParcela)
     {
@@ -108,16 +123,16 @@ class ContratoParcelasController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param ContratoParcela $contratoParcela
-     * @throws AuthorizationException
      * @return Factory|View
+     * @throws AuthorizationException
      */
     public function edit(ContratoParcela $contratoParcela)
     {
         $this->authorize('admin.contrato-parcela.edit', $contratoParcela);
 
-
         return view('admin.contrato-parcela.edit', [
             'contratoParcela' => $contratoParcela,
+            'contratos' => Contrato::all(),
         ]);
     }
 
@@ -132,6 +147,7 @@ class ContratoParcelasController extends Controller
     {
         // Sanitize input
         $sanitized = $request->getSanitized();
+        $sanitized['id_contrato'] = $request->getContratoId();
 
         // Update changed values ContratoParcela
         $contratoParcela->update($sanitized);
@@ -151,8 +167,8 @@ class ContratoParcelasController extends Controller
      *
      * @param DestroyContratoParcela $request
      * @param ContratoParcela $contratoParcela
-     * @throws Exception
      * @return ResponseFactory|RedirectResponse|Response
+     * @throws Exception
      */
     public function destroy(DestroyContratoParcela $request, ContratoParcela $contratoParcela)
     {
@@ -169,10 +185,10 @@ class ContratoParcelasController extends Controller
      * Remove the specified resources from storage.
      *
      * @param BulkDestroyContratoParcela $request
-     * @throws Exception
      * @return Response|bool
+     * @throws Exception
      */
-    public function bulkDestroy(BulkDestroyContratoParcela $request) : Response
+    public function bulkDestroy(BulkDestroyContratoParcela $request): Response
     {
         DB::transaction(static function () use ($request) {
             collect($request->data['ids'])
@@ -181,7 +197,7 @@ class ContratoParcelasController extends Controller
                     DB::table('contratoParcelas')->whereIn('id', $bulkChunk)
                         ->update([
                             'deleted_at' => Carbon::now()->format('Y-m-d H:i:s')
-                    ]);
+                        ]);
 
                     // TODO your code goes here
                 });
