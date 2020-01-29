@@ -189,6 +189,7 @@ class ContratosController extends Controller
             'clientes' => Cliente::all(),
             'contas' => Conta::all(),
             'planos' => Plano::all(),
+            'contratos_parcelas' => ContratoParcela::where('id_contrato', $contrato->id)->get(),
         ]);
     }
 
