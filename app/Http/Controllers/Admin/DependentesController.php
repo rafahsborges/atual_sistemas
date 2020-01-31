@@ -137,7 +137,9 @@ class DependentesController extends Controller
     {
         $this->authorize('admin.dependente.edit', $dependente);
 
-        $dependente = Dependente::with('cliente')->find($dependente->id);
+        $dependente = Dependente::with('cliente')
+            ->with('parentesco')
+            ->find($dependente->id);
 
         return view('admin.dependente.edit', [
             'dependente' => $dependente,

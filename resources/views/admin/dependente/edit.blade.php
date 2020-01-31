@@ -1,6 +1,6 @@
 @extends('brackets/admin-ui::admin.layout.default')
 
-@section('title', trans('admin.dependente.actions.edit', ['name' => $dependente->id]))
+@section('title', trans('admin.dependente.actions.edit', ['name' => $dependente->nome]))
 
 @section('body')
 
@@ -19,7 +19,7 @@
                       novalidate>
 
                     <div class="card-header">
-                        <i class="fa fa-pencil"></i> {{ trans('admin.dependente.actions.edit', ['name' => $dependente->id]) }}
+                        <i class="fa fa-pencil"></i> {{ trans('admin.dependente.actions.edit', ['name' => $dependente->nome]) }}
                     </div>
 
                     <div class="card-body">
