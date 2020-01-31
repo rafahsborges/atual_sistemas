@@ -12,3 +12,5 @@ import './contrato-parcela';
 import './boleto';
 import './remessa';
 import './remessa-boleto';
+import './sexo';
+import './uf';

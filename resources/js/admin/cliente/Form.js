@@ -37,11 +37,11 @@ Vue.component('cliente-form', {
                 enabled: true,
             },
             showPJ: false,
-            sexList: [
+            sexo: [
                 {nome: 'Masculino', id: 'M'},
                 {nome: 'Feminino', id: 'F'},
             ],
-            ufList: [
+            uf: [
                 {nome: 'Acre', id: 'AC'},
                 {nome: 'Alagoas', id: 'AL'},
                 {nome: 'Amapá', id: 'AP'},

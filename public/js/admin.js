@@ -111813,14 +111813,14 @@ Vue.component('cliente-form', {
         enabled: true
       },
       showPJ: false,
-      sexList: [{
+      sexo: [{
         nome: 'Masculino',
         id: 'M'
       }, {
         nome: 'Feminino',
         id: 'F'
       }],
-      ufList: [{
+      uf: [{
         nome: 'Acre',
         id: 'AC'
       }, {
@@ -112539,6 +112539,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _boleto__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./boleto */ "./resources/js/admin/boleto/index.js");
 /* harmony import */ var _remessa__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./remessa */ "./resources/js/admin/remessa/index.js");
 /* harmony import */ var _remessa_boleto__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./remessa-boleto */ "./resources/js/admin/remessa-boleto/index.js");
+/* harmony import */ var _sexo__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./sexo */ "./resources/js/admin/sexo/index.js");
+/* harmony import */ var _uf__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./uf */ "./resources/js/admin/uf/index.js");
+
+
 
 
 
@@ -112888,6 +112892,122 @@ Vue.component('remessa-listing', {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Listing__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Listing */ "./resources/js/admin/remessa/Listing.js");
 /* harmony import */ var _Form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Form */ "./resources/js/admin/remessa/Form.js");
+
+
+
+/***/ }),
+
+/***/ "./resources/js/admin/sexo/Form.js":
+/*!*****************************************!*\
+  !*** ./resources/js/admin/sexo/Form.js ***!
+  \*****************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _app_components_Form_AppForm__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../app-components/Form/AppForm */ "./resources/js/admin/app-components/Form/AppForm.js");
+
+Vue.component('sexo-form', {
+  mixins: [_app_components_Form_AppForm__WEBPACK_IMPORTED_MODULE_0__["default"]],
+  data: function data() {
+    return {
+      form: {
+        nome: '',
+        enabled: false
+      }
+    };
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/admin/sexo/Listing.js":
+/*!********************************************!*\
+  !*** ./resources/js/admin/sexo/Listing.js ***!
+  \********************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../app-components/Listing/AppListing */ "./resources/js/admin/app-components/Listing/AppListing.js");
+
+Vue.component('sexo-listing', {
+  mixins: [_app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__["default"]]
+});
+
+/***/ }),
+
+/***/ "./resources/js/admin/sexo/index.js":
+/*!******************************************!*\
+  !*** ./resources/js/admin/sexo/index.js ***!
+  \******************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Listing__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Listing */ "./resources/js/admin/sexo/Listing.js");
+/* harmony import */ var _Form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Form */ "./resources/js/admin/sexo/Form.js");
+
+
+
+/***/ }),
+
+/***/ "./resources/js/admin/uf/Form.js":
+/*!***************************************!*\
+  !*** ./resources/js/admin/uf/Form.js ***!
+  \***************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _app_components_Form_AppForm__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../app-components/Form/AppForm */ "./resources/js/admin/app-components/Form/AppForm.js");
+
+Vue.component('uf-form', {
+  mixins: [_app_components_Form_AppForm__WEBPACK_IMPORTED_MODULE_0__["default"]],
+  data: function data() {
+    return {
+      form: {
+        nome: '',
+        enabled: false
+      }
+    };
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/admin/uf/Listing.js":
+/*!******************************************!*\
+  !*** ./resources/js/admin/uf/Listing.js ***!
+  \******************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../app-components/Listing/AppListing */ "./resources/js/admin/app-components/Listing/AppListing.js");
+
+Vue.component('uf-listing', {
+  mixins: [_app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__["default"]]
+});
+
+/***/ }),
+
+/***/ "./resources/js/admin/uf/index.js":
+/*!****************************************!*\
+  !*** ./resources/js/admin/uf/index.js ***!
+  \****************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Listing__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Listing */ "./resources/js/admin/uf/Listing.js");
+/* harmony import */ var _Form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Form */ "./resources/js/admin/uf/Form.js");
 
 
 

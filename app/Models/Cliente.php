@@ -59,7 +59,7 @@ class Cliente extends Model
     /**
      * @return BelongsTo
      */
-    public function estadoCivil()
+    public function civil()
     {
         return $this->belongsTo('App\Models\EstadoCivil', 'id_estado_civil');
     }

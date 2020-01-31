@@ -45,7 +45,7 @@ class ClientesController extends Controller
             ['id', 'nome', 'rg', 'cpf', 'insc_municipal', 'cnpj', 'sexo', 'profissao', 'local_trabalho', 'telefone', 'celular', 'logradouro', 'numero', 'complemento', 'bairro', 'cidade', 'uf', 'email', 'observacao', 'cep', 'celular2', 'celular3'],
 
             function ($query) use ($request) {
-                $query->with(['estadoCivil']);
+                $query->with(['civil']);
                 if ($request->has('tipos')) {
                     $query->whereIn('tipo', $request->get('tipos'));
                 }
@@ -91,6 +91,8 @@ class ClientesController extends Controller
 
         return view('admin.cliente.create', [
             'civils' => EstadoCivil::all(),
+            'sexo' => Sexo::all(),
+            'uf' => Uf::all(),
             'empresas' => Cliente::where('tipo', 1)->get(),
         ]);
     }
@@ -145,9 +147,21 @@ class ClientesController extends Controller
     {
         $this->authorize('admin.cliente.edit', $cliente);
 
+        $id = $cliente->id;
+        $hasEmpresa = $cliente->id_cliente_responsavel;
+
+        $cliente = Cliente::with('civil')
+            ->find($id);
+
+        if ($hasEmpresa) {
+            $cliente['empresa'] = Cliente::where('id', $hasEmpresa)->get();
+        }
+
         return view('admin.cliente.edit', [
             'cliente' => $cliente,
             'civils' => EstadoCivil::all(),
+            'sexo' => Sexo::all(),
+            'uf' => Uf::all(),
             'empresas' => Cliente::where('tipo', 1)->get(),
         ]);
     }

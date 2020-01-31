@@ -205,3 +205,34 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
         });
     });
 });
+
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
+    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function() {
+        Route::prefix('sexos')->name('sexos/')->group(static function() {
+            Route::get('/',                                             'SexosController@index')->name('index');
+            Route::get('/create',                                       'SexosController@create')->name('create');
+            Route::post('/',                                            'SexosController@store')->name('store');
+            Route::get('/{sexo}/edit',                                  'SexosController@edit')->name('edit');
+            Route::post('/bulk-destroy',                                'SexosController@bulkDestroy')->name('bulk-destroy');
+            Route::post('/{sexo}',                                      'SexosController@update')->name('update');
+            Route::delete('/{sexo}',                                    'SexosController@destroy')->name('destroy');
+        });
+    });
+});
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
+    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function() {
+        Route::prefix('ufs')->name('ufs/')->group(static function() {
+            Route::get('/',                                             'UfsController@index')->name('index');
+            Route::get('/create',                                       'UfsController@create')->name('create');
+            Route::post('/',                                            'UfsController@store')->name('store');
+            Route::get('/{uf}/edit',                                    'UfsController@edit')->name('edit');
+            Route::post('/bulk-destroy',                                'UfsController@bulkDestroy')->name('bulk-destroy');
+            Route::post('/{uf}',                                        'UfsController@update')->name('update');
+            Route::delete('/{uf}',                                      'UfsController@destroy')->name('destroy');
+        });
+    });
+});

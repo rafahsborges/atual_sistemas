@@ -110,7 +110,7 @@
         <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
             <multiselect
                 v-model="form.sexo"
-                :options="sexList"
+                :options="sexo"
                 :multiple="false"
                 track-by="id"
                 label="nome"
@@ -336,7 +336,7 @@
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
         <multiselect
             v-model="form.uf"
-            :options="ufList"
+            :options="uf"
             :multiple="false"
             track-by="id"
             label="nome"

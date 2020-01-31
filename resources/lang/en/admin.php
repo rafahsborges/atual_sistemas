@@ -265,5 +265,39 @@ return [
         ],
     ],
 
+    'sexo' => [
+        'title' => 'Sexos',
+
+        'actions' => [
+            'index' => 'Sexos',
+            'create' => 'New Sexo',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'nome' => 'Nome',
+            'enabled' => 'Enabled',
+            
+        ],
+    ],
+
+    'uf' => [
+        'title' => 'Ufs',
+
+        'actions' => [
+            'index' => 'Ufs',
+            'create' => 'New Uf',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'nome' => 'Nome',
+            'enabled' => 'Enabled',
+            
+        ],
+    ],
+
     // Do not delete me :) I'm used for auto-generation
 ];
