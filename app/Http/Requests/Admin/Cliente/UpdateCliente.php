@@ -42,7 +42,7 @@ class UpdateCliente extends FormRequest
             'numero' => ['nullable', 'string'],
             'complemento' => ['nullable', 'string'],
             'bairro' => ['nullable', 'string'],
-            'cidade' => ['nullable', 'string'],
+            'cidade' => ['nullable'],
             'uf' => ['nullable'],
             'email' => ['nullable', 'email', 'string'],
             'observacao' => ['nullable', 'string'],
@@ -97,6 +97,14 @@ class UpdateCliente extends FormRequest
     {
         if ($this->has('sexo')) {
             return $this->get('sexo')['id'];
+        }
+        return null;
+    }
+
+    public function getCidadeId()
+    {
+        if ($this->has('cidade')) {
+            return $this->get('cidade')['id'];
         }
         return null;
     }

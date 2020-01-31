@@ -5,6 +5,9 @@ Vue.component('cliente-form', {
     props: [
         'civils',
         'empresas',
+        'sexos',
+        'ufs',
+        'cidades',
     ],
     data: function () {
         return {
@@ -38,6 +41,5 @@ Vue.component('cliente-form', {
             },
             showPJ: false,
         }
-    }
-
+    },
 });

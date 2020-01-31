@@ -111841,7 +111841,7 @@ __webpack_require__.r(__webpack_exports__);
 
 Vue.component('cliente-form', {
   mixins: [_app_components_Form_AppForm__WEBPACK_IMPORTED_MODULE_0__["default"]],
-  props: ['civils', 'empresas'],
+  props: ['civils', 'empresas', 'sexos', 'ufs', 'cidades'],
   data: function data() {
     return {
       form: {

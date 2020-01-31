@@ -64,7 +64,7 @@ $factory->define(App\Models\Cliente::class, static function (Faker\Generator $fa
         'cpf' => $faker->sentence,
         'insc_municipal' => $faker->sentence,
         'cnpj' => $faker->sentence,
-        'sexo' => $faker->sentence,
+        'id_sexo' => $faker->sentence,
         'profissao' => $faker->sentence,
         'local_trabalho' => $faker->sentence,
         'telefone' => $faker->sentence,
@@ -73,8 +73,8 @@ $factory->define(App\Models\Cliente::class, static function (Faker\Generator $fa
         'numero' => $faker->sentence,
         'complemento' => $faker->sentence,
         'bairro' => $faker->sentence,
-        'cidade' => $faker->sentence,
-        'uf' => $faker->sentence,
+        'id_cidade' => $faker->sentence,
+        'id_uf' => $faker->sentence,
         'email' => $faker->email,
         'observacao' => $faker->sentence,
         'cep' => $faker->sentence,
@@ -230,3 +230,4 @@ $factory->define(App\Models\Cidade::class, static function (Faker\Generator $fak
         'deleted_at' => null,
     ];
 });
+

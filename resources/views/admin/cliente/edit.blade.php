@@ -12,6 +12,9 @@
                 :data="{{ $cliente->toJson() }}"
                 :civils="{{ $civils->toJson() }}"
                 :empresas="{{$empresas->toJson()}}"
+                :sexos="{{$sexos->toJson()}}"
+                :ufs="{{$ufs->toJson()}}"
+                :cidades="{{$cidades->toJson()}}"
                 v-cloak
                 inline-template>
 

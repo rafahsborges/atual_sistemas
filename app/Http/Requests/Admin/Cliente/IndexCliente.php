@@ -26,7 +26,7 @@ class IndexCliente extends FormRequest
     public function rules(): array
     {
         return [
-            'orderBy' => 'in:id,tipo,nome,nascimento,rg,cpf,insc_municipal,cnpj,sexo,profissao,local_trabalho,telefone,celular,logradouro,numero,complemento,bairro,cidade,uf,email,observacao,cep,celular2,celular3,id_cliente_responsavel,id_estado_civil,enabled|nullable',
+            'orderBy' => 'in:id,tipo,nome,nascimento,rg,cpf,insc_municipal,cnpj,id_sexo,profissao,local_trabalho,telefone,celular,logradouro,numero,complemento,bairro,id_cidade,id_uf,email,observacao,cep,celular2,celular3,id_cliente_responsavel,id_estado_civil,enabled|nullable',
             'orderDirection' => 'in:asc,desc|nullable',
             'search' => 'string|nullable',
             'page' => 'integer|nullable',

@@ -42,10 +42,10 @@ class ClientesController extends Controller
             $request,
 
             // set columns to query
-            ['id', 'tipo', 'nome', 'nascimento', 'rg', 'cpf', 'insc_municipal', 'cnpj', 'sexo', 'profissao', 'local_trabalho', 'telefone', 'celular', 'logradouro', 'numero', 'complemento', 'bairro', 'cidade', 'uf', 'email', 'observacao', 'cep', 'celular2', 'celular3', 'id_cliente_responsavel', 'id_estado_civil', 'enabled'],
+            ['id', 'tipo', 'nome', 'nascimento', 'rg', 'cpf', 'insc_municipal', 'cnpj', 'id_sexo', 'profissao', 'local_trabalho', 'telefone', 'celular', 'logradouro', 'numero', 'complemento', 'bairro', 'id_cidade', 'id_uf', 'email', 'observacao', 'cep', 'celular2', 'celular3', 'id_cliente_responsavel', 'id_estado_civil', 'enabled'],
 
             // set columns to searchIn
-            ['id', 'nome', 'rg', 'cpf', 'insc_municipal', 'cnpj', 'sexo', 'profissao', 'local_trabalho', 'telefone', 'celular', 'logradouro', 'numero', 'complemento', 'bairro', 'cidade', 'uf', 'email', 'observacao', 'cep', 'celular2', 'celular3'],
+            ['id', 'nome', 'rg', 'cpf', 'insc_municipal', 'cnpj', 'id_sexo', 'profissao', 'local_trabalho', 'telefone', 'celular', 'logradouro', 'numero', 'complemento', 'bairro', 'id_cidade', 'id_uf', 'email', 'observacao', 'cep', 'celular2', 'celular3'],
 
             function ($query) use ($request) {
                 $query->with(['civil']);
@@ -113,8 +113,9 @@ class ClientesController extends Controller
         $sanitized = $request->getSanitized();
         $sanitized['id_estado_civil'] = $request->getEstadoCivilId();
         $sanitized['id_cliente_responsavel'] = $request->getClienteResponsavelId();
-        $sanitized['uf'] = $request->getUfId();
-        $sanitized['sexo'] = $request->getSexoId();
+        $sanitized['id_uf'] = $request->getUfId();
+        $sanitized['id_sexo'] = $request->getSexoId();
+        $sanitized['id_cidade'] = $request->getCidadeId();
 
         // Store the Cliente
         $cliente = Cliente::create($sanitized);
@@ -155,6 +156,9 @@ class ClientesController extends Controller
         $hasEmpresa = $cliente->id_cliente_responsavel;
 
         $cliente = Cliente::with('civil')
+            ->with('sexo')
+            ->with('uf')
+            ->with('cidade')
             ->find($id);
 
         if ($hasEmpresa) {
@@ -184,8 +188,9 @@ class ClientesController extends Controller
         $sanitized = $request->getSanitized();
         $sanitized['id_estado_civil'] = $request->getEstadoCivilId();
         $sanitized['id_cliente_responsavel'] = $request->getClienteResponsavelId();
-        $sanitized['uf'] = $request->getUfId();
-        $sanitized['sexo'] = $request->getSexoId();
+        $sanitized['id_uf'] = $request->getUfId();
+        $sanitized['id_sexo'] = $request->getSexoId();
+        $sanitized['id_cidade'] = $request->getCidadeId();
 
         // Update changed values Cliente
         $cliente->update($sanitized);

@@ -104,20 +104,20 @@
     </div>
 
     <div class="form-group row align-items-center"
-         :class="{'has-danger': errors.has('sexo'), 'has-success': fields.sexo && fields.sexo.valid }">
-        <label for="sexo" class="col-form-label text-md-right"
-               :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.cliente.columns.sexo') }}</label>
+         :class="{'has-danger': errors.has('id_sexo'), 'has-success': fields.id_sexo && fields.id_sexo.valid }">
+        <label for="id_sexo" class="col-form-label text-md-right"
+               :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.cliente.columns.id_sexo') }}</label>
         <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
             <multiselect
                 v-model="form.sexo"
-                :options="sexo"
+                :options="sexos"
                 :multiple="false"
                 track-by="id"
                 label="nome"
-                tag-placeholder="{{ trans('admin.cliente.columns.sexo') }}"
-                placeholder="{{ trans('admin.cliente.columns.sexo') }}">
+                tag-placeholder="{{ trans('admin.cliente.columns.id_sexo') }}"
+                placeholder="{{ trans('admin.cliente.columns.id_sexo') }}">
             </multiselect>
-            <div v-if="errors.has('sexo')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('sexo') }}
+            <div v-if="errors.has('id_sexo')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('id_sexo') }}
             </div>
         </div>
     </div>
@@ -317,33 +317,39 @@
 </div>
 
 <div class="form-group row align-items-center"
-     :class="{'has-danger': errors.has('cidade'), 'has-success': fields.cidade && fields.cidade.valid }">
-    <label for="cidade" class="col-form-label text-md-right"
-           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.cliente.columns.cidade') }}</label>
+     :class="{'has-danger': errors.has('id_cidade'), 'has-success': fields.id_cidade && fields.id_cidade.valid }">
+    <label for="id_cidade" class="col-form-label text-md-right"
+           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.cliente.columns.id_cidade') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.cidade" v-validate="''" @input="validate($event)" class="form-control"
-               :class="{'form-control-danger': errors.has('cidade'), 'form-control-success': fields.cidade && fields.cidade.valid}"
-               id="cidade" name="cidade" placeholder="{{ trans('admin.cliente.columns.cidade') }}">
-        <div v-if="errors.has('cidade')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('cidade') }}
+        <multiselect
+            v-model="form.cidade"
+            :options="cidades"
+            :multiple="false"
+            track-by="id"
+            label="nome"
+            tag-placeholder="{{ trans('admin.cliente.columns.id_cidade') }}"
+            placeholder="{{ trans('admin.cliente.columns.id_cidade') }}">
+        </multiselect>
+        <div v-if="errors.has('id_cidade')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('id_cidade') }}
         </div>
     </div>
 </div>
 
 <div class="form-group row align-items-center"
-     :class="{'has-danger': errors.has('uf'), 'has-success': fields.uf && fields.uf.valid }">
-    <label for="uf" class="col-form-label text-md-right"
-           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.cliente.columns.uf') }}</label>
+     :class="{'has-danger': errors.has('id_uf'), 'has-success': fields.id_uf && fields.id_uf.valid }">
+    <label for="id_uf" class="col-form-label text-md-right"
+           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.cliente.columns.id_uf') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
         <multiselect
             v-model="form.uf"
-            :options="uf"
+            :options="ufs"
             :multiple="false"
             track-by="id"
             label="nome"
-            tag-placeholder="{{ trans('admin.cliente.columns.uf') }}"
-            placeholder="{{ trans('admin.cliente.columns.uf') }}">
+            tag-placeholder="{{ trans('admin.cliente.columns.id_uf') }}"
+            placeholder="{{ trans('admin.cliente.columns.id_uf') }}">
         </multiselect>
-        <div v-if="errors.has('uf')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('uf') }}</div>
+        <div v-if="errors.has('id_uf')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('id_uf') }}</div>
     </div>
 </div>
 
