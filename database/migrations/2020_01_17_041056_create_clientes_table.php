@@ -25,8 +25,8 @@ class CreateClientesTable extends Migration
             $table->string('sexo', 1)->nullable();
             $table->string('profissao')->nullable();
             $table->string('local_trabalho')->nullable();
-            $table->string('telefone', 13)->nullable();
-            $table->string('celular', 14)->nullable();
+            $table->string('telefone', 14)->nullable();
+            $table->string('celular', 15)->nullable();
             $table->string('logradouro')->nullable();
             $table->string('numero', 15)->nullable();
             $table->string('complemento')->nullable();
@@ -36,8 +36,8 @@ class CreateClientesTable extends Migration
             $table->string('email')->nullable();
             $table->string('observacao', 1000)->nullable();
             $table->string('cep', 9)->nullable();
-            $table->string('celular2', 14)->nullable();
-            $table->string('celular3', 14)->nullable();
+            $table->string('celular2', 15)->nullable();
+            $table->string('celular3', 15)->nullable();
             $table->integer('id_cliente_responsavel')->nullable();
             $table->unsignedBigInteger('id_estado_civil')->index('fk_cliente_est_civils')->nullable();
             $table->foreign('id_estado_civil', 'fk_cliente_est_civils')

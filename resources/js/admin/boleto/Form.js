@@ -2,12 +2,11 @@ import AppForm from '../app-components/Form/AppForm';
 
 Vue.component('boleto-form', {
     mixins: [AppForm],
-    data: function() {
+    data: function () {
         return {
             form: {
-                status:  false ,
-                id_contrato_parcela:  '' ,
-                
+                status: false,
+                id_contrato_parcela: '',
             }
         }
     }

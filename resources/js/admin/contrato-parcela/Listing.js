@@ -17,8 +17,10 @@ Vue.component('contrato-parcela-listing', {
         showAdvancedFilter: function (newVal, oldVal) {
             this.contratosMultiselect = [];
         },
-        contratosMultiselect: function(newVal, oldVal) {
-            this.filters.contratos = newVal.map(function(object) { return object['key']; });
+        contratosMultiselect: function (newVal, oldVal) {
+            this.filters.contratos = newVal.map(function (object) {
+                return object['key'];
+            });
             this.filter('contratos', this.filters.contratos);
         }
     }

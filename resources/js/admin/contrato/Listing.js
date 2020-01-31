@@ -20,12 +20,16 @@ Vue.component('contrato-listing', {
             this.clientesMultiselect = [];
             this.planosMultiselect = [];
         },
-        clientesMultiselect: function(newVal, oldVal) {
-            this.filters.clientes = newVal.map(function(object) { return object['key']; });
+        clientesMultiselect: function (newVal, oldVal) {
+            this.filters.clientes = newVal.map(function (object) {
+                return object['key'];
+            });
             this.filter('clientes', this.filters.clientes);
         },
-        planosMultiselect: function(newVal, oldVal) {
-            this.filters.planos = newVal.map(function(object) { return object['key']; });
+        planosMultiselect: function (newVal, oldVal) {
+            this.filters.planos = newVal.map(function (object) {
+                return object['key'];
+            });
             this.filter('planos', this.filters.planos);
         }
     }

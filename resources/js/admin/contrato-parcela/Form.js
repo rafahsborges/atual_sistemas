@@ -5,18 +5,18 @@ Vue.component('contrato-parcela-form', {
     props: [
         'contratos',
     ],
-    data: function() {
+    data: function () {
         return {
             form: {
-                vencimento:  '' ,
-                pagamento:  '' ,
-                id_boleto:  '' ,
-                id_carne:  '' ,
-                valor:  '' ,
-                numero_parcela:  '' ,
-                valor_pagamento:  '' ,
-                id_contrato:  '' ,
-                enabled:  false ,
+                vencimento: '',
+                pagamento: '',
+                id_boleto: '',
+                id_carne: '',
+                valor: '',
+                numero_parcela: '',
+                valor_pagamento: '',
+                id_contrato: '',
+                enabled: true,
                 contrato: '',
             }
         }

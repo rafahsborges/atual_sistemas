@@ -1,5 +1,5 @@
-import { BaseListing } from 'craftable';
+import {BaseListing} from 'craftable';
 
 export default {
-	mixins: [BaseListing]
+    mixins: [BaseListing]
 };

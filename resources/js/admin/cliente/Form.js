@@ -69,7 +69,7 @@ Vue.component('cliente-form', {
                 {nome: 'São Paulo', id: 'SP'},
                 {nome: 'Sergipe', id: 'SE'},
                 {nome: 'Tocantins', id: 'TO'},
-            ]
+            ],
         }
     }
 

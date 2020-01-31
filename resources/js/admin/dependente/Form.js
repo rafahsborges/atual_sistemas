@@ -6,14 +6,14 @@ Vue.component('dependente-form', {
         'clientes',
         'parentescos'
     ],
-    data: function() {
+    data: function () {
         return {
             form: {
-                nome:  '' ,
-                nascimento:  '' ,
-                cliente:  '' ,
-                parentesco:  '' ,
-                enabled:  false ,
+                nome: '',
+                nascimento: '',
+                cliente: '',
+                parentesco: '',
+                enabled: true,
             }
         }
     }

@@ -2,12 +2,11 @@ import AppForm from '../app-components/Form/AppForm';
 
 Vue.component('plano-form', {
     mixins: [AppForm],
-    data: function() {
+    data: function () {
         return {
             form: {
-                nome:  '' ,
-                enabled:  false ,
-                
+                nome: '',
+                enabled: true,
             }
         }
     }

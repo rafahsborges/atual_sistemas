@@ -34,20 +34,28 @@ Vue.component('cliente-listing', {
             this.cpfsMultiselect = [];
             this.cnpjsMultiselect = [];
         },
-        tiposMultiselect: function(newVal, oldVal) {
-            this.filters.tipos = newVal.map(function(object) { return object['id']; });
+        tiposMultiselect: function (newVal, oldVal) {
+            this.filters.tipos = newVal.map(function (object) {
+                return object['id'];
+            });
             this.filter('tipos', this.filters.tipos);
         },
-        statusMultiselect: function(newVal, oldVal) {
-            this.filters.status = newVal.map(function(object) { return object['id']; });
+        statusMultiselect: function (newVal, oldVal) {
+            this.filters.status = newVal.map(function (object) {
+                return object['id'];
+            });
             this.filter('status', this.filters.status);
         },
-        cpfsMultiselect: function(newVal, oldVal) {
-            this.filters.cpfs = newVal.map(function(object) { return object['key']; });
+        cpfsMultiselect: function (newVal, oldVal) {
+            this.filters.cpfs = newVal.map(function (object) {
+                return object['key'];
+            });
             this.filter('cpfs', this.filters.cpfs);
         },
-        cnpjsMultiselect: function(newVal, oldVal) {
-            this.filters.cnpjs = newVal.map(function(object) { return object['key']; });
+        cnpjsMultiselect: function (newVal, oldVal) {
+            this.filters.cnpjs = newVal.map(function (object) {
+                return object['key'];
+            });
             this.filter('cnpjs', this.filters.cnpjs);
         },
     }
