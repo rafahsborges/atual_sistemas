@@ -8,21 +8,20 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Sexo extends Model
 {
     use SoftDeletes;
+
     protected $fillable = [
         'nome',
         'abreviacao',
         'enabled',
-    
     ];
-    
-    
+
+
     protected $dates = [
         'created_at',
         'updated_at',
         'deleted_at',
-    
     ];
-    
+
     protected $appends = ['resource_url'];
 
     /* ************************ ACCESSOR ************************* */

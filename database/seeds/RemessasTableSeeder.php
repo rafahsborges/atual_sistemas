@@ -1,10 +1,10 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class RemessasTableSeeder extends Seeder
 {
-
     /**
      * Auto generated seed file
      *
@@ -12,8 +12,6 @@ class RemessasTableSeeder extends Seeder
      */
     public function run()
     {
-
-
         DB::table('remessas')->delete();
 
         DB::table('remessas')->insert(array (

@@ -8,8 +8,11 @@ use App\Http\Requests\Admin\Cliente\DestroyCliente;
 use App\Http\Requests\Admin\Cliente\IndexCliente;
 use App\Http\Requests\Admin\Cliente\StoreCliente;
 use App\Http\Requests\Admin\Cliente\UpdateCliente;
+use App\Models\Cidade;
 use App\Models\Cliente;
 use App\Models\EstadoCivil;
+use App\Models\Sexo;
+use App\Models\Uf;
 use Brackets\AdminListing\Facades\AdminListing;
 use Carbon\Carbon;
 use Exception;
@@ -91,8 +94,9 @@ class ClientesController extends Controller
 
         return view('admin.cliente.create', [
             'civils' => EstadoCivil::all(),
-            'sexo' => Sexo::all(),
-            'uf' => Uf::all(),
+            'sexos' => Sexo::all(),
+            'ufs' => Uf::all(),
+            'cidades' => Cidade::all(),
             'empresas' => Cliente::where('tipo', 1)->get(),
         ]);
     }
@@ -160,8 +164,9 @@ class ClientesController extends Controller
         return view('admin.cliente.edit', [
             'cliente' => $cliente,
             'civils' => EstadoCivil::all(),
-            'sexo' => Sexo::all(),
-            'uf' => Uf::all(),
+            'sexos' => Sexo::all(),
+            'ufs' => Uf::all(),
+            'cidades' => Cidade::all(),
             'empresas' => Cliente::where('tipo', 1)->get(),
         ]);
     }

@@ -19,7 +19,7 @@ class Cliente extends Model
         'cpf',
         'insc_municipal',
         'cnpj',
-        'sexo',
+        'id_sexo',
         'profissao',
         'local_trabalho',
         'telefone',
@@ -28,8 +28,8 @@ class Cliente extends Model
         'numero',
         'complemento',
         'bairro',
-        'cidade',
-        'uf',
+        'id_cidade',
+        'id_uf',
         'email',
         'observacao',
         'cep',
@@ -62,6 +62,30 @@ class Cliente extends Model
     public function civil()
     {
         return $this->belongsTo('App\Models\EstadoCivil', 'id_estado_civil');
+    }
+
+    /**
+     * @return BelongsTo
+     */
+    public function sexo()
+    {
+        return $this->belongsTo('App\Models\Sexo', 'id_sexo');
+    }
+
+    /**
+     * @return BelongsTo
+     */
+    public function uf()
+    {
+        return $this->belongsTo('App\Models\Uf', 'id_uf');
+    }
+
+    /**
+     * @return BelongsTo
+     */
+    public function cidade()
+    {
+        return $this->belongsTo('App\Models\Cidade', 'id_cidade');
     }
 
     /**
