@@ -18,12 +18,7 @@
                         class="nav-icon icon-puzzle"></i> {{ trans('admin.remessa.title') }}</a></li>
             <li class="nav-item"><a class="nav-link" href="{{ url('admin/remessa-boletos') }}"><i
                         class="nav-icon icon-magnet"></i> {{ trans('admin.remessa-boleto.title') }}</a></li>
-            <li class="nav-item"><a class="nav-link" href="{{ url('admin/sexos') }}"><i
-                        class="nav-icon icon-puzzle"></i> {{ trans('admin.sexo.title') }}</a></li>
-            <li class="nav-item"><a class="nav-link" href="{{ url('admin/ufs') }}"><i
-                        class="nav-icon icon-puzzle"></i> {{ trans('admin.uf.title') }}</a></li>
-            <li class="nav-item"><a class="nav-link" href="{{ url('admin/cidades') }}"><i class="nav-icon icon-plane"></i> {{ trans('admin.cidade.title') }}</a></li>
-           {{-- Do not delete me :) I'm used for auto-generation menu items --}}
+            {{-- Do not delete me :) I'm used for auto-generation menu items --}}
             @if(auth()->user()->is_admin == 1)
                 <li class="nav-title">{{ trans('brackets/admin-ui::admin.sidebar.settings') }}</li>
                 <li class="nav-item"><a class="nav-link" href="{{ url('admin/admin-users') }}"><i
@@ -32,6 +27,12 @@
                             class="nav-icon icon-energy"></i> {{ trans('admin.parentesco.title') }}</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ url('admin/estado-civils') }}"><i
                             class="nav-icon icon-compass"></i> {{ trans('admin.estado-civil.title') }}</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ url('admin/sexos') }}"><i
+                        class="nav-icon icon-puzzle"></i> {{ trans('admin.sexo.title') }}</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ url('admin/ufs') }}"><i
+                        class="nav-icon icon-puzzle"></i> {{ trans('admin.uf.title') }}</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ url('admin/cidades') }}"><i
+                        class="nav-icon icon-plane"></i> {{ trans('admin.cidade.title') }}</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ url('admin/contas') }}"><i
                             class="nav-icon icon-book-open"></i> {{ trans('admin.conta.title') }}</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ url('admin/translations') }}"><i

@@ -194,7 +194,7 @@ $factory->define(App\Models\RemessaBoleto::class, static function (Faker\Generat
     ];
 });
 
-/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+/** @var  Factory $factory */
 $factory->define(App\Models\Sexo::class, static function (Faker\Generator $faker) {
     return [
         'nome' => $faker->sentence,
@@ -206,7 +206,7 @@ $factory->define(App\Models\Sexo::class, static function (Faker\Generator $faker
     ];
 });
 
-/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+/** @var  Factory $factory */
 $factory->define(App\Models\Uf::class, static function (Faker\Generator $faker) {
     return [
         'nome' => $faker->sentence,
@@ -218,7 +218,7 @@ $factory->define(App\Models\Uf::class, static function (Faker\Generator $faker) 
     ];
 });
 
-/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+/** @var  Factory $factory */
 $factory->define(App\Models\Cidade::class, static function (Faker\Generator $faker) {
     return [
         'nome' => $faker->sentence,
