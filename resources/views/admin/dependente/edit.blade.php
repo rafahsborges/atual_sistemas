@@ -15,8 +15,8 @@
                 v-cloak
                 inline-template>
 
-                <form class="form-horizontal form-edit" method="post" @submit.prevent="onSubmit" :action="action" novalidate>
-
+                <form class="form-horizontal form-edit" method="post" @submit.prevent="onSubmit" :action="action"
+                      novalidate>
 
                     <div class="card-header">
                         <i class="fa fa-pencil"></i> {{ trans('admin.dependente.actions.edit', ['name' => $dependente->id]) }}
@@ -25,7 +25,6 @@
                     <div class="card-body">
                         @include('admin.dependente.components.form-elements')
                     </div>
-
 
                     <div class="card-footer">
                         <button type="submit" class="btn btn-primary" :disabled="submiting">
@@ -36,10 +35,10 @@
 
                 </form>
 
-        </dependente-form>
+            </dependente-form>
 
         </div>
 
-</div>
+    </div>
 
 @endsection

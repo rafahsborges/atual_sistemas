@@ -14,8 +14,8 @@ Vue.component('dependente-form', {
                 cliente: '',
                 parentesco: '',
                 enabled: true,
-            }
+            },
         }
-    }
+    },
 
 });
