@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Requests\Admin\Sexo;
+namespace App\Http\Requests\Admin\Cidade;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Gate;
 
-class IndexSexo extends FormRequest
+class IndexCidade extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -14,7 +14,7 @@ class IndexSexo extends FormRequest
      */
     public function authorize(): bool
     {
-        return Gate::allows('admin.sexo.index');
+        return Gate::allows('admin.cidade.index');
     }
 
     /**
@@ -25,7 +25,7 @@ class IndexSexo extends FormRequest
     public function rules(): array
     {
         return [
-            'orderBy' => 'in:id,nome,abreviacao,enabled|nullable',
+            'orderBy' => 'in:id,nome,ibge_code,id_uf,enabled|nullable',
             'orderDirection' => 'in:asc,desc|nullable',
             'search' => 'string|nullable',
             'page' => 'integer|nullable',

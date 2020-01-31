@@ -15,7 +15,8 @@ class CreateUfsTable extends Migration
     {
         Schema::create('ufs', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('nome');
+            $table->string('nome', 50);
+            $table->string('abreviacao', 5);
             $table->boolean('enabled')->default(true);
             $table->timestamps();
             $table->softDeletes();

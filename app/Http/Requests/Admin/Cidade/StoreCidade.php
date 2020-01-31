@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Requests\Admin\Sexo;
+namespace App\Http\Requests\Admin\Cidade;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Validation\Rule;
 
-class UpdateSexo extends FormRequest
+class StoreCidade extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -15,7 +15,7 @@ class UpdateSexo extends FormRequest
      */
     public function authorize(): bool
     {
-        return Gate::allows('admin.sexo.edit', $this->sexo);
+        return Gate::allows('admin.cidade.create');
     }
 
     /**
@@ -26,22 +26,22 @@ class UpdateSexo extends FormRequest
     public function rules(): array
     {
         return [
-            'nome' => ['sometimes', 'string'],
-            'abreviacao' => ['sometimes', 'string'],
-            'enabled' => ['sometimes', 'boolean'],
+            'nome' => ['required', 'string'],
+            'ibge_code' => ['nullable', 'string'],
+            'id_uf' => ['required', 'string'],
+            'enabled' => ['required', 'boolean'],
             
         ];
     }
 
     /**
-     * Modify input data
-     *
-     * @return array
-     */
+    * Modify input data
+    *
+    * @return array
+    */
     public function getSanitized(): array
     {
         $sanitized = $this->validated();
-
 
         //Add your code for manipulation with request data here
 

@@ -14,3 +14,4 @@ import './remessa';
 import './remessa-boleto';
 import './sexo';
 import './uf';
+import './cidade';

@@ -6,6 +6,7 @@ Vue.component('sexo-form', {
         return {
             form: {
                 nome:  '' ,
+                abreviacao:  '' ,
                 enabled:  false ,
                 
             }

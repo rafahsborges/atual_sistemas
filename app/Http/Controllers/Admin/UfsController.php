@@ -38,10 +38,10 @@ class UfsController extends Controller
             $request,
 
             // set columns to query
-            ['id', 'nome', 'enabled'],
+            ['id', 'nome', 'abreviacao', 'enabled'],
 
             // set columns to searchIn
-            ['id', 'nome']
+            ['id', 'nome', 'abreviacao']
         );
 
         if ($request->ajax()) {

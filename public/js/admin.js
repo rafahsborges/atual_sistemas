@@ -111768,6 +111768,66 @@ if (token) {
 
 /***/ }),
 
+/***/ "./resources/js/admin/cidade/Form.js":
+/*!*******************************************!*\
+  !*** ./resources/js/admin/cidade/Form.js ***!
+  \*******************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _app_components_Form_AppForm__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../app-components/Form/AppForm */ "./resources/js/admin/app-components/Form/AppForm.js");
+
+Vue.component('cidade-form', {
+  mixins: [_app_components_Form_AppForm__WEBPACK_IMPORTED_MODULE_0__["default"]],
+  data: function data() {
+    return {
+      form: {
+        nome: '',
+        ibge_code: '',
+        id_uf: '',
+        enabled: false
+      }
+    };
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/admin/cidade/Listing.js":
+/*!**********************************************!*\
+  !*** ./resources/js/admin/cidade/Listing.js ***!
+  \**********************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../app-components/Listing/AppListing */ "./resources/js/admin/app-components/Listing/AppListing.js");
+
+Vue.component('cidade-listing', {
+  mixins: [_app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__["default"]]
+});
+
+/***/ }),
+
+/***/ "./resources/js/admin/cidade/index.js":
+/*!********************************************!*\
+  !*** ./resources/js/admin/cidade/index.js ***!
+  \********************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Listing__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Listing */ "./resources/js/admin/cidade/Listing.js");
+/* harmony import */ var _Form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Form */ "./resources/js/admin/cidade/Form.js");
+
+
+
+/***/ }),
+
 /***/ "./resources/js/admin/cliente/Form.js":
 /*!********************************************!*\
   !*** ./resources/js/admin/cliente/Form.js ***!
@@ -111812,96 +111872,7 @@ Vue.component('cliente-form', {
         empresa: '',
         enabled: true
       },
-      showPJ: false,
-      sexo: [{
-        nome: 'Masculino',
-        id: 'M'
-      }, {
-        nome: 'Feminino',
-        id: 'F'
-      }],
-      uf: [{
-        nome: 'Acre',
-        id: 'AC'
-      }, {
-        nome: 'Alagoas',
-        id: 'AL'
-      }, {
-        nome: 'Amapá',
-        id: 'AP'
-      }, {
-        nome: 'Amazonas',
-        id: 'AM'
-      }, {
-        nome: 'Bahia',
-        id: 'BA'
-      }, {
-        nome: 'Ceará',
-        id: 'CE'
-      }, {
-        nome: 'Distrito Federal',
-        id: 'DF'
-      }, {
-        nome: 'Espírito Santo',
-        id: 'ES'
-      }, {
-        nome: 'Goiás',
-        id: 'GO'
-      }, {
-        nome: 'Maranhão',
-        id: 'MA'
-      }, {
-        nome: 'Mato Grosso',
-        id: 'MT'
-      }, {
-        nome: 'Mato Grosso do Sul',
-        id: 'MS'
-      }, {
-        nome: 'Minas Gerais',
-        id: 'MG'
-      }, {
-        nome: 'Pará',
-        id: 'PA'
-      }, {
-        nome: 'Paraíba',
-        id: 'PB'
-      }, {
-        nome: 'Paraná',
-        id: 'PR'
-      }, {
-        nome: 'Pernambuco',
-        id: 'PE'
-      }, {
-        nome: 'Piauí',
-        id: 'PI'
-      }, {
-        nome: 'Rio de Janeiro',
-        id: 'RJ'
-      }, {
-        nome: 'Rio Grande do Norte',
-        id: 'RN'
-      }, {
-        nome: 'Rio Grande do Sul',
-        id: 'RS'
-      }, {
-        nome: 'Rondônia',
-        id: 'RO'
-      }, {
-        nome: 'Roraima',
-        id: 'RR'
-      }, {
-        nome: 'Santa Catarina',
-        id: 'SC'
-      }, {
-        nome: 'São Paulo',
-        id: 'SP'
-      }, {
-        nome: 'Sergipe',
-        id: 'SE'
-      }, {
-        nome: 'Tocantins',
-        id: 'TO'
-      }]
+      showPJ: false
     };
   }
 });
@@ -112541,6 +112512,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _remessa_boleto__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./remessa-boleto */ "./resources/js/admin/remessa-boleto/index.js");
 /* harmony import */ var _sexo__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./sexo */ "./resources/js/admin/sexo/index.js");
 /* harmony import */ var _uf__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./uf */ "./resources/js/admin/uf/index.js");
+/* harmony import */ var _cidade__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./cidade */ "./resources/js/admin/cidade/index.js");
+
 
 
 
@@ -112914,6 +112887,7 @@ Vue.component('sexo-form', {
     return {
       form: {
         nome: '',
+        abreviacao: '',
         enabled: false
       }
     };
@@ -112972,6 +112946,7 @@ Vue.component('uf-form', {
     return {
       form: {
         nome: '',
+        abreviacao: '',
         enabled: false
       }
     };

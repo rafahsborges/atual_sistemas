@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Requests\Admin\Sexo;
+namespace App\Http\Requests\Admin\Cidade;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Validation\Rule;
 
-class UpdateSexo extends FormRequest
+class UpdateCidade extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -15,7 +15,7 @@ class UpdateSexo extends FormRequest
      */
     public function authorize(): bool
     {
-        return Gate::allows('admin.sexo.edit', $this->sexo);
+        return Gate::allows('admin.cidade.edit', $this->cidade);
     }
 
     /**
@@ -27,7 +27,8 @@ class UpdateSexo extends FormRequest
     {
         return [
             'nome' => ['sometimes', 'string'],
-            'abreviacao' => ['sometimes', 'string'],
+            'ibge_code' => ['nullable', 'string'],
+            'id_uf' => ['sometimes', 'string'],
             'enabled' => ['sometimes', 'boolean'],
             
         ];

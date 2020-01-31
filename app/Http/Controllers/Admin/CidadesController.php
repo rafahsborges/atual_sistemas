@@ -3,12 +3,12 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\Sexo\BulkDestroySexo;
-use App\Http\Requests\Admin\Sexo\DestroySexo;
-use App\Http\Requests\Admin\Sexo\IndexSexo;
-use App\Http\Requests\Admin\Sexo\StoreSexo;
-use App\Http\Requests\Admin\Sexo\UpdateSexo;
-use App\Models\Sexo;
+use App\Http\Requests\Admin\Cidade\BulkDestroyCidade;
+use App\Http\Requests\Admin\Cidade\DestroyCidade;
+use App\Http\Requests\Admin\Cidade\IndexCidade;
+use App\Http\Requests\Admin\Cidade\StoreCidade;
+use App\Http\Requests\Admin\Cidade\UpdateCidade;
+use App\Models\Cidade;
 use Brackets\AdminListing\Facades\AdminListing;
 use Carbon\Carbon;
 use Exception;
@@ -21,27 +21,27 @@ use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
 
-class SexosController extends Controller
+class CidadesController extends Controller
 {
 
     /**
      * Display a listing of the resource.
      *
-     * @param IndexSexo $request
+     * @param IndexCidade $request
      * @return array|Factory|View
      */
-    public function index(IndexSexo $request)
+    public function index(IndexCidade $request)
     {
         // create and AdminListing instance for a specific model and
-        $data = AdminListing::create(Sexo::class)->processRequestAndGet(
+        $data = AdminListing::create(Cidade::class)->processRequestAndGet(
             // pass the request with params
             $request,
 
             // set columns to query
-            ['id', 'nome', 'abreviacao', 'enabled'],
+            ['id', 'nome', 'ibge_code', 'id_uf', 'enabled'],
 
             // set columns to searchIn
-            ['id', 'nome', 'abreviacao']
+            ['id', 'nome', 'ibge_code']
         );
 
         if ($request->ajax()) {
@@ -53,7 +53,7 @@ class SexosController extends Controller
             return ['data' => $data];
         }
 
-        return view('admin.sexo.index', ['data' => $data]);
+        return view('admin.cidade.index', ['data' => $data]);
     }
 
     /**
@@ -64,42 +64,42 @@ class SexosController extends Controller
      */
     public function create()
     {
-        $this->authorize('admin.sexo.create');
+        $this->authorize('admin.cidade.create');
 
-        return view('admin.sexo.create');
+        return view('admin.cidade.create');
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param StoreSexo $request
+     * @param StoreCidade $request
      * @return array|RedirectResponse|Redirector
      */
-    public function store(StoreSexo $request)
+    public function store(StoreCidade $request)
     {
         // Sanitize input
         $sanitized = $request->getSanitized();
 
-        // Store the Sexo
-        $sexo = Sexo::create($sanitized);
+        // Store the Cidade
+        $cidade = Cidade::create($sanitized);
 
         if ($request->ajax()) {
-            return ['redirect' => url('admin/sexos'), 'message' => trans('brackets/admin-ui::admin.operation.succeeded')];
+            return ['redirect' => url('admin/cidades'), 'message' => trans('brackets/admin-ui::admin.operation.succeeded')];
         }
 
-        return redirect('admin/sexos');
+        return redirect('admin/cidades');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param Sexo $sexo
+     * @param Cidade $cidade
      * @throws AuthorizationException
      * @return void
      */
-    public function show(Sexo $sexo)
+    public function show(Cidade $cidade)
     {
-        $this->authorize('admin.sexo.show', $sexo);
+        $this->authorize('admin.cidade.show', $cidade);
 
         // TODO your code goes here
     }
@@ -107,56 +107,56 @@ class SexosController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param Sexo $sexo
+     * @param Cidade $cidade
      * @throws AuthorizationException
      * @return Factory|View
      */
-    public function edit(Sexo $sexo)
+    public function edit(Cidade $cidade)
     {
-        $this->authorize('admin.sexo.edit', $sexo);
+        $this->authorize('admin.cidade.edit', $cidade);
 
 
-        return view('admin.sexo.edit', [
-            'sexo' => $sexo,
+        return view('admin.cidade.edit', [
+            'cidade' => $cidade,
         ]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param UpdateSexo $request
-     * @param Sexo $sexo
+     * @param UpdateCidade $request
+     * @param Cidade $cidade
      * @return array|RedirectResponse|Redirector
      */
-    public function update(UpdateSexo $request, Sexo $sexo)
+    public function update(UpdateCidade $request, Cidade $cidade)
     {
         // Sanitize input
         $sanitized = $request->getSanitized();
 
-        // Update changed values Sexo
-        $sexo->update($sanitized);
+        // Update changed values Cidade
+        $cidade->update($sanitized);
 
         if ($request->ajax()) {
             return [
-                'redirect' => url('admin/sexos'),
+                'redirect' => url('admin/cidades'),
                 'message' => trans('brackets/admin-ui::admin.operation.succeeded'),
             ];
         }
 
-        return redirect('admin/sexos');
+        return redirect('admin/cidades');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param DestroySexo $request
-     * @param Sexo $sexo
+     * @param DestroyCidade $request
+     * @param Cidade $cidade
      * @throws Exception
      * @return ResponseFactory|RedirectResponse|Response
      */
-    public function destroy(DestroySexo $request, Sexo $sexo)
+    public function destroy(DestroyCidade $request, Cidade $cidade)
     {
-        $sexo->delete();
+        $cidade->delete();
 
         if ($request->ajax()) {
             return response(['message' => trans('brackets/admin-ui::admin.operation.succeeded')]);
@@ -168,17 +168,17 @@ class SexosController extends Controller
     /**
      * Remove the specified resources from storage.
      *
-     * @param BulkDestroySexo $request
+     * @param BulkDestroyCidade $request
      * @throws Exception
      * @return Response|bool
      */
-    public function bulkDestroy(BulkDestroySexo $request) : Response
+    public function bulkDestroy(BulkDestroyCidade $request) : Response
     {
         DB::transaction(static function () use ($request) {
             collect($request->data['ids'])
                 ->chunk(1000)
                 ->each(static function ($bulkChunk) {
-                    DB::table('sexos')->whereIn('id', $bulkChunk)
+                    DB::table('cidades')->whereIn('id', $bulkChunk)
                         ->update([
                             'deleted_at' => Carbon::now()->format('Y-m-d H:i:s')
                     ]);

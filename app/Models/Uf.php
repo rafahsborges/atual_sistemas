@@ -10,6 +10,7 @@ class Uf extends Model
     use SoftDeletes;
     protected $fillable = [
         'nome',
+        'abreviacao',
         'enabled',
     
     ];

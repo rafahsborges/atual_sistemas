@@ -236,3 +236,18 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
         });
     });
 });
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
+    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function() {
+        Route::prefix('cidades')->name('cidades/')->group(static function() {
+            Route::get('/',                                             'CidadesController@index')->name('index');
+            Route::get('/create',                                       'CidadesController@create')->name('create');
+            Route::post('/',                                            'CidadesController@store')->name('store');
+            Route::get('/{cidade}/edit',                                'CidadesController@edit')->name('edit');
+            Route::post('/bulk-destroy',                                'CidadesController@bulkDestroy')->name('bulk-destroy');
+            Route::post('/{cidade}',                                    'CidadesController@update')->name('update');
+            Route::delete('/{cidade}',                                  'CidadesController@destroy')->name('destroy');
+        });
+    });
+});

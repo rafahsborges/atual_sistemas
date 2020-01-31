@@ -5,12 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Sexo extends Model
+class Cidade extends Model
 {
     use SoftDeletes;
     protected $fillable = [
         'nome',
-        'abreviacao',
+        'ibge_code',
+        'id_uf',
         'enabled',
     
     ];
@@ -29,6 +30,6 @@ class Sexo extends Model
 
     public function getResourceUrlAttribute()
     {
-        return url('/admin/sexos/'.$this->getKey());
+        return url('/admin/cidades/'.$this->getKey());
     }
 }

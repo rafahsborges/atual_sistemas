@@ -1,20 +1,20 @@
 @extends('brackets/admin-ui::admin.layout.default')
 
-@section('title', trans('admin.sexo.actions.index'))
+@section('title', trans('admin.cidade.actions.index'))
 
 @section('body')
 
-    <sexo-listing
+    <cidade-listing
         :data="{{ $data->toJson() }}"
-        :url="'{{ url('admin/sexos') }}'"
+        :url="'{{ url('admin/cidades') }}'"
         inline-template>
 
         <div class="row">
             <div class="col">
                 <div class="card">
                     <div class="card-header">
-                        <i class="fa fa-align-justify"></i> {{ trans('admin.sexo.actions.index') }}
-                        <a class="btn btn-primary btn-spinner btn-sm pull-right m-b-0" href="{{ url('admin/sexos/create') }}" role="button"><i class="fa fa-plus"></i>&nbsp; {{ trans('admin.sexo.actions.create') }}</a>
+                        <i class="fa fa-align-justify"></i> {{ trans('admin.cidade.actions.index') }}
+                        <a class="btn btn-primary btn-spinner btn-sm pull-right m-b-0" href="{{ url('admin/cidades/create') }}" role="button"><i class="fa fa-plus"></i>&nbsp; {{ trans('admin.cidade.actions.create') }}</a>
                     </div>
                     <div class="card-body" v-cloak>
                         <div class="card-block">
@@ -49,20 +49,21 @@
                                             </label>
                                         </th>
 
-                                        <th is='sortable' :column="'id'">{{ trans('admin.sexo.columns.id') }}</th>
-                                        <th is='sortable' :column="'nome'">{{ trans('admin.sexo.columns.nome') }}</th>
-                                        <th is='sortable' :column="'abreviacao'">{{ trans('admin.sexo.columns.abreviacao') }}</th>
-                                        <th is='sortable' :column="'enabled'">{{ trans('admin.sexo.columns.enabled') }}</th>
+                                        <th is='sortable' :column="'id'">{{ trans('admin.cidade.columns.id') }}</th>
+                                        <th is='sortable' :column="'nome'">{{ trans('admin.cidade.columns.nome') }}</th>
+                                        <th is='sortable' :column="'ibge_code'">{{ trans('admin.cidade.columns.ibge_code') }}</th>
+                                        <th is='sortable' :column="'id_uf'">{{ trans('admin.cidade.columns.id_uf') }}</th>
+                                        <th is='sortable' :column="'enabled'">{{ trans('admin.cidade.columns.enabled') }}</th>
 
                                         <th></th>
                                     </tr>
                                     <tr v-show="(clickedBulkItemsCount > 0) || isClickedAll">
-                                        <td class="bg-bulk-info d-table-cell text-center" colspan="6">
-                                            <span class="align-middle font-weight-light text-dark">{{ trans('brackets/admin-ui::admin.listing.selected_items') }} @{{ clickedBulkItemsCount }}.  <a href="#" class="text-primary" @click="onBulkItemsClickedAll('/admin/sexos')" v-if="(clickedBulkItemsCount < pagination.state.total)"> <i class="fa" :class="bulkCheckingAllLoader ? 'fa-spinner' : ''"></i> {{ trans('brackets/admin-ui::admin.listing.check_all_items') }} @{{ pagination.state.total }}</a> <span class="text-primary">|</span> <a
+                                        <td class="bg-bulk-info d-table-cell text-center" colspan="7">
+                                            <span class="align-middle font-weight-light text-dark">{{ trans('brackets/admin-ui::admin.listing.selected_items') }} @{{ clickedBulkItemsCount }}.  <a href="#" class="text-primary" @click="onBulkItemsClickedAll('/admin/cidades')" v-if="(clickedBulkItemsCount < pagination.state.total)"> <i class="fa" :class="bulkCheckingAllLoader ? 'fa-spinner' : ''"></i> {{ trans('brackets/admin-ui::admin.listing.check_all_items') }} @{{ pagination.state.total }}</a> <span class="text-primary">|</span> <a
                                                         href="#" class="text-primary" @click="onBulkItemsClickedAllUncheck()">{{ trans('brackets/admin-ui::admin.listing.uncheck_all_items') }}</a>  </span>
 
                                             <span class="pull-right pr-2">
-                                                <button class="btn btn-sm btn-danger pr-3 pl-3" @click="bulkDelete('/admin/sexos/bulk-destroy')">{{ trans('brackets/admin-ui::admin.btn.delete') }}</button>
+                                                <button class="btn btn-sm btn-danger pr-3 pl-3" @click="bulkDelete('/admin/cidades/bulk-destroy')">{{ trans('brackets/admin-ui::admin.btn.delete') }}</button>
                                             </span>
 
                                         </td>
@@ -78,7 +79,8 @@
 
                                     <td>@{{ item.id }}</td>
                                         <td>@{{ item.nome }}</td>
-                                        <td>@{{ item.abreviacao }}</td>
+                                        <td>@{{ item.ibge_code }}</td>
+                                        <td>@{{ item.id_uf }}</td>
                                         <td>
                                             <label class="switch switch-3d switch-success">
                                                 <input type="checkbox" class="switch-input" v-model="collection[index].enabled" @change="toggleSwitch(item.resource_url, 'enabled', collection[index])">
@@ -114,13 +116,13 @@
                                 <i class="icon-magnifier"></i>
                                 <h3>{{ trans('brackets/admin-ui::admin.index.no_items') }}</h3>
                                 <p>{{ trans('brackets/admin-ui::admin.index.try_changing_items') }}</p>
-                                <a class="btn btn-primary btn-spinner" href="{{ url('admin/sexos/create') }}" role="button"><i class="fa fa-plus"></i>&nbsp; {{ trans('admin.sexo.actions.create') }}</a>
+                                <a class="btn btn-primary btn-spinner" href="{{ url('admin/cidades/create') }}" role="button"><i class="fa fa-plus"></i>&nbsp; {{ trans('admin.cidade.actions.create') }}</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </sexo-listing>
+    </cidade-listing>
 
 @endsection

@@ -27,6 +27,7 @@ class UpdateUf extends FormRequest
     {
         return [
             'nome' => ['sometimes', 'string'],
+            'abreviacao' => ['sometimes', 'string'],
             'enabled' => ['sometimes', 'boolean'],
             
         ];

@@ -27,6 +27,7 @@ class StoreUf extends FormRequest
     {
         return [
             'nome' => ['required', 'string'],
+            'abreviacao' => ['required', 'string'],
             'enabled' => ['required', 'boolean'],
             
         ];

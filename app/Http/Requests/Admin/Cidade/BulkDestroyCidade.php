@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Requests\Admin\Sexo;
+namespace App\Http\Requests\Admin\Cidade;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Gate;
 
-class IndexSexo extends FormRequest
+class BulkDestroyCidade extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -14,7 +14,7 @@ class IndexSexo extends FormRequest
      */
     public function authorize(): bool
     {
-        return Gate::allows('admin.sexo.index');
+        return Gate::allows('admin.cidade.bulk-delete');
     }
 
     /**
@@ -25,12 +25,7 @@ class IndexSexo extends FormRequest
     public function rules(): array
     {
         return [
-            'orderBy' => 'in:id,nome,abreviacao,enabled|nullable',
-            'orderDirection' => 'in:asc,desc|nullable',
-            'search' => 'string|nullable',
-            'page' => 'integer|nullable',
-            'per_page' => 'integer|nullable',
-
+            'ids.*' => 'integer'
         ];
     }
 }

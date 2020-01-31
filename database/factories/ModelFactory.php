@@ -193,27 +193,40 @@ $factory->define(App\Models\RemessaBoleto::class, static function (Faker\Generat
         'id_remessa' => $faker->sentence,
     ];
 });
+
 /** @var  \Illuminate\Database\Eloquent\Factory $factory */
 $factory->define(App\Models\Sexo::class, static function (Faker\Generator $faker) {
     return [
         'nome' => $faker->sentence,
+        'abreviacao' => $faker->sentence,
         'enabled' => $faker->boolean(),
         'created_at' => $faker->dateTime,
         'updated_at' => $faker->dateTime,
         'deleted_at' => null,
-        
-        
     ];
 });
+
 /** @var  \Illuminate\Database\Eloquent\Factory $factory */
 $factory->define(App\Models\Uf::class, static function (Faker\Generator $faker) {
     return [
         'nome' => $faker->sentence,
+        'abreviacao' => $faker->sentence,
         'enabled' => $faker->boolean(),
         'created_at' => $faker->dateTime,
         'updated_at' => $faker->dateTime,
         'deleted_at' => null,
-        
-        
+    ];
+});
+
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\Cidade::class, static function (Faker\Generator $faker) {
+    return [
+        'nome' => $faker->sentence,
+        'ibge_code' => $faker->sentence,
+        'id_uf' => $faker->sentence,
+        'enabled' => $faker->boolean(),
+        'created_at' => $faker->dateTime,
+        'updated_at' => $faker->dateTime,
+        'deleted_at' => null,
     ];
 });
