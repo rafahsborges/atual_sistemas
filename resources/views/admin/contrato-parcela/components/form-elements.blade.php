@@ -1,7 +1,7 @@
 <div class="form-group row align-items-center"
      :class="{'has-danger': errors.has('id_contrato'), 'has-success': fields.id_contrato && fields.id_contrato.valid }">
     <label for="id_contrato" class="col-form-label text-md-right"
-           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.contrato.columns.id_contrato') }}</label>
+           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.contrato-parcela.columns.id_contrato') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
         <multiselect
             v-model="form.contrato"
@@ -9,20 +9,12 @@
             :multiple="false"
             track-by="id"
             label="id_cliente"
-            tag-placeholder="{{ trans('admin.contrato.columns.id_contrato') }}"
-            placeholder="{{ trans('admin.contrato.columns.id_contrato') }}">
+            tag-placeholder="{{ trans('admin.contrato-parcela.columns.id_contrato') }}"
+            placeholder="{{ trans('admin.contrato-parcela.columns.id_contrato') }}">
         </multiselect>
         <div v-if="errors.has('id_contrato')" class="form-control-feedback form-text" v-cloak>@{{
             errors.first('id_contrato') }}
         </div>
-    </div>
-</div>
-
-<div class="form-group row align-items-center" :class="{'has-danger': errors.has('id_contrato'), 'has-success': fields.id_contrato && fields.id_contrato.valid }">
-    <label for="id_contrato" class="col-form-label text-md-right" :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.contrato-parcela.columns.id_contrato') }}</label>
-    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.id_contrato" v-validate="''" @input="validate($event)" class="form-control" :class="{'form-control-danger': errors.has('id_contrato'), 'form-control-success': fields.id_contrato && fields.id_contrato.valid}" id="id_contrato" name="id_contrato" placeholder="{{ trans('admin.contrato-parcela.columns.id_contrato') }}">
-        <div v-if="errors.has('id_contrato')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('id_contrato') }}</div>
     </div>
 </div>
 

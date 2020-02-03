@@ -130,6 +130,9 @@ class ContratoParcelasController extends Controller
     {
         $this->authorize('admin.contrato-parcela.edit', $contratoParcela);
 
+        $contratoParcela = ContratoParcela::with('contrato')
+            ->find($contratoParcela->id);
+
         return view('admin.contrato-parcela.edit', [
             'contratoParcela' => $contratoParcela,
             'contratos' => Contrato::all(),

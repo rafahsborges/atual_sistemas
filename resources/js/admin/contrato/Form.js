@@ -45,7 +45,7 @@ Vue.component('contrato-form', {
                 precision: 2,
                 masked: false /* doesn't work with directive */
             },
-            pgList: [
+            pagamento: [
                 {nome: 'Boleto', id: 1},
                 {nome: 'Carnê', id: 2},
             ],

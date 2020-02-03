@@ -112205,7 +112205,7 @@ Vue.component('contrato-form', {
         /* doesn't work with directive */
 
       },
-      pgList: [{
+      pagamento: [{
         nome: 'Boleto',
         id: 1
       }, {

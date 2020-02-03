@@ -118,7 +118,7 @@
         <multiselect
             v-model="form.tipo_pagamento"
             v-validate="'required'"
-            :options="pgList"
+            :options="pagamento"
             :multiple="false"
             track-by="id"
             label="nome"

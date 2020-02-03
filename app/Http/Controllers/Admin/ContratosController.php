@@ -102,6 +102,7 @@ class ContratosController extends Controller
      *
      * @param StoreContrato $request
      * @return array|RedirectResponse|Redirector
+     * @throws Exception
      */
     public function store(StoreContrato $request)
     {
@@ -180,9 +181,18 @@ class ContratosController extends Controller
     {
         $this->authorize('admin.contrato.edit', $contrato);
 
-        $contrato->plano = $contrato->id_plano;
-        $contrato->cliente = $contrato->id_cliente;
-        $contrato->conta = $contrato->id_conta;
+        $contrato = Contrato::with('cliente')
+            ->with('plano')
+            ->with('conta')
+            ->find($contrato->id);
+
+        if ($contrato->tipo_pagamento === '1') {
+            $contrato['pagamento'] = array('nome' => 'Boleto', 'id' => 1);
+        }
+
+        if ($contrato->tipo_pagamento === '2') {
+            $contrato['pagamento'] = array('nome' => 'Carnê', 'id' => 2);
+        }
 
         return view('admin.contrato.edit', [
             'contrato' => $contrato,
