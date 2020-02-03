@@ -26,7 +26,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Operation successful", "pt": "Operação bem sucedida"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:43',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             1 => 
@@ -38,7 +38,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Operation failed", "pt": "Operação falhou"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:43',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             2 => 
@@ -50,7 +50,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Operation not allowed", "pt": "Operação não permitida"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:43',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             3 => 
@@ -62,7 +62,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Name", "pt": "Nome"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:43',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             4 => 
@@ -74,7 +74,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '[]',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:43',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             5 => 
@@ -86,7 +86,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Password", "pt": "Senha"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:43',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             6 => 
@@ -98,7 +98,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Password Confirmation", "pt": "Confirme sua Senha"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:43',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             7 => 
@@ -110,7 +110,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Is admin", "pt": "É administrador"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:43',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             8 => 
@@ -122,7 +122,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Activated", "pt": "Ativo"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:43',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             9 => 
@@ -134,7 +134,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Forbidden", "pt": "Proibido"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:43',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             10 => 
@@ -146,7 +146,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Language", "pt": "Idioma"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:43',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             11 => 
@@ -158,7 +158,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Select an option", "pt": "Selecione uma opção"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:43',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             12 => 
@@ -170,7 +170,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Roles", "pt": "Regras"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:43',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             13 => 
@@ -182,7 +182,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Select options", "pt": "Selecione umas opções"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:43',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             14 => 
@@ -194,7 +194,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "New User", "pt": "Novo Usuário"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:43',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             15 => 
@@ -206,7 +206,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Save", "pt": "Salvar"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:43',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             16 => 
@@ -218,7 +218,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Edit :name", "pt": "Alterar :name"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:43',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             17 => 
@@ -230,7 +230,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Users", "pt": "Usuários"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:43',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             18 => 
@@ -242,7 +242,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Search", "pt": "Procurar"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:43',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             19 => 
@@ -254,7 +254,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Search", "pt": "Procurar"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:43',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             20 => 
@@ -266,7 +266,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '[]',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:43',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             21 => 
@@ -278,7 +278,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Edit", "pt": "Alterar"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:43',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             22 => 
@@ -290,7 +290,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Delete", "pt": "Excluir"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:43',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             23 => 
@@ -302,7 +302,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Displaying items from {{ pagination.state.from }} to {{ pagination.state.to }} of total {{ pagination.state.total }} items.", "pt": "Exibindo {{ pagination.state.from }} de {{ pagination.state.to }} de um total de {{ pagination.state.total }} itens."}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             24 => 
@@ -314,7 +314,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Could not find any items", "pt": "Não achamos nenhum item"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             25 => 
@@ -326,7 +326,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Try changing the filters or add a new one", "pt": "Tente mudar os filtros ou adicione um novo"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             26 => 
@@ -338,7 +338,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "New", "pt": "Novo"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             27 => 
@@ -350,7 +350,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '[]',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             28 => 
@@ -362,7 +362,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Id contrato parcela", "pt": "Contrato Parcela"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             29 => 
@@ -374,7 +374,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "New Boleto", "pt": "Novo Boleto"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             30 => 
@@ -386,7 +386,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Edit :name", "pt": "Alterar :name"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             31 => 
@@ -398,7 +398,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '[]',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             32 => 
@@ -410,7 +410,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '[]',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             33 => 
@@ -422,7 +422,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Selecione itens", "pt": "Itens selecionados"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             34 => 
@@ -434,7 +434,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Check all items", "pt": "Verifique todos os itens"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             35 => 
@@ -446,7 +446,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Uncheck all items", "pt": "Desmarque todos os itens"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             36 => 
@@ -458,7 +458,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '[]',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             37 => 
@@ -470,7 +470,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Ibge code", "pt": "Código IBGE"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             38 => 
@@ -482,7 +482,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Id uf", "pt": "UF"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             39 => 
@@ -494,7 +494,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Enabled", "pt": "Ativo"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             40 => 
@@ -506,7 +506,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "New Cidade", "pt": "Novo Cidade"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             41 => 
@@ -518,7 +518,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Edit :name", "pt": "Alterar :name"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             42 => 
@@ -530,7 +530,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '[]',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             43 => 
@@ -542,7 +542,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '[]',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             44 => 
@@ -554,7 +554,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '[]',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             45 => 
@@ -566,7 +566,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '[]',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             46 => 
@@ -578,7 +578,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Cnpj", "pt": "CNPJ"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             47 => 
@@ -590,7 +590,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Insc municipal", "pt": "Inscrição Municipal"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             48 => 
@@ -602,7 +602,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Rg", "pt": "RG"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             49 => 
@@ -614,7 +614,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Cpf", "pt": "CPF"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             50 => 
@@ -626,7 +626,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '[]',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             51 => 
@@ -638,7 +638,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Select date", "pt": "Selecionar uma data"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             52 => 
@@ -662,7 +662,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Id estado civil", "pt": "Estado Civil"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             54 => 
@@ -674,7 +674,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Profissao", "pt": "Profissão"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             55 => 
@@ -686,7 +686,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '[]',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             56 => 
@@ -698,7 +698,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Id cliente responsavel", "pt": "Empresa"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             57 => 
@@ -710,7 +710,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '[]',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             58 => 
@@ -722,7 +722,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '[]',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             59 => 
@@ -734,7 +734,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '[]',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             60 => 
@@ -746,7 +746,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '[]',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             61 => 
@@ -758,7 +758,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '[]',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             62 => 
@@ -770,7 +770,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '[]',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             63 => 
@@ -782,7 +782,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Numero", "pt": "Número"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             64 => 
@@ -794,7 +794,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '[]',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             65 => 
@@ -806,7 +806,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '[]',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             66 => 
@@ -842,7 +842,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Cep", "pt": "CEP"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             69 => 
@@ -854,7 +854,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Observacao", "pt": "Observação"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             70 => 
@@ -866,7 +866,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Enabled", "pt": "Ativo"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             71 => 
@@ -878,7 +878,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "New Cliente", "pt": "Novo Cliente"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             72 => 
@@ -890,7 +890,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Edit :name", "pt": "Alterar :name"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             73 => 
@@ -902,7 +902,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '[]',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             74 => 
@@ -914,7 +914,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '[]',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             75 => 
@@ -926,7 +926,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Cpf cnpj", "pt": "CPF/CNPJ"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             76 => 
@@ -938,7 +938,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '[]',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             77 => 
@@ -950,7 +950,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '[]',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             78 => 
@@ -962,7 +962,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Agencia", "pt": "Agência"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             79 => 
@@ -974,7 +974,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Digito agencia", "pt": "Digito agência"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             80 => 
@@ -986,7 +986,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '[]',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             81 => 
@@ -998,7 +998,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Digito conta", "pt": "Dígito conta"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             82 => 
@@ -1010,7 +1010,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Codigo empresa", "pt": "Código empresa"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             83 => 
@@ -1022,7 +1022,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '[]',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             84 => 
@@ -1034,7 +1034,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '[]',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             85 => 
@@ -1046,7 +1046,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '[]',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             86 => 
@@ -1058,7 +1058,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '[]',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             87 => 
@@ -1070,7 +1070,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Enabled", "pt": "Ativo"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             88 => 
@@ -1082,7 +1082,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "New Conta", "pt": "Novo Conta"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             89 => 
@@ -1094,7 +1094,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Edit :name", "pt": "Alterar :name"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             90 => 
@@ -1106,7 +1106,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '[]',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             91 => 
@@ -1118,7 +1118,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '[]',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             92 => 
@@ -1142,7 +1142,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Id contrato", "pt": "Contrato"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             94 => 
@@ -1154,7 +1154,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Numero parcela", "pt": "Número parcela"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             95 => 
@@ -1166,7 +1166,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '[]',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             96 => 
@@ -1178,7 +1178,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '[]',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             97 => 
@@ -1190,7 +1190,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '[]',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             98 => 
@@ -1202,7 +1202,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '[]',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             99 => 
@@ -1214,7 +1214,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Id boleto", "pt": "Boleto"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             100 => 
@@ -1226,7 +1226,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Id carne", "pt": "Carnê"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             101 => 
@@ -1238,7 +1238,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Enabled", "pt": "Ativo"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             102 => 
@@ -1250,7 +1250,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "New Parcela", "pt": "Novo Parcela"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             103 => 
@@ -1262,7 +1262,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Edit :name", "pt": "Alterar :name"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             104 => 
@@ -1274,7 +1274,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '[]',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             105 => 
@@ -1286,7 +1286,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '[]',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             106 => 
@@ -1298,7 +1298,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Id cliente", "pt": "Cliente"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             107 => 
@@ -1310,7 +1310,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Id plano", "pt": "Plano"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             108 => 
@@ -1322,7 +1322,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '[]',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             109 => 
@@ -1334,7 +1334,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '[]',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             110 => 
@@ -1346,7 +1346,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '[]',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             111 => 
@@ -1358,7 +1358,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '[]',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             112 => 
@@ -1370,7 +1370,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '[]',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             113 => 
@@ -1382,7 +1382,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '[]',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             114 => 
@@ -1394,7 +1394,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Id conta", "pt": "Conta"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             115 => 
@@ -1406,7 +1406,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '[]',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             116 => 
@@ -1418,7 +1418,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "admin.contrato.columns.qtd_meses", "pt": "Qtd Meses"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             117 => 
@@ -1430,7 +1430,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '[]',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             118 => 
@@ -1442,7 +1442,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Qtd parcelas", "pt": "Qtd Parcelas"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             119 => 
@@ -1454,7 +1454,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '[]',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             120 => 
@@ -1466,7 +1466,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Ultima parcela", "pt": "Última parcela"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             121 => 
@@ -1478,7 +1478,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "admin.contrato.columns.valor_parcela", "pt": "Valor Parcela"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             122 => 
@@ -1490,7 +1490,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Enabled", "pt": "Ativo"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             123 => 
@@ -1502,7 +1502,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "New Contrato", "pt": "Novo Contrato"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             124 => 
@@ -1514,7 +1514,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Edit :name", "pt": "Alterar :name"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             125 => 
@@ -1526,7 +1526,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '[]',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             126 => 
@@ -1538,7 +1538,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '[]',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             127 => 
@@ -1550,7 +1550,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '[]',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             128 => 
@@ -1562,7 +1562,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '[]',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             129 => 
@@ -1574,7 +1574,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Id cliente", "pt": "Cliente"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             130 => 
@@ -1586,7 +1586,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Id parentesco", "pt": "Parentesco"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             131 => 
@@ -1598,7 +1598,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Enabled", "pt": "Ativo"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             132 => 
@@ -1610,7 +1610,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "New Dependente", "pt": "Novo Dependente"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             133 => 
@@ -1622,7 +1622,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Edit :name", "pt": "Alterar :name"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             134 => 
@@ -1634,7 +1634,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '[]',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             135 => 
@@ -1646,7 +1646,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '[]',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             136 => 
@@ -1658,7 +1658,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '[]',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             137 => 
@@ -1670,7 +1670,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Enabled", "pt": "Ativo"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             138 => 
@@ -1682,7 +1682,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "New Estado Civil", "pt": "Novo Estado Civil"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             139 => 
@@ -1694,7 +1694,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Edit :name", "pt": "Alterar :name"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             140 => 
@@ -1706,7 +1706,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Estado Civils", "pt": "Estado Civils"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             141 => 
@@ -1718,7 +1718,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '[]',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             142 => 
@@ -1730,7 +1730,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Account", "pt": "Conta"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             143 => 
@@ -1742,7 +1742,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Logout", "pt": "Sair"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             144 => 
@@ -1754,7 +1754,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Content", "pt": "Conteúdo"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             145 => 
@@ -1766,7 +1766,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '[]',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             146 => 
@@ -1778,7 +1778,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '[]',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             147 => 
@@ -1790,7 +1790,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '[]',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             148 => 
@@ -1802,7 +1802,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '[]',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             149 => 
@@ -1814,7 +1814,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '[]',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             150 => 
@@ -1826,7 +1826,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '[]',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             151 => 
@@ -1838,7 +1838,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '[]',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             152 => 
@@ -1850,7 +1850,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '[]',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             153 => 
@@ -1859,10 +1859,10 @@ class TranslationsTableSeeder extends Seeder
                 'namespace' => 'brackets/admin-ui',
                 'group' => 'admin',
                 'key' => 'sidebar.settings',
-                'text' => '[]',
+                'text' => '{"en": "Settings", "pt": "Configurações"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:12:27',
                 'deleted_at' => NULL,
             ),
             154 => 
@@ -1874,7 +1874,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '[]',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             155 => 
@@ -1886,7 +1886,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '[]',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             156 => 
@@ -1898,7 +1898,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '[]',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             157 => 
@@ -1910,7 +1910,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Ufs", "pt": "UFs"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             158 => 
@@ -1922,7 +1922,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '[]',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             159 => 
@@ -1934,7 +1934,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '[]',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             160 => 
@@ -1946,7 +1946,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "admin.parentesco.columns.nome", "pt": "Nome"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             161 => 
@@ -1958,7 +1958,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Enabled", "pt": "Ativo"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             162 => 
@@ -1970,7 +1970,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "New Parentesco", "pt": "Novo Parentesco"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             163 => 
@@ -1982,7 +1982,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Edit :name", "pt": "Alterar :name"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             164 => 
@@ -1994,7 +1994,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '[]',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             165 => 
@@ -2006,7 +2006,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '[]',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             166 => 
@@ -2018,7 +2018,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '[]',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             167 => 
@@ -2030,7 +2030,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Enabled", "pt": "Ativo"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             168 => 
@@ -2042,7 +2042,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "New Plano", "pt": "Novo Plano"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             169 => 
@@ -2054,7 +2054,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Edit :name", "pt": "Alterar :name"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             170 => 
@@ -2066,7 +2066,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '[]',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             171 => 
@@ -2078,7 +2078,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '[]',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             172 => 
@@ -2090,7 +2090,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Edit Password", "pt": "Alterar Senha"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             173 => 
@@ -2102,7 +2102,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Edit Profile", "pt": "Alterar Perfil"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             174 => 
@@ -2114,7 +2114,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Id boleto", "pt": "Boleto"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             175 => 
@@ -2126,7 +2126,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Id remessa", "pt": "Remessa"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             176 => 
@@ -2138,7 +2138,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "New Remessa Boleto", "pt": "Novo Remessa Boleto"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             177 => 
@@ -2150,7 +2150,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Edit :name", "pt": "Alterar :name"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             178 => 
@@ -2162,7 +2162,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '[]',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             179 => 
@@ -2174,7 +2174,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '[]',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             180 => 
@@ -2186,7 +2186,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '[]',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             181 => 
@@ -2198,7 +2198,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Select date and time", "pt": "Selecionar uma data e hora"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             182 => 
@@ -2210,7 +2210,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Id usuario", "pt": "Usuário"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             183 => 
@@ -2222,7 +2222,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '[]',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             184 => 
@@ -2234,7 +2234,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Sequencia", "pt": "Sequência"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             185 => 
@@ -2246,7 +2246,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Id conta", "pt": "Conta"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             186 => 
@@ -2258,7 +2258,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "New Remessa", "pt": "Novo Remessa"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             187 => 
@@ -2270,7 +2270,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Edit :name", "pt": "Alterar :name"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             188 => 
@@ -2282,7 +2282,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '[]',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             189 => 
@@ -2294,7 +2294,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '[]',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             190 => 
@@ -2306,7 +2306,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '[]',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             191 => 
@@ -2318,7 +2318,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Abreviacao", "pt": "Abreviação"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             192 => 
@@ -2330,7 +2330,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Enabled", "pt": "Ativo"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             193 => 
@@ -2342,7 +2342,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "New Sexo", "pt": "Novo Sexo"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             194 => 
@@ -2354,7 +2354,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Edit :name", "pt": "Alterar :name"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             195 => 
@@ -2366,7 +2366,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '[]',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             196 => 
@@ -2378,7 +2378,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '[]',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             197 => 
@@ -2390,7 +2390,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '[]',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             198 => 
@@ -2402,7 +2402,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Abreviacao", "pt": "Abreviação"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             199 => 
@@ -2414,7 +2414,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Enabled", "pt": "Ativo"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             200 => 
@@ -2426,7 +2426,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "New Uf", "pt": "Novo UF"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             201 => 
@@ -2438,7 +2438,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Edit :name", "pt": "Alterar :name"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             202 => 
@@ -2450,7 +2450,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Ufs", "pt": "UFs"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             203 => 
@@ -2462,7 +2462,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '[]',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:24',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             204 => 
@@ -2474,7 +2474,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "You are receiving this email because we received an activation request for your account.", "pt": "Você está recebendo este e-mail porque recebemos uma solicitação de ativação para sua conta."}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:25',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             205 => 
@@ -2486,7 +2486,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Activate your account", "pt": "Ative sua conta"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:25',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             206 => 
@@ -2498,7 +2498,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "If you did not request an activation, no further action is required.", "pt": "Se você não solicitou uma ativação, nenhuma ação adicional será necessária."}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:25',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             207 => 
@@ -2510,7 +2510,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Your account was activated!", "pt": "Tente alterar os filtros ou digitalizar novamente"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:25',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             208 => 
@@ -2522,7 +2522,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "The request failed.", "pt": "A solicitação falhou."}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:25',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             209 => 
@@ -2534,7 +2534,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Activation is disabled.", "pt": "A ativação está desabilitada."}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:25',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             210 => 
@@ -2546,7 +2546,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "We have sent you an activation link!", "pt": "Enviamos um link de ativação para você!"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:25',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             211 => 
@@ -2558,7 +2558,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "We have sent you a password reset link!", "pt": "Enviamos um link de redefinição de senha!"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:25',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             212 => 
@@ -2570,7 +2570,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Your password has been reset!", "pt": "Sua senha foi alterada!"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:25',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             213 => 
@@ -2582,7 +2582,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "The password reset token is invalid.", "pt": "O token de redefinição de senha é inválido."}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:25',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             214 => 
@@ -2594,7 +2594,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "We can\'t find a user with this e-mail address.", "pt": "Não conseguimos encontrar um usuário com este endereço de email."}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:25',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             215 => 
@@ -2606,7 +2606,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Password must be at least six characters long and match the confirmation.", "pt": "A senha deve ter pelo menos seis caracteres e corresponder à confirmação."}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:25',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             216 => 
@@ -2618,7 +2618,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Activate account", "pt": "Ativar conta"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:25',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             217 => 
@@ -2630,7 +2630,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Send activation link to e-mail", "pt": "Enviar link de ativação para email"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:25',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             218 => 
@@ -2642,7 +2642,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Your e-mail", "pt": "Seu email"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:25',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             219 => 
@@ -2654,7 +2654,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Send Activation Link", "pt": "Enviar link de ativação"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:25',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             220 => 
@@ -2666,7 +2666,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Login", "pt": "Login"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:25',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             221 => 
@@ -2678,7 +2678,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Sign In to your account", "pt": "Faça login em sua conta"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:25',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             222 => 
@@ -2690,7 +2690,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Password", "pt": "Senha"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:25',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             223 => 
@@ -2702,7 +2702,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '[]',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:25',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             224 => 
@@ -2714,7 +2714,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Forgot password?", "pt": "Esqueceu a senha?"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:25',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             225 => 
@@ -2726,7 +2726,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Reset Password", "pt": "Redefinir senha"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:25',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             226 => 
@@ -2738,7 +2738,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Send password reset e-mail", "pt": "Enviar e-mail de redefinição de senha"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:25',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             227 => 
@@ -2750,7 +2750,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Send Password Reset Link", "pt": "Enviar link de redefinição de senha"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:25',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             228 => 
@@ -2762,7 +2762,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Reset Password", "pt": "Redefinir Senha"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:25',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             229 => 
@@ -2774,7 +2774,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Reset forgotten password", "pt": "Redefinir senha esquecida"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:25',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             230 => 
@@ -2786,7 +2786,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Password confirmation", "pt": "Confirmação da Senha"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:25',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             231 => 
@@ -2798,7 +2798,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Reset password", "pt": "Redefinir Senha"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:25',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             232 => 
@@ -2810,7 +2810,7 @@ class TranslationsTableSeeder extends Seeder
             'text' => '{"en": "(max no. of files: :maxNumberOfFiles files)", "pt": "(número máximo de arquivos: :maxNumberOfFiles)"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:25',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             233 => 
@@ -2822,7 +2822,7 @@ class TranslationsTableSeeder extends Seeder
             'text' => '{"en": "(max size per file: :maxFileSize MB)", "pt": "(tamanho máximo por arquivo: :maxFileSize MB)"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:25',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             234 => 
@@ -2834,7 +2834,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Files are not accessible for public", "pt": "Os arquivos não estão acessíveis ao público"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:25',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             235 => 
@@ -2846,7 +2846,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Craftable", "pt": "Financeiro WEB"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:25',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             236 => 
@@ -2858,7 +2858,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Rafah Borges | Craftable © :year BRACKETS by TRIAD s.r.o.", "pt": "Rafah Borges | Craftable © :year BRACKETS by TRIAD s.r.o."}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:25',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             237 => 
@@ -2870,7 +2870,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Powered by", "pt": "Desenvolvido por"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:25',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             238 => 
@@ -2882,7 +2882,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Translations", "pt": "Traduções"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:25',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             239 => 
@@ -2894,7 +2894,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "All groups", "pt": "Todos os grupos"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:25',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             240 => 
@@ -2906,7 +2906,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Edit translation", "pt": "Editar tradução"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:25',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             241 => 
@@ -2918,7 +2918,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Default text", "pt": "Texto padrão"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:25',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             242 => 
@@ -2930,7 +2930,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "translation", "pt": "tradução"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:25',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             243 => 
@@ -2942,7 +2942,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Type a translation for :locale language.", "pt": "Digite uma tradução para :locale language."}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:25',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             244 => 
@@ -2954,7 +2954,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Translations import", "pt": "Importação de traduções"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:25',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             245 => 
@@ -2966,7 +2966,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "You can import translations of a selected language from the .xslx file. Imported file must have identical structure as generated in Translations export.", "pt": "Você pode importar traduções de um idioma selecionado do arquivo .xlsx. O arquivo importado deve ter estrutura idêntica à gerada na exportação de Traduções."}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:25',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             246 => 
@@ -2978,7 +2978,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Upload File", "pt": "Subir arquivo"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:25',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             247 => 
@@ -2990,7 +2990,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Choose file", "pt": "Escolher arquivo"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:25',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             248 => 
@@ -3002,7 +3002,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Language to import", "pt": "Idioma a ser importado"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:25',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             249 => 
@@ -3014,7 +3014,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Select language", "pt": "Selecione o idioma"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:25',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             250 => 
@@ -3026,7 +3026,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Do not override existing translations", "pt": "Não substitua traduções existentes"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:25',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             251 => 
@@ -3038,7 +3038,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "We have found", "pt": "Nós achamos"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:25',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             252 => 
@@ -3050,7 +3050,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "translations in total to be imported. Please review", "pt": "total de traduções para serem importadas. Por favor revise"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:25',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             253 => 
@@ -3062,7 +3062,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "translations that differs before continuing.", "pt": "traduções que diferem antes de continuar."}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:25',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             254 => 
@@ -3074,7 +3074,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Group", "pt": "Grupo"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:25',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             255 => 
@@ -3086,7 +3086,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Default", "pt": "Padrão"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:25',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             256 => 
@@ -3098,7 +3098,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Current value", "pt": "Valor atual"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:25',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             257 => 
@@ -3110,7 +3110,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Imported value", "pt": "Valor importado"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:25',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             258 => 
@@ -3122,7 +3122,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "translations sucesfully imported", "pt": "traduções importadas com sucesso"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:25',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             259 => 
@@ -3134,7 +3134,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "translations sucesfully updated.", "pt": "traduções atualizadas com sucesso."}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:25',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             260 => 
@@ -3146,7 +3146,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Translations export", "pt": "Exportação de traduções"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:25',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             261 => 
@@ -3158,7 +3158,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "You can export translations of a selected language as .xslx file.", "pt": "Você pode exportar traduções de um idioma selecionado como arquivo .xlsx."}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:25',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             262 => 
@@ -3170,7 +3170,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Language to export", "pt": "Idioma a exportar"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:25',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             263 => 
@@ -3182,7 +3182,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Export", "pt": "Exportar"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:25',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             264 => 
@@ -3194,7 +3194,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Translations list", "pt": "Lista de traduções"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:25',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             265 => 
@@ -3206,7 +3206,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Import", "pt": "Importar"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:25',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             266 => 
@@ -3218,7 +3218,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Re-scan translations", "pt": "Verificar novamente traduções"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:25',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             267 => 
@@ -3230,7 +3230,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Created at", "pt": "Criado em"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:25',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             268 => 
@@ -3242,7 +3242,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Could not find any translations", "pt": "Não foi possível encontrar nenhuma tradução"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:25',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             269 => 
@@ -3254,7 +3254,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Try changing the filters or re-scan", "pt": "Tente alterar os filtros ou digitalizar novamente"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:25',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             270 => 
@@ -3266,7 +3266,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "current password", "pt": "senha atual"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:25',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             271 => 
@@ -3278,7 +3278,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '[]',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:25',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             272 => 
@@ -3290,7 +3290,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Select um Estado Civil", "pt": "Selecione um Estado Civil"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:25',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             273 => 
@@ -3302,7 +3302,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '[]',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:25',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             274 => 
@@ -3314,7 +3314,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '[]',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:25',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             275 => 
@@ -3326,7 +3326,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '[]',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:25',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             276 => 
@@ -3338,7 +3338,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '[]',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:25',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             277 => 
@@ -3350,7 +3350,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '[]',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:25',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             278 => 
@@ -3362,7 +3362,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '[]',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:25',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             279 => 
@@ -3374,7 +3374,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '[]',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:25',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             280 => 
@@ -3386,7 +3386,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '[]',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:25',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             281 => 
@@ -3398,7 +3398,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Select Cliente", "pt": "Selecione um Cliente"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:25',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             282 => 
@@ -3410,7 +3410,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Select Parentesco", "pt": "Selecione um Parentesco"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:25',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             283 => 
@@ -3422,7 +3422,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '[]',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:25',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             284 => 
@@ -3434,7 +3434,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Manage access", "pt": "Gerenciar acesso"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:25',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             285 => 
@@ -3446,7 +3446,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Translations", "pt": "Traduções"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:25',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             286 => 
@@ -3458,7 +3458,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Configuration", "pt": "Configuração"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:25',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             287 => 
@@ -3470,7 +3470,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Close", "pt": "Fechar"}',
                 'metadata' => NULL,
                 'created_at' => '2020-01-31 23:32:25',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:58',
                 'deleted_at' => NULL,
             ),
             288 => 
@@ -3482,7 +3482,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Id sexo", "pt": "Sexo"}',
                 'metadata' => NULL,
                 'created_at' => '2020-02-03 00:13:01',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             289 => 
@@ -3494,7 +3494,7 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Id cidade", "pt": "Cidade"}',
                 'metadata' => NULL,
                 'created_at' => '2020-02-03 00:13:01',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
             290 => 
@@ -3506,7 +3506,31 @@ class TranslationsTableSeeder extends Seeder
                 'text' => '{"en": "Id uf", "pt": "UF"}',
                 'metadata' => NULL,
                 'created_at' => '2020-02-03 00:13:01',
-                'updated_at' => '2020-02-03 01:58:44',
+                'updated_at' => '2020-02-03 02:11:57',
+                'deleted_at' => NULL,
+            ),
+            291 => 
+            array (
+                'id' => 292,
+                'namespace' => 'brackets/admin-auth',
+                'group' => 'admin',
+                'key' => 'profile_dropdown.profile',
+                'text' => '{"en": "Profile", "pt": "Perfil"}',
+                'metadata' => NULL,
+                'created_at' => '2020-02-03 02:11:18',
+                'updated_at' => '2020-02-03 02:11:57',
+                'deleted_at' => NULL,
+            ),
+            292 => 
+            array (
+                'id' => 293,
+                'namespace' => 'brackets/admin-auth',
+                'group' => 'admin',
+                'key' => 'profile_dropdown.password',
+                'text' => '{"en": "Password", "pt": "Senha"}',
+                'metadata' => NULL,
+                'created_at' => '2020-02-03 02:11:18',
+                'updated_at' => '2020-02-03 02:11:57',
                 'deleted_at' => NULL,
             ),
         ));
