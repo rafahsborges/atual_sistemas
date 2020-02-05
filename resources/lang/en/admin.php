@@ -191,13 +191,14 @@ return [
         ],
     ],
 
-    'contrato-parcela' => [
+    'parcela' => [
         'title' => 'Parcelas',
 
         'actions' => [
             'index' => 'Parcelas',
             'create' => 'New Parcela',
             'edit' => 'Edit :name',
+            'export' => 'Export',
         ],
 
         'columns' => [

@@ -1,29 +1,30 @@
 @extends('brackets/admin-ui::admin.layout.default')
 
-@section('title', trans('admin.contrato-parcela.actions.create'))
+@section('title', trans('admin.parcela.actions.edit', ['name' => $contratoParcela->id]))
 
 @section('body')
 
     <div class="container-xl">
-
         <div class="card">
 
-            <contrato-parcela-form
-                :action="'{{ url('admin/contrato-parcelas') }}'"
+            <parcela-form
+                :action="'{{ $contratoParcela->resource_url }}'"
+                :data="{{ $contratoParcela->toJson() }}"
                 :contratos="{{$contratos->toJson()}}"
                 v-cloak
                 inline-template>
 
-                <form class="form-horizontal form-create" method="post" @submit.prevent="onSubmit" :action="action"
-                      novalidate>
+                <form class="form-horizontal form-edit" method="post" @submit.prevent="onSubmit" :action="action" novalidate>
+
 
                     <div class="card-header">
-                        <i class="fa fa-plus"></i> {{ trans('admin.contrato-parcela.actions.create') }}
+                        <i class="fa fa-pencil"></i> {{ trans('admin.parcela.actions.edit', ['name' => $contratoParcela->id]) }}
                     </div>
 
                     <div class="card-body">
-                        @include('admin.contrato-parcela.components.form-elements')
+                        @include('admin.parcela.components.form-elements')
                     </div>
+
 
                     <div class="card-footer">
                         <button type="submit" class="btn btn-primary" :disabled="submiting">
@@ -34,11 +35,10 @@
 
                 </form>
 
-            </contrato-parcela-form>
+        </parcela-form>
 
         </div>
 
-    </div>
-
+</div>
 
 @endsection

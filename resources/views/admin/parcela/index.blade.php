@@ -1,21 +1,24 @@
 @extends('brackets/admin-ui::admin.layout.default')
 
-@section('title', trans('admin.contrato-parcela.actions.index'))
+@section('title', trans('admin.parcela.actions.index'))
 
 @section('body')
 
-    <contrato-parcela-listing
+    <parcela-listing
         :data="{{ $data->toJson() }}"
-        :url="'{{ url('admin/contrato-parcelas') }}'"
+        :url="'{{ url('admin/parcelas') }}'"
         inline-template>
 
         <div class="row">
             <div class="col">
                 <div class="card">
                     <div class="card-header">
-                        <i class="fa fa-align-justify"></i> {{ trans('admin.contrato-parcela.actions.index') }}
+                        <i class="fa fa-align-justify"></i> {{ trans('admin.parcela.actions.index') }}
+                        <a class="btn btn-primary btn-sm pull-right m-b-0 ml-2" href="{{ url('admin/parcelas/export') }}"
+                           role="button"><i
+                                class="fa fa-file-excel-o"></i>&nbsp; {{ trans('admin.parcela.actions.export') }}</a>
                         <a class="btn btn-primary btn-spinner btn-sm pull-right m-b-0"
-                           href="{{ url('admin/contrato-parcelas/create') }}" role="button"><i class="fa fa-plus"></i>&nbsp; {{ trans('admin.contrato-parcela.actions.create') }}
+                           href="{{ url('admin/parcelas/create') }}" role="button"><i class="fa fa-plus"></i>&nbsp; {{ trans('admin.parcela.actions.create') }}
                         </a>
                     </div>
                     <div class="card-body" v-cloak>
@@ -64,6 +67,26 @@
                                                      :multiple="true">
                                         </multiselect>
                                     </div>
+                                    <div class="col col-lg-6 col-xl-6 form-group">
+                                        <multiselect v-model="contratosMultiselect"
+                                                     :options="{{ $contratos->map(function($contrato) { return ['key' => $contrato->id, 'label' =>  $contrato->cliente->nome]; })->toJson() }}"
+                                                     label="label"
+                                                     track-by="key"
+                                                     placeholder="{{ __('Digite para procurar por contrato/s') }}"
+                                                     :limit="2"
+                                                     :multiple="true">
+                                        </multiselect>
+                                    </div>
+                                    <div class="col col-lg-6 col-xl-6 form-group">
+                                        <multiselect v-model="contratosMultiselect"
+                                                     :options="{{ $contratos->map(function($contrato) { return ['key' => $contrato->id, 'label' =>  $contrato->cliente->nome]; })->toJson() }}"
+                                                     label="label"
+                                                     track-by="key"
+                                                     placeholder="{{ __('Digite para procurar por contrato/s') }}"
+                                                     :limit="2"
+                                                     :multiple="true">
+                                        </multiselect>
+                                    </div>
                                 </div>
                             </form>
 
@@ -81,21 +104,21 @@
                                     </th>
 
                                     <th is='sortable'
-                                        :column="'id'">{{ trans('admin.contrato-parcela.columns.id') }}</th>
+                                        :column="'id'">{{ trans('admin.parcela.columns.id') }}</th>
                                     <th is='sortable'
-                                        :column="'id_contrato'">{{ trans('admin.contrato-parcela.columns.id_contrato') }}</th>
+                                        :column="'id_contrato'">{{ trans('admin.parcela.columns.id_contrato') }}</th>
                                     <th is='sortable'
-                                        :column="'numero_parcela'">{{ trans('admin.contrato-parcela.columns.numero_parcela') }}</th>
+                                        :column="'numero_parcela'">{{ trans('admin.parcela.columns.numero_parcela') }}</th>
                                     <th is='sortable'
-                                        :column="'valor'">{{ trans('admin.contrato-parcela.columns.valor') }}</th>
+                                        :column="'valor'">{{ trans('admin.parcela.columns.valor') }}</th>
                                     <th is='sortable'
-                                        :column="'vencimento'">{{ trans('admin.contrato-parcela.columns.vencimento') }}</th>
+                                        :column="'vencimento'">{{ trans('admin.parcela.columns.vencimento') }}</th>
                                     <th is='sortable'
-                                        :column="'pagamento'">{{ trans('admin.contrato-parcela.columns.pagamento') }}</th>
+                                        :column="'pagamento'">{{ trans('admin.parcela.columns.pagamento') }}</th>
                                     <th is='sortable'
-                                        :column="'valor_pagamento'">{{ trans('admin.contrato-parcela.columns.valor_pagamento') }}</th>
+                                        :column="'valor_pagamento'">{{ trans('admin.parcela.columns.valor_pagamento') }}</th>
                                     <th is='sortable'
-                                        :column="'enabled'">{{ trans('admin.contrato-parcela.columns.enabled') }}</th>
+                                        :column="'enabled'">{{ trans('admin.parcela.columns.enabled') }}</th>
 
                                     <th></th>
                                 </tr>
@@ -103,7 +126,7 @@
                                     <td class="bg-bulk-info d-table-cell text-center" colspan="12">
                                             <span class="align-middle font-weight-light text-dark">{{ trans('brackets/admin-ui::admin.listing.selected_items') }} @{{ clickedBulkItemsCount }}.  <a
                                                     href="#" class="text-primary"
-                                                    @click="onBulkItemsClickedAll('/admin/contrato-parcelas')"
+                                                    @click="onBulkItemsClickedAll('/admin/parcelas')"
                                                     v-if="(clickedBulkItemsCount < pagination.state.total)"> <i
                                                         class="fa"
                                                         :class="bulkCheckingAllLoader ? 'fa-spinner' : ''"></i> {{ trans('brackets/admin-ui::admin.listing.check_all_items') }} @{{ pagination.state.total }}</a> <span
@@ -113,7 +136,7 @@
 
                                         <span class="pull-right pr-2">
                                                 <button class="btn btn-sm btn-danger pr-3 pl-3"
-                                                        @click="bulkDelete('/admin/contrato-parcelas/bulk-destroy')">{{ trans('brackets/admin-ui::admin.btn.delete') }}</button>
+                                                        @click="bulkDelete('/admin/parcelas/bulk-destroy')">{{ trans('brackets/admin-ui::admin.btn.delete') }}</button>
                                             </span>
 
                                     </td>
@@ -183,8 +206,8 @@
                                 <h3>{{ trans('brackets/admin-ui::admin.index.no_items') }}</h3>
                                 <p>{{ trans('brackets/admin-ui::admin.index.try_changing_items') }}</p>
                                 <a class="btn btn-primary btn-spinner"
-                                   href="{{ url('admin/contrato-parcelas/create') }}" role="button"><i
-                                        class="fa fa-plus"></i>&nbsp; {{ trans('admin.contrato-parcela.actions.create') }}
+                                   href="{{ url('admin/parcelas/create') }}" role="button"><i
+                                        class="fa fa-plus"></i>&nbsp; {{ trans('admin.parcela.actions.create') }}
                                 </a>
                             </div>
                         </div>
@@ -192,6 +215,6 @@
                 </div>
             </div>
         </div>
-    </contrato-parcela-listing>
+    </parcela-listing>
 
 @endsection

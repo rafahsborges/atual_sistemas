@@ -1,6 +1,6 @@
 import AppForm from '../app-components/Form/AppForm';
 
-Vue.component('contrato-parcela-form', {
+Vue.component('parcela-form', {
     mixins: [AppForm],
     props: [
         'contratos',

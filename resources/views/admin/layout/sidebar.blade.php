@@ -10,8 +10,8 @@
                         class="nav-icon icon-drop"></i> {{ trans('admin.dependente.title') }}</a></li>
             <li class="nav-item"><a class="nav-link" href="{{ url('admin/contratos') }}"><i
                         class="nav-icon icon-puzzle"></i> {{ trans('admin.contrato.title') }}</a></li>
-            <li class="nav-item"><a class="nav-link" href="{{ url('admin/contrato-parcelas') }}"><i
-                        class="nav-icon icon-energy"></i> {{ trans('admin.contrato-parcela.title') }}</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ url('admin/parcelas') }}"><i
+                        class="nav-icon icon-energy"></i> {{ trans('admin.parcela.title') }}</a></li>
             <li class="nav-item"><a class="nav-link" href="{{ url('admin/boletos') }}"><i
                         class="nav-icon icon-compass"></i> {{ trans('admin.boleto.title') }}</a></li>
             <li class="nav-item"><a class="nav-link" href="{{ url('admin/remessas') }}"><i

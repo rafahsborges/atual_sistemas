@@ -8,7 +8,7 @@ import './cliente';
 import './dependente';
 import './conta';
 import './contrato';
-import './contrato-parcela';
+import './parcela';
 import './boleto';
 import './remessa';
 import './remessa-boleto';

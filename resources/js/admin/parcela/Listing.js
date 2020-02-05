@@ -1,6 +1,6 @@
 import AppListing from '../app-components/Listing/AppListing';
 
-Vue.component('contrato-parcela-listing', {
+Vue.component('parcela-listing', {
     mixins: [AppListing],
     data() {
         return {
