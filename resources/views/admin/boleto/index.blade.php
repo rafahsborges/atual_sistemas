@@ -60,7 +60,7 @@
 
                                     <th is='sortable' :column="'id'">{{ trans('admin.boleto.columns.id') }}</th>
                                     <th is='sortable'
-                                        :column="'id_contrato_parcela'">{{ trans('admin.boleto.columns.id_contrato_parcela') }}</th>
+                                        :column="'id_parcela'">{{ trans('admin.boleto.columns.id_parcela') }}</th>
                                     <th is='sortable' :column="'status'">{{ trans('admin.boleto.columns.status') }}</th>
 
                                     <th></th>
@@ -99,7 +99,7 @@
                                     </td>
 
                                     <td>@{{ item.id }}</td>
-                                    <td>@{{ item.id_contrato_parcela }}</td>
+                                    <td>@{{ item.id_parcela }}</td>
                                     <td>@{{ item.status }}</td>
 
                                     <td>

@@ -6,7 +6,7 @@ Vue.component('boleto-form', {
         return {
             form: {
                 status: false,
-                id_contrato_parcela: '',
+                id_parcela: '',
             }
         }
     }

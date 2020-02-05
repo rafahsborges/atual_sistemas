@@ -227,7 +227,7 @@ return [
         'columns' => [
             'id' => 'ID',
             'status' => 'Status',
-            'id_contrato_parcela' => 'Id contrato parcela',
+            'id_parcela' => 'Id contrato parcela',
         ],
     ],
 

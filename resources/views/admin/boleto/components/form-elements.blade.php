@@ -1,8 +1,8 @@
-<div class="form-group row align-items-center" :class="{'has-danger': errors.has('id_contrato_parcela'), 'has-success': fields.id_contrato_parcela && fields.id_contrato_parcela.valid }">
-    <label for="id_contrato_parcela" class="col-form-label text-md-right" :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.boleto.columns.id_contrato_parcela') }}</label>
+<div class="form-group row align-items-center" :class="{'has-danger': errors.has('id_parcela'), 'has-success': fields.id_parcela && fields.id_parcela.valid }">
+    <label for="id_parcela" class="col-form-label text-md-right" :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.boleto.columns.id_parcela') }}</label>
         <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.id_contrato_parcela" v-validate="''" @input="validate($event)" class="form-control" :class="{'form-control-danger': errors.has('id_contrato_parcela'), 'form-control-success': fields.id_contrato_parcela && fields.id_contrato_parcela.valid}" id="id_contrato_parcela" name="id_contrato_parcela" placeholder="{{ trans('admin.boleto.columns.id_contrato_parcela') }}">
-        <div v-if="errors.has('id_contrato_parcela')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('id_contrato_parcela') }}</div>
+        <input type="text" v-model="form.id_parcela" v-validate="''" @input="validate($event)" class="form-control" :class="{'form-control-danger': errors.has('id_parcela'), 'form-control-success': fields.id_parcela && fields.id_parcela.valid}" id="id_parcela" name="id_parcela" placeholder="{{ trans('admin.boleto.columns.id_parcela') }}">
+        <div v-if="errors.has('id_parcela')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('id_parcela') }}</div>
     </div>
 </div>
 

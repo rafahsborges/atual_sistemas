@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Support\FacadesDB;
 
 class TranslationsTableSeeder extends Seeder
 {
@@ -15,9 +15,9 @@ class TranslationsTableSeeder extends Seeder
     {
 
 
-        \DB::table('translations')->delete();
+        DB::table('translations')->delete();
 
-        \DB::table('translations')->insert(array (
+        DB::table('translations')->insert(array (
             0 =>
             array (
                 'id' => 1,
