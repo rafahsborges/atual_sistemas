@@ -158,7 +158,6 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
             Route::post('/bulk-destroy', 'ParcelasController@bulkDestroy')->name('bulk-destroy');
             Route::post('/{parcela}', 'ParcelasController@update')->name('update');
             Route::delete('/{parcela}', 'ParcelasController@destroy')->name('destroy');
-            Route::get('/export', 'ParcelasController@export')->name('export');
         });
     });
 });
@@ -251,6 +250,18 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
             Route::post('/bulk-destroy', 'CidadesController@bulkDestroy')->name('bulk-destroy');
             Route::post('/{cidade}', 'CidadesController@update')->name('update');
             Route::delete('/{cidade}', 'CidadesController@destroy')->name('destroy');
+        });
+    });
+});
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
+    Route::prefix('admin')->namespace('Admin')->name('admin/')->group(static function () {
+        Route::prefix('relatorios')->name('relatorios/')->group(static function () {
+            Route::get('/', function () {
+                return view('admin.relatorio.index');
+            });
+            Route::post('/', 'RelatoriosController@export')->name('export');
         });
     });
 });

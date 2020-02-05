@@ -318,5 +318,14 @@ return [
         ],
     ],
 
+    'relatorio' => [
+        'title' => 'Relatorios',
+
+        'actions' => [
+            'index' => 'Relatorios',
+            'export' => 'Export',
+        ],
+    ],
+
     // Do not delete me :) I'm used for auto-generation
 ];

@@ -18,6 +18,8 @@
                         class="nav-icon icon-puzzle"></i> {{ trans('admin.remessa.title') }}</a></li>
             <li class="nav-item"><a class="nav-link" href="{{ url('admin/remessa-boletos') }}"><i
                         class="nav-icon icon-magnet"></i> {{ trans('admin.remessa-boleto.title') }}</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ url('admin/relatorios') }}"><i
+                        class="nav-icon icon-book-open"></i> {{ trans('admin.relatorio.title') }}</a></li>
             {{-- Do not delete me :) I'm used for auto-generation menu items --}}
             @if(auth()->user()->is_admin == 1)
                 <li class="nav-title">{{ trans('brackets/admin-ui::admin.sidebar.settings') }}</li>
