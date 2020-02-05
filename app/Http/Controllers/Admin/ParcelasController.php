@@ -21,6 +21,7 @@ use Illuminate\Http\Response;
 use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
+use PDF;
 
 class ParcelasController extends Controller
 {
@@ -207,5 +208,17 @@ class ParcelasController extends Controller
         });
 
         return response(['message' => trans('brackets/admin-ui::admin.operation.succeeded')]);
+    }
+
+    /**
+     * Export entities
+     */
+    public function export()
+    {
+        $data = "Olá Mundo";
+        $pdf = PDF::loadView('pdf.relatorio', [
+            'data' => $data,
+        ]);
+        return $pdf->download('relatorio.pdf');
     }
 }
