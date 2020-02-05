@@ -325,6 +325,11 @@ return [
             'index' => 'Relatorios',
             'export' => 'Export',
         ],
+
+        'columns' => [
+            'inicio' => 'Inicio',
+            'fim' => 'Fim',
+        ],
     ],
 
     // Do not delete me :) I'm used for auto-generation

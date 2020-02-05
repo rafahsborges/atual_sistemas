@@ -112426,6 +112426,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _sexo__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./sexo */ "./resources/js/admin/sexo/index.js");
 /* harmony import */ var _uf__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./uf */ "./resources/js/admin/uf/index.js");
 /* harmony import */ var _cidade__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./cidade */ "./resources/js/admin/cidade/index.js");
+/* harmony import */ var _relatorio__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./relatorio */ "./resources/js/admin/relatorio/index.js");
+
 
 
 
@@ -112747,6 +112749,75 @@ Vue.component('profile-edit-profile-form', {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Form__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Form */ "./resources/js/admin/profile-edit-profile/Form.js");
+
+
+/***/ }),
+
+/***/ "./resources/js/admin/relatorio/Form.js":
+/*!**********************************************!*\
+  !*** ./resources/js/admin/relatorio/Form.js ***!
+  \**********************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _app_components_Form_AppForm__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../app-components/Form/AppForm */ "./resources/js/admin/app-components/Form/AppForm.js");
+
+Vue.component('relatorio-form', {
+  mixins: [_app_components_Form_AppForm__WEBPACK_IMPORTED_MODULE_0__["default"]],
+  data: function data() {
+    return {
+      form: {
+        inicio: '',
+        fim: ''
+      },
+      configs: {
+        start: {
+          dateFormat: 'Y-m-d H:i:S',
+          altInput: true,
+          altFormat: 'd.m.Y',
+          locale: null,
+          minDate: new Date(),
+          maxDate: null
+        },
+        end: {
+          dateFormat: 'Y-m-d H:i:S',
+          altInput: true,
+          altFormat: 'd.m.Y',
+          locale: null,
+          minDate: null
+        }
+      }
+    };
+  },
+  methods: {
+    changed: function changed(e) {
+      if (e.target.id === 'inicio' && Object.prototype.toString.call(new Date(e.target.value)) === '[object Date]') {
+        console.log(new Date(e.target.value));
+        this.configs.end.minDate = new Date(e.target.value);
+        console.log(this.configs.end.minDate);
+      }
+
+      if (e.target.id === 'fim' && Object.prototype.toString.call(new Date(e.target.value)) === '[object Date]') {
+        this.configs.start.maxDate = new Date(e.target.value);
+      }
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/admin/relatorio/index.js":
+/*!***********************************************!*\
+  !*** ./resources/js/admin/relatorio/index.js ***!
+  \***********************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Form__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Form */ "./resources/js/admin/relatorio/Form.js");
 
 
 /***/ }),

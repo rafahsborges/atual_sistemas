@@ -15,3 +15,4 @@ import './remessa-boleto';
 import './sexo';
 import './uf';
 import './cidade';
+import './relatorio';
