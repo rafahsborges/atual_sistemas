@@ -42,10 +42,10 @@ class ClientesController extends Controller
             $request,
 
             // set columns to query
-            ['id', 'tipo', 'nome', 'nascimento', 'rg', 'cpf', 'insc_municipal', 'cnpj', 'id_sexo', 'profissao', 'local_trabalho', 'telefone', 'celular', 'logradouro', 'numero', 'complemento', 'bairro', 'id_cidade', 'id_uf', 'email', 'observacao', 'cep', 'celular2', 'celular3', 'id_cliente_responsavel', 'id_estado_civil', 'enabled'],
+            ['id', 'tipo', 'nome', 'nascimento', 'rg', 'cpf', 'insc_municipal', 'cnpj', 'id_sexo', 'profissao', 'local_trabalho', 'telefone', 'celular', 'logradouro', 'numero', 'complemento', 'bairro', 'id_cidade', 'id_uf', 'email', 'observacao', 'cep', 'celular2', 'celular3', 'id_cliente_responsavel', 'id_estado_civil', 'enabled', 'deleted_at'],
 
             // set columns to searchIn
-            ['id', 'nome', 'rg', 'cpf', 'insc_municipal', 'cnpj', 'id_sexo', 'profissao', 'local_trabalho', 'telefone', 'celular', 'logradouro', 'numero', 'complemento', 'bairro', 'id_cidade', 'id_uf', 'email', 'observacao', 'cep', 'celular2', 'celular3'],
+            ['id', 'nome', 'rg', 'cpf', 'insc_municipal', 'cnpj', 'id_sexo', 'profissao', 'local_trabalho', 'telefone', 'celular', 'logradouro', 'numero', 'complemento', 'bairro', 'id_cidade', 'id_uf', 'email', 'observacao', 'cep', 'celular2', 'celular3', 'deleted_at'],
 
             function ($query) use ($request) {
                 $query->with(['civil']);
