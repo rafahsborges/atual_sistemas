@@ -9,7 +9,7 @@
         <div class="card">
 
             <relatorio-form
-                :action="'{{ url('admin/export') }}'"
+                :action="'{{ url('admin/relatorios') }}'"
                 v-cloak
                 inline-template>
 

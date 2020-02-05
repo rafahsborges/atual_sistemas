@@ -3,60 +3,48 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\Relatorio\BulkDestroyRelatorio;
-use App\Http\Requests\Admin\Relatorio\DestroyRelatorio;
-use App\Http\Requests\Admin\Relatorio\IndexRelatorio;
-use App\Http\Requests\Admin\Relatorio\StoreRelatorio;
-use App\Http\Requests\Admin\Relatorio\UpdateRelatorio;
-use App\Models\Contrato;
-use App\Models\Relatorio;
-use Brackets\AdminListing\Facades\AdminListing;
-use Carbon\Carbon;
+use App\Models\Parcela;
 use Exception;
-use Illuminate\Auth\Access\AuthorizationException;
-use Illuminate\Contracts\Routing\ResponseFactory;
-use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Response;
+use Illuminate\Http\Request;
 use Illuminate\Routing\Redirector;
-use Illuminate\Support\Facades\DB;
-use Illuminate\View\View;
+use Illuminate\Validation\ValidationException;
 use PDF;
 
 class RelatoriosController extends Controller
 {
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param StoreRelatorio $request
-     * @return array|RedirectResponse|Redirector
-     */
-    public function store(StoreRelatorio $request)
-    {
-        // Sanitize input
-        $sanitized = $request->getSanitized();
-        $sanitized['id_contrato'] = $request->getContratoId();
-
-        // Store the Relatorio
-        $parcela = Relatorio::create($sanitized);
-
-        if ($request->ajax()) {
-            return ['redirect' => url('admin/parcelas'), 'message' => trans('brackets/admin-ui::admin.operation.succeeded')];
-        }
-
-        return redirect('admin/parcelas');
-    }
-
     /**
      * Export entities
+     * @param Request $request
+     * @return string
+     * @throws ValidationException
      */
-    public function export()
+    public function export(Request $request)
     {
-        $data = "Olá Mundo";
-        $pdf = PDF::loadView('pdf.relatorio', [
-            'data' => $data,
+        // Validate the request
+        $this->validate($request, [
+            'inicio' => ['required', 'date'],
+            'fim' => ['required', 'date'],
         ]);
+
+        // Sanitize input
+        $sanitized = $request->only([
+            'inicio',
+            'fim',
+        ]);
+
+        $parcelas = Parcela::whereBetween('vencimento', [$sanitized['inicio'], $sanitized['fim']])
+            ->whereNull('pagamento')
+            ->get();
+
+        $pdf = PDF::loadView('pdf.relatorio',
+            [
+                'data' => $parcelas,
+                'inicio' => $sanitized['inicio'],
+                'fim' => $sanitized['fim']
+            ]
+        );
+
         return $pdf->download('relatorio.pdf');
     }
 }
