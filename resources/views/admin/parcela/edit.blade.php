@@ -1,6 +1,6 @@
 @extends('brackets/admin-ui::admin.layout.default')
 
-@section('title', trans('admin.parcela.actions.edit', ['name' => $contratoParcela->id]))
+@section('title', trans('admin.parcela.actions.edit', ['name' => $parcela->id]))
 
 @section('body')
 
@@ -8,8 +8,8 @@
         <div class="card">
 
             <parcela-form
-                :action="'{{ $contratoParcela->resource_url }}'"
-                :data="{{ $contratoParcela->toJson() }}"
+                :action="'{{ $parcela->resource_url }}'"
+                :data="{{ $parcela->toJson() }}"
                 :contratos="{{$contratos->toJson()}}"
                 v-cloak
                 inline-template>
@@ -18,7 +18,7 @@
 
 
                     <div class="card-header">
-                        <i class="fa fa-pencil"></i> {{ trans('admin.parcela.actions.edit', ['name' => $contratoParcela->id]) }}
+                        <i class="fa fa-pencil"></i> {{ trans('admin.parcela.actions.edit', ['name' => $parcela->id]) }}
                     </div>
 
                     <div class="card-body">

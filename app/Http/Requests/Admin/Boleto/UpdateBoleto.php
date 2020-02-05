@@ -27,8 +27,8 @@ class UpdateBoleto extends FormRequest
     {
         return [
             'status' => ['sometimes', 'boolean'],
-            'id_contrato_parcela' => ['nullable', 'string'],
-            
+            'id_parcela' => ['nullable', 'string'],
+
         ];
     }
 

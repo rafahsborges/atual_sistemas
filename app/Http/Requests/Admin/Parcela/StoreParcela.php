@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Requests\Admin\ContratoParcela;
+namespace App\Http\Requests\Admin\Parcela;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Validation\Rule;
 
-class StoreContratoParcela extends FormRequest
+class StoreParcela extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -15,7 +15,7 @@ class StoreContratoParcela extends FormRequest
      */
     public function authorize(): bool
     {
-        return Gate::allows('admin.contrato-parcela.create');
+        return Gate::allows('admin.parcela.create');
     }
 
     /**

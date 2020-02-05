@@ -11,7 +11,7 @@ use App\Http\Requests\Admin\Contrato\UpdateContrato;
 use App\Models\Cliente;
 use App\Models\Conta;
 use App\Models\Contrato;
-use App\Models\ContratoParcela;
+use App\Models\Parcela;
 use App\Models\Plano;
 use Brackets\AdminListing\Facades\AdminListing;
 use Carbon\Carbon;
@@ -127,12 +127,12 @@ class ContratosController extends Controller
         // Store the Contrato
         $contrato = Contrato::create($sanitized);
 
-        $contrato_parcelas = [];
+        $parcelas = [];
 
         if ($contrato->id) {
             for ($i = 0; $i < $diff_in_months; $i++) {
                 $vencimento_parcela = new Carbon($primeira_parcela);
-                $contrato_parcelas[] = array(
+                $parcelas[] = array(
                     'vencimento' => $vencimento_parcela->addMonths($i)->toDateString(),
                     'valor' => $valor_parcela,
                     'numero_parcela' => $i + 1,
@@ -144,9 +144,9 @@ class ContratosController extends Controller
             }
         }
 
-        foreach ($contrato_parcelas as $contrato_parcela) {
-            // Store the ContratoParcela
-            $contratoParcela = ContratoParcela::create($contrato_parcela);
+        foreach ($parcelas as $parcela) {
+            // Store the Parcela
+            $parcela = Parcela::create($parcela);
         }
 
         if ($request->ajax()) {

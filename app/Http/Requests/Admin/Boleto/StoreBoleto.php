@@ -27,8 +27,8 @@ class StoreBoleto extends FormRequest
     {
         return [
             'status' => ['required', 'boolean'],
-            'id_contrato_parcela' => ['nullable', 'string'],
-            
+            'id_parcela' => ['nullable', 'string'],
+
         ];
     }
 

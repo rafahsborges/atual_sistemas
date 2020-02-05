@@ -25,7 +25,7 @@ class IndexBoleto extends FormRequest
     public function rules(): array
     {
         return [
-            'orderBy' => 'in:id,status,id_contrato_parcela|nullable',
+            'orderBy' => 'in:id,status,id_parcela|nullable',
             'orderDirection' => 'in:asc,desc|nullable',
             'search' => 'string|nullable',
             'page' => 'integer|nullable',

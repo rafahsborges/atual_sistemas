@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Requests\Admin\ContratoParcela;
+namespace App\Http\Requests\Admin\Parcela;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Gate;
 
-class IndexContratoParcela extends FormRequest
+class IndexParcela extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -14,7 +14,7 @@ class IndexContratoParcela extends FormRequest
      */
     public function authorize(): bool
     {
-        return Gate::allows('admin.contrato-parcela.index');
+        return Gate::allows('admin.parcela.index');
     }
 
     /**

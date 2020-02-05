@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateContratoParcelasTable extends Migration
+class CreateParcelasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateContratoParcelasTable extends Migration
      */
     public function up()
     {
-        Schema::create('contrato_parcelas', function (Blueprint $table) {
+        Schema::create('parcelas', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->date('vencimento');
             $table->date('pagamento')->nullable();
@@ -40,9 +40,9 @@ class CreateContratoParcelasTable extends Migration
      */
     public function down()
     {
-        Schema::table('contrato_parcelas', function (Blueprint $table) {
+        Schema::table('parcelas', function (Blueprint $table) {
             $table->dropForeign('fk_contr_parcela_contratos');
         });
-        Schema::drop('contrato_parcelas');
+        Schema::drop('parcelas');
     }
 }

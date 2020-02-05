@@ -76,8 +76,8 @@ class Contrato extends Model
     /**
      * @return HasMany
      */
-    public function contratoParcelas()
+    public function parcelas()
     {
-        return $this->hasMany('App\Models\ContratoParcela', 'id_contrato');
+        return $this->hasMany('App\Models\Parcela', 'id_contrato');
     }
 }

@@ -10,7 +10,7 @@ class Boleto extends Model
 {
     protected $fillable = [
         'status',
-        'id_contrato_parcela',
+        'id_parcela',
     ];
 
     protected $dates = [
@@ -30,9 +30,9 @@ class Boleto extends Model
     /**
      * @return BelongsTo
      */
-    public function contratoParcela()
+    public function parcela()
     {
-        return $this->belongsTo('App\Models\ContratoParcela', 'id_contrato_parcela');
+        return $this->belongsTo('App\Models\Parcela', 'id_parcela');
     }
 
     /**

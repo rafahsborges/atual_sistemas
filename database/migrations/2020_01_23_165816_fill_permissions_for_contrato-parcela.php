@@ -5,7 +5,7 @@ use Illuminate\Config\Repository;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Support\Facades\DB;
 
-class FillPermissionsForContratoParcela extends Migration
+class FillPermissionsForParcela extends Migration
 {
     /**
      * @var Repository|mixed
@@ -21,20 +21,20 @@ class FillPermissionsForContratoParcela extends Migration
     protected $roles;
 
     /**
-     * FillPermissionsForContratoParcela constructor.
+     * FillPermissionsForParcela constructor.
      */
     public function __construct()
     {
         $this->guardName = config('admin-auth.defaults.guard');
 
         $permissions = collect([
-            'admin.contrato-parcela',
-            'admin.contrato-parcela.index',
-            'admin.contrato-parcela.create',
-            'admin.contrato-parcela.show',
-            'admin.contrato-parcela.edit',
-            'admin.contrato-parcela.delete',
-            'admin.contrato-parcela.bulk-delete',
+            'admin.parcela',
+            'admin.parcela.index',
+            'admin.parcela.create',
+            'admin.parcela.show',
+            'admin.parcela.edit',
+            'admin.parcela.delete',
+            'admin.parcela.bulk-delete',
         ]);
 
         //Add New permissions

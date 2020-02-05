@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class ContratoParcela extends Model
+class Parcela extends Model
 {
     use SoftDeletes;
 
@@ -38,7 +38,7 @@ class ContratoParcela extends Model
 
     public function getResourceUrlAttribute()
     {
-        return url('/admin/contrato-parcelas/'.$this->getKey());
+        return url('/admin/parcelas/'.$this->getKey());
     }
 
     /**
@@ -54,6 +54,6 @@ class ContratoParcela extends Model
      */
     public function boletos()
     {
-        return $this->hasMany('App\Models\Boleto', 'id_contrato_parcela');
+        return $this->hasMany('App\Models\Boleto', 'id_parcela');
     }
 }

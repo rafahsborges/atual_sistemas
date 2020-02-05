@@ -37,7 +37,7 @@ class BoletosController extends Controller
             $request,
 
             // set columns to query
-            ['id', 'status', 'id_contrato_parcela'],
+            ['id', 'status', 'id_parcela'],
 
             // set columns to searchIn
             ['id']

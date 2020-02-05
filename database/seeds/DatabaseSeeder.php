@@ -21,7 +21,7 @@ class DatabaseSeeder extends Seeder
         $this->call(PlanosTableSeeder::class);
         $this->call(ContasTableSeeder::class);
         $this->call(ContratosTableSeeder::class);
-        $this->call(ContratoParcelasTableSeeder::class);
+        $this->call(ParcelasTableSeeder::class);
         $this->call(BoletosTableSeeder::class);
         $this->call(RemessasTableSeeder::class);
         $this->call(RemessaBoletosTableSeeder::class);

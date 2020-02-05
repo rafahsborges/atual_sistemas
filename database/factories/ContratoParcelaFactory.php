@@ -5,7 +5,7 @@
 use Faker\Generator as Faker;
 use Illuminate\Database\Eloquent\Factory;
 
-$factory->define(App\ContratoParcela::class, function (Faker $faker) {
+$factory->define(App\Parcela::class, function (Faker $faker) {
     return [
         'vencimento' => $faker->date(),
         'pagamento' => $faker->date(),

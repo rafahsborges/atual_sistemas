@@ -16,9 +16,9 @@ class CreateBoletosTable extends Migration
         Schema::create('boletos', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->boolean('status');
-            $table->unsignedBigInteger('id_contrato_parcela')->index('fk_boleto_contr_parcelas')->nullable();
-            $table->foreign('id_contrato_parcela', 'fk_boleto_contr_parcelas')
-                ->references('id')->on('contrato_parcelas')
+            $table->unsignedBigInteger('id_parcela')->index('fk_boleto_contr_parcelas')->nullable();
+            $table->foreign('id_parcela', 'fk_boleto_contr_parcelas')
+                ->references('id')->on('parcelas')
                 ->onUpdate('restrict')
                 ->onDelete('restrict');
         });

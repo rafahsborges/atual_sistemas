@@ -150,7 +150,7 @@ $factory->define(App\Models\Contrato::class, static function (Faker\Generator $f
 });
 
 /** @var  Factory $factory */
-$factory->define(App\Models\ContratoParcela::class, static function (Faker\Generator $faker) {
+$factory->define(App\Models\Parcela::class, static function (Faker\Generator $faker) {
     return [
         'vencimento' => $faker->date(),
         'pagamento' => $faker->date(),
@@ -171,7 +171,7 @@ $factory->define(App\Models\ContratoParcela::class, static function (Faker\Gener
 $factory->define(App\Models\Boleto::class, static function (Faker\Generator $faker) {
     return [
         'status' => $faker->boolean(),
-        'id_contrato_parcela' => $faker->sentence,
+        'id_parcela' => $faker->sentence,
     ];
 });
 
