@@ -140,6 +140,7 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
             Route::get('/create', 'ContratosController@create')->name('create');
             Route::post('/', 'ContratosController@store')->name('store');
             Route::get('/{contrato}/edit', 'ContratosController@edit')->name('edit');
+            Route::get('/{contrato}/carteira', 'ContratosController@carteira')->name('carteira');
             Route::post('/bulk-destroy', 'ContratosController@bulkDestroy')->name('bulk-destroy');
             Route::post('/{contrato}', 'ContratosController@update')->name('update');
             Route::delete('/{contrato}', 'ContratosController@destroy')->name('destroy');

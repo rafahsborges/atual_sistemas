@@ -7,11 +7,13 @@
 
 <body>
 
-<h1>CONTAS A RECEBER</h1>
+<h2>CONTAS A RECEBER</h2>
 
-<br>
-
-<p>Período de {{$inicio}} até {{$fim}}</p>
+<p>
+    <b>
+        Período de {{ date('d/m/Y', strtotime($inicio)) }} até {{ date('d/m/Y', strtotime($fim)) }}
+    </b>
+</p>
 
 </body>
 

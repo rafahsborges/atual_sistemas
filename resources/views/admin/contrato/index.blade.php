@@ -144,6 +144,12 @@
                                     <td>
                                         <div class="row no-gutters">
                                             <div class="col-auto">
+                                                <a class="btn btn-sm btn-spinner btn-success"
+                                                   :href="item.resource_url + '/carteira'"
+                                                   title="{{ trans('brackets/admin-ui::admin.btn.edit') }}"
+                                                   role="button"><i class="fa fa-print"></i></a>
+                                            </div>
+                                            <div class="col-auto">
                                                 <a class="btn btn-sm btn-spinner btn-info"
                                                    :href="item.resource_url + '/edit'"
                                                    title="{{ trans('brackets/admin-ui::admin.btn.edit') }}"

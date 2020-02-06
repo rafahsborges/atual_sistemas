@@ -20,10 +20,14 @@ use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Contracts\Routing\ResponseFactory;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Redirector;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Validation\ValidationException;
 use Illuminate\View\View;
+use PDF;
 
 class ContratosController extends Controller
 {
@@ -277,5 +281,44 @@ class ContratosController extends Controller
         });
 
         return response(['message' => trans('brackets/admin-ui::admin.operation.succeeded')]);
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param Contrato $contrato
+     * @return Factory|View
+     * @throws AuthorizationException
+     */
+    public function carteira(Contrato $contrato)
+    {
+        $this->authorize('admin.contrato.edit', $contrato);
+
+        $contrato = Contrato::with('cliente')
+            ->with('cliente.dependentes')
+            ->with('plano')
+            ->with('conta')
+            ->find($contrato->id);
+
+        if ($contrato->tipo_pagamento === '1') {
+            $contrato['pagamento'] = array('nome' => 'Boleto', 'id' => 1);
+        }
+
+        if ($contrato->tipo_pagamento === '2') {
+            $contrato['pagamento'] = array('nome' => 'Carnê', 'id' => 2);
+        }
+
+        $pdf = PDF::loadView('pdf.carteira',
+            [
+                'id' => $contrato->cliente->id,
+                'nome' => $contrato->cliente->nome,
+                'nascimento' => $contrato->cliente->nascimento,
+                'validade' => $contrato->validade_contrato,
+                'dependentes' => $contrato->cliente->dependentes,
+                'plano' => $contrato->plano_funeral,
+            ]
+        );
+
+        return $pdf->download('relatorio.pdf');
     }
 }

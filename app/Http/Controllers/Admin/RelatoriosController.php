@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Parcela;
+use Carbon\Carbon;
 use Exception;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -41,7 +42,7 @@ class RelatoriosController extends Controller
             [
                 'data' => $parcelas,
                 'inicio' => $sanitized['inicio'],
-                'fim' => $sanitized['fim']
+                'fim' => $sanitized['fim'],
             ]
         );
 
