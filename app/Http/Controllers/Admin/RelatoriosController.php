@@ -24,15 +24,16 @@ class RelatoriosController extends Controller
     {
         $parcelas = Parcela::whereBetween('vencimento', [$inicio, $fim])
             ->whereNull('pagamento')
+            //->groupBy('id_contrato')
+            ->with('contrato')
+            ->with('contrato.cliente')
             ->get();
 
-        $pdf = PDF::loadView('pdf.relatorio',
-            [
-                'data' => $parcelas,
-                'inicio' => $inicio,
-                'fim' => $fim,
-            ]
-        );
+        $pdf = PDF::loadView('pdf.relatorio', [
+            'data' => $parcelas,
+            'inicio' => $inicio,
+            'fim' => $fim,
+        ]);
 
         return $pdf->download('relatorio.pdf');
     }
