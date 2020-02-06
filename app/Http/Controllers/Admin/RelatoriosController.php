@@ -16,33 +16,21 @@ class RelatoriosController extends Controller
 {
     /**
      * Export entities
-     * @param Request $request
+     * @param $inicio
+     * @param $fim
      * @return string
-     * @throws ValidationException
      */
-    public function export(Request $request)
+    public function relatorio($inicio, $fim)
     {
-        // Validate the request
-        $this->validate($request, [
-            'inicio' => ['required', 'date'],
-            'fim' => ['required', 'date'],
-        ]);
-
-        // Sanitize input
-        $sanitized = $request->only([
-            'inicio',
-            'fim',
-        ]);
-
-        $parcelas = Parcela::whereBetween('vencimento', [$sanitized['inicio'], $sanitized['fim']])
+        $parcelas = Parcela::whereBetween('vencimento', [$inicio, $fim])
             ->whereNull('pagamento')
             ->get();
 
         $pdf = PDF::loadView('pdf.relatorio',
             [
                 'data' => $parcelas,
-                'inicio' => $sanitized['inicio'],
-                'fim' => $sanitized['fim'],
+                'inicio' => $inicio,
+                'fim' => $fim,
             ]
         );
 

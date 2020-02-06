@@ -319,6 +319,6 @@ class ContratosController extends Controller
             ]
         );
 
-        return $pdf->download('relatorio.pdf');
+        return $pdf->download('carteira.pdf');
     }
 }

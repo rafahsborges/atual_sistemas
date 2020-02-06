@@ -262,7 +262,7 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
             Route::get('/', function () {
                 return view('admin.relatorio.index');
             });
-            Route::post('/', 'RelatoriosController@export')->name('export');
+            Route::get('/{inicio}/{fim}', 'RelatoriosController@relatorio')->name('relatorio');
         });
     });
 });
