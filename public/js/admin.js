@@ -112251,11 +112251,17 @@ Vue.component('contrato-listing', {
           handler: function handler() {
             _this5.$modal.hide('dialog');
 
-            axios.post(url, {
-              data: {
-                'ids': itemsToExport
-              }
+            axios({
+              url: url + '/' + itemsToExport,
+              method: 'GET',
+              responseType: 'blob'
             }).then(function (response) {
+              var fileURL = window.URL.createObjectURL(new Blob([response.data]));
+              var fileLink = document.createElement('a');
+              fileLink.href = fileURL;
+              fileLink.setAttribute('download', 'carteiras.pdf');
+              document.body.appendChild(fileLink);
+              fileLink.click();
               self.bulkItems = {};
 
               _this5.loadData();
@@ -112263,7 +112269,7 @@ Vue.component('contrato-listing', {
               _this5.$notify({
                 type: 'success',
                 title: 'Success!',
-                text: response.data.message ? response.data.message : 'Item successfully exported.'
+                text: response.data.message ? response.data.message : 'Item successfully deleted.'
               });
             }, function (error) {
               _this5.$notify({

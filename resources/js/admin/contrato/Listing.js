@@ -47,20 +47,34 @@ Vue.component('contrato-listing', {
             this.$modal.show('dialog', {
                 title: 'Warning!',
                 text: 'Do you really want to export ' + this.clickedBulkItemsCount + ' selected items ?',
-                buttons: [{ title: 'No, cancel.' }, {
+                buttons: [{title: 'No, cancel.'}, {
                     title: '<span class="btn-dialog btn-success">Yes, export.<span>',
                     handler: function handler() {
                         _this5.$modal.hide('dialog');
-                        axios.post(url, {
-                            data: {
-                                'ids': itemsToExport
-                            }
-                        }).then(function (response) {
+                        axios({
+                            url: url + '/' + itemsToExport,
+                            method: 'GET',
+                            responseType: 'blob',
+                        }).then((response) => {
+                            var fileURL = window.URL.createObjectURL(new Blob([response.data]));
+                            var fileLink = document.createElement('a');
+                            fileLink.href = fileURL;
+                            fileLink.setAttribute('download', 'carteiras.pdf');
+                            document.body.appendChild(fileLink);
+                            fileLink.click();
                             self.bulkItems = {};
                             _this5.loadData();
-                            _this5.$notify({ type: 'success', title: 'Success!', text: response.data.message ? response.data.message : 'Item successfully exported.' });
+                            _this5.$notify({
+                                type: 'success',
+                                title: 'Success!',
+                                text: response.data.message ? response.data.message : 'Item successfully deleted.'
+                            });
                         }, function (error) {
-                            _this5.$notify({ type: 'error', title: 'Error!', text: error.response.data.message ? error.response.data.message : 'An error has occured.' });
+                            _this5.$notify({
+                                type: 'error',
+                                title: 'Error!',
+                                text: error.response.data.message ? error.response.data.message : 'An error has occured.'
+                            });
                         });
                     }
                 }]

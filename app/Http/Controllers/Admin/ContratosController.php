@@ -326,20 +326,20 @@ class ContratosController extends Controller
     /**
      * Remove the specified resources from storage.
      *
-     * @param BulkCarteiraContrato $request
+     * @param $ids
      * @return Response|bool
-     * @throws Exception
      */
-    public function bulkCarteira(BulkCarteiraContrato $request): Response
+    public function bulkCarteira($ids): Response
     {
+        $ids = explode(',', $ids);
         $contratos = [];
 
-        foreach ($request->data['ids'] as $ids) {
+        foreach ($ids as $id) {
             $contrato = Contrato::with('cliente')
                 ->with('cliente.dependentes')
                 ->with('plano')
                 ->with('conta')
-                ->find($ids);
+                ->find($id);
 
             if ($contrato->tipo_pagamento === '1') {
                 $contrato['pagamento'] = array('nome' => 'Boleto', 'id' => 1);
@@ -366,7 +366,5 @@ class ContratosController extends Controller
         );
 
         return $pdf->download('carteira.pdf');
-
-        return response(['message' => trans('brackets/admin-ui::admin.operation.succeeded')]);
     }
 }
