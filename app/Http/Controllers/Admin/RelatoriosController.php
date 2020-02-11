@@ -24,7 +24,6 @@ class RelatoriosController extends Controller
     {
         $parcelas = Parcela::whereBetween('vencimento', [$inicio, $fim])
             ->whereNull('pagamento')
-            //->groupBy('id_contrato')
             ->with('contrato')
             ->with('contrato.cliente')
             ->get();
