@@ -67,7 +67,7 @@ Vue.component('contrato-listing', {
                             _this5.$notify({
                                 type: 'success',
                                 title: 'Success!',
-                                text: response.data.message ? response.data.message : 'Item successfully deleted.'
+                                text: response.data.message ? response.data.message : 'Item successfully exported.'
                             });
                         }, function (error) {
                             _this5.$notify({
