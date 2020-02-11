@@ -1,5 +1,7 @@
 import AppListing from '../app-components/Listing/AppListing';
 
+var _lodash = require('lodash');
+
 Vue.component('contrato-listing', {
     mixins: [AppListing],
     data() {
@@ -32,5 +34,37 @@ Vue.component('contrato-listing', {
             });
             this.filter('planos', this.filters.planos);
         }
+    },
+
+    methods: {
+
+        bulkCarteira: function bulkCarteira(url) {
+            var _this5 = this;
+
+            var itemsToExport = (0, _lodash.keys)((0, _lodash.pickBy)(this.bulkItems));
+            var self = this;
+
+            this.$modal.show('dialog', {
+                title: 'Warning!',
+                text: 'Do you really want to export ' + this.clickedBulkItemsCount + ' selected items ?',
+                buttons: [{ title: 'No, cancel.' }, {
+                    title: '<span class="btn-dialog btn-success">Yes, export.<span>',
+                    handler: function handler() {
+                        _this5.$modal.hide('dialog');
+                        axios.post(url, {
+                            data: {
+                                'ids': itemsToExport
+                            }
+                        }).then(function (response) {
+                            self.bulkItems = {};
+                            _this5.loadData();
+                            _this5.$notify({ type: 'success', title: 'Success!', text: response.data.message ? response.data.message : 'Item successfully exported.' });
+                        }, function (error) {
+                            _this5.$notify({ type: 'error', title: 'Error!', text: error.response.data.message ? error.response.data.message : 'An error has occured.' });
+                        });
+                    }
+                }]
+            });
+        },
     }
 });

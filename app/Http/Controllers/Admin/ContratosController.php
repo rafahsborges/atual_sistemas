@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\Contrato\BulkCarteiraContrato;
 use App\Http\Requests\Admin\Contrato\BulkDestroyContrato;
 use App\Http\Requests\Admin\Contrato\DestroyContrato;
 use App\Http\Requests\Admin\Contrato\IndexContrato;
@@ -320,5 +321,52 @@ class ContratosController extends Controller
         );
 
         return $pdf->download('carteira.pdf');
+    }
+
+    /**
+     * Remove the specified resources from storage.
+     *
+     * @param BulkCarteiraContrato $request
+     * @return Response|bool
+     * @throws Exception
+     */
+    public function bulkCarteira(BulkCarteiraContrato $request): Response
+    {
+        $contratos = [];
+
+        foreach ($request->data['ids'] as $ids) {
+            $contrato = Contrato::with('cliente')
+                ->with('cliente.dependentes')
+                ->with('plano')
+                ->with('conta')
+                ->find($ids);
+
+            if ($contrato->tipo_pagamento === '1') {
+                $contrato['pagamento'] = array('nome' => 'Boleto', 'id' => 1);
+            }
+
+            if ($contrato->tipo_pagamento === '2') {
+                $contrato['pagamento'] = array('nome' => 'Carnê', 'id' => 2);
+            }
+
+            $contratos[] = [
+                'id' => $contrato->cliente->id,
+                'nome' => $contrato->cliente->nome,
+                'nascimento' => $contrato->cliente->nascimento,
+                'validade' => $contrato->validade_contrato,
+                'dependentes' => $contrato->cliente->dependentes,
+                'plano' => $contrato->plano_funeral,
+            ];
+        }
+
+        $pdf = PDF::loadView('pdf.carteiras',
+            [
+                'carteiras' => $contratos
+            ]
+        );
+
+        return $pdf->download('carteira.pdf');
+
+        return response(['message' => trans('brackets/admin-ui::admin.operation.succeeded')]);
     }
 }

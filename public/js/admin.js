@@ -12392,6 +12392,7 @@ exports.default = {
 
 };
 
+
 /***/ }),
 
 /***/ "./node_modules/craftable/dist/base-components/Listing/components/Pagination.js":
@@ -112200,6 +112201,9 @@ Vue.component('contrato-form', {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../app-components/Listing/AppListing */ "./resources/js/admin/app-components/Listing/AppListing.js");
 
+
+var _lodash = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+
 Vue.component('contrato-listing', {
   mixins: [_app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__["default"]],
   data: function data() {
@@ -112229,6 +112233,48 @@ Vue.component('contrato-listing', {
         return object['key'];
       });
       this.filter('planos', this.filters.planos);
+    }
+  },
+  methods: {
+    bulkCarteira: function bulkCarteira(url) {
+      var _this5 = this;
+
+      var itemsToExport = (0, _lodash.keys)((0, _lodash.pickBy)(this.bulkItems));
+      var self = this;
+      this.$modal.show('dialog', {
+        title: 'Warning!',
+        text: 'Do you really want to export ' + this.clickedBulkItemsCount + ' selected items ?',
+        buttons: [{
+          title: 'No, cancel.'
+        }, {
+          title: '<span class="btn-dialog btn-success">Yes, export.<span>',
+          handler: function handler() {
+            _this5.$modal.hide('dialog');
+
+            axios.post(url, {
+              data: {
+                'ids': itemsToExport
+              }
+            }).then(function (response) {
+              self.bulkItems = {};
+
+              _this5.loadData();
+
+              _this5.$notify({
+                type: 'success',
+                title: 'Success!',
+                text: response.data.message ? response.data.message : 'Item successfully exported.'
+              });
+            }, function (error) {
+              _this5.$notify({
+                type: 'error',
+                title: 'Error!',
+                text: error.response.data.message ? error.response.data.message : 'An error has occured.'
+              });
+            });
+          }
+        }]
+      });
     }
   }
 });
