@@ -16,6 +16,9 @@ use App\Models\Parcela;
 use App\Models\Plano;
 use Brackets\AdminListing\Facades\AdminListing;
 use Carbon\Carbon;
+use Eduardokum\LaravelBoleto\Boleto\Banco\Bradesco;
+use Eduardokum\LaravelBoleto\Boleto\Banco\Sicredi;
+use Eduardokum\LaravelBoleto\Pessoa;
 use Exception;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Contracts\Routing\ResponseFactory;
@@ -327,7 +330,7 @@ class ContratosController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param Contrato $contrato
-     * @return Factory|View
+     * @return string
      * @throws AuthorizationException
      */
     public function boleto(Contrato $contrato)
@@ -338,6 +341,7 @@ class ContratosController extends Controller
             ->with('cliente.dependentes')
             ->with('plano')
             ->with('conta')
+            ->with('parcelas')
             ->find($contrato->id);
 
         if ($contrato->tipo_pagamento === '1') {
@@ -348,38 +352,80 @@ class ContratosController extends Controller
             $contrato['pagamento'] = array('nome' => 'Carnê', 'id' => 2);
         }
 
-        $beneficiario = new \Eduardokum\LaravelBoleto\Pessoa([
-            'documento' => '00.000.000/0000-00',
-            'nome'      => 'Company co.',
-            'cep'       => '00000-000',
-            'endereco'  => 'Street name, 123',
-            'bairro' => 'district',
-            'uf'        => 'UF',
-            'cidade'    => 'City',
+        $beneficiario = new Pessoa([
+            'documento' => $contrato->conta->cpf_cnpj,
+            'nome' => $contrato->conta->nome,
+            'cep' => '15700-068',
+            'endereco' => 'Rua 10 n. 2740',
+            'bairro' => 'Centro',
+            'uf' => 'SP',
+            'cidade' => 'Jales',
         ]);
 
-        $pagador = new \Eduardokum\LaravelBoleto\Pessoa([
-            'documento' => '00.000.000/0000-00',
-            'nome'      => 'Company co.',
-            'cep'       => '00000-000',
-            'endereco'  => 'Street name, 123',
-            'bairro' => 'district',
-            'uf'        => 'UF',
-            'cidade'    => 'City',
+        $pagador = new Pessoa([
+            'documento' => $contrato->cliente->tipo === 1 ? $contrato->cliente->cnpj : $contrato->cliente->cpf,
+            'nome' => $contrato->cliente->tipo === 1 ? $contrato->cliente->razao_social : $contrato->cliente->nome,
+            'cep' => $contrato->cliente->cep,
+            'endereco' => $contrato->cliente->logradouro,
+            'bairro' => $contrato->cliente->bairro,
+            'uf' => $contrato->cliente->uf->abreviacao,
+            'cidade' => $contrato->cliente->cidade->nome,
         ]);
 
-        $pdf = PDF::loadView('pdf.carteira',
-            [
-                'id' => $contrato->cliente->id,
-                'nome' => $contrato->cliente->nome,
-                'nascimento' => $contrato->cliente->nascimento,
-                'validade' => $contrato->validade_contrato,
-                'dependentes' => $contrato->cliente->dependentes,
-                'plano' => $contrato->plano_funeral,
-            ]
-        );
+        $pdf = new \Eduardokum\LaravelBoleto\Boleto\Render\Pdf();
 
-        return $pdf->download('boleto.pdf');
+        foreach ($contrato->parcelas as $key => $parcela) {
+            if ($contrato->conta->banco === '237') {
+                $boleto = new Bradesco([
+                    'logo' => 'images/bradesco.jpg',
+                    'dataVencimento' => new Carbon($parcela['vencimento']),
+                    'valor' => $parcela->valor,
+                    'numero' => 1,
+                    'numeroDocumento' => 1,
+                    'pagador' => $pagador,
+                    'beneficiario' => $beneficiario,
+                    'carteira' => $contrato->conta->carteira,
+                    'agencia' => $contrato->conta->agencia,
+                    'conta' => $contrato->conta->conta,
+                    'multa' => $contrato->multa, // 1% do valor do boleto após o vencimento
+                    'juros' => $contrato->juros, // 1% ao mês do valor do boleto
+                    'jurosApos' => 0, // quant. de dias para começar a cobrança de juros,
+                    //'descricaoDemonstrativo' => ['demonstrativo 1', 'demonstrativo 2', 'demonstrativo 3'],
+                    'instrucoes' => [$contrato->conta->mensagem_1, $contrato->conta->mensagem_2],
+                ]);
+            }
+
+            if ($contrato->conta->banco === '748') {
+                $sicredi = new Sicredi([
+                    'logo' => '/path/to/logo.png',
+                    'dataVencimento' => '1997-10-07',
+                    'valor' => 100,
+                    'numero' => 1,
+                    'numeroDocumento' => 1,
+                    'pagador' => $pagador,
+                    'beneficiario' => $beneficiario,
+                    'carteira' => 1,
+                    'posto' => 11,
+                    'byte' => 2,
+                    'agencia' => 1111,
+                    'conta' => 22222,
+                    'multa' => 1, // 1% do valor do boleto após o vencimento
+                    'juros' => 1, // 1% ao mês do valor do boleto
+                    'jurosApos' => 0, // quant. de dias para começar a cobrança de juros,
+                    //'descricaoDemonstrativo' => ['demonstrativo 1', 'demonstrativo 2', 'demonstrativo 3'],
+                    'instrucoes' => ['instrucao 1', 'instrucao 2', 'instrucao 3'],
+                ]);
+            }
+
+            // Add as many bills as you want.
+            $pdf->addBoleto($boleto);
+        }
+
+        // If you want to hide the print instructions.
+        $pdf->hideInstrucoes();
+
+        // To Render
+        return $pdf->gerarBoleto();
     }
 
     /**
