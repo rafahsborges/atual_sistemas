@@ -18,7 +18,8 @@
     <label for="nome" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.cliente.columns.nome') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.nome" v-validate="'required'" @input="validate($event)" v-on:change="console.log('mudei');"
+        <input type="text" v-model="form.nome" v-validate="'required'" @input="validate($event)"
+               v-on:change="console.log('mudei');"
                class="form-control"
                :class="{'form-control-danger': errors.has('nome'), 'form-control-success': fields.nome && fields.nome.valid}"
                id="nome" name="nome" placeholder="{{ trans('admin.cliente.columns.nome') }}">
@@ -33,7 +34,8 @@
         <label for="cnpj" class="col-form-label text-md-right"
                :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.cliente.columns.cnpj') }}</label>
         <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-            <input type="text" v-model="form.cnpj" v-validate="''" @input="validate($event)" class="form-control" v-mask="'##.###.###/####-##'"
+            <input type="text" v-model="form.cnpj" v-validate="''" @input="validate($event)" class="form-control"
+                   v-mask="'##.###.###/####-##'"
                    :class="{'form-control-danger': errors.has('cnpj'), 'form-control-success': fields.cnpj && fields.cnpj.valid}"
                    id="cnpj" name="cnpj" placeholder="{{ trans('admin.cliente.columns.cnpj') }}">
             <div v-if="errors.has('cnpj')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('cnpj') }}
@@ -76,7 +78,8 @@
         <label for="cpf" class="col-form-label text-md-right"
                :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.cliente.columns.cpf') }}</label>
         <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-            <input type="text" v-model="form.cpf" v-validate="''" @input="validate($event)" class="form-control" v-mask="'###.###.###-##'"
+            <input type="text" v-model="form.cpf" v-validate="''" @input="validate($event)" class="form-control"
+                   v-mask="'###.###.###-##'"
                    :class="{'form-control-danger': errors.has('cpf'), 'form-control-success': fields.cpf && fields.cpf.valid}"
                    id="cpf" name="cpf" placeholder="{{ trans('admin.cliente.columns.cpf') }}">
             <div v-if="errors.has('cpf')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('cpf') }}
@@ -117,7 +120,8 @@
                 tag-placeholder="{{ trans('admin.cliente.columns.id_sexo') }}"
                 placeholder="{{ trans('admin.cliente.columns.id_sexo') }}">
             </multiselect>
-            <div v-if="errors.has('id_sexo')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('id_sexo') }}
+            <div v-if="errors.has('id_sexo')" class="form-control-feedback form-text" v-cloak>@{{
+                errors.first('id_sexo') }}
             </div>
         </div>
     </div>
@@ -198,7 +202,8 @@
     <label for="telefone" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.cliente.columns.telefone') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.telefone" v-validate="''" @input="validate($event)" class="form-control" v-mask="'(##) ####-####'"
+        <input type="text" v-model="form.telefone" v-validate="''" @input="validate($event)" class="form-control"
+               v-mask="'(##) ####-####'"
                :class="{'form-control-danger': errors.has('telefone'), 'form-control-success': fields.telefone && fields.telefone.valid}"
                id="telefone" name="telefone" placeholder="{{ trans('admin.cliente.columns.telefone') }}">
         <div v-if="errors.has('telefone')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('telefone')
@@ -212,7 +217,8 @@
     <label for="celular" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.cliente.columns.celular') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.celular" v-validate="''" @input="validate($event)" class="form-control" v-mask="'(##) #####-####'"
+        <input type="text" v-model="form.celular" v-validate="''" @input="validate($event)" class="form-control"
+               v-mask="'(##) #####-####'"
                :class="{'form-control-danger': errors.has('celular'), 'form-control-success': fields.celular && fields.celular.valid}"
                id="celular" name="celular" placeholder="{{ trans('admin.cliente.columns.celular') }}">
         <div v-if="errors.has('celular')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('celular')
@@ -226,7 +232,8 @@
     <label for="celular2" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.cliente.columns.celular2') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.celular2" v-validate="''" @input="validate($event)" class="form-control" v-mask="'(##) #####-####'"
+        <input type="text" v-model="form.celular2" v-validate="''" @input="validate($event)" class="form-control"
+               v-mask="'(##) #####-####'"
                :class="{'form-control-danger': errors.has('celular2'), 'form-control-success': fields.celular2 && fields.celular2.valid}"
                id="celular2" name="celular2" placeholder="{{ trans('admin.cliente.columns.celular2') }}">
         <div v-if="errors.has('celular2')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('celular2')
@@ -240,7 +247,8 @@
     <label for="celular3" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.cliente.columns.celular3') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.celular3" v-validate="''" @input="validate($event)" class="form-control" v-mask="'(##) #####-####'"
+        <input type="text" v-model="form.celular3" v-validate="''" @input="validate($event)" class="form-control"
+               v-mask="'(##) #####-####'"
                :class="{'form-control-danger': errors.has('celular3'), 'form-control-success': fields.celular3 && fields.celular3.valid}"
                id="celular3" name="celular3" placeholder="{{ trans('admin.cliente.columns.celular3') }}">
         <div v-if="errors.has('celular3')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('celular3')
@@ -259,6 +267,19 @@
                id="email" name="email" placeholder="{{ trans('admin.cliente.columns.email') }}">
         <div v-if="errors.has('email')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('email') }}
         </div>
+    </div>
+</div>
+
+<div class="form-group row align-items-center"
+     :class="{'has-danger': errors.has('cep'), 'has-success': fields.cep && fields.cep.valid }">
+    <label for="cep" class="col-form-label text-md-right"
+           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.cliente.columns.cep') }}</label>
+    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+        <input type="text" v-model="form.cep" v-validate="''" @input="validate($event)" class="form-control"
+               v-mask="'#####-###'" @blur="getAddressInfo"
+               :class="{'form-control-danger': errors.has('cep'), 'form-control-success': fields.cep && fields.cep.valid}"
+               id="cep" name="cep" placeholder="{{ trans('admin.cliente.columns.cep') }}">
+        <div v-if="errors.has('cep')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('cep') }}</div>
     </div>
 </div>
 
@@ -330,7 +351,8 @@
             tag-placeholder="{{ trans('admin.cliente.columns.id_cidade') }}"
             placeholder="{{ trans('admin.cliente.columns.id_cidade') }}">
         </multiselect>
-        <div v-if="errors.has('id_cidade')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('id_cidade') }}
+        <div v-if="errors.has('id_cidade')" class="form-control-feedback form-text" v-cloak>@{{
+            errors.first('id_cidade') }}
         </div>
     </div>
 </div>
@@ -349,19 +371,8 @@
             tag-placeholder="{{ trans('admin.cliente.columns.id_uf') }}"
             placeholder="{{ trans('admin.cliente.columns.id_uf') }}">
         </multiselect>
-        <div v-if="errors.has('id_uf')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('id_uf') }}</div>
-    </div>
-</div>
-
-<div class="form-group row align-items-center"
-     :class="{'has-danger': errors.has('cep'), 'has-success': fields.cep && fields.cep.valid }">
-    <label for="cep" class="col-form-label text-md-right"
-           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.cliente.columns.cep') }}</label>
-    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.cep" v-validate="''" @input="validate($event)" class="form-control" v-mask="'#####-###'"
-               :class="{'form-control-danger': errors.has('cep'), 'form-control-success': fields.cep && fields.cep.valid}"
-               id="cep" name="cep" placeholder="{{ trans('admin.cliente.columns.cep') }}">
-        <div v-if="errors.has('cep')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('cep') }}</div>
+        <div v-if="errors.has('id_uf')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('id_uf') }}
+        </div>
     </div>
 </div>
 
@@ -372,7 +383,8 @@
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
         <textarea v-model="form.observacao" v-validate="''" @input="validate($event)" class="form-control"
                   :class="{'form-control-danger': errors.has('observacao'), 'form-control-success': fields.observacao && fields.observacao.valid}"
-                  id="observacao" name="observacao" placeholder="{{ trans('admin.cliente.columns.observacao') }}"></textarea>
+                  id="observacao" name="observacao"
+                  placeholder="{{ trans('admin.cliente.columns.observacao') }}"></textarea>
         <div v-if="errors.has('observacao')" class="form-control-feedback form-text" v-cloak>@{{
             errors.first('observacao') }}
         </div>

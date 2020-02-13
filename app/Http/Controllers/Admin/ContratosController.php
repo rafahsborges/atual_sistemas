@@ -324,6 +324,65 @@ class ContratosController extends Controller
     }
 
     /**
+     * Show the form for editing the specified resource.
+     *
+     * @param Contrato $contrato
+     * @return Factory|View
+     * @throws AuthorizationException
+     */
+    public function boleto(Contrato $contrato)
+    {
+        $this->authorize('admin.contrato.edit', $contrato);
+
+        $contrato = Contrato::with('cliente')
+            ->with('cliente.dependentes')
+            ->with('plano')
+            ->with('conta')
+            ->find($contrato->id);
+
+        if ($contrato->tipo_pagamento === '1') {
+            $contrato['pagamento'] = array('nome' => 'Boleto', 'id' => 1);
+        }
+
+        if ($contrato->tipo_pagamento === '2') {
+            $contrato['pagamento'] = array('nome' => 'Carnê', 'id' => 2);
+        }
+
+        $beneficiario = new \Eduardokum\LaravelBoleto\Pessoa([
+            'documento' => '00.000.000/0000-00',
+            'nome'      => 'Company co.',
+            'cep'       => '00000-000',
+            'endereco'  => 'Street name, 123',
+            'bairro' => 'district',
+            'uf'        => 'UF',
+            'cidade'    => 'City',
+        ]);
+
+        $pagador = new \Eduardokum\LaravelBoleto\Pessoa([
+            'documento' => '00.000.000/0000-00',
+            'nome'      => 'Company co.',
+            'cep'       => '00000-000',
+            'endereco'  => 'Street name, 123',
+            'bairro' => 'district',
+            'uf'        => 'UF',
+            'cidade'    => 'City',
+        ]);
+
+        $pdf = PDF::loadView('pdf.carteira',
+            [
+                'id' => $contrato->cliente->id,
+                'nome' => $contrato->cliente->nome,
+                'nascimento' => $contrato->cliente->nascimento,
+                'validade' => $contrato->validade_contrato,
+                'dependentes' => $contrato->cliente->dependentes,
+                'plano' => $contrato->plano_funeral,
+            ]
+        );
+
+        return $pdf->download('boleto.pdf');
+    }
+
+    /**
      * Remove the specified resources from storage.
      *
      * @param $ids

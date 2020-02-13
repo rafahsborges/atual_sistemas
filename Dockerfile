@@ -12,6 +12,7 @@ RUN apt-get install -y --no-install-recommends \
     zip \
     soap \
     exif \
+    intl \
  && curl -sS https://getcomposer.org/installer \
   | php -- --install-dir=/usr/local/bin --filename=composer
 

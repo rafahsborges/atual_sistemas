@@ -164,9 +164,15 @@
                                         <div class="row no-gutters">
                                             <div class="col-auto">
                                                 <a class="btn btn-sm btn-spinner btn-success"
+                                                   :href="item.resource_url + '/boleto'"
+                                                   title="{{ trans('brackets/admin-ui::admin.btn.edit') }}"
+                                                   role="button"><i class="fa fa-money"></i></a>
+                                            </div>
+                                            <div class="col-auto">
+                                                <a class="btn btn-sm btn-spinner btn-success"
                                                    :href="item.resource_url + '/carteira'"
                                                    title="{{ trans('brackets/admin-ui::admin.btn.edit') }}"
-                                                   role="button"><i class="fa fa-print"></i></a>
+                                                   role="button"><i class="fa fa-address-card"></i></a>
                                             </div>
                                             <div class="col-auto">
                                                 <a class="btn btn-sm btn-spinner btn-info"

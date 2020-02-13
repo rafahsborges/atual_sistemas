@@ -17,6 +17,8 @@ import './index';
 
 import 'craftable/dist/ui';
 
+import ViaCep from 'vue-viacep';
+
 // Global
 import VueTheMask from 'vue-the-mask';
 import money from 'v-money';
@@ -31,6 +33,7 @@ Vue.use(VueQuillEditor);
 Vue.use(VueQuillEditor);
 Vue.use(Notifications);
 Vue.use(VueCookie);
+Vue.use(ViaCep);
 Vue.use(VueTheMask);
 Vue.use(money, {precision: 4});
 
