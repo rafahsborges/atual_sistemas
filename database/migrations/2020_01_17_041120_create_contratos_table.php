@@ -18,9 +18,11 @@ class CreateContratosTable extends Migration
             $table->date('primeira_parcela');
             $table->date('ultima_parcela');
             $table->date('data_assinatura');
+            $table->decimal('qtd_meses', 2, 0)->nullable();
             $table->decimal('qtd_parcelas', 2, 0)->nullable();
             $table->decimal('tipo_pagamento', 1, 0);
             $table->decimal('valor', 9);
+            $table->decimal('valor_parcela', 9);
             $table->boolean('plano_funeral')->nullable();
             $table->decimal('desconto', 9)->nullable();
             $table->decimal('juros', 5)->nullable();

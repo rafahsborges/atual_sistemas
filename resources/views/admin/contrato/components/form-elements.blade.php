@@ -131,7 +131,7 @@
     </div>
 </div>
 
-<div class="form-group row align-items-center"
+<div class="form-group row align-items-center" v-if="form.tipo_pagamento.id !== 2"
      :class="{'has-danger': errors.has('id_conta'), 'has-success': fields.id_conta && fields.id_conta.valid }">
     <label for="id_conta" class="col-form-label text-md-right"
            :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.contrato.columns.id_conta') }}</label>

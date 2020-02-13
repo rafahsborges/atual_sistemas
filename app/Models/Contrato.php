@@ -16,8 +16,10 @@ class Contrato extends Model
         'ultima_parcela',
         'data_assinatura',
         'qtd_parcelas',
+        'qtd_meses',
         'tipo_pagamento',
         'valor',
+        'valor_parcela',
         'plano_funeral',
         'desconto',
         'juros',
@@ -28,7 +30,6 @@ class Contrato extends Model
         'id_conta',
         'enabled',
     ];
-
 
     protected $dates = [
         'primeira_parcela',
