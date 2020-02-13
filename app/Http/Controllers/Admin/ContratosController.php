@@ -121,6 +121,7 @@ class ContratosController extends Controller
         $sanitized['id_plano'] = $request->getPlanoId();
         $sanitized['tipo_pagamento'] = $request->getTipoPagamentoId();
         $sanitized['valor'] = $request->prepareCurrencies($sanitized['valor']);
+        $sanitized['valor_parcela'] = $request->prepareCurrencies($sanitized['valor_parcela']);
         $sanitized['juros'] = $request->prepareCurrencies($sanitized['juros']);
         $sanitized['multa'] = $request->prepareCurrencies($sanitized['multa']);
         $sanitized['desconto'] = $request->prepareCurrencies($sanitized['desconto']);
@@ -195,11 +196,11 @@ class ContratosController extends Controller
             ->find($contrato->id);
 
         if ($contrato->tipo_pagamento === '1') {
-            $contrato['pagamento'] = array('nome' => 'Boleto', 'id' => 1);
+            $contrato['tipo_pagamento'] = array('nome' => 'Boleto', 'id' => 1);
         }
 
         if ($contrato->tipo_pagamento === '2') {
-            $contrato['pagamento'] = array('nome' => 'Carnê', 'id' => 2);
+            $contrato['tipo_pagamento'] = array('nome' => 'Carnê', 'id' => 2);
         }
 
         return view('admin.contrato.edit', [
@@ -226,6 +227,7 @@ class ContratosController extends Controller
         $sanitized['id_plano'] = $request->getPlanoId();
         $sanitized['tipo_pagamento'] = $request->getTipoPagamentoId();
         $sanitized['valor'] = $request->prepareCurrencies($sanitized['valor']);
+        $sanitized['valor_parcela'] = $request->prepareCurrencies($sanitized['valor_parcela']);
         $sanitized['juros'] = $request->prepareCurrencies($sanitized['juros']);
         $sanitized['multa'] = $request->prepareCurrencies($sanitized['multa']);
         $sanitized['desconto'] = $request->prepareCurrencies($sanitized['desconto']);
@@ -345,11 +347,11 @@ class ContratosController extends Controller
             ->find($contrato->id);
 
         if ($contrato->tipo_pagamento === '1') {
-            $contrato['pagamento'] = array('nome' => 'Boleto', 'id' => 1);
+            $contrato['tipo_pagamento'] = array('nome' => 'Boleto', 'id' => 1);
         }
 
         if ($contrato->tipo_pagamento === '2') {
-            $contrato['pagamento'] = array('nome' => 'Carnê', 'id' => 2);
+            $contrato['tipo_pagamento'] = array('nome' => 'Carnê', 'id' => 2);
         }
 
         $beneficiario = new Pessoa([
