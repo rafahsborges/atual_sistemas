@@ -387,13 +387,18 @@ class ContratosController extends Controller
                     'pagador' => $pagador,
                     'beneficiario' => $beneficiario,
                     'carteira' => $contrato->conta->carteira,
-                    'agencia' => $contrato->conta->agencia.'-'.$contrato->conta->digito_agencia,
-                    'conta' => $contrato->conta->conta.'-'.$contrato->conta->digito_conta,
+                    'agencia' => $contrato->conta->agencia . '-' . $contrato->conta->digito_agencia,
+                    'conta' => $contrato->conta->conta . '-' . $contrato->conta->digito_conta,
                     'multa' => $contrato->multa, // 1% do valor do boleto após o vencimento
                     'juros' => $contrato->juros, // 1% ao mês do valor do boleto
                     'jurosApos' => 0, // quant. de dias para começar a cobrança de juros,
                     //'descricaoDemonstrativo' => ['demonstrativo 1', 'demonstrativo 2', 'demonstrativo 3'],
-                    'instrucoes' => [$contrato->conta->mensagem_1, $contrato->conta->mensagem_2],
+                    'instrucoes' => [
+                        'DESCONTO DE R$ ' . $contrato->desconto . ' ATÉ O VENCIMENTO',
+                        'VENCIDO, COBRAR MULTA DE ' . $contrato->multa . ' + JUROS DE ' . $contrato->juros . ' MÊS',
+                        $contrato->conta->mensagem_1,
+                        $contrato->conta->mensagem_2,
+                    ],
                 ]);
             }
 
@@ -409,13 +414,18 @@ class ContratosController extends Controller
                     'carteira' => $contrato->conta->carteira,
                     'posto' => 11,
                     'byte' => 2,
-                    'agencia' => $contrato->conta->agencia.'-'.$contrato->conta->digito_agencia,
-                    'conta' => $contrato->conta->conta.'-'.$contrato->conta->digito_conta,
+                    'agencia' => $contrato->conta->agencia . '-' . $contrato->conta->digito_agencia,
+                    'conta' => $contrato->conta->conta . '-' . $contrato->conta->digito_conta,
                     'multa' => $contrato->multa, // 1% do valor do boleto após o vencimento
                     'juros' => $contrato->juros, // 1% ao mês do valor do boleto
                     'jurosApos' => 0, // quant. de dias para começar a cobrança de juros,
                     //'descricaoDemonstrativo' => ['demonstrativo 1', 'demonstrativo 2', 'demonstrativo 3'],
-                    'instrucoes' => [$contrato->conta->mensagem_1, $contrato->conta->mensagem_2],
+                    'instrucoes' => [
+                        'DESCONTO DE R$ ' . $contrato->desconto . ' ATÉ O VENCIMENTO',
+                        'VENCIDO, COBRAR MULTA DE ' . $contrato->multa . ' + JUROS DE ' . $contrato->juros . ' MÊS',
+                        $contrato->conta->mensagem_1,
+                        $contrato->conta->mensagem_2,
+                    ],
                 ]);
             }
 
