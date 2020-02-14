@@ -22,7 +22,7 @@ class CreateContratosTable extends Migration
             $table->decimal('qtd_parcelas', 2, 0)->nullable();
             $table->decimal('tipo_pagamento', 1, 0);
             $table->decimal('valor', 9);
-            $table->decimal('valor_parcela', 9);
+            $table->decimal('valor_parcela', 9)->nullable();
             $table->boolean('plano_funeral')->nullable();
             $table->decimal('desconto', 9)->nullable();
             $table->decimal('juros', 5)->nullable();

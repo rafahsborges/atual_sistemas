@@ -102,13 +102,15 @@ Vue.component('contrato-form', {
         },
         setValidadeContrato() {
             if (Object.prototype.toString.call(this.newDtAssinatura) === '[object Date]' && this.newQtdMeses > 0) {
-                let validadeContrato = new Date(this.newDtAssinatura.setMonth(this.newQtdMeses));
+                let validadeContrato = moment(this.newDtAssinatura);
+                validadeContrato.add(this.newQtdMeses, 'M');
                 this.form.validade_contrato = moment(validadeContrato).format("YYYY-MM-DD HH:mm:ss");
             }
         },
         setUltimaParcela() {
             if (Object.prototype.toString.call(this.newPrimeiraParcela) === '[object Date]' && this.newQtdParcelas > 0) {
-                let ultimaParcela = new Date(this.newPrimeiraParcela.setMonth(this.newQtdParcelas));
+                let ultimaParcela = moment(this.newPrimeiraParcela);
+                ultimaParcela.add(this.newQtdParcelas, 'M');
                 this.form.ultima_parcela = moment(ultimaParcela).format("YYYY-MM-DD HH:mm:ss");
             }
         }
