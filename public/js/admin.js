@@ -112893,9 +112893,7 @@ Vue.component('relatorio-form', {
   methods: {
     changed: function changed(e) {
       if (e.target.id === 'inicio' && Object.prototype.toString.call(new Date(e.target.value)) === '[object Date]') {
-        console.log(new Date(e.target.value));
         this.configs.end.minDate = new Date(e.target.value);
-        console.log(this.configs.end.minDate);
       }
 
       if (e.target.id === 'fim' && Object.prototype.toString.call(new Date(e.target.value)) === '[object Date]') {

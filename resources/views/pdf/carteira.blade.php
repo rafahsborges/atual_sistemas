@@ -2,6 +2,7 @@
 <html>
 
 <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>{{trans('admin.relatorio.actions.index')}}</title>
 </head>
 
@@ -33,7 +34,7 @@
 </div>
 
 <div id="plano" style="position: absolute;top: 14%;right: 14%;font-size: 10px;">
-    <b>{{$plano == 0 ? 'SEM' : 'COM'}} ATENDIMENTO FUNERAL</b>
+    <b>{{$plano == 0 ? 'SEM ATENDIMENTO FUNERAL' : 'ATEND. FUNERAL: ANGELUS (17) 3632-2002' }}</b>
 </div>
 
 </body>

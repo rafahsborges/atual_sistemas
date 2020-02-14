@@ -12,12 +12,12 @@
                         class="nav-icon icon-puzzle"></i> {{ trans('admin.contrato.title') }}</a></li>
             <li class="nav-item"><a class="nav-link" href="{{ url('admin/parcelas') }}"><i
                         class="nav-icon icon-energy"></i> {{ trans('admin.parcela.title') }}</a></li>
-            <li class="nav-item"><a class="nav-link" href="{{ url('admin/boletos') }}"><i
-                        class="nav-icon icon-compass"></i> {{ trans('admin.boleto.title') }}</a></li>
+            {{--<li class="nav-item"><a class="nav-link" href="{{ url('admin/boletos') }}"><i
+                        class="nav-icon icon-compass"></i> {{ trans('admin.boleto.title') }}</a></li>--}}
             <li class="nav-item"><a class="nav-link" href="{{ url('admin/remessas') }}"><i
                         class="nav-icon icon-puzzle"></i> {{ trans('admin.remessa.title') }}</a></li>
-            <li class="nav-item"><a class="nav-link" href="{{ url('admin/remessa-boletos') }}"><i
-                        class="nav-icon icon-magnet"></i> {{ trans('admin.remessa-boleto.title') }}</a></li>
+            {{--<li class="nav-item"><a class="nav-link" href="{{ url('admin/remessa-boletos') }}"><i
+                        class="nav-icon icon-magnet"></i> {{ trans('admin.remessa-boleto.title') }}</a></li>--}}
             <li class="nav-item"><a class="nav-link" href="{{ url('admin/relatorios') }}"><i
                         class="nav-icon icon-book-open"></i> {{ trans('admin.relatorio.title') }}</a></li>
             {{-- Do not delete me :) I'm used for auto-generation menu items --}}

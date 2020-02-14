@@ -30,9 +30,7 @@ Vue.component('relatorio-form', {
     methods: {
         changed(e) {
             if (e.target.id === 'inicio' && Object.prototype.toString.call(new Date(e.target.value)) === '[object Date]') {
-                console.log(new Date(e.target.value));
                 this.configs.end.minDate = new Date(e.target.value);
-                console.log(this.configs.end.minDate);
             }
             if (e.target.id === 'fim' && Object.prototype.toString.call(new Date(e.target.value)) === '[object Date]') {
                 this.configs.start.maxDate = new Date(e.target.value);
@@ -45,6 +43,6 @@ Vue.component('relatorio-form', {
                 window.location = '/admin/relatorios/' + e.target[0].value + '/' + e.target[2].value;
             }
             return false;
-        }
+        },
     }
 });
