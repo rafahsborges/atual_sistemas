@@ -399,7 +399,20 @@ class ContratosController extends Controller
                         $contrato->conta->mensagem_1,
                         $contrato->conta->mensagem_2,
                     ],
+                    'aceite' => 'S',
+                    'especieDoc' => 'DM',
                 ]);
+                $remessa = new \Eduardokum\LaravelBoleto\Cnab\Remessa\Cnab400\Banco\Bradesco(
+                    [
+                        'idRemessa' => 1,
+                        'beneficiario' => $beneficiario,
+                        'agencia' => $contrato->conta->agencia . '-' . $contrato->conta->digito_agencia,
+                        'conta' => $contrato->conta->conta,
+                        'contaDv' => $contrato->conta->digito_conta,
+                        'carteira' => $contrato->conta->carteira,
+                        'codigoCliente' => '12345678901234567890',
+                    ]
+                );
             }
 
             if ($contrato->conta->banco === '748') {
@@ -426,18 +439,42 @@ class ContratosController extends Controller
                         $contrato->conta->mensagem_1,
                         $contrato->conta->mensagem_2,
                     ],
+                    'aceite' => 'S',
+                    'especieDoc' => 'DM',
                 ]);
+                $remessa = new \Eduardokum\LaravelBoleto\Cnab\Remessa\Cnab400\Banco\Sicredi(
+                    [
+                        'idremessa' => 1,
+                        'beneficiario' => $beneficiario,
+                        'agencia' => $contrato->conta->agencia . '-' . $contrato->conta->digito_agencia,
+                        'conta' => $contrato->conta->conta,
+                        'carteira' => $contrato->conta->carteira,
+                    ]
+                );
             }
 
             // Add as many bills as you want.
             $pdf->addBoleto($boleto);
+            // Add multiples bill to a send object. Here need a array of instances of Boleto.
+            $remessa->addBoleto($boleto);
         }
 
         // If you want to hide the print instructions.
         $pdf->hideInstrucoes();
 
         // To Render
-        return $pdf->gerarBoleto();
+        //$pdf->gerarBoleto();
+
+        // Return a string of file.
+        // It depends on the instance, 240 or 400 positions.
+        $remessa->gerar();
+
+        // Saves the string to a file on the disk whose path was passed in $path argument.
+        $remessa->save(public_path('remessas' . DIRECTORY_SEPARATOR . 'remessa.txt'));
+
+        // Force file download.
+        // If you pass the $filename argument it overwrites the name in the download.
+        return $remessa->download($filename = null);
     }
 
     /**

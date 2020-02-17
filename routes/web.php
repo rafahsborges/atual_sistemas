@@ -189,7 +189,6 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
             Route::get('/create', 'RemessasController@create')->name('create');
             Route::post('/', 'RemessasController@store')->name('store');
             Route::get('/{remessa}/edit', 'RemessasController@edit')->name('edit');
-            Route::get('/{remessa}/remessa', 'RemessasController@remessa')->name('remessa');
             Route::post('/bulk-destroy', 'RemessasController@bulkDestroy')->name('bulk-destroy');
             Route::post('/{remessa}', 'RemessasController@update')->name('update');
             Route::delete('/{remessa}', 'RemessasController@destroy')->name('destroy');
