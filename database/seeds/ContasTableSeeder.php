@@ -55,6 +55,26 @@ class ContasTableSeeder extends Seeder
                     'updated_at' => '2020-01-23 23:40:49',
                     'deleted_at' => NULL,
                 ),
+            2 =>
+                array(
+                    'id' => 3,
+                    'nome' => 'ESSENCIAL VIDA SICREDI',
+                    'banco' => '748',
+                    'agencia' => '2',
+                    'digito_agencia' => '0',
+                    'conta' => '65884',
+                    'digito_conta' => '7',
+                    'codigo_empresa' => '65884',
+                    'carteira' => '1',
+                    'tipo' => '2',
+                    'mensagem_1' => 'NÃO RECEBER COM 60 DIAS DE VENCIDO',
+                    'mensagem_2' => 'PROTESTAR EM 5 DIAS UTEIS',
+                    'cpf_cnpj' => '17.604.556/0001-90',
+                    'enabled' => 1,
+                    'created_at' => '2020-02-17 18:19:58',
+                    'updated_at' => '2020-02-17 18:20:43',
+                    'deleted_at' => NULL,
+                ),
         ));
     }
 }

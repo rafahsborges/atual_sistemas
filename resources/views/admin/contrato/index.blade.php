@@ -94,6 +94,8 @@
                                     <th is='sortable'
                                         :column="'id_cliente'">{{ trans('admin.contrato.columns.id_cliente') }}</th>
                                     <th is='sortable'
+                                        :column="'tipo_pagamento'">{{ trans('admin.contrato.columns.tipo_pagamento') }}</th>
+                                    <th is='sortable'
                                         :column="'data_assinatura'">{{ trans('admin.contrato.columns.data_assinatura') }}</th>
                                     <th is='sortable'
                                         :column="'primeira_parcela'">{{ trans('admin.contrato.columns.primeira_parcela') }}</th>
@@ -156,13 +158,14 @@
 
                                     <td>@{{ item.id }}</td>
                                     <td>@{{ item.cliente.nome }}</td>
+                                    <td>@{{ item.tipo_pagamento === '1' ? 'Boleto' : 'Carnê' }}</td>
                                     <td>@{{ item.data_assinatura | date('DD/MM/YYYY') }}</td>
                                     <td>@{{ item.primeira_parcela | date('DD/MM/YYYY') }}</td>
                                     <td>@{{ item.ultima_parcela | date('DD/MM/YYYY') }}</td>
 
                                     <td>
                                         <div class="row no-gutters">
-                                            <div class="col-auto">
+                                            <div class="col-auto" v-if="item.tipo_pagamento === '1'">
                                                 <a class="btn btn-sm btn-spinner btn-success"
                                                    :href="item.resource_url + '/boleto'"
                                                    title="{{ trans('brackets/admin-ui::admin.btn.edit') }}"

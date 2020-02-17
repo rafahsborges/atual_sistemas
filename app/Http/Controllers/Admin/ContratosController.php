@@ -379,7 +379,7 @@ class ContratosController extends Controller
         foreach ($contrato->parcelas as $key => $parcela) {
             if ($contrato->conta->banco === '237') {
                 $boleto = new Bradesco([
-                    'logo' => 'images/bradesco.jpg',
+                    'logo' => 'images/237.png',
                     'dataVencimento' => new Carbon($parcela['vencimento']),
                     'valor' => $parcela->valor,
                     'numero' => 1,
@@ -404,7 +404,7 @@ class ContratosController extends Controller
 
             if ($contrato->conta->banco === '748') {
                 $boleto = new Sicredi([
-                    'logo' => 'images/sicredi.jpg',
+                    'logo' => 'images/748.png',
                     'dataVencimento' => new Carbon($parcela['vencimento']),
                     'valor' => $parcela->valor,
                     'numero' => 1,

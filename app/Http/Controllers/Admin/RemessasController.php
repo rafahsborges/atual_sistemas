@@ -185,4 +185,21 @@ class RemessasController extends Controller
 
         return response(['message' => trans('brackets/admin-ui::admin.operation.succeeded')]);
     }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param Remessa $remessa
+     * @throws AuthorizationException
+     * @return Factory|View
+     */
+    public function remessa(Remessa $remessa)
+    {
+        $this->authorize('admin.remessa.edit', $remessa);
+
+        return view('admin.remessa.edit', [
+            'remessa' => $remessa,
+        ]);
+    }
+
 }
