@@ -29,6 +29,7 @@ use Illuminate\Http\Response;
 use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\ValidationException;
 use Illuminate\View\View;
 use PDF;
@@ -399,64 +400,7 @@ class ContratosController extends Controller
             $contrato['tipo_pagamento'] = array('nome' => 'Carnê', 'id' => 2);
         }
 
-        $content = "";
-        $nossonumero = "100";
-        foreach ($contrato->parcelas as $key => $parcela) {
-            $nome = $contrato->cliente->tipo === 1 ? $contrato->cliente->razao_social : $contrato->cliente->nome;
-            $cpfcnpj = $contrato->cliente->tipo === 1 ? $contrato->cliente->cnpj : $contrato->cliente->cpf;
-            $numero = ($key + 1 < 10) ? '0' . ($key + 1)  : $key + 1;
-            $content .= "[Titulo" . $numero . "]";
-            $content .= "\n";
-            $content .= "LocalPagamento=Ate o Vcto em qualquer banco ou correspondente.";
-            $content .= "\n";
-            $content .= "NumeroDocumento=ABC234";
-            $content .= "\n";
-            $content .= "NossoNumero=".$nossonumero++;
-            $content .= "\n";
-            $content .= "Carteira=" . $contrato->conta->carteira;
-            $content .= "\n";
-            $content .= "ValorDocumento=" . $parcela->valor;
-            $content .= "\n";
-            $content .= "ValorMoraJuros=" . $contrato->juros;
-            $content .= "\n";
-            $content .= "Vencimento=" . (new Carbon($parcela['vencimento']))->format('d/m/Y');
-            $content .= "\n";
-            $content .= "Sacado.NomeSacado=" . $nome;
-            $content .= "\n";
-            $content .= "Sacado.CNPJCPF=" . $cpfcnpj;
-            $content .= "\n";
-            $content .= "Sacado.Pessoa=" . $contrato->cliente->tipo;
-            $content .= "\n";
-            $content .= "Sacado.Logradouro=" . $contrato->cliente->logradouro;
-            $content .= "\n";
-            $content .= "Sacado.Numero=" . $contrato->cliente->numero;
-            $content .= "\n";
-            $content .= "Sacado.Bairro=" . $contrato->cliente->bairro;
-            $content .= "\n";
-            $content .= "Sacado.Cidade=" . $contrato->cliente->cidade->nome;
-            $content .= "\n";
-            $content .= "Sacado.UF=" . $contrato->cliente->uf->abreviacao;
-            $content .= "\n";
-            $content .= "Sacado.CEP=" . $contrato->cliente->cep;
-            $content .= "\n";
-            $content .= "Sacado.Email=" . $contrato->cliente->email;
-            $content .= "\n";
-            $content .= "Mensagem=DESCONTO DE R$ " . $contrato->desconto . " ATÉ O VENCIMENTO";
-            $content .= "|";
-            $content .= "VENCIDO, COBRAR MULTA DE " . $contrato->multa . " + JUROS DE " . $contrato->juros . " MÊS";
-            $content .= "|";
-            $content .= $contrato->conta->mensagem_1;
-            $content .= "|";
-            $content .= $contrato->conta->mensagem_1;
-            $content .= "|";
-            $content .= "\n";
-        }
-
-        Storage::put('titulos.ini', $content);
-
-        return Storage::download('titulos.ini');
-
-        /*$beneficiario = new Pessoa([
+        $beneficiario = new Pessoa([
             'documento' => $contrato->conta->cpf_cnpj,
             'nome' => $contrato->conta->nome,
             'cep' => '15700-068',
@@ -597,6 +541,90 @@ class ContratosController extends Controller
 
         // Force file download.
         // If you pass the $filename argument it overwrites the name in the download.
-        return $remessa->download($filename = null);*/
+        return $remessa->download($filename = null);
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param Contrato $contrato
+     * @return string
+     * @throws AuthorizationException
+     */
+    public function titulos(Contrato $contrato)
+    {
+        $this->authorize('admin.contrato.edit', $contrato);
+
+        $contrato = Contrato::with('cliente')
+            ->with('cliente.dependentes')
+            ->with('plano')
+            ->with('conta')
+            ->with('parcelas')
+            ->find($contrato->id);
+
+        if ($contrato->tipo_pagamento === '1') {
+            $contrato['tipo_pagamento'] = array('nome' => 'Boleto', 'id' => 1);
+        }
+
+        if ($contrato->tipo_pagamento === '2') {
+            $contrato['tipo_pagamento'] = array('nome' => 'Carnê', 'id' => 2);
+        }
+
+        $content = "";
+        $nossonumero = "100";
+        foreach ($contrato->parcelas as $key => $parcela) {
+            $nome = $contrato->cliente->tipo === 1 ? $contrato->cliente->razao_social : $contrato->cliente->nome;
+            $cpfcnpj = $contrato->cliente->tipo === 1 ? $contrato->cliente->cnpj : $contrato->cliente->cpf;
+            $numero = ($key + 1 < 10) ? '0' . ($key + 1) : $key + 1;
+            $content .= "[Titulo" . $numero . "]";
+            $content .= "\n";
+            $content .= "LocalPagamento=Ate o Vcto em qualquer banco ou correspondente.";
+            $content .= "\n";
+            $content .= "NumeroDocumento=ABC234";
+            $content .= "\n";
+            $content .= "NossoNumero=" . $nossonumero++;
+            $content .= "\n";
+            $content .= "Carteira=" . $contrato->conta->carteira;
+            $content .= "\n";
+            $content .= "ValorDocumento=" . $parcela->valor;
+            $content .= "\n";
+            $content .= "ValorMoraJuros=" . $contrato->juros;
+            $content .= "\n";
+            $content .= "Vencimento=" . (new Carbon($parcela['vencimento']))->format('d/m/Y');
+            $content .= "\n";
+            $content .= "Sacado.NomeSacado=" . $nome;
+            $content .= "\n";
+            $content .= "Sacado.CNPJCPF=" . $cpfcnpj;
+            $content .= "\n";
+            $content .= "Sacado.Pessoa=" . $contrato->cliente->tipo;
+            $content .= "\n";
+            $content .= "Sacado.Logradouro=" . $contrato->cliente->logradouro;
+            $content .= "\n";
+            $content .= "Sacado.Numero=" . $contrato->cliente->numero;
+            $content .= "\n";
+            $content .= "Sacado.Bairro=" . $contrato->cliente->bairro;
+            $content .= "\n";
+            $content .= "Sacado.Cidade=" . $contrato->cliente->cidade->nome;
+            $content .= "\n";
+            $content .= "Sacado.UF=" . $contrato->cliente->uf->abreviacao;
+            $content .= "\n";
+            $content .= "Sacado.CEP=" . $contrato->cliente->cep;
+            $content .= "\n";
+            $content .= "Sacado.Email=" . $contrato->cliente->email;
+            $content .= "\n";
+            $content .= "Mensagem=DESCONTO DE R$ " . $contrato->desconto . " ATÉ O VENCIMENTO";
+            $content .= "|";
+            $content .= "VENCIDO, COBRAR MULTA DE " . $contrato->multa . " + JUROS DE " . $contrato->juros . " MÊS";
+            $content .= "|";
+            $content .= $contrato->conta->mensagem_1;
+            $content .= "|";
+            $content .= $contrato->conta->mensagem_1;
+            $content .= "|";
+            $content .= "\n";
+        }
+
+        Storage::put('titulos.ini', $content);
+
+        return Storage::download('titulos.ini');
     }
 }
