@@ -329,6 +329,51 @@ class ContratosController extends Controller
     }
 
     /**
+     * Remove the specified resources from storage.
+     *
+     * @param $ids
+     * @return Response|bool
+     */
+    public function bulkCarteira($ids): Response
+    {
+        $ids = explode(',', $ids);
+        $contratos = [];
+
+        foreach ($ids as $id) {
+            $contrato = Contrato::with('cliente')
+                ->with('cliente.dependentes')
+                ->with('plano')
+                ->with('conta')
+                ->find($id);
+
+            if ($contrato->tipo_pagamento === '1') {
+                $contrato['pagamento'] = array('nome' => 'Boleto', 'id' => 1);
+            }
+
+            if ($contrato->tipo_pagamento === '2') {
+                $contrato['pagamento'] = array('nome' => 'Carnê', 'id' => 2);
+            }
+
+            $contratos[] = [
+                'id' => $contrato->cliente->id,
+                'nome' => $contrato->cliente->nome,
+                'nascimento' => $contrato->cliente->nascimento,
+                'validade' => $contrato->validade_contrato,
+                'dependentes' => $contrato->cliente->dependentes,
+                'plano' => $contrato->plano_funeral,
+            ];
+        }
+
+        $pdf = PDF::loadView('pdf.carteiras',
+            [
+                'carteiras' => $contratos
+            ]
+        );
+
+        return $pdf->download('carteira.pdf');
+    }
+
+    /**
      * Show the form for editing the specified resource.
      *
      * @param Contrato $contrato
@@ -475,50 +520,5 @@ class ContratosController extends Controller
         // Force file download.
         // If you pass the $filename argument it overwrites the name in the download.
         return $remessa->download($filename = null);
-    }
-
-    /**
-     * Remove the specified resources from storage.
-     *
-     * @param $ids
-     * @return Response|bool
-     */
-    public function bulkCarteira($ids): Response
-    {
-        $ids = explode(',', $ids);
-        $contratos = [];
-
-        foreach ($ids as $id) {
-            $contrato = Contrato::with('cliente')
-                ->with('cliente.dependentes')
-                ->with('plano')
-                ->with('conta')
-                ->find($id);
-
-            if ($contrato->tipo_pagamento === '1') {
-                $contrato['pagamento'] = array('nome' => 'Boleto', 'id' => 1);
-            }
-
-            if ($contrato->tipo_pagamento === '2') {
-                $contrato['pagamento'] = array('nome' => 'Carnê', 'id' => 2);
-            }
-
-            $contratos[] = [
-                'id' => $contrato->cliente->id,
-                'nome' => $contrato->cliente->nome,
-                'nascimento' => $contrato->cliente->nascimento,
-                'validade' => $contrato->validade_contrato,
-                'dependentes' => $contrato->cliente->dependentes,
-                'plano' => $contrato->plano_funeral,
-            ];
-        }
-
-        $pdf = PDF::loadView('pdf.carteiras',
-            [
-                'carteiras' => $contratos
-            ]
-        );
-
-        return $pdf->download('carteira.pdf');
     }
 }
