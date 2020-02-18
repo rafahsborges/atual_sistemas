@@ -399,7 +399,64 @@ class ContratosController extends Controller
             $contrato['tipo_pagamento'] = array('nome' => 'Carnê', 'id' => 2);
         }
 
-        $beneficiario = new Pessoa([
+        $content = "";
+        $nossonumero = "100";
+        foreach ($contrato->parcelas as $key => $parcela) {
+            $nome = $contrato->cliente->tipo === 1 ? $contrato->cliente->razao_social : $contrato->cliente->nome;
+            $cpfcnpj = $contrato->cliente->tipo === 1 ? $contrato->cliente->cnpj : $contrato->cliente->cpf;
+            $numero = ($key + 1 < 10) ? '0' . ($key + 1)  : $key + 1;
+            $content .= "[Titulo" . $numero . "]";
+            $content .= "\n";
+            $content .= "LocalPagamento=Ate o Vcto em qualquer banco ou correspondente.";
+            $content .= "\n";
+            $content .= "NumeroDocumento=ABC234";
+            $content .= "\n";
+            $content .= "NossoNumero=".$nossonumero++;
+            $content .= "\n";
+            $content .= "Carteira=" . $contrato->conta->carteira;
+            $content .= "\n";
+            $content .= "ValorDocumento=" . $parcela->valor;
+            $content .= "\n";
+            $content .= "ValorMoraJuros=" . $contrato->juros;
+            $content .= "\n";
+            $content .= "Vencimento=" . (new Carbon($parcela['vencimento']))->format('d/m/Y');
+            $content .= "\n";
+            $content .= "Sacado.NomeSacado=" . $nome;
+            $content .= "\n";
+            $content .= "Sacado.CNPJCPF=" . $cpfcnpj;
+            $content .= "\n";
+            $content .= "Sacado.Pessoa=" . $contrato->cliente->tipo;
+            $content .= "\n";
+            $content .= "Sacado.Logradouro=" . $contrato->cliente->logradouro;
+            $content .= "\n";
+            $content .= "Sacado.Numero=" . $contrato->cliente->numero;
+            $content .= "\n";
+            $content .= "Sacado.Bairro=" . $contrato->cliente->bairro;
+            $content .= "\n";
+            $content .= "Sacado.Cidade=" . $contrato->cliente->cidade->nome;
+            $content .= "\n";
+            $content .= "Sacado.UF=" . $contrato->cliente->uf->abreviacao;
+            $content .= "\n";
+            $content .= "Sacado.CEP=" . $contrato->cliente->cep;
+            $content .= "\n";
+            $content .= "Sacado.Email=" . $contrato->cliente->email;
+            $content .= "\n";
+            $content .= "Mensagem=DESCONTO DE R$ " . $contrato->desconto . " ATÉ O VENCIMENTO";
+            $content .= "|";
+            $content .= "VENCIDO, COBRAR MULTA DE " . $contrato->multa . " + JUROS DE " . $contrato->juros . " MÊS";
+            $content .= "|";
+            $content .= $contrato->conta->mensagem_1;
+            $content .= "|";
+            $content .= $contrato->conta->mensagem_1;
+            $content .= "|";
+            $content .= "\n";
+        }
+
+        Storage::put('titulos.ini', $content);
+
+        return Storage::download('titulos.ini');
+
+        /*$beneficiario = new Pessoa([
             'documento' => $contrato->conta->cpf_cnpj,
             'nome' => $contrato->conta->nome,
             'cep' => '15700-068',
@@ -420,6 +477,8 @@ class ContratosController extends Controller
         ]);
 
         $pdf = new \Eduardokum\LaravelBoleto\Boleto\Render\Pdf();
+
+        $boletos = [];
 
         foreach ($contrato->parcelas as $key => $parcela) {
             if ($contrato->conta->banco === '237') {
@@ -449,7 +508,7 @@ class ContratosController extends Controller
                 ]);
                 $remessa = new \Eduardokum\LaravelBoleto\Cnab\Remessa\Cnab400\Banco\Bradesco(
                     [
-                        'idRemessa' => 1,
+                        'idRemessa' => $key,
                         'beneficiario' => $beneficiario,
                         'agencia' => $contrato->conta->agencia . '-' . $contrato->conta->digito_agencia,
                         'conta' => $contrato->conta->conta,
@@ -487,28 +546,47 @@ class ContratosController extends Controller
                     'aceite' => 'S',
                     'especieDoc' => 'DM',
                 ]);
-                $remessa = new \Eduardokum\LaravelBoleto\Cnab\Remessa\Cnab400\Banco\Sicredi(
-                    [
-                        'idremessa' => 1,
-                        'beneficiario' => $beneficiario,
-                        'agencia' => $contrato->conta->agencia . '-' . $contrato->conta->digito_agencia,
-                        'conta' => $contrato->conta->conta,
-                        'carteira' => $contrato->conta->carteira,
-                    ]
-                );
             }
 
             // Add as many bills as you want.
             $pdf->addBoleto($boleto);
-            // Add multiples bill to a send object. Here need a array of instances of Boleto.
-            $remessa->addBoleto($boleto);
+            $boletos[] = $boleto;
         }
+
+        if ($contrato->conta->banco === '237') {
+            $remessa = new \Eduardokum\LaravelBoleto\Cnab\Remessa\Cnab400\Banco\Bradesco(
+                [
+                    'idRemessa' => 1,
+                    'beneficiario' => $beneficiario,
+                    'agencia' => $contrato->conta->agencia . '-' . $contrato->conta->digito_agencia,
+                    'conta' => $contrato->conta->conta,
+                    'contaDv' => $contrato->conta->digito_conta,
+                    'carteira' => $contrato->conta->carteira,
+                    'codigoCliente' => '12345678901234567890',
+                ]
+            );
+        }
+
+        if ($contrato->conta->banco === '748') {
+            $remessa = new \Eduardokum\LaravelBoleto\Cnab\Remessa\Cnab400\Banco\Sicredi(
+                [
+                    'idremessa' => 1,
+                    'beneficiario' => $beneficiario,
+                    'agencia' => $contrato->conta->agencia . '-' . $contrato->conta->digito_agencia,
+                    'conta' => $contrato->conta->conta,
+                    'carteira' => $contrato->conta->carteira,
+                ]
+            );
+        }
+
+        // Add multiples bill to a send object. Here need a array of instances of Boleto.
+        $remessa->addBoletos($boletos);
 
         // If you want to hide the print instructions.
         $pdf->hideInstrucoes();
 
         // To Render
-        //$pdf->gerarBoleto();
+        $pdf->gerarBoleto();
 
         // Return a string of file.
         // It depends on the instance, 240 or 400 positions.
@@ -519,6 +597,6 @@ class ContratosController extends Controller
 
         // Force file download.
         // If you pass the $filename argument it overwrites the name in the download.
-        return $remessa->download($filename = null);
+        return $remessa->download($filename = null);*/
     }
 }
