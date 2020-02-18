@@ -166,6 +166,12 @@
                                     <td>
                                         <div class="row no-gutters">
                                             <div class="col-auto" v-if="item.tipo_pagamento === '1'">
+                                                <a class="btn btn-sm btn-spinner btn-warning"
+                                                   :href="item.resource_url + '/titulo'"
+                                                   title="{{ trans('brackets/admin-ui::admin.btn.edit') }}"
+                                                   role="button"><i class="fa fa-money"></i></a>
+                                            </div>
+                                            <div class="col-auto" v-if="item.tipo_pagamento === '1'">
                                                 <a class="btn btn-sm btn-spinner btn-success"
                                                    :href="item.resource_url + '/boleto'"
                                                    title="{{ trans('brackets/admin-ui::admin.btn.edit') }}"

@@ -551,7 +551,7 @@ class ContratosController extends Controller
      * @return string
      * @throws AuthorizationException
      */
-    public function titulos(Contrato $contrato)
+    public function titulo(Contrato $contrato)
     {
         $this->authorize('admin.contrato.edit', $contrato);
 
