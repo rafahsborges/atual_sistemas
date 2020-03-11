@@ -3,7 +3,7 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>Carnê</title>
     <style>
         body {
@@ -210,24 +210,6 @@
             .quebra-pagina {
                 page-break-after: always;
             }
-        }
-
-
-        /* ------------------------------------ */
-
-        .capa {
-            height: 190px;
-            width: 96%;
-            padding: 2%;
-            border-top: 1px dashed #333;
-            border-bottom: 1px dashed #333;
-            font-size: 1.1em;
-            margin-top: 7%;
-        }
-
-        .capa img {
-            max-width: 100%;
-            height: 180px;
         }
 
     </style>
