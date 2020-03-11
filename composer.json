@@ -18,7 +18,8 @@
         "lucascudo/laravel-pt-br-localization": "^1.0",
         "orangehill/iseed": "^2.6",
         "oscarafdev/migrations-generator": "2.0.13",
-        "rap2hpoutre/laravel-log-viewer": "^1.3"
+        "rap2hpoutre/laravel-log-viewer": "^1.3",
+        "ext-zip": "*"
     },
     "require-dev": {
         "brackets/admin-generator": "^5.0",

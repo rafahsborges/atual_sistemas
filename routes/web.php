@@ -269,3 +269,7 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
         });
     });
 });
+
+Route::get('/phpinfo', function () {
+    return phpinfo();
+});
