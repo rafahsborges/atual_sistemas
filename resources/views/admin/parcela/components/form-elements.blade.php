@@ -8,7 +8,7 @@
             :options="contratos"
             :multiple="false"
             track-by="id"
-            label="id_cliente"
+            label="nome"
             tag-placeholder="{{ trans('admin.parcela.columns.id_contrato') }}"
             placeholder="{{ trans('admin.parcela.columns.id_contrato') }}">
         </multiselect>

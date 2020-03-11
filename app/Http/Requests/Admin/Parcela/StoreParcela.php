@@ -33,7 +33,7 @@ class StoreParcela extends FormRequest
             'valor' => ['required', 'numeric'],
             'numero_parcela' => ['nullable', 'numeric'],
             'valor_pagamento' => ['nullable', 'numeric'],
-            'id_contrato' => ['nullable', 'string'],
+            'id_contrato' => ['nullable'],
             'enabled' => ['required', 'boolean'],
             'contrato' => ['nullable'],
         ];

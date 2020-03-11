@@ -78,8 +78,14 @@ class ParcelasController extends Controller
     {
         $this->authorize('admin.parcela.create');
 
+        $contratos = Contrato::with('cliente')->get();
+
+        foreach ($contratos as $key => $contrato) {
+            $contratos[$key]['nome'] = $contrato->cliente->nome . ' [' . $contrato->id . ']';
+        }
+
         return view('admin.parcela.create', [
-            'contratos' => Contrato::all(),
+            'contratos' => $contratos,
         ]);
     }
 
@@ -133,9 +139,19 @@ class ParcelasController extends Controller
         $parcela = Parcela::with('contrato')
             ->find($parcela->id);
 
+        $parcela->contrato = Contrato::with('cliente')->find($parcela->id_contrato);
+
+        $parcela->contrato->nome = $parcela->contrato->cliente->nome . ' [' . $parcela->contrato->id . ']';
+
+        $contratos = Contrato::with('cliente')->get();
+
+        foreach ($contratos as $key => $contrato) {
+            $contratos[$key]['nome'] = $contrato->cliente->nome . ' [' . $contrato->id . ']';
+        }
+
         return view('admin.parcela.edit', [
             'parcela' => $parcela,
-            'contratos' => Contrato::all(),
+            'contratos' => $contratos,
         ]);
     }
 

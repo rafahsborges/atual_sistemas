@@ -197,11 +197,11 @@ class ContratosController extends Controller
             ->find($contrato->id);
 
         if ($contrato->tipo_pagamento === '1') {
-            $contrato['tipo_pagamento'] = array('nome' => 'Boleto', 'id' => 1);
+            $contrato->tipo_pagamento = array('nome' => 'Boleto', 'id' => 1);
         }
 
         if ($contrato->tipo_pagamento === '2') {
-            $contrato['tipo_pagamento'] = array('nome' => 'Carnê', 'id' => 2);
+            $contrato->tipo_pagamento = array('nome' => 'Carnê', 'id' => 2);
         }
 
         return view('admin.contrato.edit', [
