@@ -168,25 +168,25 @@
                                             <div class="col-auto" v-if="item.tipo_pagamento === '1'">
                                                 <a class="btn btn-sm btn-spinner btn-warning"
                                                    :href="item.resource_url + '/titulo'"
-                                                   title="{{ trans('brackets/admin-ui::admin.btn.edit') }}"
+                                                   title="{{ trans('admin.contrato.actions.titulos') }}"
                                                    role="button"><i class="fa fa-money"></i></a>
                                             </div>
                                             <div class="col-auto" v-if="item.tipo_pagamento === '1'">
                                                 <a class="btn btn-sm btn-spinner btn-success"
                                                    :href="item.resource_url + '/boleto'"
-                                                   title="{{ trans('brackets/admin-ui::admin.btn.edit') }}"
+                                                   title="{{ trans('admin.contrato.actions.boletos') }}"
                                                    role="button"><i class="fa fa-money"></i></a>
                                             </div>
                                             <div class="col-auto" v-if="item.tipo_pagamento === '2'">
                                                 <a class="btn btn-sm btn-spinner btn-success"
                                                    :href="item.resource_url + '/carne'"
-                                                   title="{{ trans('brackets/admin-ui::admin.btn.edit') }}"
+                                                   title="{{ trans('admin.contrato.actions.carnes') }}"
                                                    role="button"><i class="fa fa-money"></i></a>
                                             </div>
                                             <div class="col-auto">
                                                 <a class="btn btn-sm btn-spinner btn-success"
                                                    :href="item.resource_url + '/carteira'"
-                                                   title="{{ trans('brackets/admin-ui::admin.btn.edit') }}"
+                                                   title="{{ trans('admin.contrato.actions.carteira') }}"
                                                    role="button"><i class="fa fa-address-card"></i></a>
                                             </div>
                                             <div class="col-auto">

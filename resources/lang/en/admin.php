@@ -169,6 +169,10 @@ return [
             'index' => 'Contratos',
             'create' => 'New Contrato',
             'edit' => 'Edit :name',
+            'boletos' => 'Boletos',
+            'titulos' => 'Títulos',
+            'carnes' => 'Carnês',
+            'carteira' => 'Carteira',
         ],
 
         'columns' => [
