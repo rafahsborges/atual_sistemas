@@ -177,6 +177,12 @@
                                                    title="{{ trans('brackets/admin-ui::admin.btn.edit') }}"
                                                    role="button"><i class="fa fa-money"></i></a>
                                             </div>
+                                            <div class="col-auto" v-if="item.tipo_pagamento === '2'">
+                                                <a class="btn btn-sm btn-spinner btn-success"
+                                                   :href="item.resource_url + '/carne'"
+                                                   title="{{ trans('brackets/admin-ui::admin.btn.edit') }}"
+                                                   role="button"><i class="fa fa-money"></i></a>
+                                            </div>
                                             <div class="col-auto">
                                                 <a class="btn btn-sm btn-spinner btn-success"
                                                    :href="item.resource_url + '/carteira'"

@@ -33,6 +33,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\ValidationException;
 use Illuminate\View\View;
 use PDF;
+use ZipArchive;
 
 class ContratosController extends Controller
 {
@@ -627,4 +628,239 @@ class ContratosController extends Controller
 
         return Storage::download('titulos.ini');
     }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param Contrato $contrato
+     * @return string
+     * @throws AuthorizationException
+     */
+    public function carne(Contrato $contrato)
+    {
+        $this->authorize('admin.contrato.edit', $contrato);
+
+        $contrato = Contrato::with('cliente')
+            ->with('cliente.dependentes')
+            ->with('plano')
+            ->with('conta')
+            ->with('parcelas')
+            ->find($contrato->id);
+
+        if ($contrato->tipo_pagamento === '1') {
+            $contrato['tipo_pagamento'] = array('nome' => 'Boleto', 'id' => 1);
+        }
+
+        if ($contrato->tipo_pagamento === '2') {
+            $contrato['tipo_pagamento'] = array('nome' => 'Carnê', 'id' => 2);
+        }
+
+        $obs = 'DESCONTO DE R$ ' . $contrato->desconto . ' ATÉ O VENCIMENTO';
+        $obs .= "\n";
+        $obs .= 'VENCIDO, COBRAR MULTA DE ' . $contrato->multa . '% + JUROS DE ' . $contrato->juros . '% MÊS';
+        $obs .= "\n";
+        $obs .= 'NÃO RECEBER COM 60 DIAS DE VENCIDO';
+        $obs .= "\n";
+        $obs .= 'PROTESTAR EM 5 DIAS UTEIS';
+
+        $pdf = PDF::loadView('pdf.carne',
+            [
+                'nome_empresa' => 'ESSENCIAL VIDA COB. CADASTRO LTDA. ME',
+                'endereco_empresa' => 'Rua 10 n. 2740, Centro, Jales - SP - CEP: 15700-068',
+                'tel_empresa' => '',
+                'logo' => '',
+                'obs' => $obs,
+                'nome' => $contrato->cliente->nome,
+                'endereco' => $contrato->cliente->logradouro . ', ' . $contrato->cliente->complemento . ', ' . $contrato->cliente->bairro . ', ' . $contrato->cliente->cidade->nome . ', ' . $contrato->cliente->uf->abreviacao,
+                'cpf' => $contrato->cliente->cpf,
+                'valor' => $contrato->valor_parcela,
+                'qtd' => $contrato->qtd_parcelas,
+                'vence' => Carbon::createFromFormat('Y-m-d H:i:s', $contrato->primeira_parcela)->day,
+                'primeiro_mes' => Carbon::createFromFormat('Y-m-d H:i:s', $contrato->primeira_parcela)->month,
+                'primeiro_ano' => Carbon::createFromFormat('Y-m-d H:i:s', $contrato->primeira_parcela)->year,
+                'hoje' => Carbon::now()->format('d/m/Y'),
+            ]
+        );
+
+        return $pdf->download('carne.pdf');
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param Contrato $contrato
+     * @return string
+     * @throws AuthorizationException
+     */
+    public function titulo2(Contrato $contrato)
+    {
+        $this->authorize('admin.contrato.edit', $contrato);
+
+        $contrato = Contrato::with('cliente')
+            ->with('cliente.dependentes')
+            ->with('plano')
+            ->with('conta')
+            ->with('parcelas')
+            ->find($contrato->id);
+
+        if ($contrato->tipo_pagamento === '1') {
+            $contrato['tipo_pagamento'] = array('nome' => 'Boleto', 'id' => 1);
+        }
+
+        if ($contrato->tipo_pagamento === '2') {
+            $contrato['tipo_pagamento'] = array('nome' => 'Carnê', 'id' => 2);
+        }
+
+        $content = "";
+        $content2 = "";
+        $content3 = "";
+        $nossonumero = "100";
+        foreach ($contrato->parcelas as $key => $parcela) {
+            $nome = $contrato->cliente->tipo === 1 ? $contrato->cliente->razao_social : $contrato->cliente->nome;
+            $cpfcnpj = $contrato->cliente->tipo === 1 ? $contrato->cliente->cnpj : $contrato->cliente->cpf;
+            $numero = ($key + 1 < 10) ? '0' . ($key + 1) : $key + 1;
+            $content .= "[Titulo" . $numero . "]";
+            $content .= "\n";
+            $content .= "LocalPagamento=Ate o Vcto em qualquer banco ou correspondente.";
+            $content .= "\n";
+            $content .= "NumeroDocumento=ABC234";
+            $content .= "\n";
+            $content .= "NossoNumero=" . $nossonumero++;
+            $content .= "\n";
+            $content .= "Carteira=" . $contrato->conta->carteira;
+            $content .= "\n";
+            $content .= "ValorDocumento=" . $parcela->valor;
+            $content .= "\n";
+            $content .= "ValorMoraJuros=" . $contrato->juros;
+            $content .= "\n";
+            $content .= "Vencimento=" . (new Carbon($parcela['vencimento']))->format('d/m/Y');
+            $content .= "\n";
+            $content .= "Sacado.NomeSacado=" . $nome;
+            $content .= "\n";
+            $content .= "Sacado.CNPJCPF=" . $cpfcnpj;
+            $content .= "\n";
+            $content .= "Sacado.Pessoa=" . $contrato->cliente->tipo;
+            $content .= "\n";
+            $content .= "Sacado.Logradouro=" . $contrato->cliente->logradouro;
+            $content .= "\n";
+            $content .= "Sacado.Numero=" . $contrato->cliente->numero;
+            $content .= "\n";
+            $content .= "Sacado.Bairro=" . $contrato->cliente->bairro;
+            $content .= "\n";
+            $content .= "Sacado.Cidade=" . $contrato->cliente->cidade->nome;
+            $content .= "\n";
+            $content .= "Sacado.UF=" . $contrato->cliente->uf->abreviacao;
+            $content .= "\n";
+            $content .= "Sacado.CEP=" . $contrato->cliente->cep;
+            $content .= "\n";
+            $content .= "Sacado.Email=" . $contrato->cliente->email;
+            $content .= "\n";
+            $content .= "Mensagem=DESCONTO DE R$ " . $contrato->desconto . " ATÉ O VENCIMENTO";
+            $content .= "|";
+            $content .= "VENCIDO, COBRAR MULTA DE " . $contrato->multa . " + JUROS DE " . $contrato->juros . " MÊS";
+            $content .= "|";
+            $content .= $contrato->conta->mensagem_1;
+            $content .= "|";
+            $content .= $contrato->conta->mensagem_1;
+            $content .= "|";
+            $content .= "\n";
+        }
+
+        $content2 .= '//envia email';
+        $content2 .= "\n";
+        $content2 .= 'BOLETO.ConfigurarDados("C:\ACBrNfeMonitor\cedente.ini")';
+        $content2 .= "\n";
+        $content2 .= 'BOLETO.LimparLista    //antes de criar novos títulos, apagues os existentes,';
+        $content2 .= "\n";
+        $content2 .= 'BOLETO.IncluirTitulos("C:\ACBrNfeMonitor\titulos.ini","E")   //inclui e envia email';
+        $content2 .= "\n";
+        $content2 .= 'BOLETO.LimparLista    //limpa a lista';
+        $content2 .= "\n";
+        $content2 .= '//';
+        $content2 .= "\n";
+        $content2 .= 'BOLETO.ConfigurarDados("C:\ACBrNfeMonitor\cedente.ini")';
+        $content2 .= "\n";
+        $content2 .= 'BOLETO.LimparLista    //antes de criar novos títulos, apagues os existentes,';
+        $content2 .= "\n";
+        $content2 .= 'BOLETO.IncluirTitulos("C:\ACBrNfeMonitor\titulos.ini","I")   //inclui e imprime ';
+        $content2 .= "\n";
+        $content2 .= 'BOLETO.LimparLista    //limpa a lista';
+        $content2 .= "\n";
+        $content2 .= '//';
+        $content2 .= "\n";
+        $content2 .= 'BOLETO.ConfigurarDados("C:\ACBrNfeMonitor\cedente.ini")';
+        $content2 .= "\n";
+        $content2 .= 'BOLETO.LimparLista    //antes de criar novos títulos, apagues os existentes,';
+        $content2 .= "\n";
+        $content2 .= 'BOLETO.IncluirTitulos("C:\ACBrNfeMonitor\titulos.ini")';
+        $content2 .= "\n";
+        $content2 .= 'BOLETO.GerarRemessa("C:\Atual_Cuidado\Cobranca\Remessa\",,ARQREM_2020_02_07_16_528_01.REM)';
+        $content2 .= "\n";
+        $content2 .= 'BOLETO.LimparLista    //limpa a lista';
+
+        $content3 .= "[Cedente]";
+        $content3 .= "\n";
+        $content3 .= "Nome=AtualxxxSistemas-Leandro R.H.Costa";
+        $content3 .= "\n";
+        $content3 .= "CNPJCPF=184.567.548-70";
+        $content3 .= "\n";
+        $content3 .= "Logradouro=Rua 24";
+        $content3 .= "\n";
+        $content3 .= "Numero=2779";
+        $content3 .= "\n";
+        $content3 .= "Bairro=JD.Paulo VI";
+        $content3 .= "\n";
+        $content3 .= "Cidade=Jales";
+        $content3 .= "\n";
+        $content3 .= "CEP=15706400";
+        $content3 .= "\n";
+        $content3 .= "Complemento=";
+        $content3 .= "\n";
+        $content3 .= "UF=SP";
+        $content3 .= "\n";
+        $content3 .= "RespEmis=0";
+        $content3 .= "\n";
+        $content3 .= "TipoPessoa=0";
+        $content3 .= "\n";
+        $content3 .= "CodigoCedente=096895";
+        $content3 .= "\n";
+        $content3 .= "[Conta]";
+        $content3 .= "\n";
+        $content3 .= "Conta=" . $contrato->conta->conta;
+        $content3 .= "\n";
+        $content3 .= "DigitoConta=" . $contrato->conta->digito_conta;
+        $content3 .= "\n";
+        $content3 .= "Agencia=" . $contrato->conta->agencia;
+        $content3 .= "\n";
+        $content3 .= "DigitoAgencia=" . $contrato->conta->digito_agencia;
+        $content3 .= "\n";
+        $content3 .= "[banco]";
+        $content3 .= "\n";
+        $content3 .= "Numero=" . $contrato->conta->banco;
+        $content3 .= "\n";
+        $content3 .= "CNAB=1";
+        $content3 .= "\n";
+        $content3 .= "IndiceACBr=3";
+        $content3 .= "\n";
+
+        /*var_dump('<pre>');
+        var_dump($contrato->conta->banco);
+        var_dump('</pre>');
+        die();*/
+
+        Storage::put('titulos.ini', $content);
+        Storage::put('ent.txt', $content2);
+        Storage::put('cedente.ini', $content3);
+
+        $zip_file = 'boletos.zip';
+        $zip = new ZipArchive();
+        $zip->open($zip_file, ZipArchive::CREATE | ZipArchive::OVERWRITE);
+        $zip->addFromString('titulos.ini', $content);
+        $zip->addFromString('ent.txt', $content2);
+        $zip->addFromString('cedente.ini', $content3);
+        $zip->close();
+
+        return Storage::download('boletos.zip');
+    }
+
 }
