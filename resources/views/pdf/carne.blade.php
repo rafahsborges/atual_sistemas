@@ -142,32 +142,6 @@
             padding: 1%;
         }
 
-        .bto {
-            padding: 1%;
-            background: #dedede;
-            margin-bottom: 1%;
-            border-bottom: 1px solid #ccc;
-        }
-
-        .bto a,
-        .bto button {
-            padding: 9px;
-            border: 0;
-            cursor: pointer;
-            text-decoration: none;
-            font-size: 1em;
-        }
-
-        .bto .btn-impress {
-            color: #fff;
-            background: green;
-        }
-
-        .bto .btn {
-            color: #555;
-            background: transparent;
-        }
-
         table td {
             padding: 5px 12px;
             margin: 0;
@@ -183,7 +157,7 @@
             padding: 2% 0 2% 2%;
             border-top: 1px dashed #333;
             border-bottom: 1px dashed #333;
-            font-size: .9em;
+            font-size: .6em;
         }
 
         .destaca {
@@ -201,15 +175,8 @@
             font-size: .7em;
         }
 
-
-        @media print {
-            .bto {
-                display: none;
-            }
-
-            .quebra-pagina {
-                page-break-after: always;
-            }
+        .quebra-pagina {
+            page-break-after: always;
         }
 
     </style>
@@ -311,7 +278,7 @@
     $count_quebra_pg++; // contagem de loop
 @endphp
 
-@if($count_quebra_pg == 4)
+@if($count_quebra_pg == 5)
     {{--Adiciona quebra a cada 4 loops e zera a variavel--}}
     <div class="quebra-pagina"></div>
     @php
