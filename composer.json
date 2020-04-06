@@ -22,6 +22,7 @@
         "ext-zip": "*"
     },
     "require-dev": {
+        "barryvdh/laravel-debugbar": "^3.2",
         "brackets/admin-generator": "^5.0",
         "facade/ignition": "^1.4",
         "fzaninotto/faker": "^1.4",
