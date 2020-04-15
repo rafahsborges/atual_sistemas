@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
 /**
- * Class FillDefaultAdminUserAndPermissions
+ * Class FillDefaultAdminUserAndPermissions.
  */
 class FillDefaultAdminUserAndPermissions extends Migration
 {
@@ -49,8 +49,8 @@ class FillDefaultAdminUserAndPermissions extends Migration
     public function __construct()
     {
         $this->guardName = config('admin-auth.defaults.guard');
-        $providerName = config('auth.guards.' . $this->guardName . '.provider');
-        $provider = config('auth.providers.' . $providerName);
+        $providerName = config('auth.guards.'.$this->guardName.'.provider');
+        $provider = config('auth.providers.'.$providerName);
         if ($provider['driver'] === 'eloquent') {
             $this->userClassName = $provider['model'];
         }
@@ -276,7 +276,7 @@ class FillDefaultAdminUserAndPermissions extends Migration
             foreach ($this->permissions as $permission) {
                 $permissionItem = DB::table('permissions')->where([
                     'name' => $permission['name'],
-                    'guard_name' => $permission['guard_name']
+                    'guard_name' => $permission['guard_name'],
                 ])->first();
                 if ($permissionItem === null) {
                     DB::table('permissions')->insert($permission);
@@ -289,7 +289,7 @@ class FillDefaultAdminUserAndPermissions extends Migration
 
                 $roleItem = DB::table('roles')->where([
                     'name' => $role['name'],
-                    'guard_name' => $role['guard_name']
+                    'guard_name' => $role['guard_name'],
                 ])->first();
                 if ($roleItem === null) {
                     $roleId = DB::table('roles')->insertGetId($role);
@@ -304,7 +304,7 @@ class FillDefaultAdminUserAndPermissions extends Migration
                 foreach ($permissionItems as $permissionItem) {
                     $roleHasPermissionData = [
                         'permission_id' => $permissionItem->id,
-                        'role_id' => $roleId
+                        'role_id' => $roleId,
                     ];
                     $roleHasPermissionItem = DB::table('role_has_permissions')->where($roleHasPermissionData)->first();
                     if ($roleHasPermissionItem === null) {
@@ -327,20 +327,20 @@ class FillDefaultAdminUserAndPermissions extends Migration
                 if ($userItem === null) {
                     $userId = DB::table($this->userTable)->insertGetId($user);
 
-                    AdminUser::find($userId)->addMedia(storage_path() . '/images/avatar.png')
+                    AdminUser::find($userId)->addMedia(storage_path().'/images/avatar.png')
                         ->preservingOriginal()
                         ->toMediaCollection('avatar', 'media');
 
                     foreach ($roles as $role) {
                         $roleItem = DB::table('roles')->where([
                             'name' => $role['name'],
-                            'guard_name' => $role['guard_name']
+                            'guard_name' => $role['guard_name'],
                         ])->first();
 
                         $modelHasRoleData = [
                             'role_id' => $roleItem->id,
                             'model_id' => $userId,
-                            'model_type' => $this->userClassName
+                            'model_type' => $this->userClassName,
                         ];
                         $modelHasRoleItem = DB::table('model_has_roles')->where($modelHasRoleData)->first();
                         if ($modelHasRoleItem === null) {
@@ -351,13 +351,13 @@ class FillDefaultAdminUserAndPermissions extends Migration
                     foreach ($permissions as $permission) {
                         $permissionItem = DB::table('permissions')->where([
                             'name' => $permission['name'],
-                            'guard_name' => $permission['guard_name']
+                            'guard_name' => $permission['guard_name'],
                         ])->first();
 
                         $modelHasPermissionData = [
                             'permission_id' => $permissionItem->id,
                             'model_id' => $userId,
-                            'model_type' => $this->userClassName
+                            'model_type' => $this->userClassName,
                         ];
                         $modelHasPermissionItem = DB::table('model_has_permissions')->where($modelHasPermissionData)->first();
                         if ($modelHasPermissionItem === null) {
@@ -389,11 +389,11 @@ class FillDefaultAdminUserAndPermissions extends Migration
                     DB::table($this->userTable)->where('id', $userItem->id)->delete();
                     DB::table('model_has_permissions')->where([
                         'model_id' => $userItem->id,
-                        'model_type' => $this->userClassName
+                        'model_type' => $this->userClassName,
                     ])->delete();
                     DB::table('model_has_roles')->where([
                         'model_id' => $userItem->id,
-                        'model_type' => $this->userClassName
+                        'model_type' => $this->userClassName,
                     ])->delete();
                 }
             }
@@ -401,7 +401,7 @@ class FillDefaultAdminUserAndPermissions extends Migration
             foreach ($this->roles as $role) {
                 $roleItem = DB::table('roles')->where([
                     'name' => $role['name'],
-                    'guard_name' => $role['guard_name']
+                    'guard_name' => $role['guard_name'],
                 ])->first();
                 if ($roleItem !== null) {
                     DB::table('roles')->where('id', $roleItem->id)->delete();
@@ -412,7 +412,7 @@ class FillDefaultAdminUserAndPermissions extends Migration
             foreach ($this->permissions as $permission) {
                 $permissionItem = DB::table('permissions')->where([
                     'name' => $permission['name'],
-                    'guard_name' => $permission['guard_name']
+                    'guard_name' => $permission['guard_name'],
                 ])->first();
                 if ($permissionItem !== null) {
                     DB::table('permissions')->where('id', $permissionItem->id)->delete();

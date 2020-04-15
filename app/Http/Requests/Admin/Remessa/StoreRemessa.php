@@ -31,15 +31,15 @@ class StoreRemessa extends FormRequest
             'nome' => ['required', 'string'],
             'sequencia' => ['nullable', 'numeric'],
             'id_conta' => ['nullable', 'string'],
-            
+
         ];
     }
 
     /**
-    * Modify input data
-    *
-    * @return array
-    */
+     * Modify input data.
+     *
+     * @return array
+     */
     public function getSanitized(): array
     {
         $sanitized = $this->validated();

@@ -23,7 +23,6 @@ use Illuminate\View\View;
 
 class ParentescosController extends Controller
 {
-
     /**
      * Display a listing of the resource.
      *
@@ -47,9 +46,10 @@ class ParentescosController extends Controller
         if ($request->ajax()) {
             if ($request->has('bulk')) {
                 return [
-                    'bulkItems' => $data->pluck('id')
+                    'bulkItems' => $data->pluck('id'),
                 ];
             }
+
             return ['data' => $data];
         }
 
@@ -115,7 +115,6 @@ class ParentescosController extends Controller
     {
         $this->authorize('admin.parentesco.edit', $parentesco);
 
-
         return view('admin.parentesco.edit', [
             'parentesco' => $parentesco,
         ]);
@@ -180,7 +179,7 @@ class ParentescosController extends Controller
                 ->each(static function ($bulkChunk) {
                     DB::table('parentescos')->whereIn('id', $bulkChunk)
                         ->update([
-                            'deleted_at' => Carbon::now()->format('Y-m-d H:i:s')
+                            'deleted_at' => Carbon::now()->format('Y-m-d H:i:s'),
                     ]);
 
                     // TODO your code goes here

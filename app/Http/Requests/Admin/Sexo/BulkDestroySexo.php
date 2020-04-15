@@ -25,7 +25,7 @@ class BulkDestroySexo extends FormRequest
     public function rules(): array
     {
         return [
-            'ids.*' => 'integer'
+            'ids.*' => 'integer',
         ];
     }
 }

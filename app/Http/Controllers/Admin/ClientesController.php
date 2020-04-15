@@ -27,7 +27,6 @@ use Illuminate\View\View;
 
 class ClientesController extends Controller
 {
-
     /**
      * Display a listing of the resource.
      *
@@ -67,9 +66,10 @@ class ClientesController extends Controller
         if ($request->ajax()) {
             if ($request->has('bulk')) {
                 return [
-                    'bulkItems' => $data->pluck('id')
+                    'bulkItems' => $data->pluck('id'),
                 ];
             }
+
             return ['data' => $data];
         }
 
@@ -239,7 +239,7 @@ class ClientesController extends Controller
                 ->each(static function ($bulkChunk) {
                     DB::table('clientes')->whereIn('id', $bulkChunk)
                         ->update([
-                            'deleted_at' => Carbon::now()->format('Y-m-d H:i:s')
+                            'deleted_at' => Carbon::now()->format('Y-m-d H:i:s'),
                         ]);
 
                     // TODO your code goes here

@@ -22,7 +22,6 @@ use Illuminate\View\View;
 
 class RemessasController extends Controller
 {
-
     /**
      * Display a listing of the resource.
      *
@@ -46,9 +45,10 @@ class RemessasController extends Controller
         if ($request->ajax()) {
             if ($request->has('bulk')) {
                 return [
-                    'bulkItems' => $data->pluck('id')
+                    'bulkItems' => $data->pluck('id'),
                 ];
             }
+
             return ['data' => $data];
         }
 
@@ -113,7 +113,6 @@ class RemessasController extends Controller
     public function edit(Remessa $remessa)
     {
         $this->authorize('admin.remessa.edit', $remessa);
-
 
         return view('admin.remessa.edit', [
             'remessa' => $remessa,
@@ -185,5 +184,4 @@ class RemessasController extends Controller
 
         return response(['message' => trans('brackets/admin-ui::admin.operation.succeeded')]);
     }
-
 }

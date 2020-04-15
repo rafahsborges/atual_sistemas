@@ -47,7 +47,7 @@ class Contrato extends Model
 
     public function getResourceUrlAttribute()
     {
-        return url('/admin/contratos/' . $this->getKey());
+        return url('/admin/contratos/'.$this->getKey());
     }
 
     /**

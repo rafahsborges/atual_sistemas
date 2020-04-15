@@ -15,7 +15,6 @@ class EstadoCivil extends Model
         'enabled',
     ];
 
-
     protected $dates = [
         'created_at',
         'updated_at',
@@ -28,7 +27,7 @@ class EstadoCivil extends Model
 
     public function getResourceUrlAttribute()
     {
-        return url('/admin/estado-civils/' . $this->getKey());
+        return url('/admin/estado-civils/'.$this->getKey());
     }
 
     /**
