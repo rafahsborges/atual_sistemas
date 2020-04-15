@@ -1,10 +1,9 @@
 <?php
 
-/** @var  Factory $factory */
-
+/** @var Factory $factory */
 use Illuminate\Database\Eloquent\Factory;
 
-/** @var  Factory $factory */
+/* @var  Factory $factory */
 $factory->define(Brackets\AdminAuth\Models\AdminUser::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->firstName,
@@ -21,7 +20,7 @@ $factory->define(Brackets\AdminAuth\Models\AdminUser::class, function (Faker\Gen
     ];
 });
 
-/** @var  Factory $factory */
+/* @var  Factory $factory */
 $factory->define(App\Models\Plano::class, static function (Faker\Generator $faker) {
     return [
         'nome' => $faker->sentence,
@@ -32,7 +31,7 @@ $factory->define(App\Models\Plano::class, static function (Faker\Generator $fake
     ];
 });
 
-/** @var  Factory $factory */
+/* @var  Factory $factory */
 $factory->define(App\Models\Parentesco::class, static function (Faker\Generator $faker) {
     return [
         'descricao' => $faker->sentence,
@@ -43,7 +42,7 @@ $factory->define(App\Models\Parentesco::class, static function (Faker\Generator 
     ];
 });
 
-/** @var  Factory $factory */
+/* @var  Factory $factory */
 $factory->define(App\Models\EstadoCivil::class, static function (Faker\Generator $faker) {
     return [
         'nome' => $faker->sentence,
@@ -54,7 +53,7 @@ $factory->define(App\Models\EstadoCivil::class, static function (Faker\Generator
     ];
 });
 
-/** @var  Factory $factory */
+/* @var  Factory $factory */
 $factory->define(App\Models\Cliente::class, static function (Faker\Generator $faker) {
     return [
         'tipo' => $faker->boolean(),
@@ -89,7 +88,7 @@ $factory->define(App\Models\Cliente::class, static function (Faker\Generator $fa
     ];
 });
 
-/** @var  Factory $factory */
+/* @var  Factory $factory */
 $factory->define(App\Models\Dependente::class, static function (Faker\Generator $faker) {
     return [
         'nome' => $faker->sentence,
@@ -103,7 +102,7 @@ $factory->define(App\Models\Dependente::class, static function (Faker\Generator 
     ];
 });
 
-/** @var  Factory $factory */
+/* @var  Factory $factory */
 $factory->define(App\Models\Conta::class, static function (Faker\Generator $faker) {
     return [
         'nome' => $faker->sentence,
@@ -125,7 +124,7 @@ $factory->define(App\Models\Conta::class, static function (Faker\Generator $fake
     ];
 });
 
-/** @var  Factory $factory */
+/* @var  Factory $factory */
 $factory->define(App\Models\Contrato::class, static function (Faker\Generator $faker) {
     return [
         'primeira_parcela' => $faker->date(),
@@ -149,7 +148,7 @@ $factory->define(App\Models\Contrato::class, static function (Faker\Generator $f
     ];
 });
 
-/** @var  Factory $factory */
+/* @var  Factory $factory */
 $factory->define(App\Models\Parcela::class, static function (Faker\Generator $faker) {
     return [
         'vencimento' => $faker->date(),
@@ -167,7 +166,7 @@ $factory->define(App\Models\Parcela::class, static function (Faker\Generator $fa
     ];
 });
 
-/** @var  Factory $factory */
+/* @var  Factory $factory */
 $factory->define(App\Models\Boleto::class, static function (Faker\Generator $faker) {
     return [
         'status' => $faker->boolean(),
@@ -175,7 +174,7 @@ $factory->define(App\Models\Boleto::class, static function (Faker\Generator $fak
     ];
 });
 
-/** @var  Factory $factory */
+/* @var  Factory $factory */
 $factory->define(App\Models\Remessa::class, static function (Faker\Generator $faker) {
     return [
         'data' => $faker->dateTime,
@@ -186,7 +185,7 @@ $factory->define(App\Models\Remessa::class, static function (Faker\Generator $fa
     ];
 });
 
-/** @var  Factory $factory */
+/* @var  Factory $factory */
 $factory->define(App\Models\RemessaBoleto::class, static function (Faker\Generator $faker) {
     return [
         'id_boleto' => $faker->sentence,
@@ -194,7 +193,7 @@ $factory->define(App\Models\RemessaBoleto::class, static function (Faker\Generat
     ];
 });
 
-/** @var  Factory $factory */
+/* @var  Factory $factory */
 $factory->define(App\Models\Sexo::class, static function (Faker\Generator $faker) {
     return [
         'nome' => $faker->sentence,
@@ -206,7 +205,7 @@ $factory->define(App\Models\Sexo::class, static function (Faker\Generator $faker
     ];
 });
 
-/** @var  Factory $factory */
+/* @var  Factory $factory */
 $factory->define(App\Models\Uf::class, static function (Faker\Generator $faker) {
     return [
         'nome' => $faker->sentence,
@@ -218,7 +217,7 @@ $factory->define(App\Models\Uf::class, static function (Faker\Generator $faker) 
     ];
 });
 
-/** @var  Factory $factory */
+/* @var  Factory $factory */
 $factory->define(App\Models\Cidade::class, static function (Faker\Generator $faker) {
     return [
         'nome' => $faker->sentence,
@@ -230,4 +229,3 @@ $factory->define(App\Models\Cidade::class, static function (Faker\Generator $fak
         'deleted_at' => null,
     ];
 });
-

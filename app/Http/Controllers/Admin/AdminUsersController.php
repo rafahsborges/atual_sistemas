@@ -8,8 +8,6 @@ use App\Http\Requests\Admin\AdminUser\IndexAdminUser;
 use App\Http\Requests\Admin\AdminUser\StoreAdminUser;
 use App\Http\Requests\Admin\AdminUser\UpdateAdminUser;
 use App\Models\AdminUser;
-use Illuminate\Support\Facades\DB;
-use Spatie\Permission\Models\Role;
 use Brackets\AdminAuth\Activation\Facades\Activation;
 use Brackets\AdminAuth\Services\ActivationService;
 use Brackets\AdminListing\Facades\AdminListing;
@@ -22,13 +20,14 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
+use Spatie\Permission\Models\Role;
 
 class AdminUsersController extends Controller
 {
-
     /**
-     * Guard used for admin user
+     * Guard used for admin user.
      *
      * @var string
      */
@@ -200,7 +199,7 @@ class AdminUsersController extends Controller
     }
 
     /**
-     * Resend activation e-mail
+     * Resend activation e-mail.
      *
      * @param Request $request
      * @param ActivationService $activationService

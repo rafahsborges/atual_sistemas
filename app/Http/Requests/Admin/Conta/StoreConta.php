@@ -39,15 +39,15 @@ class StoreConta extends FormRequest
             'mensagem_2' => ['nullable', 'string'],
             'cpf_cnpj' => ['nullable', 'string'],
             'enabled' => ['required', 'boolean'],
-            
+
         ];
     }
 
     /**
-    * Modify input data
-    *
-    * @return array
-    */
+     * Modify input data.
+     *
+     * @return array
+     */
     public function getSanitized(): array
     {
         $sanitized = $this->validated();

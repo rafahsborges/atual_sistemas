@@ -37,7 +37,6 @@ use ZipArchive;
 
 class ContratosController extends Controller
 {
-
     /**
      * Display a listing of the resource.
      *
@@ -76,9 +75,10 @@ class ContratosController extends Controller
         if ($request->ajax()) {
             if ($request->has('bulk')) {
                 return [
-                    'bulkItems' => $data->pluck('id')
+                    'bulkItems' => $data->pluck('id'),
                 ];
             }
+
             return ['data' => $data];
         }
 
@@ -143,7 +143,7 @@ class ContratosController extends Controller
         if ($contrato->id) {
             for ($i = 0; $i < $diff_in_months; $i++) {
                 $vencimento_parcela = new Carbon($primeira_parcela);
-                $parcelas[] = array(
+                $parcelas[] = [
                     'vencimento' => $vencimento_parcela->addMonths($i)->toDateString(),
                     'valor' => $valor_parcela,
                     'numero_parcela' => $i + 1,
@@ -151,7 +151,7 @@ class ContratosController extends Controller
                     'enabled' => true,
                     'created_at' => Carbon::now(),
                     'updated_at' => Carbon::now(),
-                );
+                ];
             }
         }
 
@@ -198,11 +198,11 @@ class ContratosController extends Controller
             ->find($contrato->id);
 
         if ($contrato->tipo_pagamento === '1') {
-            $contrato->tipo_pagamento = array('nome' => 'Boleto', 'id' => 1);
+            $contrato->tipo_pagamento = ['nome' => 'Boleto', 'id' => 1];
         }
 
         if ($contrato->tipo_pagamento === '2') {
-            $contrato->tipo_pagamento = array('nome' => 'Carnê', 'id' => 2);
+            $contrato->tipo_pagamento = ['nome' => 'Carnê', 'id' => 2];
         }
 
         return view('admin.contrato.edit', [
@@ -281,7 +281,7 @@ class ContratosController extends Controller
                 ->each(static function ($bulkChunk) {
                     DB::table('contratos')->whereIn('id', $bulkChunk)
                         ->update([
-                            'deleted_at' => Carbon::now()->format('Y-m-d H:i:s')
+                            'deleted_at' => Carbon::now()->format('Y-m-d H:i:s'),
                         ]);
 
                     // TODO your code goes here
@@ -309,11 +309,11 @@ class ContratosController extends Controller
             ->find($contrato->id);
 
         if ($contrato->tipo_pagamento === '1') {
-            $contrato['pagamento'] = array('nome' => 'Boleto', 'id' => 1);
+            $contrato['pagamento'] = ['nome' => 'Boleto', 'id' => 1];
         }
 
         if ($contrato->tipo_pagamento === '2') {
-            $contrato['pagamento'] = array('nome' => 'Carnê', 'id' => 2);
+            $contrato['pagamento'] = ['nome' => 'Carnê', 'id' => 2];
         }
 
         $pdf = PDF::loadView('pdf.carteira',
@@ -349,11 +349,11 @@ class ContratosController extends Controller
                 ->find($id);
 
             if ($contrato->tipo_pagamento === '1') {
-                $contrato['pagamento'] = array('nome' => 'Boleto', 'id' => 1);
+                $contrato['pagamento'] = ['nome' => 'Boleto', 'id' => 1];
             }
 
             if ($contrato->tipo_pagamento === '2') {
-                $contrato['pagamento'] = array('nome' => 'Carnê', 'id' => 2);
+                $contrato['pagamento'] = ['nome' => 'Carnê', 'id' => 2];
             }
 
             $contratos[] = [
@@ -368,7 +368,7 @@ class ContratosController extends Controller
 
         $pdf = PDF::loadView('pdf.carteiras',
             [
-                'carteiras' => $contratos
+                'carteiras' => $contratos,
             ]
         );
 
@@ -394,11 +394,11 @@ class ContratosController extends Controller
             ->find($contrato->id);
 
         if ($contrato->tipo_pagamento === '1') {
-            $contrato['tipo_pagamento'] = array('nome' => 'Boleto', 'id' => 1);
+            $contrato['tipo_pagamento'] = ['nome' => 'Boleto', 'id' => 1];
         }
 
         if ($contrato->tipo_pagamento === '2') {
-            $contrato['tipo_pagamento'] = array('nome' => 'Carnê', 'id' => 2);
+            $contrato['tipo_pagamento'] = ['nome' => 'Carnê', 'id' => 2];
         }
 
         $beneficiario = new Pessoa([
@@ -436,15 +436,15 @@ class ContratosController extends Controller
                     'pagador' => $pagador,
                     'beneficiario' => $beneficiario,
                     'carteira' => $contrato->conta->carteira,
-                    'agencia' => $contrato->conta->agencia . '-' . $contrato->conta->digito_agencia,
-                    'conta' => $contrato->conta->conta . '-' . $contrato->conta->digito_conta,
+                    'agencia' => $contrato->conta->agencia.'-'.$contrato->conta->digito_agencia,
+                    'conta' => $contrato->conta->conta.'-'.$contrato->conta->digito_conta,
                     'multa' => $contrato->multa, // 1% do valor do boleto após o vencimento
                     'juros' => $contrato->juros, // 1% ao mês do valor do boleto
                     'jurosApos' => 0, // quant. de dias para começar a cobrança de juros,
                     //'descricaoDemonstrativo' => ['demonstrativo 1', 'demonstrativo 2', 'demonstrativo 3'],
                     'instrucoes' => [
-                        'DESCONTO DE R$ ' . $contrato->desconto . ' ATÉ O VENCIMENTO',
-                        'VENCIDO, COBRAR MULTA DE ' . $contrato->multa . ' + JUROS DE ' . $contrato->juros . ' MÊS',
+                        'DESCONTO DE R$ '.$contrato->desconto.' ATÉ O VENCIMENTO',
+                        'VENCIDO, COBRAR MULTA DE '.$contrato->multa.' + JUROS DE '.$contrato->juros.' MÊS',
                         $contrato->conta->mensagem_1,
                         $contrato->conta->mensagem_2,
                     ],
@@ -455,7 +455,7 @@ class ContratosController extends Controller
                     [
                         'idRemessa' => $key,
                         'beneficiario' => $beneficiario,
-                        'agencia' => $contrato->conta->agencia . '-' . $contrato->conta->digito_agencia,
+                        'agencia' => $contrato->conta->agencia.'-'.$contrato->conta->digito_agencia,
                         'conta' => $contrato->conta->conta,
                         'contaDv' => $contrato->conta->digito_conta,
                         'carteira' => $contrato->conta->carteira,
@@ -476,15 +476,15 @@ class ContratosController extends Controller
                     'carteira' => $contrato->conta->carteira,
                     'posto' => 11,
                     'byte' => 2,
-                    'agencia' => $contrato->conta->agencia . '-' . $contrato->conta->digito_agencia,
-                    'conta' => $contrato->conta->conta . '-' . $contrato->conta->digito_conta,
+                    'agencia' => $contrato->conta->agencia.'-'.$contrato->conta->digito_agencia,
+                    'conta' => $contrato->conta->conta.'-'.$contrato->conta->digito_conta,
                     'multa' => $contrato->multa, // 1% do valor do boleto após o vencimento
                     'juros' => $contrato->juros, // 1% ao mês do valor do boleto
                     'jurosApos' => 0, // quant. de dias para começar a cobrança de juros,
                     //'descricaoDemonstrativo' => ['demonstrativo 1', 'demonstrativo 2', 'demonstrativo 3'],
                     'instrucoes' => [
-                        'DESCONTO DE R$ ' . $contrato->desconto . ' ATÉ O VENCIMENTO',
-                        'VENCIDO, COBRAR MULTA DE ' . $contrato->multa . ' + JUROS DE ' . $contrato->juros . ' MÊS',
+                        'DESCONTO DE R$ '.$contrato->desconto.' ATÉ O VENCIMENTO',
+                        'VENCIDO, COBRAR MULTA DE '.$contrato->multa.' + JUROS DE '.$contrato->juros.' MÊS',
                         $contrato->conta->mensagem_1,
                         $contrato->conta->mensagem_2,
                     ],
@@ -503,7 +503,7 @@ class ContratosController extends Controller
                 [
                     'idRemessa' => 1,
                     'beneficiario' => $beneficiario,
-                    'agencia' => $contrato->conta->agencia . '-' . $contrato->conta->digito_agencia,
+                    'agencia' => $contrato->conta->agencia.'-'.$contrato->conta->digito_agencia,
                     'conta' => $contrato->conta->conta,
                     'contaDv' => $contrato->conta->digito_conta,
                     'carteira' => $contrato->conta->carteira,
@@ -517,7 +517,7 @@ class ContratosController extends Controller
                 [
                     'idremessa' => 1,
                     'beneficiario' => $beneficiario,
-                    'agencia' => $contrato->conta->agencia . '-' . $contrato->conta->digito_agencia,
+                    'agencia' => $contrato->conta->agencia.'-'.$contrato->conta->digito_agencia,
                     'conta' => $contrato->conta->conta,
                     'carteira' => $contrato->conta->carteira,
                 ]
@@ -538,7 +538,7 @@ class ContratosController extends Controller
         $remessa->gerar();
 
         // Saves the string to a file on the disk whose path was passed in $path argument.
-        $remessa->save(public_path('remessas' . DIRECTORY_SEPARATOR . 'remessa.txt'));
+        $remessa->save(public_path('remessas'.DIRECTORY_SEPARATOR.'remessa.txt'));
 
         // Force file download.
         // If you pass the $filename argument it overwrites the name in the download.
@@ -564,63 +564,63 @@ class ContratosController extends Controller
             ->find($contrato->id);
 
         if ($contrato->tipo_pagamento === '1') {
-            $contrato['tipo_pagamento'] = array('nome' => 'Boleto', 'id' => 1);
+            $contrato['tipo_pagamento'] = ['nome' => 'Boleto', 'id' => 1];
         }
 
         if ($contrato->tipo_pagamento === '2') {
-            $contrato['tipo_pagamento'] = array('nome' => 'Carnê', 'id' => 2);
+            $contrato['tipo_pagamento'] = ['nome' => 'Carnê', 'id' => 2];
         }
 
-        $content = "";
-        $nossonumero = "100";
+        $content = '';
+        $nossonumero = '100';
         foreach ($contrato->parcelas as $key => $parcela) {
             $nome = $contrato->cliente->tipo === 1 ? $contrato->cliente->razao_social : $contrato->cliente->nome;
             $cpfcnpj = $contrato->cliente->tipo === 1 ? $contrato->cliente->cnpj : $contrato->cliente->cpf;
-            $numero = ($key + 1 < 10) ? '0' . ($key + 1) : $key + 1;
-            $content .= "[Titulo" . $numero . "]";
+            $numero = ($key + 1 < 10) ? '0'.($key + 1) : $key + 1;
+            $content .= '[Titulo'.$numero.']';
             $content .= "\n";
-            $content .= "LocalPagamento=Ate o Vcto em qualquer banco ou correspondente.";
+            $content .= 'LocalPagamento=Ate o Vcto em qualquer banco ou correspondente.';
             $content .= "\n";
-            $content .= "NumeroDocumento=ABC234";
+            $content .= 'NumeroDocumento=ABC234';
             $content .= "\n";
-            $content .= "NossoNumero=" . $nossonumero++;
+            $content .= 'NossoNumero='.$nossonumero++;
             $content .= "\n";
-            $content .= "Carteira=" . $contrato->conta->carteira;
+            $content .= 'Carteira='.$contrato->conta->carteira;
             $content .= "\n";
-            $content .= "ValorDocumento=" . $parcela->valor;
+            $content .= 'ValorDocumento='.$parcela->valor;
             $content .= "\n";
-            $content .= "ValorMoraJuros=" . $contrato->juros;
+            $content .= 'ValorMoraJuros='.$contrato->juros;
             $content .= "\n";
-            $content .= "Vencimento=" . (new Carbon($parcela['vencimento']))->format('d/m/Y');
+            $content .= 'Vencimento='.(new Carbon($parcela['vencimento']))->format('d/m/Y');
             $content .= "\n";
-            $content .= "Sacado.NomeSacado=" . $nome;
+            $content .= 'Sacado.NomeSacado='.$nome;
             $content .= "\n";
-            $content .= "Sacado.CNPJCPF=" . $cpfcnpj;
+            $content .= 'Sacado.CNPJCPF='.$cpfcnpj;
             $content .= "\n";
-            $content .= "Sacado.Pessoa=" . $contrato->cliente->tipo;
+            $content .= 'Sacado.Pessoa='.$contrato->cliente->tipo;
             $content .= "\n";
-            $content .= "Sacado.Logradouro=" . $contrato->cliente->logradouro;
+            $content .= 'Sacado.Logradouro='.$contrato->cliente->logradouro;
             $content .= "\n";
-            $content .= "Sacado.Numero=" . $contrato->cliente->numero;
+            $content .= 'Sacado.Numero='.$contrato->cliente->numero;
             $content .= "\n";
-            $content .= "Sacado.Bairro=" . $contrato->cliente->bairro;
+            $content .= 'Sacado.Bairro='.$contrato->cliente->bairro;
             $content .= "\n";
-            $content .= "Sacado.Cidade=" . $contrato->cliente->cidade->nome;
+            $content .= 'Sacado.Cidade='.$contrato->cliente->cidade->nome;
             $content .= "\n";
-            $content .= "Sacado.UF=" . $contrato->cliente->uf->abreviacao;
+            $content .= 'Sacado.UF='.$contrato->cliente->uf->abreviacao;
             $content .= "\n";
-            $content .= "Sacado.CEP=" . $contrato->cliente->cep;
+            $content .= 'Sacado.CEP='.$contrato->cliente->cep;
             $content .= "\n";
-            $content .= "Sacado.Email=" . $contrato->cliente->email;
+            $content .= 'Sacado.Email='.$contrato->cliente->email;
             $content .= "\n";
-            $content .= "Mensagem=DESCONTO DE R$ " . $contrato->desconto . " ATÉ O VENCIMENTO";
-            $content .= "|";
-            $content .= "VENCIDO, COBRAR MULTA DE " . $contrato->multa . " + JUROS DE " . $contrato->juros . " MÊS";
-            $content .= "|";
+            $content .= 'Mensagem=DESCONTO DE R$ '.$contrato->desconto.' ATÉ O VENCIMENTO';
+            $content .= '|';
+            $content .= 'VENCIDO, COBRAR MULTA DE '.$contrato->multa.' + JUROS DE '.$contrato->juros.' MÊS';
+            $content .= '|';
             $content .= $contrato->conta->mensagem_1;
-            $content .= "|";
+            $content .= '|';
             $content .= $contrato->conta->mensagem_1;
-            $content .= "|";
+            $content .= '|';
             $content .= "\n";
         }
 
@@ -648,16 +648,16 @@ class ContratosController extends Controller
             ->find($contrato->id);
 
         if ($contrato->tipo_pagamento === '1') {
-            $contrato['tipo_pagamento'] = array('nome' => 'Boleto', 'id' => 1);
+            $contrato['tipo_pagamento'] = ['nome' => 'Boleto', 'id' => 1];
         }
 
         if ($contrato->tipo_pagamento === '2') {
-            $contrato['tipo_pagamento'] = array('nome' => 'Carnê', 'id' => 2);
+            $contrato['tipo_pagamento'] = ['nome' => 'Carnê', 'id' => 2];
         }
 
-        $obs = 'DESCONTO DE R$ ' . $contrato->desconto . ' ATÉ O VENCIMENTO';
+        $obs = 'DESCONTO DE R$ '.$contrato->desconto.' ATÉ O VENCIMENTO';
         $obs .= "\n";
-        $obs .= 'VENCIDO, COBRAR MULTA DE ' . $contrato->multa . '% + JUROS DE ' . $contrato->juros . '% MÊS';
+        $obs .= 'VENCIDO, COBRAR MULTA DE '.$contrato->multa.'% + JUROS DE '.$contrato->juros.'% MÊS';
         $obs .= "\n";
         $obs .= 'NÃO RECEBER COM 60 DIAS DE VENCIDO';
         $obs .= "\n";
@@ -671,7 +671,7 @@ class ContratosController extends Controller
                 'logo' => '',
                 'obs' => $obs,
                 'nome' => $contrato->cliente->nome,
-                'endereco' => $contrato->cliente->logradouro . ', ' . $contrato->cliente->complemento . ', ' . $contrato->cliente->bairro . ', ' . $contrato->cliente->cidade->nome . ', ' . $contrato->cliente->uf->abreviacao,
+                'endereco' => $contrato->cliente->logradouro.', '.$contrato->cliente->complemento.', '.$contrato->cliente->bairro.', '.$contrato->cliente->cidade->nome.', '.$contrato->cliente->uf->abreviacao,
                 'cpf' => $contrato->cliente->cpf,
                 'valor' => $contrato->valor_parcela,
                 'qtd' => $contrato->qtd_parcelas,
@@ -704,65 +704,65 @@ class ContratosController extends Controller
             ->find($contrato->id);
 
         if ($contrato->tipo_pagamento === '1') {
-            $contrato['tipo_pagamento'] = array('nome' => 'Boleto', 'id' => 1);
+            $contrato['tipo_pagamento'] = ['nome' => 'Boleto', 'id' => 1];
         }
 
         if ($contrato->tipo_pagamento === '2') {
-            $contrato['tipo_pagamento'] = array('nome' => 'Carnê', 'id' => 2);
+            $contrato['tipo_pagamento'] = ['nome' => 'Carnê', 'id' => 2];
         }
 
-        $content = "";
-        $content2 = "";
-        $content3 = "";
-        $nossonumero = "100";
+        $content = '';
+        $content2 = '';
+        $content3 = '';
+        $nossonumero = '100';
         foreach ($contrato->parcelas as $key => $parcela) {
             $nome = $contrato->cliente->tipo === 1 ? $contrato->cliente->razao_social : $contrato->cliente->nome;
             $cpfcnpj = $contrato->cliente->tipo === 1 ? $contrato->cliente->cnpj : $contrato->cliente->cpf;
-            $numero = ($key + 1 < 10) ? '0' . ($key + 1) : $key + 1;
-            $content .= "[Titulo" . $numero . "]";
+            $numero = ($key + 1 < 10) ? '0'.($key + 1) : $key + 1;
+            $content .= '[Titulo'.$numero.']';
             $content .= "\n";
-            $content .= "LocalPagamento=Ate o Vcto em qualquer banco ou correspondente.";
+            $content .= 'LocalPagamento=Ate o Vcto em qualquer banco ou correspondente.';
             $content .= "\n";
-            $content .= "NumeroDocumento=ABC234";
+            $content .= 'NumeroDocumento=ABC234';
             $content .= "\n";
-            $content .= "NossoNumero=" . $nossonumero++;
+            $content .= 'NossoNumero='.$nossonumero++;
             $content .= "\n";
-            $content .= "Carteira=" . $contrato->conta->carteira;
+            $content .= 'Carteira='.$contrato->conta->carteira;
             $content .= "\n";
-            $content .= "ValorDocumento=" . $parcela->valor;
+            $content .= 'ValorDocumento='.$parcela->valor;
             $content .= "\n";
-            $content .= "ValorMoraJuros=" . $contrato->juros;
+            $content .= 'ValorMoraJuros='.$contrato->juros;
             $content .= "\n";
-            $content .= "Vencimento=" . (new Carbon($parcela['vencimento']))->format('d/m/Y');
+            $content .= 'Vencimento='.(new Carbon($parcela['vencimento']))->format('d/m/Y');
             $content .= "\n";
-            $content .= "Sacado.NomeSacado=" . $nome;
+            $content .= 'Sacado.NomeSacado='.$nome;
             $content .= "\n";
-            $content .= "Sacado.CNPJCPF=" . $cpfcnpj;
+            $content .= 'Sacado.CNPJCPF='.$cpfcnpj;
             $content .= "\n";
-            $content .= "Sacado.Pessoa=" . $contrato->cliente->tipo;
+            $content .= 'Sacado.Pessoa='.$contrato->cliente->tipo;
             $content .= "\n";
-            $content .= "Sacado.Logradouro=" . $contrato->cliente->logradouro;
+            $content .= 'Sacado.Logradouro='.$contrato->cliente->logradouro;
             $content .= "\n";
-            $content .= "Sacado.Numero=" . $contrato->cliente->numero;
+            $content .= 'Sacado.Numero='.$contrato->cliente->numero;
             $content .= "\n";
-            $content .= "Sacado.Bairro=" . $contrato->cliente->bairro;
+            $content .= 'Sacado.Bairro='.$contrato->cliente->bairro;
             $content .= "\n";
-            $content .= "Sacado.Cidade=" . $contrato->cliente->cidade->nome;
+            $content .= 'Sacado.Cidade='.$contrato->cliente->cidade->nome;
             $content .= "\n";
-            $content .= "Sacado.UF=" . $contrato->cliente->uf->abreviacao;
+            $content .= 'Sacado.UF='.$contrato->cliente->uf->abreviacao;
             $content .= "\n";
-            $content .= "Sacado.CEP=" . $contrato->cliente->cep;
+            $content .= 'Sacado.CEP='.$contrato->cliente->cep;
             $content .= "\n";
-            $content .= "Sacado.Email=" . $contrato->cliente->email;
+            $content .= 'Sacado.Email='.$contrato->cliente->email;
             $content .= "\n";
-            $content .= "Mensagem=DESCONTO DE R$ " . $contrato->desconto . " ATÉ O VENCIMENTO";
-            $content .= "|";
-            $content .= "VENCIDO, COBRAR MULTA DE " . $contrato->multa . " + JUROS DE " . $contrato->juros . " MÊS";
-            $content .= "|";
+            $content .= 'Mensagem=DESCONTO DE R$ '.$contrato->desconto.' ATÉ O VENCIMENTO';
+            $content .= '|';
+            $content .= 'VENCIDO, COBRAR MULTA DE '.$contrato->multa.' + JUROS DE '.$contrato->juros.' MÊS';
+            $content .= '|';
             $content .= $contrato->conta->mensagem_1;
-            $content .= "|";
+            $content .= '|';
             $content .= $contrato->conta->mensagem_1;
-            $content .= "|";
+            $content .= '|';
             $content .= "\n";
         }
 
@@ -798,49 +798,49 @@ class ContratosController extends Controller
         $content2 .= "\n";
         $content2 .= 'BOLETO.LimparLista    //limpa a lista';
 
-        $content3 .= "[Cedente]";
+        $content3 .= '[Cedente]';
         $content3 .= "\n";
-        $content3 .= "Nome=AtualxxxSistemas-Leandro R.H.Costa";
+        $content3 .= 'Nome=AtualxxxSistemas-Leandro R.H.Costa';
         $content3 .= "\n";
-        $content3 .= "CNPJCPF=184.567.548-70";
+        $content3 .= 'CNPJCPF=184.567.548-70';
         $content3 .= "\n";
-        $content3 .= "Logradouro=Rua 24";
+        $content3 .= 'Logradouro=Rua 24';
         $content3 .= "\n";
-        $content3 .= "Numero=2779";
+        $content3 .= 'Numero=2779';
         $content3 .= "\n";
-        $content3 .= "Bairro=JD.Paulo VI";
+        $content3 .= 'Bairro=JD.Paulo VI';
         $content3 .= "\n";
-        $content3 .= "Cidade=Jales";
+        $content3 .= 'Cidade=Jales';
         $content3 .= "\n";
-        $content3 .= "CEP=15706400";
+        $content3 .= 'CEP=15706400';
         $content3 .= "\n";
-        $content3 .= "Complemento=";
+        $content3 .= 'Complemento=';
         $content3 .= "\n";
-        $content3 .= "UF=SP";
+        $content3 .= 'UF=SP';
         $content3 .= "\n";
-        $content3 .= "RespEmis=0";
+        $content3 .= 'RespEmis=0';
         $content3 .= "\n";
-        $content3 .= "TipoPessoa=0";
+        $content3 .= 'TipoPessoa=0';
         $content3 .= "\n";
-        $content3 .= "CodigoCedente=096895";
+        $content3 .= 'CodigoCedente=096895';
         $content3 .= "\n";
-        $content3 .= "[Conta]";
+        $content3 .= '[Conta]';
         $content3 .= "\n";
-        $content3 .= "Conta=" . $contrato->conta->conta;
+        $content3 .= 'Conta='.$contrato->conta->conta;
         $content3 .= "\n";
-        $content3 .= "DigitoConta=" . $contrato->conta->digito_conta;
+        $content3 .= 'DigitoConta='.$contrato->conta->digito_conta;
         $content3 .= "\n";
-        $content3 .= "Agencia=" . $contrato->conta->agencia;
+        $content3 .= 'Agencia='.$contrato->conta->agencia;
         $content3 .= "\n";
-        $content3 .= "DigitoAgencia=" . $contrato->conta->digito_agencia;
+        $content3 .= 'DigitoAgencia='.$contrato->conta->digito_agencia;
         $content3 .= "\n";
-        $content3 .= "[banco]";
+        $content3 .= '[banco]';
         $content3 .= "\n";
-        $content3 .= "Numero=" . $contrato->conta->banco;
+        $content3 .= 'Numero='.$contrato->conta->banco;
         $content3 .= "\n";
-        $content3 .= "CNAB=1";
+        $content3 .= 'CNAB=1';
         $content3 .= "\n";
-        $content3 .= "IndiceACBr=3";
+        $content3 .= 'IndiceACBr=3';
         $content3 .= "\n";
 
         /*var_dump('<pre>');
@@ -862,5 +862,4 @@ class ContratosController extends Controller
 
         return Storage::download('boletos.zip');
     }
-
 }

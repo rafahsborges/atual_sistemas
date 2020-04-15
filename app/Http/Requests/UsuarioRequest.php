@@ -3,8 +3,8 @@
 namespace App\Http\Requests;
 
 use App\Usuario;
-use Illuminate\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class UsuarioRequest extends FormRequest
 {
@@ -27,14 +27,14 @@ class UsuarioRequest extends FormRequest
     {
         return [
             'name' => [
-                'required', 'min:3'
+                'required', 'min:3',
             ],
             'email' => [
-                'required', 'email', Rule::unique((new Usuario)->getTable())->ignore($this->route()->user->id ?? null)
+                'required', 'email', Rule::unique((new Usuario)->getTable())->ignore($this->route()->user->id ?? null),
             ],
             'password' => [
-                $this->route()->user ? 'nullable' : 'required', 'confirmed', 'min:6'
-            ]
+                $this->route()->user ? 'nullable' : 'required', 'confirmed', 'min:6',
+            ],
         ];
     }
 }

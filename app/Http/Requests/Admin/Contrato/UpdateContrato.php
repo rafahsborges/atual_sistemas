@@ -47,14 +47,13 @@ class UpdateContrato extends FormRequest
     }
 
     /**
-     * Modify input data
+     * Modify input data.
      *
      * @return array
      */
     public function getSanitized(): array
     {
         $sanitized = $this->validated();
-
 
         //Add your code for manipulation with request data here
 
@@ -66,7 +65,6 @@ class UpdateContrato extends FormRequest
         if ($this->has('cliente')) {
             return $this->get('cliente')['id'];
         }
-        return null;
     }
 
     public function getContaId()
@@ -74,7 +72,6 @@ class UpdateContrato extends FormRequest
         if ($this->has('conta')) {
             return $this->get('conta')['id'];
         }
-        return null;
     }
 
     public function getPlanoId()
@@ -82,7 +79,6 @@ class UpdateContrato extends FormRequest
         if ($this->has('plano')) {
             return $this->get('plano')['id'];
         }
-        return null;
     }
 
     public function getTipoPagamentoId()
@@ -90,7 +86,6 @@ class UpdateContrato extends FormRequest
         if ($this->has('tipo_pagamento')) {
             return $this->get('tipo_pagamento')['id'];
         }
-        return null;
     }
 
     public function keepOnlyDigits($string)

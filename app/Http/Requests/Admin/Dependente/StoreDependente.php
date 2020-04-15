@@ -35,10 +35,10 @@ class StoreDependente extends FormRequest
     }
 
     /**
-    * Modify input data
-    *
-    * @return array
-    */
+     * Modify input data.
+     *
+     * @return array
+     */
     public function getSanitized(): array
     {
         $sanitized = $this->validated();
@@ -53,7 +53,6 @@ class StoreDependente extends FormRequest
         if ($this->has('cliente')) {
             return $this->get('cliente')['id'];
         }
-        return null;
     }
 
     public function getParentescoId()
@@ -61,6 +60,5 @@ class StoreDependente extends FormRequest
         if ($this->has('parentesco')) {
             return $this->get('parentesco')['id'];
         }
-        return null;
     }
 }

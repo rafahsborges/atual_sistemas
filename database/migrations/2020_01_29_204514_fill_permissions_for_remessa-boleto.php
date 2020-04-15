@@ -68,7 +68,7 @@ class FillPermissionsForRemessaBoleto extends Migration
             foreach ($this->permissions as $permission) {
                 $permissionItem = DB::table('permissions')->where([
                     'name' => $permission['name'],
-                    'guard_name' => $permission['guard_name']
+                    'guard_name' => $permission['guard_name'],
                 ])->first();
                 if ($permissionItem === null) {
                     DB::table('permissions')->insert($permission);
@@ -81,7 +81,7 @@ class FillPermissionsForRemessaBoleto extends Migration
 
                 $roleItem = DB::table('roles')->where([
                     'name' => $role['name'],
-                    'guard_name' => $role['guard_name']
+                    'guard_name' => $role['guard_name'],
                 ])->first();
                 if ($roleItem !== null) {
                     $roleId = $roleItem->id;
@@ -93,7 +93,7 @@ class FillPermissionsForRemessaBoleto extends Migration
                     foreach ($permissionItems as $permissionItem) {
                         $roleHasPermissionData = [
                             'permission_id' => $permissionItem->id,
-                            'role_id' => $roleId
+                            'role_id' => $roleId,
                         ];
                         $roleHasPermissionItem = DB::table('role_has_permissions')->where($roleHasPermissionData)->first();
                         if ($roleHasPermissionItem === null) {
@@ -117,7 +117,7 @@ class FillPermissionsForRemessaBoleto extends Migration
             foreach ($this->permissions as $permission) {
                 $permissionItem = DB::table('permissions')->where([
                     'name' => $permission['name'],
-                    'guard_name' => $permission['guard_name']
+                    'guard_name' => $permission['guard_name'],
                 ])->first();
                 if ($permissionItem !== null) {
                     DB::table('permissions')->where('id', $permissionItem->id)->delete();

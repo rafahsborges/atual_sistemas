@@ -47,10 +47,10 @@ class StoreContrato extends FormRequest
     }
 
     /**
-    * Modify input data
-    *
-    * @return array
-    */
+     * Modify input data.
+     *
+     * @return array
+     */
     public function getSanitized(): array
     {
         $sanitized = $this->validated();
@@ -65,7 +65,6 @@ class StoreContrato extends FormRequest
         if ($this->has('cliente')) {
             return $this->get('cliente')['id'];
         }
-        return null;
     }
 
     public function getContaId()
@@ -73,7 +72,6 @@ class StoreContrato extends FormRequest
         if ($this->has('conta')) {
             return $this->get('conta')['id'];
         }
-        return null;
     }
 
     public function getPlanoId()
@@ -81,7 +79,6 @@ class StoreContrato extends FormRequest
         if ($this->has('plano')) {
             return $this->get('plano')['id'];
         }
-        return null;
     }
 
     public function getTipoPagamentoId()
@@ -89,7 +86,6 @@ class StoreContrato extends FormRequest
         if ($this->has('tipo_pagamento')) {
             return $this->get('tipo_pagamento')['id'];
         }
-        return null;
     }
 
     public function keepOnlyDigits($string)

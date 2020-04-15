@@ -40,7 +40,7 @@ class UpdateParcela extends FormRequest
     }
 
     /**
-     * Modify input data
+     * Modify input data.
      *
      * @return array
      */
@@ -48,16 +48,15 @@ class UpdateParcela extends FormRequest
     {
         $sanitized = $this->validated();
 
-
         //Add your code for manipulation with request data here
 
         return $sanitized;
     }
 
-    public function getContratoId(){
-        if ($this->has('contrato')){
+    public function getContratoId()
+    {
+        if ($this->has('contrato')) {
             return $this->get('contrato')['id'];
         }
-        return null;
     }
 }

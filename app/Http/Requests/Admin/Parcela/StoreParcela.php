@@ -40,10 +40,10 @@ class StoreParcela extends FormRequest
     }
 
     /**
-    * Modify input data
-    *
-    * @return array
-    */
+     * Modify input data.
+     *
+     * @return array
+     */
     public function getSanitized(): array
     {
         $sanitized = $this->validated();
@@ -53,10 +53,10 @@ class StoreParcela extends FormRequest
         return $sanitized;
     }
 
-    public function getContratoId(){
-        if ($this->has('contrato')){
+    public function getContratoId()
+    {
+        if ($this->has('contrato')) {
             return $this->get('contrato')['id'];
         }
-        return null;
     }
 }
