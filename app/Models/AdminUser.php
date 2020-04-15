@@ -56,17 +56,17 @@ class AdminUser extends Authenticatable implements CanActivateContract, HasMedia
     /* ************************ ACCESSOR ************************* */
 
     /**
-     * Resource url to generate edit
+     * Resource url to generate edit.
      *
      * @return UrlGenerator|string
      */
     public function getResourceUrlAttribute()
     {
-        return url('/admin/admin-users/' . $this->getKey());
+        return url('/admin/admin-users/'.$this->getKey());
     }
 
     /**
-     * Get url of avatar image
+     * Get url of avatar image.
      *
      * @return string|null
      */
@@ -89,7 +89,7 @@ class AdminUser extends Authenticatable implements CanActivateContract, HasMedia
     /* ************************ MEDIA ************************ */
 
     /**
-     * Register media collections
+     * Register media collections.
      */
     public function registerMediaCollections()
     {
@@ -98,7 +98,7 @@ class AdminUser extends Authenticatable implements CanActivateContract, HasMedia
     }
 
     /**
-     * Register media conversions
+     * Register media conversions.
      *
      * @param Media|null $media
      * @throws InvalidManipulation
@@ -125,7 +125,7 @@ class AdminUser extends Authenticatable implements CanActivateContract, HasMedia
     }
 
     /**
-     * Auto register thumb overridden
+     * Auto register thumb overridden.
      */
     public function autoRegisterThumb200()
     {

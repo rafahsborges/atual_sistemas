@@ -28,19 +28,18 @@ class UpdateRemessaBoleto extends FormRequest
         return [
             'id_boleto' => ['nullable', 'string'],
             'id_remessa' => ['nullable', 'string'],
-            
+
         ];
     }
 
     /**
-     * Modify input data
+     * Modify input data.
      *
      * @return array
      */
     public function getSanitized(): array
     {
         $sanitized = $this->validated();
-
 
         //Add your code for manipulation with request data here
 

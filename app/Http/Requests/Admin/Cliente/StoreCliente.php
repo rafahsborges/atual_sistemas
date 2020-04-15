@@ -56,7 +56,7 @@ class StoreCliente extends FormRequest
     }
 
     /**
-     * Modify input data
+     * Modify input data.
      *
      * @return array
      */
@@ -74,7 +74,6 @@ class StoreCliente extends FormRequest
         if ($this->has('civil')) {
             return $this->get('civil')['id'];
         }
-        return null;
     }
 
     public function getClienteResponsavelId()
@@ -82,7 +81,6 @@ class StoreCliente extends FormRequest
         if ($this->has('empresa')) {
             return $this->get('empresa')['id'];
         }
-        return null;
     }
 
     public function getUfId()
@@ -90,7 +88,6 @@ class StoreCliente extends FormRequest
         if ($this->has('uf')) {
             return $this->get('uf')['id'];
         }
-        return null;
     }
 
     public function getSexoId()
@@ -98,7 +95,6 @@ class StoreCliente extends FormRequest
         if ($this->has('sexo')) {
             return $this->get('sexo')['id'];
         }
-        return null;
     }
 
     public function getCidadeId()
@@ -106,6 +102,5 @@ class StoreCliente extends FormRequest
         if ($this->has('cidade')) {
             return $this->get('cidade')['id'];
         }
-        return null;
     }
 }

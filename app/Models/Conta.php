@@ -25,7 +25,6 @@ class Conta extends Model
         'enabled',
     ];
 
-
     protected $dates = [
         'created_at',
         'updated_at',
@@ -38,7 +37,7 @@ class Conta extends Model
 
     public function getResourceUrlAttribute()
     {
-        return url('/admin/contas/' . $this->getKey());
+        return url('/admin/contas/'.$this->getKey());
     }
 
     /**

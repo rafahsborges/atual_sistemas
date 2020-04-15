@@ -15,7 +15,7 @@ use PDF;
 class RelatoriosController extends Controller
 {
     /**
-     * Export entities
+     * Export entities.
      * @param $inicio
      * @param $fim
      * @return string

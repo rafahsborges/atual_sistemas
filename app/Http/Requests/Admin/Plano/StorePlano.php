@@ -28,15 +28,15 @@ class StorePlano extends FormRequest
         return [
             'nome' => ['required', 'string'],
             'enabled' => ['required', 'boolean'],
-            
+
         ];
     }
 
     /**
-    * Modify input data
-    *
-    * @return array
-    */
+     * Modify input data.
+     *
+     * @return array
+     */
     public function getSanitized(): array
     {
         $sanitized = $this->validated();

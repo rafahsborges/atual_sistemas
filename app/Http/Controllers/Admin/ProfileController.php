@@ -17,7 +17,7 @@ class ProfileController extends Controller
     public $adminUser;
 
     /**
-     * Guard used for admin user
+     * Guard used for admin user.
      *
      * @var string
      */
@@ -30,7 +30,7 @@ class ProfileController extends Controller
     }
 
     /**
-     * Get logged user before each method
+     * Get logged user before each method.
      *
      * @param Request $request
      */
@@ -110,7 +110,6 @@ class ProfileController extends Controller
             'adminUser' => $this->adminUser,
         ]);
     }
-
 
     /**
      * Update the specified resource in storage.

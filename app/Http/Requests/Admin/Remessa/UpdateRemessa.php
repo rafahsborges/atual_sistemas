@@ -31,19 +31,18 @@ class UpdateRemessa extends FormRequest
             'nome' => ['sometimes', 'string'],
             'sequencia' => ['nullable', 'numeric'],
             'id_conta' => ['nullable', 'string'],
-            
+
         ];
     }
 
     /**
-     * Modify input data
+     * Modify input data.
      *
      * @return array
      */
     public function getSanitized(): array
     {
         $sanitized = $this->validated();
-
 
         //Add your code for manipulation with request data here
 

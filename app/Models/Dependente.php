@@ -18,7 +18,6 @@ class Dependente extends Model
         'enabled',
     ];
 
-
     protected $dates = [
         'nascimento',
         'created_at',
@@ -40,7 +39,7 @@ class Dependente extends Model
      */
     public function cliente()
     {
-        return $this->belongsTo('App\Models\Cliente', 'id_cliente' , 'id');
+        return $this->belongsTo('App\Models\Cliente', 'id_cliente', 'id');
     }
 
     /**

@@ -24,7 +24,6 @@ use Illuminate\View\View;
 
 class ParcelasController extends Controller
 {
-
     /**
      * Display a listing of the resource.
      *
@@ -56,9 +55,10 @@ class ParcelasController extends Controller
         if ($request->ajax()) {
             if ($request->has('bulk')) {
                 return [
-                    'bulkItems' => $data->pluck('id')
+                    'bulkItems' => $data->pluck('id'),
                 ];
             }
+
             return ['data' => $data];
         }
 
@@ -81,7 +81,7 @@ class ParcelasController extends Controller
         $contratos = Contrato::with('cliente')->get();
 
         foreach ($contratos as $key => $contrato) {
-            $contratos[$key]['nome'] = $contrato->cliente->nome . ' [' . $contrato->id . ']';
+            $contratos[$key]['nome'] = $contrato->cliente->nome.' ['.$contrato->id.']';
         }
 
         return view('admin.parcela.create', [
@@ -141,12 +141,12 @@ class ParcelasController extends Controller
 
         $parcela->contrato = Contrato::with('cliente')->find($parcela->id_contrato);
 
-        $parcela->contrato->nome = $parcela->contrato->cliente->nome . ' [' . $parcela->contrato->id . ']';
+        $parcela->contrato->nome = $parcela->contrato->cliente->nome.' ['.$parcela->contrato->id.']';
 
         $contratos = Contrato::with('cliente')->get();
 
         foreach ($contratos as $key => $contrato) {
-            $contratos[$key]['nome'] = $contrato->cliente->nome . ' [' . $contrato->id . ']';
+            $contratos[$key]['nome'] = $contrato->cliente->nome.' ['.$contrato->id.']';
         }
 
         return view('admin.parcela.edit', [
@@ -215,7 +215,7 @@ class ParcelasController extends Controller
                 ->each(static function ($bulkChunk) {
                     DB::table('parcelas')->whereIn('id', $bulkChunk)
                         ->update([
-                            'deleted_at' => Carbon::now()->format('Y-m-d H:i:s')
+                            'deleted_at' => Carbon::now()->format('Y-m-d H:i:s'),
                         ]);
 
                     // TODO your code goes here

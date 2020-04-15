@@ -35,14 +35,13 @@ class UpdateDependente extends FormRequest
     }
 
     /**
-     * Modify input data
+     * Modify input data.
      *
      * @return array
      */
     public function getSanitized(): array
     {
         $sanitized = $this->validated();
-
 
         //Add your code for manipulation with request data here
 
@@ -54,7 +53,6 @@ class UpdateDependente extends FormRequest
         if ($this->has('cliente')) {
             return $this->get('cliente')['id'];
         }
-        return null;
     }
 
     public function getParentescoId()
@@ -62,6 +60,5 @@ class UpdateDependente extends FormRequest
         if ($this->has('parentesco')) {
             return $this->get('parentesco')['id'];
         }
-        return null;
     }
 }

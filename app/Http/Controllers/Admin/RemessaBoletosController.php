@@ -22,7 +22,6 @@ use Illuminate\View\View;
 
 class RemessaBoletosController extends Controller
 {
-
     /**
      * Display a listing of the resource.
      *
@@ -46,9 +45,10 @@ class RemessaBoletosController extends Controller
         if ($request->ajax()) {
             if ($request->has('bulk')) {
                 return [
-                    'bulkItems' => $data->pluck('id')
+                    'bulkItems' => $data->pluck('id'),
                 ];
             }
+
             return ['data' => $data];
         }
 
@@ -113,7 +113,6 @@ class RemessaBoletosController extends Controller
     public function edit(RemessaBoleto $remessaBoleto)
     {
         $this->authorize('admin.remessa-boleto.edit', $remessaBoleto);
-
 
         return view('admin.remessa-boleto.edit', [
             'remessaBoleto' => $remessaBoleto,
