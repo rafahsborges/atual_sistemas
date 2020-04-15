@@ -25,7 +25,6 @@ use Illuminate\View\View;
 
 class DependentesController extends Controller
 {
-
     /**
      * Display a listing of the resource.
      *
@@ -47,11 +46,11 @@ class DependentesController extends Controller
 
             function ($query) use ($request) {
                 $query->with(['cliente']);
-                if($request->has('clientes')){
+                if ($request->has('clientes')) {
                     $query->whereIn('id_cliente', $request->get('clientes'));
                 }
                 $query->with(['parentesco']);
-                if($request->has('parentescos')){
+                if ($request->has('parentescos')) {
                     $query->whereIn('id_parentesco', $request->get('parentescos'));
                 }
             }
@@ -60,9 +59,10 @@ class DependentesController extends Controller
         if ($request->ajax()) {
             if ($request->has('bulk')) {
                 return [
-                    'bulkItems' => $data->pluck('id')
+                    'bulkItems' => $data->pluck('id'),
                 ];
             }
+
             return ['data' => $data];
         }
 
@@ -209,7 +209,7 @@ class DependentesController extends Controller
                 ->each(static function ($bulkChunk) {
                     DB::table('dependentes')->whereIn('id', $bulkChunk)
                         ->update([
-                            'deleted_at' => Carbon::now()->format('Y-m-d H:i:s')
+                            'deleted_at' => Carbon::now()->format('Y-m-d H:i:s'),
                     ]);
 
                     // TODO your code goes here

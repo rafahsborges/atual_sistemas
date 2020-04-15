@@ -23,7 +23,6 @@ class Parcela extends Model
         'enabled',
     ];
 
-
     protected $dates = [
         'vencimento',
         'pagamento',

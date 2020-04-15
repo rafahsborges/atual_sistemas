@@ -15,7 +15,7 @@ return [
          */
 
         'handlers' => [
-            Brackets\AdvancedLogger\Handlers\RequestLoggerHandler::class
+            Brackets\AdvancedLogger\Handlers\RequestLoggerHandler::class,
         ],
 
         /*
@@ -54,7 +54,7 @@ return [
         /*
          * Queue used to process request logger
          */
-        
+
         'queue' => null,
 
         /*

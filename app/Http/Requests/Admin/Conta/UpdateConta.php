@@ -39,19 +39,18 @@ class UpdateConta extends FormRequest
             'mensagem_2' => ['nullable', 'string'],
             'cpf_cnpj' => ['nullable', 'string'],
             'enabled' => ['sometimes', 'boolean'],
-            
+
         ];
     }
 
     /**
-     * Modify input data
+     * Modify input data.
      *
      * @return array
      */
     public function getSanitized(): array
     {
         $sanitized = $this->validated();
-
 
         //Add your code for manipulation with request data here
 

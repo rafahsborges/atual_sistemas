@@ -2,8 +2,8 @@
 
 namespace App\Models\Traits;
 
-use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Models\Scopes\SoftDeletingWithDeletesScope;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 trait SoftDeletesWithDeleted
 {

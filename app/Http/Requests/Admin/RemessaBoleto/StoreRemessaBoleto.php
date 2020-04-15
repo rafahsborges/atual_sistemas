@@ -28,15 +28,15 @@ class StoreRemessaBoleto extends FormRequest
         return [
             'id_boleto' => ['nullable', 'string'],
             'id_remessa' => ['nullable', 'string'],
-            
+
         ];
     }
 
     /**
-    * Modify input data
-    *
-    * @return array
-    */
+     * Modify input data.
+     *
+     * @return array
+     */
     public function getSanitized(): array
     {
         $sanitized = $this->validated();

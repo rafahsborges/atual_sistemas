@@ -28,19 +28,18 @@ class UpdateEstadoCivil extends FormRequest
         return [
             'nome' => ['sometimes', 'string'],
             'enabled' => ['sometimes', 'boolean'],
-            
+
         ];
     }
 
     /**
-     * Modify input data
+     * Modify input data.
      *
      * @return array
      */
     public function getSanitized(): array
     {
         $sanitized = $this->validated();
-
 
         //Add your code for manipulation with request data here
 
